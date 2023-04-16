@@ -1,11 +1,17 @@
 📖 About:
 
 📦 Installation
+
 Required:
+
 GeckoLib
+
 Highly recommended:
+
 using JEI or REI to see the recipes!
+
 using Better Combat (by daedelus_dev)
+
 using Combat Roll (by daedelus_dev)
  
 
