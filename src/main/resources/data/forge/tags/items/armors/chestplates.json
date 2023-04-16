@@ -1,0 +1,15 @@
+{
+  "values": [
+    "minecraft:leather_chestplate",
+    "minecraft:chainmail_chestplate",
+    "minecraft:iron_chestplate",
+    "minecraft:golden_chestplate",
+    "minecraft:diamond_chestplate",
+    "minecraft:netherite_chestplate",
+    "epicsamurai:red_samurai_chestplate",
+    "epicsamurai:blue_samurai_chestplate",
+    "epicsamurai:gray_samurai_chestplate",
+    "epicsamurai:green_samurai_chestplate",
+    "epicsamurai:white_samurai_chestplate"
+  ]
+}

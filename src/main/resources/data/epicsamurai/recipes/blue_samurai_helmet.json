@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "tag": "forge:ingots/steel"
+    },
+    "J": {
+      "tag": "forge:gems/jade"
+    },
+    "X": {
+      "tag": "forge:gems/aquamarine"
+    },
+    "G": {
+      "tag": "forge:ingots/gold"
+    }
+  },
+  "pattern": [
+    " G ",
+    "SJS",
+    "X X"
+  ],
+  "result": {
+    "item": "epicsamurai:blue_samurai_helmet"
+  }
+}

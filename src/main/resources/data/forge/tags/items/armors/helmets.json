@@ -1,0 +1,16 @@
+{
+  "values": [
+    "minecraft:leather_helmet",
+    "minecraft:turtle_helmet",
+    "minecraft:chainmail_helmet",
+    "minecraft:iron_helmet",
+    "minecraft:golden_helmet",
+    "minecraft:diamond_helmet",
+    "minecraft:netherite_helmet",
+    "epicsamurai:red_samurai_helmet",
+    "epicsamurai:blue_samurai_helmet",
+    "epicsamurai:gray_samurai_helmet",
+    "epicsamurai:green_samurai_helmet",
+    "epicsamurai:white_samurai_helmet"
+  ]
+}

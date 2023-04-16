@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "net.veroxuniverse.epicsamurai.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "arclight.mixins.refmap.json",
+  "mixins": [
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

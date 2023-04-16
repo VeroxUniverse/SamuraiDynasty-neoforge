@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "epicsamurai:item/green_samurai_chestplate"
+  }
+}

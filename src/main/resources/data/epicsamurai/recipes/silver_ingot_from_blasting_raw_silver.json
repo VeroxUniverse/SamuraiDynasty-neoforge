@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 100,
+  "experience": 0.7,
+  "ingredient": {
+    "item": "epicsamurai:raw_silver"
+  },
+  "result": "epicsamurai:silver_ingot"
+}

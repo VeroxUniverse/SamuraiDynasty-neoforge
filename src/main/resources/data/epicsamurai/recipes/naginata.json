@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "tag": "forge:ingots/steel"
+    },
+    "G": {
+      "tag": "forge:ingots/gold"
+    },
+    "W": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "S  ",
+    " SG",
+    " GW"
+  ],
+  "result": {
+    "item": "epicsamurai:naginata"
+  }
+}
