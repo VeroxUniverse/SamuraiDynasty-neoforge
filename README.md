@@ -15,6 +15,7 @@ using Combat Roll (by daedelus_dev)
  
 
 ⭐️ Features
+
 This mod adds new 3D samurai armor sets and weapons to the game!
 Try to survive a world full of dangerous japenese creatures, collect their drops and craft unique samurai weapons and armors.
 You can find Enenra, Oni, Tengu, Akaname and Kitsune creatures in the world.
