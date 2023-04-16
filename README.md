@@ -4,7 +4,7 @@
 
 Required:
 
-	GeckoLib
+	GeckoLib >> https://www.curseforge.com/minecraft/mc-mods/geckolib
 
 Highly recommended:
 
