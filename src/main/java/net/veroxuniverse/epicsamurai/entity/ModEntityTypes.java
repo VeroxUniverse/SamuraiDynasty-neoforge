@@ -39,7 +39,6 @@ public class ModEntityTypes {
                             .sized(0.25F, 0.25F)
                             .clientTrackingRange(4)
                             .updateInterval(10));
-
     */
 
     public static final EntityType<ShurikenEntity> SHURIKEN = register(
@@ -48,11 +47,9 @@ public class ModEntityTypes {
                     .clientTrackingRange(4)
                     .updateInterval(10));
 
-
     private static <T extends Entity> EntityType<T> register(String pKey, EntityType.Builder<T> pBuilder) {
         return Registry.register(Registry.ENTITY_TYPE, pKey, pBuilder.build(pKey));
     }
-
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
