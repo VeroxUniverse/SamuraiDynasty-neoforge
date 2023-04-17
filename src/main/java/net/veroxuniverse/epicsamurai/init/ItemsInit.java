@@ -76,7 +76,7 @@ public class ItemsInit {
     public static final RegistryObject<Item> SAI = ITEMS.register("sai",
             () -> new SwordItem(ItemMaterialsInit.SAMURAI,0,-2.0f, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
     public static final RegistryObject<Item> SHURIKEN = ITEMS.register("shuriken",
-            () -> new SwordItem(ItemMaterialsInit.SAMURAI,-2,-1.8f, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+            () -> new ShurikenItem(new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
 
     public static final RegistryObject<Item> AKANAME_SPAWN_EGG = ITEMS.register("akaname_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.AKANAME, 0x5e100a, 0xa88c8a,
