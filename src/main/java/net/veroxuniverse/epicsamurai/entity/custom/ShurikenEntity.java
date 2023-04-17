@@ -26,7 +26,6 @@ public class ShurikenEntity extends ThrowableItemProjectile {
         super(ModEntityTypes.SHURIKEN, pShooter, pLevel);
     }
 
-
     protected Item getDefaultItem() {
         return ItemsInit.SHURIKEN.get();
     }
@@ -36,9 +35,6 @@ public class ShurikenEntity extends ThrowableItemProjectile {
         return (ParticleOptions) (itemstack.isEmpty() ? ParticleTypes.CRIT : new ItemParticleOption(ParticleTypes.ITEM, itemstack));
     }
 
-    /**
-     * Handles an entity event received from a {@link net.minecraft.network.protocol.game.ClientboundEntityEventPacket}.
-     */
     public void handleEntityEvent(byte pId) {
         if (pId == 3) {
             ParticleOptions particleoptions = this.getParticle();
