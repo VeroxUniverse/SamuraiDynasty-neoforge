@@ -1,11 +1,14 @@
 package net.veroxuniverse.epicsamurai.client;
 
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.*;
+import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.item.*;
 import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 

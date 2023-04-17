@@ -2,6 +2,7 @@ package net.veroxuniverse.epicsamurai;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -59,6 +60,9 @@ public class EpicSamuraiMod
 
             EntityRenderers.register(ModEntityTypes.AKANAME.get(), AkanameRenderer::new);
             EntityRenderers.register(ModEntityTypes.ENENRA.get(), EnenraRenderer::new);
+
+            EntityRenderers.register(ModEntityTypes.SHURIKEN.get(), ThrownItemRenderer::new);
+
 
         }
     }
