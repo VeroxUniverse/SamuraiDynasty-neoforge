@@ -44,7 +44,7 @@ public class ShurikenItem extends Item {
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> components, @NotNull TooltipFlag flag) {
 
-        components.add(Component.literal("Throwable Item").withStyle(ChatFormatting.GRAY));
+        components.add(Component.literal("Throwable Item:").withStyle(ChatFormatting.GRAY));
         components.add(Component.literal(" 6 Ranged Damage").withStyle(ChatFormatting.DARK_GREEN));
 
         super.appendHoverText(stack, level, components, flag);
