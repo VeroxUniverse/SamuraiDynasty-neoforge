@@ -44,6 +44,8 @@
   "block.epicsamurai.deepslate_silver_ore": "Deepslate Silver Ore",
   "block.epicsamurai.jade_ore": "Jade Ore",
   "block.epicsamurai.deepslate_jade_ore": "Deepslate Jade Ore",
+  "block.epicsamurai.onyx_ore": "Onyx Ore",
+  "block.epicsamurai.deepslate_onyx_ore": "Deepslate Onyx Ore",
 
   "itemGroup.epicsamurai_tab": "Epic Samurai"
 }

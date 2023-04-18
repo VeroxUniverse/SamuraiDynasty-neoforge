@@ -47,7 +47,7 @@ public class ShurikenEntity extends ThrowableItemProjectile {
     protected void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
-        entity.hurt(DamageSource.thrown(this, this.getOwner()), 5);
+        entity.hurt(DamageSource.thrown(this, this.getOwner()), 6);
     }
 
     protected void onHit(HitResult pResult) {

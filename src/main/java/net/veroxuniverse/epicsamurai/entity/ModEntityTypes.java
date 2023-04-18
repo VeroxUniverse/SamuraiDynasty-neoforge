@@ -43,7 +43,7 @@ public class ModEntityTypes {
 
     public static final RegistryObject<EntityType<KunaiEntity>> KUNAI =
             ENTITY_TYPES.register("kunai",
-                    () -> EntityType.Builder.of(KunaiEntity::new, MobCategory.MISC)
+                    () -> EntityType.Builder.<KunaiEntity>of(KunaiEntity::new, MobCategory.MISC)
                             .sized(0.25F, 0.25F)
                             .clientTrackingRange(4)
                             .updateInterval(20)

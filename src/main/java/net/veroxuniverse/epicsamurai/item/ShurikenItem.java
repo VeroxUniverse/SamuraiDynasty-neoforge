@@ -1,5 +1,7 @@
 package net.veroxuniverse.epicsamurai.item;
 
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -8,8 +10,13 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.veroxuniverse.epicsamurai.entity.custom.ShurikenEntity;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class ShurikenItem extends Item {
     public ShurikenItem(Item.Properties pProperties) {
@@ -33,6 +40,16 @@ public class ShurikenItem extends Item {
 
         return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());
     }
+
+    @Override
+    public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> components, @NotNull TooltipFlag flag) {
+
+        components.add(Component.literal("Throwable Item").withStyle(ChatFormatting.GRAY));
+        components.add(Component.literal(" 6 Ranged Damage").withStyle(ChatFormatting.DARK_GREEN));
+
+        super.appendHoverText(stack, level, components, flag);
+    }
+
 }
 
 

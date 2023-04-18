@@ -1,161 +1,62 @@
 package net.veroxuniverse.epicsamurai.entity.custom;
 
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
+import net.minecraft.core.particles.ItemParticleOption;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.HitResult;
+import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.init.ItemsInit;
-import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nullable;
+public class KunaiEntity extends ThrowableItemProjectile {
 
-public class KunaiEntity extends AbstractArrow {
+    public KunaiEntity(EntityType<? extends ThrowableItemProjectile> pEntityType, Level pLevel) {super(pEntityType, pLevel);}
 
-    private ItemStack kunaiItem = new ItemStack(ItemsInit.KUNAI.get());
-    private boolean dealtDamage;
-    public int clientSideReturnKunaiTickCount;
-
-    public KunaiEntity(EntityType<? extends KunaiEntity> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel);
+    public KunaiEntity(Level pLevel, LivingEntity pShooter) {
+        super(ModEntityTypes.KUNAI.get(), pShooter, pLevel);
     }
 
-    protected void defineSynchedData() {
-        super.defineSynchedData();
+    protected Item getDefaultItem() {
+        return ItemsInit.KUNAI.get();
     }
 
-    public void tick() {
-        if (this.inGroundTime > 4) {
-            this.dealtDamage = true;
-        }
+    private ParticleOptions getParticle() {
+        ItemStack itemstack = this.getItemRaw();
+        return (ParticleOptions) (itemstack.isEmpty() ? ParticleTypes.CRIT : new ItemParticleOption(ParticleTypes.ITEM, itemstack));
+    }
 
-        Entity entity = this.getOwner();
-        if ((this.dealtDamage || this.isNoPhysics()) && entity != null) {
-            if (!this.isAcceptibleReturnOwner()) {
-                if (!this.level.isClientSide && this.pickup == AbstractArrow.Pickup.ALLOWED) {
-                    this.spawnAtLocation(this.getPickupItem(), 0.1F);
-                }
+    public void handleEntityEvent(byte pId) {
+        if (pId == 3) {
+            ParticleOptions particleoptions = this.getParticle();
 
-                this.discard();
-            } else {
-                this.setNoPhysics(true);
-                Vec3 vec3 = entity.getEyePosition().subtract(this.position());
-                this.setPosRaw(this.getX(), this.getY() + vec3.y * 0.015D, this.getZ());
-                if (this.level.isClientSide) {
-                    this.yOld = this.getY();
-                }
-
-                double d0 = 0.05D;
-                this.setDeltaMovement(this.getDeltaMovement().scale(0.95D).add(vec3.normalize().scale(d0)));
-                if (this.clientSideReturnKunaiTickCount == 0) {
-                    this.playSound(SoundEvents.TRIDENT_RETURN, 10.0F, 1.0F);
-                }
-
-                ++this.clientSideReturnKunaiTickCount;
+            for (int i = 0; i < 8; ++i) {
+                this.level.addParticle(particleoptions, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, 0.0D);
             }
         }
 
-        super.tick();
-    }
-
-    private boolean isAcceptibleReturnOwner() {
-        Entity entity = this.getOwner();
-        if (entity != null && entity.isAlive()) {
-            return !(entity instanceof ServerPlayer) || !entity.isSpectator();
-        } else {
-            return false;
-        }
-    }
-
-    protected @NotNull ItemStack getPickupItem() {
-        return this.kunaiItem.copy();
-    }
-
-    @Nullable
-    protected EntityHitResult findHitEntity(@NotNull Vec3 pStartVec, Vec3 pEndVec) {
-        return this.dealtDamage ? null : super.findHitEntity(pStartVec, pEndVec);
     }
 
     protected void onHitEntity(EntityHitResult pResult) {
+        super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
-        float f = 8.0F;
-        if (entity instanceof LivingEntity livingentity) {
-            f += EnchantmentHelper.getDamageBonus(this.kunaiItem, livingentity.getMobType());
+        entity.hurt(DamageSource.thrown(this, this.getOwner()), 6);
+    }
+
+    protected void onHit(HitResult pResult) {
+        super.onHit(pResult);
+        if (!this.level.isClientSide) {
+            this.level.broadcastEntityEvent(this, (byte) 3);
+            this.discard();
         }
 
-        Entity entity1 = this.getOwner();
-        DamageSource damagesource = DamageSource.trident(this, (Entity)(entity1 == null ? this : entity1));
-        this.dealtDamage = true;
-        SoundEvent soundevent = SoundEvents.TRIDENT_HIT;
-        if (entity.hurt(damagesource, f)) {
-            if (entity.getType() == EntityType.ENDERMAN) {
-                return;
-            }
-
-            if (entity instanceof LivingEntity) {
-                LivingEntity livingentity1 = (LivingEntity)entity;
-                if (entity1 instanceof LivingEntity) {
-                    EnchantmentHelper.doPostHurtEffects(livingentity1, entity1);
-                    EnchantmentHelper.doPostDamageEffects((LivingEntity)entity1, livingentity1);
-                }
-
-                this.doPostHurtEffects(livingentity1);
-            }
-        }
-    }
-
-    protected boolean tryPickup(@NotNull Player pPlayer) {
-        return super.tryPickup(pPlayer) || this.isNoPhysics() && this.ownedBy(pPlayer) && pPlayer.getInventory().add(this.getPickupItem());
-    }
-
-    protected @NotNull SoundEvent getDefaultHitGroundSoundEvent() {
-        return SoundEvents.TRIDENT_HIT_GROUND;
-    }
-
-    public void playerTouch(Player pEntity) {
-        if (this.ownedBy(pEntity) || this.getOwner() == null) {
-            super.playerTouch(pEntity);
-        }
-
-    }
-
-    public void readAdditionalSaveData(@NotNull CompoundTag pCompound) {
-        super.readAdditionalSaveData(pCompound);
-        if (pCompound.contains("Kunai", 10)) {
-            this.kunaiItem = ItemStack.of(pCompound.getCompound("Kunai"));
-        }
-
-        this.dealtDamage = pCompound.getBoolean("DealtDamage");
-    }
-
-    public void addAdditionalSaveData(@NotNull CompoundTag pCompound) {
-        super.addAdditionalSaveData(pCompound);
-        pCompound.put("Kunai", this.kunaiItem.save(new CompoundTag()));
-        pCompound.putBoolean("DealtDamage", this.dealtDamage);
-    }
-
-    public void tickDespawn() {
-        if (this.pickup != AbstractArrow.Pickup.ALLOWED) {
-            super.tickDespawn();
-        }
-    }
-
-    protected float getWaterInertia() {
-        return 0.99F;
-    }
-
-    public boolean shouldRender(double pX, double pY, double pZ) {
-        return true;
     }
 
 }
