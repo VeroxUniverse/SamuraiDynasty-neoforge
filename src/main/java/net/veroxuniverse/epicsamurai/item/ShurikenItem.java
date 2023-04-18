@@ -22,7 +22,7 @@ public class ShurikenItem extends Item {
         if (!pLevel.isClientSide) {
             ShurikenEntity shurikenEntity = new ShurikenEntity(pLevel, pPlayer);
             shurikenEntity.setItem(itemstack);
-            shurikenEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 1.5F, 1.0F);
+            shurikenEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 2.5F, 2.0F);
             pLevel.addFreshEntity(shurikenEntity);
         }
 
@@ -34,3 +34,5 @@ public class ShurikenItem extends Item {
         return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());
     }
 }
+
+

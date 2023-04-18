@@ -1,10 +1,9 @@
 package net.veroxuniverse.epicsamurai.entity;
 
-import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -12,7 +11,10 @@ import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.entity.custom.AkanameEntity;
 import net.veroxuniverse.epicsamurai.entity.custom.EnenraEntity;
+import net.veroxuniverse.epicsamurai.entity.custom.KunaiEntity;
 import net.veroxuniverse.epicsamurai.entity.custom.ShurikenEntity;
+
+import static net.minecraft.Util.prefix;
 
 public class ModEntityTypes {
 
@@ -33,10 +35,19 @@ public class ModEntityTypes {
 
     public static final RegistryObject<EntityType<ShurikenEntity>> SHURIKEN =
             ENTITY_TYPES.register("shuriken",
-                    () -> EntityType.Builder.of(ShurikenEntity::new, MobCategory.MISC)
+                    () -> EntityType.Builder.<ShurikenEntity>of(ShurikenEntity::new, MobCategory.MISC)
                             .sized(0.25F, 0.25F)
                             .clientTrackingRange(4)
-                            .updateInterval(10));
+                            .updateInterval(10)
+                            .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "shuriken").toString()));
+
+    public static final RegistryObject<EntityType<KunaiEntity>> KUNAI =
+            ENTITY_TYPES.register("kunai",
+                    () -> EntityType.Builder.of(KunaiEntity::new, MobCategory.MISC)
+                            .sized(0.25F, 0.25F)
+                            .clientTrackingRange(4)
+                            .updateInterval(20)
+                            .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "kunai").toString()));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

@@ -21,7 +21,7 @@ public class ShurikenEntity extends ThrowableItemProjectile {
     public ShurikenEntity(EntityType<? extends ThrowableItemProjectile> pEntityType, Level pLevel) {super(pEntityType, pLevel);}
 
     public ShurikenEntity(Level pLevel, LivingEntity pShooter) {
-        super(ModEntityTypes.SHURIKEN, pShooter, pLevel);
+        super(ModEntityTypes.SHURIKEN.get(), pShooter, pLevel);
     }
 
     protected Item getDefaultItem() {
