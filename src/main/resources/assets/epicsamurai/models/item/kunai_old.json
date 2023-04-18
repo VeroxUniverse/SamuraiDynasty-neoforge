@@ -35,9 +35,9 @@
 			"from": [4.5, 5, 8],
 			"to": [11.5, 20, 8],
 			"faces": {
-				"north": {"uv": [8.5, 0, 16, 14.5], "texture": "#0"},
+				"north": {"uv": [0, 9, 3.5, 16], "texture": "#0"},
 				"east": {"uv": [0, 0, 0, 8], "texture": "#0"},
-				"south": {"uv": [16, 0, 8.5, 14.5], "texture": "#0"},
+				"south": {"uv": [3.5, 9, 0, 16], "texture": "#0"},
 				"west": {"uv": [0, 0, 0, 8], "texture": "#0"},
 				"up": {"uv": [4, 0, 0, 0], "texture": "#0"},
 				"down": {"uv": [4, 0, 0, 0], "texture": "#0"}
@@ -66,7 +66,8 @@
 			"scale": [0.6, 0.6, 0.6]
 		},
 		"ground": {
-			"rotation": [90, 0, 0],
+			"rotation": [0, 0, 150],
+			"translation": [0, 9, 0],
 			"scale": [0.6, 0.6, 0.6]
 		},
 		"gui": {
