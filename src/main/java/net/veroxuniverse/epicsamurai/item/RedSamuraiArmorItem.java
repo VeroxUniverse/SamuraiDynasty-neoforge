@@ -1,7 +1,10 @@
 package net.veroxuniverse.epicsamurai.item;
 
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.ItemStack;
+import net.veroxuniverse.epicsamurai.init.ArmorMaterialsInit;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.controller.AnimationController;
@@ -34,6 +37,16 @@ public class RedSamuraiArmorItem extends GeoArmorItem implements IAnimatable {
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         //event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", true));
         return PlayState.STOP;
+    }
+
+    @Override
+    public boolean canWalkOnPowderedSnow(ItemStack stack, LivingEntity wearer) {
+        return true;
+    }
+
+    @Override
+    public boolean makesPiglinsNeutral(ItemStack stack, LivingEntity wearer) {
+        return this.material == ArmorMaterialsInit.SAMURAI;
     }
 
 }

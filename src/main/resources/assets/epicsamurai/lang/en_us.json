@@ -21,6 +21,7 @@
   "item.epicsamurai.gray_samurai_boots": "Onyx Samurai Boots",
   "item.epicsamurai.akaname_spawn_egg": "Akaname Spawn Egg [WIP]",
   "item.epicsamurai.enenra_spawn_egg": "Enenra Spawn Egg [WIP]",
+  "item.epicsamurai.oni_spawn_egg": "Oni Spawn Egg [WIP]",
   "item.epicsamurai.ruby": "Ruby",
   "item.epicsamurai.jade": "Jade",
   "item.epicsamurai.onyx": "Onyx",
@@ -35,6 +36,10 @@
   "item.epicsamurai.kama": "Kama",
   "item.epicsamurai.sai": "Sai",
   "item.epicsamurai.shuriken": "Shuriken",
+
+  "entity.epicsamurai.oni": "Oni",
+  "entity.epicsamurai.akaname": "Akaname",
+  "entity.epicsamurai.enenra": "Enenra",
 
   "block.epicsamurai.ruby_ore": "Ruby Ore",
   "block.epicsamurai.deepslate_ruby_ore": "Deepslate Ruby Ore",

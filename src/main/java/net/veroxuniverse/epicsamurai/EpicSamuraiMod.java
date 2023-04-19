@@ -5,6 +5,9 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.renderer.entity.ThrownTridentRenderer;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -15,6 +18,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.veroxuniverse.epicsamurai.client.custom_entities.AkanameRenderer;
 import net.veroxuniverse.epicsamurai.client.custom_entities.EnenraRenderer;
+import net.veroxuniverse.epicsamurai.client.custom_entities.OniRenderer;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.init.BlocksInit;
 import net.veroxuniverse.epicsamurai.init.ItemsInit;
@@ -62,6 +66,7 @@ public class EpicSamuraiMod
 
             EntityRenderers.register(ModEntityTypes.AKANAME.get(), AkanameRenderer::new);
             EntityRenderers.register(ModEntityTypes.ENENRA.get(), EnenraRenderer::new);
+            EntityRenderers.register(ModEntityTypes.ONI.get(), OniRenderer::new);
 
             EntityRenderers.register(ModEntityTypes.SHURIKEN.get(), ThrownItemRenderer::new);
             EntityRenderers.register(ModEntityTypes.KUNAI.get(), ThrownItemRenderer::new);
