@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "tag": "forge:ingots/iron"
+    },
+    "S": {
+      "tag": "forge:ingots/steel"
+    }
+  },
+  "pattern": [
+    "X X",
+    "SXS",
+    "XXX"
+  ],
+  "result": {
+    "item": "epicsamurai:iron_samurai_chestplate"
+  }
+}

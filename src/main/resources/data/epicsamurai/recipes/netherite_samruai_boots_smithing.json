@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "tag": "epicsamurai:armors/gem_samurai_armor_boots"
+  },
+  "result": {
+    "item": "epicsamurai:netherite_samurai_boots"
+  }
+}

@@ -13,8 +13,8 @@ import java.util.function.Supplier;
 
 public enum ArmorMaterialsInit implements ArmorMaterial {
 
-    SAMURAI("samurai", 45, new int[]{3, 6, 8, 3}, 25,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 2.0F, 0.1F,
+    SAMURAI("samurai", 40, new int[]{3, 6, 8, 3}, 25,
+            SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.0F,
             () -> Ingredient.of(ItemsInit.STEEL_INGOT.get()));
 
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
