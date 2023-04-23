@@ -82,8 +82,8 @@ public class OniEntity extends Monster implements IAnimatable {
         entityData.set(ATTACKING, target != null);
     }
 
-    public void setAttacking(boolean stomping) {
-        this.entityData.set(ATTACKING, stomping);
+    public void setAttacking(boolean attacking) {
+        this.entityData.set(ATTACKING, attacking);
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
