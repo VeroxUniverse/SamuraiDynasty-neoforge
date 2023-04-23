@@ -20,7 +20,6 @@ import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -109,6 +108,7 @@ public class OniEntity extends Monster implements IAnimatable {
         if (this.isStomping()) {
             event.getController().setAnimationSpeed(1.0D);
             event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.attack", ILoopType.EDefaultLoopTypes.LOOP)));
+            this.playSound(SoundEvents.RAVAGER_ATTACK, 0.15F, 1.0F);
             return PlayState.CONTINUE;
         }
         if (builder.getRawAnimationList().isEmpty()) {
