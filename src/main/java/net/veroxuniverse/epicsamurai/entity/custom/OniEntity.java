@@ -58,7 +58,16 @@ public class OniEntity extends Monster implements IAnimatable {
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Cat.class, true));
     }
 
-    private PlayState attackPredicate(AnimationEvent event) {
+    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+        if (event.isMoving()){
+            event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.walk", ILoopType.EDefaultLoopTypes.LOOP)));
+            return PlayState.CONTINUE;
+        }
+        event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.idle", ILoopType.EDefaultLoopTypes.LOOP)));
+        return PlayState.CONTINUE;
+    }
+
+    private <eAttack extends IAnimatable> PlayState attackPredicate(AnimationEvent<eAttack> event) {
         if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
             event.getController().markNeedsReload();
             event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.attack", ILoopType.EDefaultLoopTypes.PLAY_ONCE)));
@@ -67,25 +76,14 @@ public class OniEntity extends Monster implements IAnimatable {
         return PlayState.CONTINUE;
     }
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (event.isMoving()) {
-            event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.walk", ILoopType.EDefaultLoopTypes.LOOP)));
-            return PlayState.CONTINUE;
-        }
-
-        event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.idle", ILoopType.EDefaultLoopTypes.LOOP)));
-        return PlayState.CONTINUE;
-
-    }
 
 
     @Override
     public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController(this, "attackController",
-                0, this::attackPredicate));
         data.addAnimationController(new AnimationController(this, "controller",
-                0, this::predicate));
-
+                40, this::predicate));
+        data.addAnimationController(new AnimationController(this, "attackController",
+                3, this::attackPredicate));
     }
 
 
