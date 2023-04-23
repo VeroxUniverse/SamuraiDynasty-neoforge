@@ -24,6 +24,7 @@ import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
+import software.bernie.geckolib3.core.builder.ILoopType;
 import software.bernie.geckolib3.core.controller.AnimationController;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
@@ -61,25 +62,25 @@ public class AkanameEntity extends Monster implements IAnimatable {
     }
 
     private PlayState attackPredicate(AnimationEvent event) {
-        if(this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
+        if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
             event.getController().markNeedsReload();
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.akaname.attack", false));
+            event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.akaname.attack", ILoopType.EDefaultLoopTypes.PLAY_ONCE)));
             this.swinging = false;
+            return PlayState.CONTINUE;
         }
-
         return PlayState.CONTINUE;
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving() && !this.swinging) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.akaname.walk", true));
+            event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.akaname.walk", ILoopType.EDefaultLoopTypes.LOOP)));
             return PlayState.CONTINUE;
         }
         if (!this.swinging && !event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.akaname.idle", true));
+            event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.akaname.idle", ILoopType.EDefaultLoopTypes.LOOP)));
             return PlayState.CONTINUE;
         }
-        return PlayState.CONTINUE;
+        return PlayState.STOP;
     }
 
     public void aiStep() {
@@ -117,8 +118,6 @@ public class AkanameEntity extends Monster implements IAnimatable {
                 20, this::predicate));
 
     }
-
-
 
     @Override
     public AnimationFactory getFactory() {

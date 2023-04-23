@@ -21,6 +21,7 @@ import software.bernie.geckolib3.core.AnimationState;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
+import software.bernie.geckolib3.core.builder.ILoopType;
 import software.bernie.geckolib3.core.controller.AnimationController;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
@@ -58,37 +59,32 @@ public class OniEntity extends Monster implements IAnimatable {
     }
 
     private PlayState attackPredicate(AnimationEvent event) {
-        if(this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
+        if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
             event.getController().markNeedsReload();
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.oni.attack", false));
+            event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.attack", ILoopType.EDefaultLoopTypes.PLAY_ONCE)));
             this.swinging = false;
         }
-
         return PlayState.CONTINUE;
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (this.swinging) {
-            return PlayState.STOP;
-        }
-        if (event.isMoving() && !this.swinging) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.oni.walk", true));
+        if (event.isMoving()) {
+            event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.walk", ILoopType.EDefaultLoopTypes.LOOP)));
             return PlayState.CONTINUE;
         }
-        if (!this.swinging && !event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.oni.idle", true));
-            return PlayState.CONTINUE;
-        }
+
+        event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.idle", ILoopType.EDefaultLoopTypes.LOOP)));
         return PlayState.CONTINUE;
+
     }
 
 
     @Override
     public void registerControllers(AnimationData data) {
         data.addAnimationController(new AnimationController(this, "attackController",
-                5, this::attackPredicate));
+                0, this::attackPredicate));
         data.addAnimationController(new AnimationController(this, "controller",
-                20, this::predicate));
+                0, this::predicate));
 
     }
 
