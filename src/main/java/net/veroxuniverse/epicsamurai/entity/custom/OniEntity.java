@@ -34,7 +34,7 @@ import javax.annotation.Nullable;
 
 public class OniEntity extends Monster implements IAnimatable {
 
-    private static final EntityDataAccessor<Boolean> STOMPING = SynchedEntityData.defineId(OniEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> ATTACKING = SynchedEntityData.defineId(OniEntity.class, EntityDataSerializers.BOOLEAN);
 
     private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
 
@@ -69,29 +69,29 @@ public class OniEntity extends Monster implements IAnimatable {
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(STOMPING, false);
+        this.entityData.define(ATTACKING, false);
     }
 
-    public boolean isStomping() {
-        return this.entityData.get(STOMPING);
+    public boolean isAttacking() {
+        return this.entityData.get(ATTACKING);
     }
 
     @Override
     public void setTarget(@Nullable LivingEntity target) {
         super.setTarget(target);
-        entityData.set(STOMPING, target != null);
+        entityData.set(ATTACKING, target != null);
     }
 
-    public void setStomping(boolean stomping) {
-        this.entityData.set(STOMPING, stomping);
+    public void setAttacking(boolean stomping) {
+        this.entityData.set(ATTACKING, stomping);
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         var builder = new AnimationBuilder();
-        if (event.isMoving() && !this.isStomping()){
+        if (event.isMoving() && !this.isAttacking()){
             event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.walk", ILoopType.EDefaultLoopTypes.LOOP)));
             return PlayState.CONTINUE;
-        } else if (!event.isMoving() && !this.isStomping()) {
+        } else if (!event.isMoving() && !this.isAttacking()) {
             event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.idle", ILoopType.EDefaultLoopTypes.LOOP)));
             return PlayState.CONTINUE;
         }
@@ -105,7 +105,7 @@ public class OniEntity extends Monster implements IAnimatable {
 
     private <eAttack extends IAnimatable> PlayState attackPredicate(AnimationEvent<eAttack> event) {
         var builder = new AnimationBuilder();
-        if (this.isStomping()) {
+        if (this.isAttacking()) {
             event.getController().setAnimationSpeed(1.0D);
             event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.attack", ILoopType.EDefaultLoopTypes.LOOP)));
             this.playSound(SoundEvents.RAVAGER_ATTACK, 0.15F, 1.0F);
