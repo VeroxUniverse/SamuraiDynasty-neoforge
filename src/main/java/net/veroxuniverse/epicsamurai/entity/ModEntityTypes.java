@@ -31,6 +31,7 @@ public class ModEntityTypes {
             ENTITY_TYPES.register("oni",
                     () -> EntityType.Builder.of(OniEntity::new, MobCategory.MONSTER)
                             .sized(1.8f, 2.6f)
+                            .fireImmune()
                             .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "oni").toString()));
 
     public static final RegistryObject<EntityType<ShurikenEntity>> SHURIKEN =

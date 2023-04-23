@@ -1,11 +1,14 @@
 package net.veroxuniverse.epicsamurai.entity.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -28,7 +31,11 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
+import javax.annotation.Nullable;
+
 public class OniEntity extends Monster implements IAnimatable {
+
+    private static final EntityDataAccessor<Boolean> STOMPING = SynchedEntityData.defineId(OniEntity.class, EntityDataSerializers.BOOLEAN);
 
     private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
 
@@ -38,16 +45,18 @@ public class OniEntity extends Monster implements IAnimatable {
 
     public static AttributeSupplier setAttributes() {
         return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 200.0D)
+                .add(Attributes.MAX_HEALTH, 100.0D)
                 .add(Attributes.ATTACK_DAMAGE, 7.0f)
-                .add(Attributes.ATTACK_SPEED, 0.2f)
+                .add(Attributes.ATTACK_SPEED, 1.6f)
+                .add(Attributes.FOLLOW_RANGE, 16.0D)
+                .add(Attributes.ATTACK_KNOCKBACK, 1D)
                 .add(Attributes.MOVEMENT_SPEED, 0.20f).build();
     }
 
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, false));
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.3D, false));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
@@ -58,22 +67,56 @@ public class OniEntity extends Monster implements IAnimatable {
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Cat.class, true));
     }
 
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(STOMPING, false);
+    }
+
+    public boolean isStomping() {
+        return this.entityData.get(STOMPING);
+    }
+
+    @Override
+    public void setTarget(@Nullable LivingEntity target) {
+        super.setTarget(target);
+        entityData.set(STOMPING, target != null);
+    }
+
+    public void setStomping(boolean stomping) {
+        this.entityData.set(STOMPING, stomping);
+    }
+
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (event.isMoving()){
+        var builder = new AnimationBuilder();
+        if (event.isMoving() && !this.isStomping()){
             event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.walk", ILoopType.EDefaultLoopTypes.LOOP)));
             return PlayState.CONTINUE;
+        } else if (!event.isMoving() && !this.isStomping()) {
+            event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.idle", ILoopType.EDefaultLoopTypes.LOOP)));
+            return PlayState.CONTINUE;
         }
-        event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.idle", ILoopType.EDefaultLoopTypes.LOOP)));
+        if (builder.getRawAnimationList().isEmpty()) {
+            event.getController().markNeedsReload();
+            return PlayState.STOP;
+        }
+        event.getController().setAnimation(builder);
         return PlayState.CONTINUE;
     }
 
     private <eAttack extends IAnimatable> PlayState attackPredicate(AnimationEvent<eAttack> event) {
-        if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
-            event.getController().markNeedsReload();
-            event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.attack", ILoopType.EDefaultLoopTypes.PLAY_ONCE)));
-            this.swinging = false;
+        var builder = new AnimationBuilder();
+        if (this.isStomping()) {
+            event.getController().setAnimationSpeed(1.0D);
+            event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.attack", ILoopType.EDefaultLoopTypes.LOOP)));
+            return PlayState.CONTINUE;
         }
-        return PlayState.CONTINUE;
+        if (builder.getRawAnimationList().isEmpty()) {
+            event.getController().markNeedsReload();
+            return PlayState.STOP;
+        }
+            event.getController().setAnimation(builder);
+            return PlayState.CONTINUE;
     }
 
 
@@ -81,9 +124,9 @@ public class OniEntity extends Monster implements IAnimatable {
     @Override
     public void registerControllers(AnimationData data) {
         data.addAnimationController(new AnimationController(this, "controller",
-                40, this::predicate));
+                25, this::predicate));
         data.addAnimationController(new AnimationController(this, "attackController",
-                3, this::attackPredicate));
+                5, this::attackPredicate));
     }
 
 
