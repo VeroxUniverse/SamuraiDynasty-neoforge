@@ -1,14 +1,10 @@
 package net.veroxuniverse.epicsamurai.entity.custom;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -30,11 +26,7 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
-import javax.annotation.Nullable;
-
 public class OniEntity extends Monster implements IAnimatable {
-
-    private static final EntityDataAccessor<Boolean> ATTACKING = SynchedEntityData.defineId(OniEntity.class, EntityDataSerializers.BOOLEAN);
 
     private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
 
@@ -53,6 +45,11 @@ public class OniEntity extends Monster implements IAnimatable {
     }
 
     @Override
+    public int getCurrentSwingDuration() {
+        return 20;
+    }
+
+    @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.3D, false));
@@ -66,57 +63,24 @@ public class OniEntity extends Monster implements IAnimatable {
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Cat.class, true));
     }
 
-    @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(ATTACKING, false);
-    }
-
-    public boolean isAttacking() {
-        return this.entityData.get(ATTACKING);
-    }
-
-    @Override
-    public void setTarget(@Nullable LivingEntity target) {
-        super.setTarget(target);
-        entityData.set(ATTACKING, target != null);
-    }
-
-    public void setAttacking(boolean attacking) {
-        this.entityData.set(ATTACKING, attacking);
-    }
-
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        var builder = new AnimationBuilder();
-        if (event.isMoving() && !this.isAttacking()){
+        if (event.isMoving()){
             event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.walk", ILoopType.EDefaultLoopTypes.LOOP)));
             return PlayState.CONTINUE;
-        } else if (!event.isMoving() && !this.isAttacking()) {
+        } else if (!event.isMoving()) {
             event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.idle", ILoopType.EDefaultLoopTypes.LOOP)));
             return PlayState.CONTINUE;
         }
-        if (builder.getRawAnimationList().isEmpty()) {
-            event.getController().markNeedsReload();
-            return PlayState.STOP;
-        }
-        event.getController().setAnimation(builder);
-        return PlayState.CONTINUE;
+        return PlayState.STOP;
     }
 
-    private <eAttack extends IAnimatable> PlayState attackPredicate(AnimationEvent<eAttack> event) {
-        var builder = new AnimationBuilder();
-        if (this.isAttacking()) {
-            event.getController().setAnimationSpeed(1.0D);
-            event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.attack", ILoopType.EDefaultLoopTypes.LOOP)));
-            this.playSound(SoundEvents.RAVAGER_ATTACK, 0.15F, 1.0F);
+    private <E extends IAnimatable> PlayState attackPredicate(AnimationEvent<E> event) {
+        if (this.swinging) {
+            event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.attack", ILoopType.EDefaultLoopTypes.PLAY_ONCE)));
             return PlayState.CONTINUE;
         }
-        if (builder.getRawAnimationList().isEmpty()) {
-            event.getController().markNeedsReload();
-            return PlayState.STOP;
-        }
-            event.getController().setAnimation(builder);
-            return PlayState.CONTINUE;
+        event.getController().markNeedsReload();
+        return PlayState.STOP;
     }
 
 
@@ -124,12 +88,10 @@ public class OniEntity extends Monster implements IAnimatable {
     @Override
     public void registerControllers(AnimationData data) {
         data.addAnimationController(new AnimationController(this, "controller",
-                25, this::predicate));
+                0, this::predicate));
         data.addAnimationController(new AnimationController(this, "attackController",
-                5, this::attackPredicate));
+                0, this::attackPredicate));
     }
-
-
 
     @Override
     public AnimationFactory getFactory() {
