@@ -28,6 +28,9 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 
 public class OniEntity extends Monster implements IAnimatable {
 
+    private static final AnimationBuilder ATTACK_ANIMATION = new AnimationBuilder().addAnimation("animation.oni.attack", ILoopType.EDefaultLoopTypes.PLAY_ONCE);
+    private static final AnimationBuilder IDLE_ANIMATION = new AnimationBuilder().addAnimation("animation.oni.idle", ILoopType.EDefaultLoopTypes.LOOP);
+    private static final AnimationBuilder WALK_ANIMATION = new AnimationBuilder().addAnimation("animation.oni.walk", ILoopType.EDefaultLoopTypes.LOOP);
     private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
 
     public OniEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
@@ -63,8 +66,9 @@ public class OniEntity extends Monster implements IAnimatable {
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Cat.class, true));
     }
 
+    /*
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (event.isMoving()){
+        if (event.isMoving()) {
             event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.walk", ILoopType.EDefaultLoopTypes.LOOP)));
             return PlayState.CONTINUE;
         } else if (!event.isMoving()) {
@@ -74,23 +78,44 @@ public class OniEntity extends Monster implements IAnimatable {
         return PlayState.STOP;
     }
 
-    private <E extends IAnimatable> PlayState attackPredicate(AnimationEvent<E> event) {
+
+
+    private <eAttack extends IAnimatable> PlayState attackPredicate(AnimationEvent<eAttack> event) {
         if (this.swinging) {
             event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.oni.attack", ILoopType.EDefaultLoopTypes.PLAY_ONCE)));
             return PlayState.CONTINUE;
         }
-        event.getController().markNeedsReload();
         return PlayState.STOP;
     }
-
-
+     */
 
     @Override
     public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController(this, "controller",
-                0, this::predicate));
-        data.addAnimationController(new AnimationController(this, "attackController",
-                0, this::attackPredicate));
+
+        //data.addAnimationController(new AnimationController(this, "controller",
+        //        0, this::predicate));
+        //data.addAnimationController(new AnimationController(this, "attackController",
+        //        0, this::attackPredicate));
+
+        data.addAnimationController(new AnimationController(this, "controller", 0, event -> {
+            if (event.isMoving()){
+                event.getController().setAnimation(WALK_ANIMATION);
+                return PlayState.CONTINUE;
+            } else if (!event.isMoving()) {
+                event.getController().setAnimation(IDLE_ANIMATION);
+                return PlayState.CONTINUE;
+            }
+            return PlayState.STOP;
+        }));
+
+        data.addAnimationController(new AnimationController(this, "attackController", 0, event -> {
+            if (swinging) {
+                event.getController().setAnimation(ATTACK_ANIMATION);
+                return PlayState.CONTINUE;
+            }
+            event.getController().markNeedsReload();
+            return PlayState.STOP;
+        }));
     }
 
     @Override
