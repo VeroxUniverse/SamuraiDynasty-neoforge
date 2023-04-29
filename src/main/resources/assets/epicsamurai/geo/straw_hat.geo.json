@@ -1,0 +1,104 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.straw_hat",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [
+				{
+					"name": "armorHead",
+					"pivot": [0, 24, 0],
+					"cubes": [
+						{"origin": [-7, 30.7, -7], "size": [14, 1.05, 14], "uv": [0, 18]},
+						{"origin": [-5, 31.7, -5], "size": [10, 1, 10], "uv": [26, 33]},
+						{"origin": [-3, 32.7, -3], "size": [6, 1, 6], "uv": [0, 41]},
+						{"origin": [-1, 33.7, -1], "size": [2, 1, 2], "uv": [0, 0]},
+						{
+							"origin": [-9, 28.7, -9.05],
+							"size": [18, 2, 0.1],
+							"uv": {
+								"north": {"uv": [0, 39], "uv_size": [18, 2]},
+								"east": {"uv": [0, 39], "uv_size": [0, 2]},
+								"south": {"uv": [18, 39], "uv_size": [18, 2]},
+								"west": {"uv": [18, 39], "uv_size": [0, 2]},
+								"up": {"uv": [0, 39.5], "uv_size": [18, 0]},
+								"down": {"uv": [18, 39.5], "uv_size": [18, 0]}
+							}
+						},
+						{
+							"origin": [-9, 28.7, 8.95],
+							"size": [18, 2, 0.1],
+							"uv": {
+								"north": {"uv": [0, 37], "uv_size": [18, 2]},
+								"east": {"uv": [0, 37], "uv_size": [0, 2]},
+								"south": {"uv": [18, 37], "uv_size": [18, 2]},
+								"west": {"uv": [18, 37], "uv_size": [0, 2]},
+								"up": {"uv": [0, 37.5], "uv_size": [18, 0]},
+								"down": {"uv": [18, 37.5], "uv_size": [18, 0]}
+							}
+						},
+						{
+							"origin": [8.95, 28.7, -9],
+							"size": [0.1, 2, 18],
+							"uv": {
+								"north": {"uv": [18, 35], "uv_size": [0, 2]},
+								"east": {"uv": [0, 35], "uv_size": [18, 2]},
+								"south": {"uv": [36, 35], "uv_size": [0, 2]},
+								"west": {"uv": [18, 35], "uv_size": [18, 2]},
+								"up": {"uv": [15, 15], "uv_size": [0, 18]},
+								"down": {"uv": [15, 33], "uv_size": [0, -18]}
+							}
+						},
+						{
+							"origin": [-9.05, 28.7, -9],
+							"size": [0.1, 2, 18],
+							"uv": {
+								"north": {"uv": [18, 33], "uv_size": [0, 2]},
+								"east": {"uv": [0, 33], "uv_size": [18, 2]},
+								"south": {"uv": [36, 33], "uv_size": [0, 2]},
+								"west": {"uv": [18, 33], "uv_size": [18, 2]},
+								"up": {"uv": [19, 2], "uv_size": [0, 18]},
+								"down": {"uv": [19, 20], "uv_size": [0, -18]}
+							}
+						},
+						{"origin": [-9, 30.6, -9], "size": [18, 0.1, 18], "uv": [0, 0]}
+					]
+				},
+				{
+					"name": "armorBody",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "armorRightArm",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "armorLeftArm",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "armorRightLeg",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "armorLeftLeg",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "armorRightBoot",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "armorLeftBoot",
+					"pivot": [0, 0, 0]
+				}
+			]
+		}
+	]
+}

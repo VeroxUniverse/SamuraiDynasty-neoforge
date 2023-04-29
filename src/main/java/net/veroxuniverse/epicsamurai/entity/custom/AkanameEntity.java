@@ -35,6 +35,10 @@ public class AkanameEntity extends Monster implements IAnimatable {
 
     private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
 
+    private static final AnimationBuilder ATTACK_ANIMATION = new AnimationBuilder().addAnimation("animation.akaname.attack", ILoopType.EDefaultLoopTypes.PLAY_ONCE);
+    private static final AnimationBuilder IDLE_ANIMATION = new AnimationBuilder().addAnimation("animation.akaname.idle", ILoopType.EDefaultLoopTypes.LOOP);
+    private static final AnimationBuilder WALK_ANIMATION = new AnimationBuilder().addAnimation("animation.akaname.walk", ILoopType.EDefaultLoopTypes.LOOP);
+
     public AkanameEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
@@ -59,28 +63,6 @@ public class AkanameEntity extends Monster implements IAnimatable {
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Cat.class, true));
-    }
-
-    private PlayState attackPredicate(AnimationEvent event) {
-        if (this.swinging && event.getController().getAnimationState().equals(AnimationState.Stopped)) {
-            event.getController().markNeedsReload();
-            event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.akaname.attack", ILoopType.EDefaultLoopTypes.PLAY_ONCE)));
-            this.swinging = false;
-            return PlayState.CONTINUE;
-        }
-        return PlayState.CONTINUE;
-    }
-
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (event.isMoving() && !this.swinging) {
-            event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.akaname.walk", ILoopType.EDefaultLoopTypes.LOOP)));
-            return PlayState.CONTINUE;
-        }
-        if (!this.swinging && !event.isMoving()) {
-            event.getController().setAnimation((new AnimationBuilder().addAnimation("animation.akaname.idle", ILoopType.EDefaultLoopTypes.LOOP)));
-            return PlayState.CONTINUE;
-        }
-        return PlayState.STOP;
     }
 
     public void aiStep() {
@@ -111,12 +93,32 @@ public class AkanameEntity extends Monster implements IAnimatable {
 
 
     @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController(this, "attackController",
-                1, this::attackPredicate));
-        data.addAnimationController(new AnimationController(this, "controller",
-                20, this::predicate));
+    public int getCurrentSwingDuration() {
+        return 10;
+    }
 
+    @Override
+    public void registerControllers(AnimationData data) {
+
+        data.addAnimationController(new AnimationController(this, "controller", 0, event -> {
+            if (event.isMoving() && !this.swinging){
+                event.getController().setAnimation(WALK_ANIMATION);
+                return PlayState.CONTINUE;
+            } else if (!event.isMoving() && !this.swinging) {
+                event.getController().setAnimation(IDLE_ANIMATION);
+                return PlayState.CONTINUE;
+            }
+            return PlayState.STOP;
+        }));
+
+        data.addAnimationController(new AnimationController(this, "attackController", 0, event -> {
+            if (this.swinging) {
+                event.getController().setAnimation(ATTACK_ANIMATION);
+                return PlayState.CONTINUE;
+            }
+            event.getController().markNeedsReload();
+            return PlayState.STOP;
+        }));
     }
 
     @Override

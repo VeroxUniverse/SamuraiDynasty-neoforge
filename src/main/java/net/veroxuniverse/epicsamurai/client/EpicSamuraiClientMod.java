@@ -27,6 +27,7 @@ public class EpicSamuraiClientMod {
         GeoArmorRenderer.registerArmorRenderer(GoldSamuraiArmorItem.class, GoldSamuraiArmorRenderer::new);
         GeoArmorRenderer.registerArmorRenderer(DiamondSamuraiArmorItem.class, DiamondSamuraiArmorRenderer::new);
         GeoArmorRenderer.registerArmorRenderer(NetheriteSamuraiArmorItem.class, NetheriteSamuraiArmorRenderer::new);
+        GeoArmorRenderer.registerArmorRenderer(StrawHatArmorItem.class, StrawHatArmorRenderer::new);
     }
 }
 

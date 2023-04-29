@@ -99,6 +99,9 @@ public class ItemsInit {
     public static final RegistryObject<Item> WHITE_SAMURAI_BOOTS = ITEMS.register("white_samurai_boots",
             () -> new WhiteSamuraiArmorItem(ArmorMaterialsInit.SAMURAI, EquipmentSlot.FEET, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
 
+    public static final RegistryObject<Item> STRAW_HAT = ITEMS.register("straw_hat",
+            () -> new StrawHatArmorItem(ArmorMaterialsInit.STRAW, EquipmentSlot.HEAD, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+
     public static final RegistryObject<Item> KATANA = ITEMS.register("katana",
             () -> new SwordItem(ItemMaterialsInit.SAMURAI,2,-2.4f, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
     public static final RegistryObject<Item> NAGINATA = ITEMS.register("naginata",

@@ -13,9 +13,13 @@ import java.util.function.Supplier;
 
 public enum ArmorMaterialsInit implements ArmorMaterial {
 
-    SAMURAI("samurai", 40, new int[]{3, 6, 8, 3}, 25,
+    SAMURAI("samurai", 33, new int[]{3, 6, 8, 3}, 25,
             SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.0F,
-            () -> Ingredient.of(ItemsInit.STEEL_INGOT.get()));
+            () -> Ingredient.of(ItemsInit.STEEL_INGOT.get())),
+
+    STRAW("straw", 15, new int[]{1, 0, 0, 0}, 7,
+    SoundEvents.ARMOR_EQUIP_LEATHER, 0.5F, 0.0F,
+            () -> Ingredient.of(Items.WHEAT));
 
     private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
     private final String name;
