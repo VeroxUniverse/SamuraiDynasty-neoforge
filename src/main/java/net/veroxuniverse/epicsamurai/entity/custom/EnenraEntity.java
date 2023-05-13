@@ -26,8 +26,6 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
-import java.util.EnumSet;
-
 public class EnenraEntity extends Monster implements IAnimatable {
 
     private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
