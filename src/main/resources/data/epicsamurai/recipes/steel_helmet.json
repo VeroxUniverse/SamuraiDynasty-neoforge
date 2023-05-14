@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "tag": "forge:feathers"
+    },
+    "S": {
+      "tag": "forge:ingots/steel"
+    }
+  },
+  "pattern": [
+    " X ",
+    "SSS",
+    "S S"
+  ],
+  "result": {
+    "item": "epicsamurai:steel_helmet"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "tag": "forge:leather"
+    },
+    "S": {
+      "tag": "forge:ingots/steel"
+    }
+  },
+  "pattern": [
+    "S S",
+    "SXS"
+  ],
+  "result": {
+    "item": "epicsamurai:steel_boots"
+  }
+}

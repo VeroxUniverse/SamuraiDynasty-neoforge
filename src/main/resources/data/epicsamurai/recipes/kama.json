@@ -4,12 +4,15 @@
     "S": {
       "tag": "forge:ingots/steel"
     },
+    "N": {
+      "tag": "forge:nuggets/steel"
+    },
     "W": {
-      "item": "minecraft:stick"
+      "item": "epicsamurai:knive_handle"
     }
   },
   "pattern": [
-    "SS",
+    "SN",
     "W "
   ],
   "result": {

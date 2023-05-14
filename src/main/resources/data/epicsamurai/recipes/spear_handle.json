@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "epicsamurai:katana_handle"
+    }
+  },
+  "pattern": [
+    "  S",
+    " X ",
+    "S  "
+  ],
+  "result": {
+    "item": "epicsamurai:spear_handle"
+  }
+}

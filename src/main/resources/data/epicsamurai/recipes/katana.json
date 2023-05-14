@@ -8,7 +8,7 @@
       "tag": "forge:ingots/gold"
     },
     "W": {
-      "item": "minecraft:stick"
+      "item": "epicsamurai:katana_handle"
     }
   },
   "pattern": [

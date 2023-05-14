@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "W": {
+      "item": "minecraft:wheat"
+    },
+    "L": {
+      "tag": "forge:leather"
+    }
+  },
+  "pattern": [
+    " W ",
+    "WWW",
+    "L L"
+  ],
+  "result": {
+    "item": "epicsamurai:straw_hat"
+  }
+}

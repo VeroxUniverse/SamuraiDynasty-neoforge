@@ -45,7 +45,9 @@
   "item.epicsamurai.aquamarine": "Aquamarine",
   "item.epicsamurai.silver_ingot": "Silver Ingot",
   "item.epicsamurai.raw_silver": "Raw Silver",
+  "item.epicsamurai.silver_nugget": "Silver Nugget",
   "item.epicsamurai.steel_ingot": "Steel Ingot",
+  "item.epicsamurai.steel_nugget": "Steel Nugget",
   "item.epicsamurai.katana": "Katana",
   "item.epicsamurai.naginata": "Naginata",
   "item.epicsamurai.nagamaki": "Nagamaki",
@@ -53,6 +55,13 @@
   "item.epicsamurai.kama": "Kama",
   "item.epicsamurai.sai": "Sai",
   "item.epicsamurai.shuriken": "Shuriken",
+  "item.epicsamurai.knive_handle": "Knive Handle",
+  "item.epicsamurai.spear_handle": "Spear Handle",
+  "item.epicsamurai.katana_handle": "Katana Handle",
+  "item.epicsamurai.steel_helmet": "Steel Helmet",
+  "item.epicsamurai.steel_chestplate": "Steel Chestplate",
+  "item.epicsamurai.steel_leggings": "Steel Leggigns",
+  "item.epicsamurai.steel_boots": "Steel Boots",
 
   "entity.epicsamurai.oni": "Oni",
   "entity.epicsamurai.akaname": "Akaname",
@@ -68,6 +77,12 @@
   "block.epicsamurai.deepslate_jade_ore": "Deepslate Jade Ore",
   "block.epicsamurai.onyx_ore": "Onyx Ore",
   "block.epicsamurai.deepslate_onyx_ore": "Deepslate Onyx Ore",
+  "block.epicsamurai.ruby_block": "Block of Ruby",
+  "block.epicsamurai.aquamarine_block": "Block of Aquamarine",
+  "block.epicsamurai.jade_block": "Block of Jade",
+  "block.epicsamurai.onyx_block": "Block of Onyx",
+  "block.epicsamurai.silver_block": "Block of Silver",
+  "block.epicsamurai.steel_block": "Block of Steel",
 
   "itemGroup.epicsamurai_tab": "Epic Samurai"
 }

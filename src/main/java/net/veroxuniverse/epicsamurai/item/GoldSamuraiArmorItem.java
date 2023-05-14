@@ -47,7 +47,7 @@ public class GoldSamuraiArmorItem extends GeoArmorItem implements IAnimatable {
 
     @Override
     public boolean makesPiglinsNeutral(ItemStack stack, LivingEntity wearer) {
-        return this.material == ArmorMaterials.GOLD;
+        return this.material == ArmorMaterialsInit.SAMURAI_GOLD;
     }
 
 }

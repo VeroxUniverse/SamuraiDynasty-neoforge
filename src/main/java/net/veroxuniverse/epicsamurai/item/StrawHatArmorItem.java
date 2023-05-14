@@ -46,7 +46,7 @@ public class StrawHatArmorItem extends GeoArmorItem implements IAnimatable {
 
     @Override
     public boolean makesPiglinsNeutral(ItemStack stack, LivingEntity wearer) {
-        return this.material == ArmorMaterialsInit.SAMURAI;
+        return this.material == ArmorMaterialsInit.SAMURAI_GOLD;
     }
 
 

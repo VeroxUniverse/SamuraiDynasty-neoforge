@@ -9,6 +9,12 @@
     "epicsamurai:onyx_ore",
     "epicsamurai:deepslate_onyx_ore",
     "epicsamurai:aquamarine_ore",
-    "epicsamurai:deepslate_aquamarine_ore"
+    "epicsamurai:deepslate_aquamarine_ore",
+    "epicsamurai:steel_block",
+    "epicsamurai:silver_block",
+    "epicsamurai:ruby_block",
+    "epicsamurai:jade_block",
+    "epicsamurai:onyx_block",
+    "epicsamurai:aquamarine_block"
   ]
 }

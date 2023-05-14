@@ -47,7 +47,7 @@ public class NetheriteSamuraiArmorItem extends GeoArmorItem implements IAnimatab
 
     @Override
     public boolean makesPiglinsNeutral(ItemStack stack, LivingEntity wearer) {
-        return this.material == ArmorMaterials.NETHERITE;
+        return this.material == ArmorMaterialsInit.SAMURAI_NETHERITE;
     }
 
 }

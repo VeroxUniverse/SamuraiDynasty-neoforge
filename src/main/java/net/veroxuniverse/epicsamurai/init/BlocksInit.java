@@ -58,6 +58,24 @@ public class BlocksInit {
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(4f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)), EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB);
 
+    public static final RegistryObject<Block> RUBY_BLOCK = registerBlock("ruby_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(4f).requiresCorrectToolForDrops()), EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB);
+    public static final RegistryObject<Block> JADE_BLOCK = registerBlock("jade_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(4f).requiresCorrectToolForDrops()), EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB);
+    public static final RegistryObject<Block> AQUAMARINE_BLOCK = registerBlock("aquamarine_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(4f).requiresCorrectToolForDrops()), EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB);
+    public static final RegistryObject<Block> ONYX_BLOCK = registerBlock("onyx_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(4f).requiresCorrectToolForDrops()), EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB);
+    public static final RegistryObject<Block> SILVER_BLOCK = registerBlock("silver_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(4f).requiresCorrectToolForDrops()), EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB);
+    public static final RegistryObject<Block> STEEL_BLOCK = registerBlock("steel_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(4f).requiresCorrectToolForDrops()), EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB);
 
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);

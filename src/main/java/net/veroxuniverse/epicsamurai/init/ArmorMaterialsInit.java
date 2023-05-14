@@ -13,11 +13,48 @@ import java.util.function.Supplier;
 
 public enum ArmorMaterialsInit implements ArmorMaterial {
 
-    SAMURAI("samurai", 33, new int[]{3, 6, 8, 3}, 25,
-            SoundEvents.ARMOR_EQUIP_DIAMOND, 2.0F, 0.0F,
+    SAMURAI_RUBY("samurai_ruby", 33, new int[]{3, 6, 8, 2}, 25,
+            SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F,
+            () -> Ingredient.of(ItemsInit.RUBY.get())),
+
+    SAMURAI_ONYX("samurai_onyx", 33, new int[]{3, 6, 8, 2}, 25,
+            SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F,
+            () -> Ingredient.of(ItemsInit.ONYX.get())),
+
+    SAMURAI_AQUA("samurai_aqua", 33, new int[]{3, 6, 8, 2}, 25,
+            SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F,
+            () -> Ingredient.of(ItemsInit.AQUAMARINE.get())),
+
+    SAMURAI_JADE("samurai_jade", 33, new int[]{3, 6, 8, 2}, 25,
+            SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F,
+            () -> Ingredient.of(ItemsInit.JADE.get())),
+
+    SAMURAI_SILVER("samurai_silver", 20, new int[]{2, 5, 6, 2}, 12,
+            SoundEvents.ARMOR_EQUIP_IRON, 0.5F, 0.0F,
+            () -> Ingredient.of(ItemsInit.SILVER_INGOT.get())),
+
+    SAMURAI_DIAMOND("samurai_diamond", 33, new int[]{3, 6, 8, 2}, 12,
+            SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F,
+            () -> Ingredient.of(Items.DIAMOND)),
+
+    SAMURAI_NETHERITE("samurai_netherite", 45, new int[]{3, 6, 8, 3}, 25,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 2.5F, 0.1F,
+            () -> Ingredient.of(Items.NETHERITE_INGOT)),
+
+    SAMURAI_GOLD("samurai_gold", 15, new int[]{2, 4, 5, 2}, 25,
+            SoundEvents.ARMOR_EQUIP_GOLD, 0.5F, 0.0F,
+            () -> Ingredient.of(Items.GOLD_INGOT)),
+
+    SAMURAI_IRON("samurai_iron",20, new int[]{2, 5, 6, 2}, 12,
+            SoundEvents.ARMOR_EQUIP_IRON, 0.5F, 0.0F,
+            () -> Ingredient.of(Items.IRON_INGOT)),
+
+
+    STEEL("steel", 29, new int[]{3, 5, 7, 2}, 12,
+            SoundEvents.ARMOR_EQUIP_IRON, 0.5F, 0.0F,
             () -> Ingredient.of(ItemsInit.STEEL_INGOT.get())),
 
-    STRAW("straw", 15, new int[]{1, 0, 0, 0}, 7,
+    STRAW("straw", 15, new int[]{1, 1, 1, 1}, 7,
     SoundEvents.ARMOR_EQUIP_LEATHER, 0.5F, 0.0F,
             () -> Ingredient.of(Items.WHEAT));
 

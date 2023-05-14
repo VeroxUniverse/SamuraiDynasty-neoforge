@@ -8,13 +8,13 @@
       "tag": "forge:ingots/gold"
     },
     "W": {
-      "item": "minecraft:stick"
+      "item": "epicsamurai:spear_handle"
     }
   },
   "pattern": [
-    "S  ",
-    " SG",
-    " GW"
+    "  S",
+    "GS ",
+    "WG "
   ],
   "result": {
     "item": "epicsamurai:naginata"
