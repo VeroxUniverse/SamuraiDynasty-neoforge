@@ -40,7 +40,7 @@ public class KitsuneRangedAttackGoal extends Goal {
             if (livingentity != null) {
                 this.pMob.getLookControl().setLookAt(livingentity, 180.0F, 180.0F);
                 double d0 = this.pMob.distanceTo(livingentity);
-                if (d0 >= 16.0D) {
+                if (d0 >= 8.0F) {
                     if (this.attackTime <= 0) {
                         this.attackTime = 20 + this.pMob.getRandom().nextInt(10) * 20 / 2;
                         this.pMob.level.addFreshEntity(new KitsuneProjectileEntity(this.pMob.level, this.pMob, livingentity, this.pMob.getDirection().getAxis()));
