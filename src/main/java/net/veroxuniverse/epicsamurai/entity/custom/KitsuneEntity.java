@@ -2,7 +2,6 @@ package net.veroxuniverse.epicsamurai.entity.custom;
 
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -17,6 +16,9 @@ import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
+import net.veroxuniverse.epicsamurai.entity.custom.AI.KitsuneAttackGoal;
+import net.veroxuniverse.epicsamurai.entity.custom.AI.KitsuneRangedAttackGoal;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -26,8 +28,7 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
-import java.util.EnumSet;
-import java.util.Objects;
+import static net.minecraft.world.entity.monster.hoglin.HoglinBase.throwTarget;
 
 public class KitsuneEntity extends Monster implements IAnimatable {
 
@@ -43,8 +44,7 @@ public class KitsuneEntity extends Monster implements IAnimatable {
         this.setPathfindingMalus(BlockPathTypes.DANGER_POWDER_SNOW, -1.0F);
     }
 
-    public static AttributeSupplier setAttributes() {
-        return Monster.createMobAttributes()
+    public static AttributeSupplier setAttributes() {return Monster.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 20.0D)
                 .add(Attributes.ATTACK_DAMAGE, 3.0f)
                 .add(Attributes.ATTACK_SPEED, 0.3f)
@@ -57,11 +57,8 @@ public class KitsuneEntity extends Monster implements IAnimatable {
 
         this.goalSelector.addGoal(1, new FloatGoal(this));
 
-        if (KitsuneEntity.this.distanceToSqr(Objects.requireNonNull(KitsuneEntity.this.getTarget())) >= 10.0D) {
-            this.goalSelector.addGoal(2, new KitsuneEntity.KitsuneRangedAttackGoal());
-        } else if (KitsuneEntity.this.distanceToSqr(Objects.requireNonNull(KitsuneEntity.this.getTarget())) < 10.0D){
-            this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, true));
-        }
+        this.goalSelector.addGoal(2, new KitsuneAttackGoal(this, 1.2D, true));
+        this.goalSelector.addGoal(2, new KitsuneRangedAttackGoal(this));
 
         this.goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.4F));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
@@ -107,53 +104,40 @@ public class KitsuneEntity extends Monster implements IAnimatable {
         return FACTORY;
     }
 
-    class KitsuneRangedAttackGoal extends Goal {
-        private int attackTime;
+    /*
 
-        public KitsuneRangedAttackGoal() {
-            this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
-        }
-
-        public boolean canUse() {
-            LivingEntity livingentity = KitsuneEntity.this.getTarget();
-            if (livingentity != null && livingentity.isAlive()) {
-                return KitsuneEntity.this.level.getDifficulty() != Difficulty.PEACEFUL;
-            } else {
-                return false;
-            }
-        }
-
-        public void start() {
-        }
-
-        public void stop() {
-        }
-
-        public boolean requiresUpdateEveryTick() {
-            return true;
-        }
-
-        public void tick() {
-            if (KitsuneEntity.this.level.getDifficulty() != Difficulty.PEACEFUL) {
-                --this.attackTime;
-                LivingEntity livingentity = KitsuneEntity.this.getTarget();
-                if (livingentity != null) {
-                    KitsuneEntity.this.getLookControl().setLookAt(livingentity, 180.0F, 180.0F);
-                    double d0 = KitsuneEntity.this.distanceToSqr(livingentity);
-                    if (d0 < 400.0D) {
-                        if (this.attackTime <= 0) {
-                            this.attackTime = 20 + KitsuneEntity.this.random.nextInt(10) * 20 / 2;
-                            KitsuneEntity.this.level.addFreshEntity(new KitsuneProjectileEntity(KitsuneEntity.this.level, KitsuneEntity.this, livingentity, KitsuneEntity.this.getDirection().getAxis()));
-                            KitsuneEntity.this.playSound(SoundEvents.SHULKER_SHOOT, 2.0F, (KitsuneEntity.this.random.nextFloat() - KitsuneEntity.this.random.nextFloat()) * 0.2F + 1.0F);
-                        }
-                    } else {
-                        KitsuneEntity.this.setTarget((LivingEntity)null);
-                    }
-
-                    super.tick();
+    public void chooseAttackGoal() {
+        if (!this.level.isClientSide) {
+            this.goalSelector.removeGoal(this.meleeGoal);
+            this.goalSelector.removeGoal(this.rangedGoal);
+            if (this.getTarget() != null) {
+                if (this.distanceToSqr(this.getTarget()) >= 8.0D) {
+                    this.goalSelector.addGoal(2, this.rangedGoal);
+                } else {
+                    this.goalSelector.addGoal(2, this.meleeGoal);
                 }
             }
         }
+    }
+
+     */
+
+    static boolean hurtAndThrowTarget(LivingEntity pKitsune, LivingEntity pTarget) {
+        float f1 = (float)pKitsune.getAttributeValue(Attributes.ATTACK_DAMAGE);
+        float f;
+        if ((int)f1 > 0) {
+            f = f1 / 2.0F + (float)pKitsune.level.random.nextInt((int)f1);
+        } else {
+            f = f1;
+        }
+
+        boolean flag = pTarget.hurt(DamageSource.mobAttack(pKitsune), f);
+        if (flag) {
+            pKitsune.doEnchantDamageEffects(pKitsune, pTarget);
+            throwTarget(pKitsune, pTarget);
+        }
+
+        return flag;
     }
 
     @Override
@@ -162,7 +146,7 @@ public class KitsuneEntity extends Monster implements IAnimatable {
             return false;
         } else {
             this.playSound(SoundEvents.FOX_BITE, 1.0F, 0.6F);
-            return true;
+            return hurtAndThrowTarget(this, (LivingEntity)pEntity);
         }
     }
 

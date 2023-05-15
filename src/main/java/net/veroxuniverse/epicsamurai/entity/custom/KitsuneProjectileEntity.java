@@ -36,7 +36,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class KitsuneProjectileEntity extends Projectile {
-    private static final double SPEED = 0.75D;
+    private static final double SPEED = 1.0D;
     @Nullable
     private Entity finalTarget;
     @Nullable

@@ -25,7 +25,7 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<KitsuneEntity>> KITSUNE =
             ENTITY_TYPES.register("kitsune",
                     () -> EntityType.Builder.of(KitsuneEntity::new, MobCategory.MONSTER)
-                            .sized(0.8f, 1.8f)
+                            .sized(1.3964844F, 1.6f)
                             .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "kitsune").toString()));
 
 
