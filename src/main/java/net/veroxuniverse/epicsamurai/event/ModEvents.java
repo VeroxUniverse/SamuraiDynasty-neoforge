@@ -11,6 +11,7 @@ import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.entity.custom.AkanameEntity;
 import net.veroxuniverse.epicsamurai.entity.custom.EnenraEntity;
+import net.veroxuniverse.epicsamurai.entity.custom.KitsuneEntity;
 import net.veroxuniverse.epicsamurai.entity.custom.OniEntity;
 
 public class ModEvents {
@@ -22,6 +23,7 @@ public class ModEvents {
             event.put(ModEntityTypes.AKANAME.get(), AkanameEntity.setAttributes());
             event.put(ModEntityTypes.ENENRA.get(), EnenraEntity.setAttributes());
             event.put(ModEntityTypes.ONI.get(), OniEntity.setAttributes());
+            event.put(ModEntityTypes.KITSUNE.get(), KitsuneEntity.setAttributes());
         }
 
         @SubscribeEvent
@@ -30,6 +32,9 @@ public class ModEvents {
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Monster::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
             event.register(ModEntityTypes.ENENRA.get(),
+                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Monster::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+            event.register(ModEntityTypes.AKANAME.get(),
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Monster::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
             event.register(ModEntityTypes.AKANAME.get(),

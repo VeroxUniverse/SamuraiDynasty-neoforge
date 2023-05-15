@@ -3,6 +3,7 @@ package net.veroxuniverse.epicsamurai.entity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.projectile.ShulkerBullet;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -20,6 +21,13 @@ public class ModEntityTypes {
                     () -> EntityType.Builder.of(AkanameEntity::new, MobCategory.MONSTER)
                             .sized(0.8f, 1.8f)
                             .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "akaname").toString()));
+
+    public static final RegistryObject<EntityType<KitsuneEntity>> KITSUNE =
+            ENTITY_TYPES.register("kitsune",
+                    () -> EntityType.Builder.of(KitsuneEntity::new, MobCategory.MONSTER)
+                            .sized(0.8f, 1.8f)
+                            .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "kitsune").toString()));
+
 
     public static final RegistryObject<EntityType<EnenraEntity>> ENENRA =
             ENTITY_TYPES.register("enenra",
@@ -49,6 +57,14 @@ public class ModEntityTypes {
                             .clientTrackingRange(4)
                             .updateInterval(20)
                             .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "kunai").toString()));
+
+    public static final RegistryObject<EntityType<KitsuneProjectileEntity>> KITSUNE_PROJECTILE =
+            ENTITY_TYPES.register("kitsune_projectile",
+                    () -> EntityType.Builder.<KitsuneProjectileEntity>of(KitsuneProjectileEntity::new, MobCategory.MISC)
+                            .sized(0.25F, 0.25F)
+                            .clientTrackingRange(4)
+                            .updateInterval(20)
+                            .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "kitsune_projectile").toString()));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
