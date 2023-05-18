@@ -27,6 +27,15 @@ public class ItemsInit {
     public static final RegistryObject<Item> IRON_SAMURAI_BOOTS = ITEMS.register("iron_samurai_boots",
             () -> new IronSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_IRON, EquipmentSlot.FEET, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
 
+    public static final RegistryObject<Item> WHITE_SAMURAI_HELMET = ITEMS.register("white_samurai_helmet",
+            () -> new WhiteSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_SILVER, EquipmentSlot.HEAD, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+    public static final RegistryObject<Item> WHITE_SAMURAI_CHESTPLATE = ITEMS.register("white_samurai_chestplate",
+            () -> new WhiteSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_SILVER, EquipmentSlot.CHEST, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+    public static final RegistryObject<Item> WHITE_SAMURAI_LEGGINGS = ITEMS.register("white_samurai_leggings",
+            () -> new WhiteSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_SILVER, EquipmentSlot.LEGS, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+    public static final RegistryObject<Item> WHITE_SAMURAI_BOOTS = ITEMS.register("white_samurai_boots",
+            () -> new WhiteSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_SILVER, EquipmentSlot.FEET, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+
     public static final RegistryObject<Item> GOLD_SAMURAI_HELMET = ITEMS.register("gold_samurai_helmet",
             () -> new GoldSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_GOLD, EquipmentSlot.HEAD, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
     public static final RegistryObject<Item> GOLD_SAMURAI_CHESTPLATE = ITEMS.register("gold_samurai_chestplate",
@@ -53,6 +62,23 @@ public class ItemsInit {
             () -> new NetheriteSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_NETHERITE, EquipmentSlot.LEGS, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
     public static final RegistryObject<Item> NETHERITE_SAMURAI_BOOTS = ITEMS.register("netherite_samurai_boots",
             () -> new NetheriteSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_NETHERITE, EquipmentSlot.FEET, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+
+    public static final RegistryObject<Item> AMETHYST_SAMURAI_HELMET = ITEMS.register("amethyst_samurai_helmet",
+            () -> new AmethystSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_NETHERITE, EquipmentSlot.HEAD, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+    public static final RegistryObject<Item> AMETHYST_SAMURAI_CHESTPLATE = ITEMS.register("amethyst_samurai_chestplate",
+            () -> new AmethystSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_NETHERITE, EquipmentSlot.CHEST, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+    public static final RegistryObject<Item> AMETHYST_SAMURAI_LEGGINGS = ITEMS.register("amethyst_samurai_leggings",
+            () -> new AmethystSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_NETHERITE, EquipmentSlot.LEGS, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+    public static final RegistryObject<Item> AMETHYST_SAMURAI_BOOTS = ITEMS.register("amethyst_samurai_boots",
+            () -> new AmethystSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_NETHERITE, EquipmentSlot.FEET, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+    public static final RegistryObject<Item> QUARTZ_SAMURAI_HELMET = ITEMS.register("quartz_samurai_helmet",
+            () -> new QuartzSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_NETHERITE, EquipmentSlot.HEAD, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+    public static final RegistryObject<Item> QUARTZ_SAMURAI_CHESTPLATE = ITEMS.register("quartz_samurai_chestplate",
+            () -> new QuartzSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_NETHERITE, EquipmentSlot.CHEST, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+    public static final RegistryObject<Item> QUARTZ_SAMURAI_LEGGINGS = ITEMS.register("quartz_samurai_leggings",
+            () -> new QuartzSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_NETHERITE, EquipmentSlot.LEGS, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+    public static final RegistryObject<Item> QUARTZ_SAMURAI_BOOTS = ITEMS.register("quartz_samurai_boots",
+            () -> new QuartzSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_NETHERITE, EquipmentSlot.FEET, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
 
     public static final RegistryObject<Item> RED_SAMURAI_HELMET = ITEMS.register("red_samurai_helmet",
             () -> new RedSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_RUBY, EquipmentSlot.HEAD, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
@@ -89,15 +115,6 @@ public class ItemsInit {
             () -> new GraySamuraiArmorItem(ArmorMaterialsInit.SAMURAI_ONYX, EquipmentSlot.LEGS, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
     public static final RegistryObject<Item> GRAY_SAMURAI_BOOTS = ITEMS.register("gray_samurai_boots",
             () -> new GraySamuraiArmorItem(ArmorMaterialsInit.SAMURAI_ONYX, EquipmentSlot.FEET, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
-
-    public static final RegistryObject<Item> WHITE_SAMURAI_HELMET = ITEMS.register("white_samurai_helmet",
-            () -> new WhiteSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_SILVER, EquipmentSlot.HEAD, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
-    public static final RegistryObject<Item> WHITE_SAMURAI_CHESTPLATE = ITEMS.register("white_samurai_chestplate",
-            () -> new WhiteSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_SILVER, EquipmentSlot.CHEST, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
-    public static final RegistryObject<Item> WHITE_SAMURAI_LEGGINGS = ITEMS.register("white_samurai_leggings",
-            () -> new WhiteSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_SILVER, EquipmentSlot.LEGS, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
-    public static final RegistryObject<Item> WHITE_SAMURAI_BOOTS = ITEMS.register("white_samurai_boots",
-            () -> new WhiteSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_SILVER, EquipmentSlot.FEET, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
 
     public static final RegistryObject<Item> STEEL_HELMET = ITEMS.register("steel_helmet",
             () -> new SteelArmorItem(ArmorMaterialsInit.STEEL, EquipmentSlot.HEAD, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
@@ -163,6 +180,11 @@ public class ItemsInit {
     public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot",
             () -> new Item(new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
     public static final RegistryObject<Item> STEEL_NUGGET = ITEMS.register("steel_nugget",
+            () -> new Item(new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+
+    public static final RegistryObject<Item> AMETHYST_INGOT = ITEMS.register("amethyst_ingot",
+            () -> new Item(new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+    public static final RegistryObject<Item> QUARTZ_INGOT = ITEMS.register("quartz_ingot",
             () -> new Item(new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
 
 

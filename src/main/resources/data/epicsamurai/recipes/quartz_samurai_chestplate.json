@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "epicsamurai:quartz_ingot"
+    },
+    "G": {
+      "tag": "forge:ingots/netherite"
+    }
+  },
+  "pattern": [
+    "X X",
+    "XGX",
+    "XXX"
+  ],
+  "result": {
+    "item": "epicsamurai:quartz_samurai_chestplate"
+  }
+}

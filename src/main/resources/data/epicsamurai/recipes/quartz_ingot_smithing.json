@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "tag": "forge:gems/quartz"
+  },
+  "base": {
+    "tag": "forge:ingots/steel"
+  },
+  "result": {
+    "item": "epicsamurai:quartz_ingot"
+  }
+}

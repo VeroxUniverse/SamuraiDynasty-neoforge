@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "epicsamurai:amethyst_ingot"
+    },
+    "G": {
+      "tag": "forge:ingots/netherite"
+    },
+    "A": {
+      "tag": "forge:gems/amethyst"
+    }
+  },
+  "pattern": [
+    " G ",
+    "XAX",
+    "X X"
+  ],
+  "result": {
+    "item": "epicsamurai:amethyst_samurai_helmet"
+  }
+}

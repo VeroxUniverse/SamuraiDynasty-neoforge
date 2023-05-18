@@ -1,6 +1,5 @@
 package net.veroxuniverse.epicsamurai.entity.custom.AI;
 
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.InteractionHand;
