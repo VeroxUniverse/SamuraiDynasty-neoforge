@@ -14,7 +14,7 @@ public class AmethystSamuraiArmorModel extends AnimatedGeoModel<AmethystSamuraiA
 
     @Override
     public ResourceLocation getTextureResource(AmethystSamuraiArmorItem object) {
-        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/models/armor/amethyst_samurai_armor_textures.png");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/models/armor/amethyst_samurai_armor_textures_new.png");
     }
 
     @Override
