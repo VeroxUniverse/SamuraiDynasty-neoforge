@@ -16,9 +16,7 @@ import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
-import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.entity.custom.AI.KitsuneAttackGoal;
-import net.veroxuniverse.epicsamurai.entity.custom.AI.KitsuneRangedAttackGoal;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -45,11 +43,11 @@ public class KitsuneEntity extends Monster implements IAnimatable {
     }
 
     public static AttributeSupplier setAttributes() {return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 20.0D)
-                .add(Attributes.ATTACK_DAMAGE, 3.0f)
+                .add(Attributes.MAX_HEALTH, 100.0D)
+                .add(Attributes.ATTACK_DAMAGE, 8.0f)
                 .add(Attributes.ATTACK_SPEED, 0.3f)
                 .add(Attributes.FOLLOW_RANGE, 25.0f)
-                .add(Attributes.MOVEMENT_SPEED, 0.23f).build();
+                .add(Attributes.MOVEMENT_SPEED, 0.3F).build();
     }
 
     @Override
@@ -58,18 +56,16 @@ public class KitsuneEntity extends Monster implements IAnimatable {
         this.goalSelector.addGoal(1, new FloatGoal(this));
 
         this.goalSelector.addGoal(2, new KitsuneAttackGoal(this, 1.2D, true));
-        this.goalSelector.addGoal(3, new KitsuneRangedAttackGoal(this));
+        //this.goalSelector.addGoal(3, new MoveTowardsTargetGoal(this, 1.2D, 25.0F));
 
-        this.goalSelector.addGoal(4, new MoveTowardsTargetGoal(this, 0.5D, 8.0F));
+        this.goalSelector.addGoal(4, new LeapAtTargetGoal(this, 0.4F));
+        this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+        this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
+        this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
 
-        this.goalSelector.addGoal(5, new LeapAtTargetGoal(this, 0.4F));
-        this.goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
-        this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
-
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, false));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
-        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Animal.class, true));
+        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Animal.class, false));
     }
 
     @Override
@@ -106,24 +102,6 @@ public class KitsuneEntity extends Monster implements IAnimatable {
         return FACTORY;
     }
 
-    /*
-
-    public void chooseAttackGoal() {
-        if (!this.level.isClientSide) {
-            this.goalSelector.removeGoal(this.meleeGoal);
-            this.goalSelector.removeGoal(this.rangedGoal);
-            if (this.getTarget() != null) {
-                if (this.distanceToSqr(this.getTarget()) >= 8.0D) {
-                    this.goalSelector.addGoal(2, this.rangedGoal);
-                } else {
-                    this.goalSelector.addGoal(2, this.meleeGoal);
-                }
-            }
-        }
-    }
-
-     */
-
     static boolean hurtAndThrowTarget(LivingEntity pKitsune, LivingEntity pTarget) {
         float f1 = (float)pKitsune.getAttributeValue(Attributes.ATTACK_DAMAGE);
         float f;
@@ -147,9 +125,13 @@ public class KitsuneEntity extends Monster implements IAnimatable {
         if (!(pEntity instanceof LivingEntity)) {
             return false;
         } else {
-            this.playSound(SoundEvents.FOX_BITE, 1.0F, 0.6F);
+            this.playSound(SoundEvents.FOX_BITE, 1.0F, 0.4F);
             return hurtAndThrowTarget(this, (LivingEntity)pEntity);
         }
+    }
+
+    public int getMaxSpawnClusterSize() {
+        return 6;
     }
 
     protected SoundEvent getAmbientSound() {
@@ -165,11 +147,10 @@ public class KitsuneEntity extends Monster implements IAnimatable {
     }
 
     protected float getSoundVolume() {
-        return 0.7F;
+        return 0.5F;
     }
 
     public float getVoicePitch() {
-        return (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 0.4F;
+        return 0.5F;
     }
-
 }

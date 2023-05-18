@@ -1,13 +1,16 @@
 package net.veroxuniverse.epicsamurai.entity.custom.AI;
 
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.Goal;
-import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.pathfinder.Path;
+import net.veroxuniverse.epicsamurai.entity.custom.KitsuneProjectileEntity;
 
 import java.util.EnumSet;
 
@@ -27,6 +30,8 @@ public class KitsuneAttackGoal extends Goal {
     private int failedPathFindingPenalty = 0;
     private boolean canPenalize = false;
 
+    private int attackTime;
+
     public KitsuneAttackGoal(PathfinderMob pMob, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen) {
         this.mob = pMob;
         this.speedModifier = pSpeedModifier;
@@ -34,10 +39,6 @@ public class KitsuneAttackGoal extends Goal {
         this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));
     }
 
-    /**
-     * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
-     * method as well.
-     */
     public boolean canUse() {
         long i = this.mob.level.getGameTime();
         if (i - this.lastCanUseCheck < 20L) {
@@ -69,9 +70,6 @@ public class KitsuneAttackGoal extends Goal {
         }
     }
 
-    /**
-     * Returns whether an in-progress EntityAIBase should continue executing
-     */
     public boolean canContinueToUse() {
         LivingEntity livingentity = this.mob.getTarget();
         if (livingentity == null) {
@@ -87,9 +85,6 @@ public class KitsuneAttackGoal extends Goal {
         }
     }
 
-    /**
-     * Execute a one shot task or start executing a continuous task
-     */
     public void start() {
         this.mob.getNavigation().moveTo(this.path, this.speedModifier);
         this.mob.setAggressive(true);
@@ -97,9 +92,6 @@ public class KitsuneAttackGoal extends Goal {
         this.ticksUntilNextAttack = 0;
     }
 
-    /**
-     * Reset the task's internal state. Called when this task is interrupted by another one
-     */
     public void stop() {
         LivingEntity livingentity = this.mob.getTarget();
         if (!EntitySelector.NO_CREATIVE_OR_SPECTATOR.test(livingentity)) {
@@ -114,12 +106,9 @@ public class KitsuneAttackGoal extends Goal {
         return true;
     }
 
-    /**
-     * Keep ticking a continuous task that has already been started
-     */
     public void tick() {
         LivingEntity livingentity = this.mob.getTarget();
-        if (livingentity != null && this.mob.distanceToSqr(livingentity) < 8.0F) {
+        if (livingentity != null && this.mob.distanceToSqr(livingentity) < 8.0D) {
             this.mob.getLookControl().setLookAt(livingentity, 30.0F, 30.0F);
             double d0 = this.mob.distanceToSqr(livingentity.getX(), livingentity.getY(), livingentity.getZ());
             this.ticksUntilNextPathRecalculation = Math.max(this.ticksUntilNextPathRecalculation - 1, 0);
@@ -155,6 +144,28 @@ public class KitsuneAttackGoal extends Goal {
 
             this.ticksUntilNextAttack = Math.max(this.ticksUntilNextAttack - 1, 0);
             this.checkAndPerformAttack(livingentity, d0);
+        } else if (livingentity != null && this.mob.level.getDifficulty() != Difficulty.PEACEFUL && this.mob.distanceToSqr(livingentity) >= 8.0D) {
+            double d0 = this.mob.distanceToSqr(livingentity);
+            double d1 = livingentity.getX() - this.mob.getX();
+            double d2 = livingentity.getY(0.5D) - this.mob.getY(0.5D);
+            double d3 = livingentity.getZ() - this.mob.getZ();
+            this.mob.getNavigation().moveTo(livingentity, this.speedModifier);
+            --this.attackTime;
+            this.mob.getLookControl().setLookAt(livingentity, 45.0F, 45.0F);
+            if (this.mob.distanceTo(livingentity) >= 8.0D) {
+                if (this.attackTime <= 0) {
+                    double d4 = Math.sqrt(Math.sqrt(d0)) * 0.5D;
+                    this.attackTime = 20 + this.mob.getRandom().nextInt(10) * 40 / 2;
+                    KitsuneProjectileEntity kitsuneProjectileEntity = new KitsuneProjectileEntity(this.mob.level, this.mob, this.mob.getRandom().triangle(d1, 2.297D * d4), d2, this.mob.getRandom().triangle(d3, 2.297D * d4));
+                    kitsuneProjectileEntity.setPos(kitsuneProjectileEntity.getX(), this.mob.getY(0.5D) + 0.5D, kitsuneProjectileEntity.getZ());
+                    this.mob.level.addFreshEntity(kitsuneProjectileEntity);
+                    this.mob.playSound(SoundEvents.SHULKER_SHOOT, 2.0F, 1.0F);
+                }
+            } else {
+                this.mob.setTarget(livingentity);
+            }
+
+            super.tick();
         }
     }
 
