@@ -25,17 +25,12 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class KunaiItem extends Item implements Vanishable {
+public class KunaiItem extends SwordItem implements Vanishable {
 
     public static final float BASE_DAMAGE = 8.0F;
-    private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
-    public KunaiItem(Item.Properties pProperties) {
-        super(pProperties);
-        ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier", 4.0D, AttributeModifier.Operation.ADDITION));
-        builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", (double)-2.2F, AttributeModifier.Operation.ADDITION));
-        this.defaultModifiers = builder.build();
+    public KunaiItem(Tier toolMaterial, int attackDamage, float attackSpeed, Item.Properties settings) {
+        super(toolMaterial, attackDamage, attackSpeed, settings);
     }
 
     public int getUseDuration(ItemStack pStack) {
@@ -88,13 +83,6 @@ public class KunaiItem extends Item implements Vanishable {
         return true;
     }
 
-    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot pEquipmentSlot) {
-        return pEquipmentSlot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(pEquipmentSlot);
-    }
-
-    public int getEnchantmentValue() {
-        return 10;
-    }
 }
 
 

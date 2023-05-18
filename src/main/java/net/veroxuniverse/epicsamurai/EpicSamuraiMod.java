@@ -12,6 +12,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.veroxuniverse.epicsamurai.client.custom_entities.*;
+import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.init.BlocksInit;
 import net.veroxuniverse.epicsamurai.init.ItemsInit;
@@ -39,6 +40,8 @@ public class EpicSamuraiMod
 
         ItemsInit.register(modEventBus);
         BlocksInit.register(modEventBus);
+
+        ModEnchantments.ENCHANTMENTS.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);

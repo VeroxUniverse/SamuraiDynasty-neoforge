@@ -9,7 +9,7 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 public class QuartzSamuraiArmorModel extends AnimatedGeoModel<QuartzSamuraiArmorItem> {
     @Override
     public ResourceLocation  getModelResource(QuartzSamuraiArmorItem object) {
-        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/samurai_armor.geo.json");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/samurai_armor_two.geo.json");
     }
 
     @Override

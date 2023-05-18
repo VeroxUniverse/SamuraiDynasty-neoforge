@@ -91,5 +91,7 @@
   "block.epicsamurai.silver_block": "Block of Silver",
   "block.epicsamurai.steel_block": "Block of Steel",
 
-  "itemGroup.epicsamurai_tab": "Epic Samurai"
+  "itemGroup.epicsamurai_tab": "Epic Samurai",
+
+  "enchantment.epicsamurai.spirit_slayer": "Spirit Slayer"
 }

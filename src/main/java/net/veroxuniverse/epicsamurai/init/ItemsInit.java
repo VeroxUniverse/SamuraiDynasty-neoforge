@@ -142,11 +142,11 @@ public class ItemsInit {
     public static final RegistryObject<Item> NAGAMAKI = ITEMS.register("nagamaki",
             () -> new SwordItem(ItemMaterialsInit.SAMURAI,2,-2.4f, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
     public static final RegistryObject<Item> KUNAI = ITEMS.register("kunai",
-            () -> new KunaiItem(new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+            () -> new KunaiItem(ItemMaterialsInit.SAMURAI,-1,-2.0f, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
     public static final RegistryObject<Item> KAMA = ITEMS.register("kama",
-            () -> new SwordItem(ItemMaterialsInit.SAMURAI,-1,-2.2f, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+            () -> new SwordItem(ItemMaterialsInit.SAMURAI,-1,-2.0f, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
     public static final RegistryObject<Item> SAI = ITEMS.register("sai",
-            () -> new SwordItem(ItemMaterialsInit.SAMURAI,-1,-2.2f, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+            () -> new SwordItem(ItemMaterialsInit.SAMURAI,-1,-2.0f, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
     public static final RegistryObject<Item> SHURIKEN = ITEMS.register("shuriken",
             () -> new ShurikenItem(new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
 

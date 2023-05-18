@@ -16,6 +16,7 @@ import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
 import net.veroxuniverse.epicsamurai.entity.custom.AI.KitsuneAttackGoal;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -29,6 +30,8 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 import static net.minecraft.world.entity.monster.hoglin.HoglinBase.throwTarget;
 
 public class KitsuneEntity extends Monster implements IAnimatable {
+
+    private boolean invulnerable;
 
     private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
 
@@ -95,6 +98,28 @@ public class KitsuneEntity extends Monster implements IAnimatable {
             event.getController().markNeedsReload();
             return PlayState.STOP;
         }));
+    }
+
+    @Override
+    public boolean isInvulnerableTo(DamageSource pSource) {
+        return this.isRemoved() || this.invulnerable && pSource != DamageSource.OUT_OF_WORLD && !pSource.isCreativePlayer() || pSource.isFire() && this.fireImmune();
+    }
+
+    public boolean isInvulnerable() {
+        return this.invulnerable;
+    }
+
+    public void setInvulnerable(boolean pIsInvulnerable) {
+        this.invulnerable = pIsInvulnerable;
+    }
+
+    public boolean hurt(DamageSource pSource, float pAmount) {
+        if (this.isInvulnerableTo(pSource)) {
+            return false;
+        } else {
+            this.markHurt();
+            return false;
+        }
     }
 
     @Override
