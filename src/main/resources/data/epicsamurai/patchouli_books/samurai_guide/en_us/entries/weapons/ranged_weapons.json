@@ -1,0 +1,17 @@
+{
+  "name": "Ranged Weapons",
+  "icon": "epicsamurai:shuriken",
+  "category": "epicsamurai:weapons",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "You can use ranged weapons to attack your target from stealth. There are two ranged weapons you can craft, the Shuriken and the Kunai. You can throw them by right-clicking them. The Kunai uses durability for each throw."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "epicsamurai:shuriken",
+      "recipe2": "epicsamurai:kunai"
+    }
+  ]
+}

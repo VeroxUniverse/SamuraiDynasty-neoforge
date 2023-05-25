@@ -1,8 +1,8 @@
 package net.veroxuniverse.epicsamurai.entity.custom;
 
 import com.google.common.base.MoreObjects;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -18,6 +18,7 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
+import net.veroxuniverse.epicsamurai.init.ParticlesInit;
 import org.jetbrains.annotations.NotNull;
 
 public class KitsuneProjectileEntity extends AbstractHurtingProjectile {
@@ -57,6 +58,17 @@ public class KitsuneProjectileEntity extends AbstractHurtingProjectile {
 
     protected void onHitBlock(@NotNull BlockHitResult pResult) {
         super.onHitBlock(pResult);
+        BlockPos blockpos = pResult.getBlockPos().relative(pResult.getDirection());
+        OnibiEntity spawnOnibi = ModEntityTypes.ONIBI.get().create(level);
+        double random = Math.random();
+        if (this.level.isEmptyBlock(blockpos)) {
+            if (random <= 0.5) {
+                if (spawnOnibi != null) {
+                    spawnOnibi.setPos(Vec3.atCenterOf(blockpos));
+                    level.addFreshEntity(spawnOnibi);
+                }
+            }
+        }
         if (!this.level.isClientSide) {
             this.playSound(SoundEvents.SHULKER_BULLET_HIT, 1.0F, 1.0F);
         }
@@ -84,7 +96,7 @@ public class KitsuneProjectileEntity extends AbstractHurtingProjectile {
             if (this.isInWater()) {
                 for(int i = 0; i < 4; ++i) {
                     float f1 = 0.25F;
-                    this.level.addParticle(ParticleTypes.BUBBLE, d0 - vec3.x * 0.25D, d1 - vec3.y * 0.25D, d2 - vec3.z * 0.25D, vec3.x, vec3.y, vec3.z);
+                    this.level.addParticle(ParticlesInit.BLUE_FLAME.get(), d0 - vec3.x * 0.25D, d1 - vec3.y * 0.25D, d2 - vec3.z * 0.25D, vec3.x, vec3.y, vec3.z);
                 }
 
                 f = 1.6F;
@@ -114,7 +126,7 @@ public class KitsuneProjectileEntity extends AbstractHurtingProjectile {
     }
 
     protected @NotNull ParticleOptions getTrailParticle() {
-        return ParticleTypes.CRIMSON_SPORE;
+        return ParticlesInit.BLUE_FLAME.get();
     }
 
     public boolean isPickable() {

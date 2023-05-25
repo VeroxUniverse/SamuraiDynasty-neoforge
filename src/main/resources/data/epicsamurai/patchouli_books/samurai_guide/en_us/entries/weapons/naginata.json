@@ -1,0 +1,16 @@
+{
+  "name": "Naginata",
+  "icon": "epicsamurai:naginata",
+  "category": "epicsamurai:weapons",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Naginata is a melee weapon with more range. It acts like a spear."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "epicsamurai:naginata"
+    }
+  ]
+}

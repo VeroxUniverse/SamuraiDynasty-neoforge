@@ -1,0 +1,20 @@
+{
+  "name": "Enenra",
+  "icon": "epicsamurai:enenra_spawn_egg",
+  "category": "epicsamurai:creatures",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "> $(n)Health:$() 20     $(br)> $(n)Attack Damage:$() 3     $(br)> $(n)Behavior:$() Aggressive     $(br)> $(n)Spawn:$() $(l)Overworld$() $(br)> $(n)Properties:$() $(br)Describtion"
+    },
+    {
+      "type": "patchouli:image",
+      "title": "Enenra",
+      "images": [
+        "epicsamurai:textures/patchouli_images/enenra_square.png"
+      ],
+      "border": "true",
+      "text": "$(n)Drops:$() -"
+    }
+  ]
+}

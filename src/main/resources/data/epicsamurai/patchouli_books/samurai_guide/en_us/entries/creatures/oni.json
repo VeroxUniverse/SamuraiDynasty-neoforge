@@ -1,0 +1,20 @@
+{
+  "name": "Oni",
+  "icon": "epicsamurai:oni_spawn_egg",
+  "category": "epicsamurai:creatures",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "> $(n)Health:$() 100     $(br)> $(n)Attack Damage:$() 7     $(br)> $(n)Behavior:$() Aggressive     $(br)> $(n)Spawn:$() $(l)Nether$() $(br)> $(n)Properties:$() $(br)Describtion"
+    },
+    {
+      "type": "patchouli:image",
+      "title": "Oni",
+      "images": [
+        "epicsamurai:textures/patchouli_images/oni_square.png"
+      ],
+      "border": "true",
+      "text": "$(n)Drops:$() -"
+    }
+  ]
+}

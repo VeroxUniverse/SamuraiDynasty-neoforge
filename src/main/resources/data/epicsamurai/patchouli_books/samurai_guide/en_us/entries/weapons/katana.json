@@ -1,0 +1,16 @@
+{
+  "name": "Katana",
+  "icon": "epicsamurai:katana",
+  "category": "epicsamurai:weapons",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Katana is the main weapon of the Samurai."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "epicsamurai:katana"
+    }
+  ]
+}

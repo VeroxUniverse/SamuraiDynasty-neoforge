@@ -1,0 +1,16 @@
+{
+  "name": "Kunai",
+  "icon": "epicsamurai:kunai",
+  "category": "epicsamurai:weapons",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Kunai is melee and ranged weapon with more attack speed."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "epicsamurai:kunai"
+    }
+  ]
+}

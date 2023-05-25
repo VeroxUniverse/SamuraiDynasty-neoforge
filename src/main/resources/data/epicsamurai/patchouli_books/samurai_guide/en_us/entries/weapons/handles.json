@@ -1,0 +1,21 @@
+{
+  "name": "Weapon Handles",
+  "icon": "epicsamurai:katana_handle",
+  "category": "epicsamurai:weapons",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The weapons need a special handle as an ingredient."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "epicsamurai:katana_handle",
+      "recipe2": "epicsamurai:knive_handle"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "epicsamurai:spear_handle"
+    }
+  ]
+}

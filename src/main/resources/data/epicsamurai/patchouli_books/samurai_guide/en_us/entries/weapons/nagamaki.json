@@ -1,0 +1,16 @@
+{
+  "name": "Nagamaki",
+  "icon": "epicsamurai:nagamaki",
+  "category": "epicsamurai:weapons",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Nagamaki is a melee weapon with more range. It acts like a spear. It can be crafted with the Katana."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "epicsamurai:nagamaki"
+    }
+  ]
+}

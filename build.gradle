@@ -109,6 +109,7 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+    maven { url 'https://maven.blamejared.com' }
     maven {
         // location of the maven that hosts JEI files since January 2023
         name = "Jared's maven"
@@ -132,6 +133,9 @@ dependencies {
     compileOnly(fg.deobf("mezz.jei:jei-${project.minecraft_version}-forge-api:${project.jei_version}"))
     // at runtime, use the full JEI jar for Forge
     runtimeOnly(fg.deobf("mezz.jei:jei-${project.minecraft_version}-forge:${project.jei_version}"))
+
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:${project.patchouli_version}:api")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${project.patchouli_version}")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
 }

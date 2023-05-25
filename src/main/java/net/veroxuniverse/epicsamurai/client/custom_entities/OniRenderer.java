@@ -8,7 +8,6 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.client.custom_layers.OniGlowLayer;
-import net.veroxuniverse.epicsamurai.entity.custom.EnenraEntity;
 import net.veroxuniverse.epicsamurai.entity.custom.OniEntity;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;

@@ -7,7 +7,6 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
-import net.veroxuniverse.epicsamurai.entity.custom.AkanameEntity;
 import net.veroxuniverse.epicsamurai.entity.custom.KitsuneEntity;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
@@ -16,6 +15,7 @@ public class KitsuneRenderer extends GeoEntityRenderer<KitsuneEntity> {
     public KitsuneRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new KitsuneModel());
         this.shadowRadius = 0.3f;
+        //this.addLayer(new KitsuneGlowLayer<>(this));
     }
 
     @Override

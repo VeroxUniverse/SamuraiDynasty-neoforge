@@ -1,0 +1,9 @@
+{
+  "name": "Samurai's Guide",
+  "landing_text": "You discovered the ancient myths of Japan. This book will guide you and will train you as a Samurai. The guide will contain all information about the Samurai Weaponry and the Demons of the world",
+  "book_texture": "epicsamurai:textures/gui/samurai_scroll.png",
+  "model": "epicsamurai:samurai_guide",
+  "show_progress": false,
+  "pause_game": false,
+  "version": 1
+}

@@ -16,6 +16,7 @@ import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.init.BlocksInit;
 import net.veroxuniverse.epicsamurai.init.ItemsInit;
+import net.veroxuniverse.epicsamurai.init.ParticlesInit;
 import net.veroxuniverse.epicsamurai.world.feature.ModConfiguredFeatures;
 import net.veroxuniverse.epicsamurai.world.feature.ModPlacedFeatures;
 import org.slf4j.Logger;
@@ -40,6 +41,7 @@ public class EpicSamuraiMod
 
         ItemsInit.register(modEventBus);
         BlocksInit.register(modEventBus);
+        ParticlesInit.register(modEventBus);
 
         ModEnchantments.ENCHANTMENTS.register(modEventBus);
 
@@ -63,6 +65,7 @@ public class EpicSamuraiMod
             EntityRenderers.register(ModEntityTypes.AKANAME.get(), AkanameRenderer::new);
             EntityRenderers.register(ModEntityTypes.ENENRA.get(), EnenraRenderer::new);
             EntityRenderers.register(ModEntityTypes.ONI.get(), OniRenderer::new);
+            EntityRenderers.register(ModEntityTypes.ONIBI.get(), OnibiRenderer::new);
             EntityRenderers.register(ModEntityTypes.KITSUNE.get(), KitsuneRenderer::new);
             EntityRenderers.register(ModEntityTypes.KITSUNE_PROJECTILE.get(), KitsuneProjectileRenderer::new);
 

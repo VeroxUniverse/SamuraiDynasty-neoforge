@@ -1,0 +1,20 @@
+{
+  "name": "Akaname",
+  "icon": "epicsamurai:akaname_spawn_egg",
+  "category": "epicsamurai:creatures",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "> $(n)Health:$() 20     $(br)> $(n)Attack Damage:$() 3     $(br)> $(n)Behavior:$() Aggressive     $(br)> $(n)Spawn:$() $(l)Nether$() $(br)> $(n)Properties:$() $(br)Describtion"
+    },
+    {
+      "type": "patchouli:image",
+      "title": "Enenra",
+      "images": [
+        "epicsamurai:textures/patchouli_images/akaname_square.png"
+      ],
+      "border": "true",
+      "text": "$(n)Drops:$() -"
+    }
+  ]
+}

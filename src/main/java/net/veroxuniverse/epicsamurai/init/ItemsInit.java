@@ -127,6 +127,8 @@ public class ItemsInit {
 
     public static final RegistryObject<Item> STRAW_HAT = ITEMS.register("straw_hat",
             () -> new StrawHatArmorItem(ArmorMaterialsInit.STRAW, EquipmentSlot.HEAD, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+    public static final RegistryObject<Item> ONI_MASK = ITEMS.register("oni_mask",
+            () -> new OniMaskArmorItem(ArmorMaterialsInit.STRAW, EquipmentSlot.HEAD, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
 
     public static final RegistryObject<Item> KNIVE_HANDLE = ITEMS.register("knive_handle",
             () -> new Item(new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
@@ -161,6 +163,9 @@ public class ItemsInit {
                     new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
     public static final RegistryObject<Item> KITSUNE_SPAWN_EGG = ITEMS.register("kitsune_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.KITSUNE, 0xff9356, 0xdd0885,
+                    new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+    public static final RegistryObject<Item> ONIBI_SPAWN_EGG = ITEMS.register("onibi_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.ONIBI, 0x00baff, 0xffffff,
                     new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
 
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby",

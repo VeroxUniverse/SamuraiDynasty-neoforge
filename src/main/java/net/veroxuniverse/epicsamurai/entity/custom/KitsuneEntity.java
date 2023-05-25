@@ -14,6 +14,8 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
@@ -73,7 +75,7 @@ public class KitsuneEntity extends Monster implements IAnimatable {
 
     @Override
     public int getCurrentSwingDuration() {
-        return 10;
+        return 18;
     }
 
     @Override
@@ -100,27 +102,29 @@ public class KitsuneEntity extends Monster implements IAnimatable {
         }));
     }
 
-    @Override
-    public boolean isInvulnerableTo(DamageSource pSource) {
-        return this.isRemoved() || this.invulnerable && pSource != DamageSource.OUT_OF_WORLD && !pSource.isCreativePlayer() || pSource.isFire() && this.fireImmune();
-    }
-
-    public boolean isInvulnerable() {
-        return this.invulnerable;
-    }
-
-    public void setInvulnerable(boolean pIsInvulnerable) {
-        this.invulnerable = pIsInvulnerable;
-    }
-
-    public boolean hurt(DamageSource pSource, float pAmount) {
-        if (this.isInvulnerableTo(pSource)) {
-            return false;
+    public boolean hasEnchantment(Enchantment pEnchantment, LivingEntity pEntity) {
+        if (pEntity != null) {
+            return EnchantmentHelper.getEnchantmentLevel(pEnchantment, pEntity) > 0;
         } else {
-            this.markHurt();
             return false;
         }
     }
+
+    @Override
+    public boolean isInvulnerableTo(DamageSource pSource) {
+        LivingEntity attacker = (LivingEntity) pSource.getEntity();
+        Enchantment enchantment = ModEnchantments.DEMON_SLAYER.get();
+
+        boolean hasSpiritSlayer = hasEnchantment(enchantment, attacker);
+
+        if (!hasSpiritSlayer && !pSource.isCreativePlayer() && attacker != null) {
+            return true;
+        } else {
+            return pSource.isProjectile() || super.isInvulnerableTo(pSource);
+        }
+    }
+
+
 
     @Override
     public AnimationFactory getFactory() {

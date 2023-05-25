@@ -154,7 +154,7 @@ public class KitsuneAttackGoal extends Goal {
             if (this.mob.distanceTo(livingentity) >= 8.0D) {
                 if (this.attackTime <= 0) {
                     double d4 = Math.sqrt(Math.sqrt(d0)) * 0.5D;
-                    this.attackTime = 20 + this.mob.getRandom().nextInt(10) * 40 / 2;
+                    this.attackTime = 80 + this.mob.getRandom().nextInt(10) * 40 / 2;
                     KitsuneProjectileEntity kitsuneProjectileEntity = new KitsuneProjectileEntity(this.mob.level, this.mob, this.mob.getRandom().triangle(d1, 2.297D * d4), d2, this.mob.getRandom().triangle(d3, 2.297D * d4));
                     kitsuneProjectileEntity.setPos(kitsuneProjectileEntity.getX(), this.mob.getY(0.5D) + 0.5D, kitsuneProjectileEntity.getZ());
                     this.mob.level.addFreshEntity(kitsuneProjectileEntity);

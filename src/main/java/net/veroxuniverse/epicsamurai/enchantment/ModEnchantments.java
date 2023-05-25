@@ -10,12 +10,13 @@ import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 
 public class ModEnchantments {
+
     public static final DeferredRegister<Enchantment> ENCHANTMENTS =
             DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, EpicSamuraiMod.MOD_ID);
 
-    public static RegistryObject<Enchantment> SPIRIT_SLAYER =
-            ENCHANTMENTS.register("spirit_slayer",
-                    () -> new SpiritSlayerEnchantment(Enchantment.Rarity.RARE,
+    public static RegistryObject<Enchantment> DEMON_SLAYER =
+            ENCHANTMENTS.register("demon_slayer",
+                    () -> new DemonSlayerEnchantment(Enchantment.Rarity.UNCOMMON,
                             EnchantmentCategory.WEAPON, EquipmentSlot.MAINHAND));
 
 
