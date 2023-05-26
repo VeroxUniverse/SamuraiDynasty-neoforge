@@ -83,7 +83,9 @@ public class ItemsInit {
     public static final RegistryObject<Item> QUARTZ_SAMURAI_BOOTS = ITEMS.register("quartz_samurai_boots",
             () -> new QuartzSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_QUARTZ, EquipmentSlot.FEET, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
 
+    if (ModList.get().isLoaded("deeperdarker")) {
 
+    }
 
     public static final RegistryObject<Item> SCULK_SAMURAI_HELMET = ITEMS.register("sculk_samurai_helmet",
                 () -> new SculkSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_SCULK, EquipmentSlot.HEAD, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
