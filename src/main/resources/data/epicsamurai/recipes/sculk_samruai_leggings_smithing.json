@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "addition": {
+    "item": "deeperdarker:reinforced_echo_shard"
+  },
+  "base": {
+    "item": "epicsamurai:netherite_samurai_leggings"
+  },
+  "result": {
+    "item": "epicsamurai:sculk_samurai_leggings"
+  }
+}

@@ -41,6 +41,10 @@ public enum ArmorMaterialsInit implements ArmorMaterial {
             SoundEvents.ARMOR_EQUIP_NETHERITE, 2.5F, 0.1F,
             () -> Ingredient.of(Items.NETHERITE_INGOT)),
 
+    SAMURAI_SCULK("samurai_sculk", 55, new int[]{3, 6, 8, 3}, 25,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.2F,
+            () -> Ingredient.of(Items.ECHO_SHARD)),
+
     SAMURAI_AMETHYST("samurai_amethyst", 35, new int[]{3, 6, 8, 3}, 25,
             SoundEvents.AMETHYST_CLUSTER_PLACE, 2.5F, 0.0F,
             () -> Ingredient.of(ItemsInit.AMETHYST_INGOT.get())),

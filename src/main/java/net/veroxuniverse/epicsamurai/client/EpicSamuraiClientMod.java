@@ -32,6 +32,7 @@ public class EpicSamuraiClientMod {
         GeoArmorRenderer.registerArmorRenderer(SteelArmorItem.class, SteelArmorRenderer::new);
         GeoArmorRenderer.registerArmorRenderer(AmethystSamuraiArmorItem.class, AmethystSamuraiArmorRenderer::new);
         GeoArmorRenderer.registerArmorRenderer(QuartzSamuraiArmorItem.class, QuartzSamuraiArmorRenderer::new);
+        GeoArmorRenderer.registerArmorRenderer(SculkSamuraiArmorItem.class, SculkSamuraiArmorRenderer::new);
     }
 }
 
