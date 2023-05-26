@@ -83,19 +83,14 @@ public class ItemsInit {
     public static final RegistryObject<Item> QUARTZ_SAMURAI_BOOTS = ITEMS.register("quartz_samurai_boots",
             () -> new QuartzSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_QUARTZ, EquipmentSlot.FEET, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
 
-    if (ModList.get().isLoaded("deeperdarker")) {
-
-    }
-
     public static final RegistryObject<Item> SCULK_SAMURAI_HELMET = ITEMS.register("sculk_samurai_helmet",
-                () -> new SculkSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_SCULK, EquipmentSlot.HEAD, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+            () -> new SculkSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_SCULK, EquipmentSlot.HEAD, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
     public static final RegistryObject<Item> SCULK_SAMURAI_CHESTPLATE = ITEMS.register("sculk_samurai_chestplate",
-                () -> new SculkSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_SCULK, EquipmentSlot.CHEST, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+            () -> new SculkSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_SCULK, EquipmentSlot.CHEST, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
     public static final RegistryObject<Item> SCULK_SAMURAI_LEGGINGS = ITEMS.register("sculk_samurai_leggings",
-                () -> new SculkSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_SCULK, EquipmentSlot.LEGS, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
+            () -> new SculkSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_SCULK, EquipmentSlot.LEGS, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
     public static final RegistryObject<Item> SCULK_SAMURAI_BOOTS = ITEMS.register("sculk_samurai_boots",
-                () -> new SculkSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_SCULK, EquipmentSlot.FEET, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
-
+            () -> new SculkSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_SCULK, EquipmentSlot.FEET, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
 
     public static final RegistryObject<Item> RED_SAMURAI_HELMET = ITEMS.register("red_samurai_helmet",
             () -> new RedSamuraiArmorItem(ArmorMaterialsInit.SAMURAI_RUBY, EquipmentSlot.HEAD, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB)));
