@@ -4,7 +4,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
-import net.veroxuniverse.epicsamurai.init.ArmorMaterialsInit;
+import net.veroxuniverse.epicsamurai.registry.ArmorMaterialsRegistry;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.controller.AnimationController;
@@ -46,7 +46,7 @@ public class GreenSamuraiArmorItem extends GeoArmorItem implements IAnimatable {
 
     @Override
     public boolean makesPiglinsNeutral(ItemStack stack, LivingEntity wearer) {
-        return this.material == ArmorMaterialsInit.SAMURAI_JADE;
+        return this.material == ArmorMaterialsRegistry.SAMURAI_JADE;
     }
 
 }

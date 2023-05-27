@@ -18,7 +18,7 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
-import net.veroxuniverse.epicsamurai.init.ParticlesInit;
+import net.veroxuniverse.epicsamurai.registry.ParticlesInit;
 import org.jetbrains.annotations.NotNull;
 
 public class KitsuneProjectileEntity extends AbstractHurtingProjectile {

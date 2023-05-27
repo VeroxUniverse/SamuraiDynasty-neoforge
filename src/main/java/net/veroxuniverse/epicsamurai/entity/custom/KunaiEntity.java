@@ -14,7 +14,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
-import net.veroxuniverse.epicsamurai.init.ItemsInit;
+import net.veroxuniverse.epicsamurai.registry.ItemsRegistry;
 
 public class KunaiEntity extends ThrowableItemProjectile {
 
@@ -25,7 +25,7 @@ public class KunaiEntity extends ThrowableItemProjectile {
     }
 
     protected Item getDefaultItem() {
-        return ItemsInit.KUNAI.get();
+        return ItemsRegistry.KUNAI.get();
     }
 
     private ParticleOptions getParticle() {

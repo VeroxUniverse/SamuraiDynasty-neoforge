@@ -14,7 +14,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
-import net.veroxuniverse.epicsamurai.init.ItemsInit;
+import net.veroxuniverse.epicsamurai.registry.ItemsRegistry;
 
 public class ShurikenEntity extends ThrowableItemProjectile {
 
@@ -25,7 +25,7 @@ public class ShurikenEntity extends ThrowableItemProjectile {
     }
 
     protected Item getDefaultItem() {
-        return ItemsInit.SHURIKEN.get();
+        return ItemsRegistry.SHURIKEN.get();
     }
 
     private ParticleOptions getParticle() {

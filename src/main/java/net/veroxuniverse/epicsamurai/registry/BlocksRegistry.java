@@ -1,4 +1,4 @@
-package net.veroxuniverse.epicsamurai.init;
+package net.veroxuniverse.epicsamurai.registry;
 
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -17,7 +17,7 @@ import net.veroxuniverse.epicsamurai.util.EpicSamuraiModCreativeTabs;
 
 import java.util.function.Supplier;
 
-public class BlocksInit {
+public class BlocksRegistry {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, EpicSamuraiMod.MOD_ID);
 
@@ -82,7 +82,7 @@ public class BlocksInit {
     }
 
     private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block, CreativeModeTab tab) {
-        return ItemsInit.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
+        return ItemsRegistry.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
     }
 
     public static void register(IEventBus eventBus) {

@@ -1,4 +1,4 @@
-package net.veroxuniverse.epicsamurai.init;
+package net.veroxuniverse.epicsamurai.registry;
 
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;

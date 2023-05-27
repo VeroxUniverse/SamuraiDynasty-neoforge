@@ -1,4 +1,4 @@
-package net.veroxuniverse.epicsamurai.init;
+package net.veroxuniverse.epicsamurai.registry;
 
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -11,27 +11,27 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
-public enum ArmorMaterialsInit implements ArmorMaterial {
+public enum ArmorMaterialsRegistry implements ArmorMaterial {
 
     SAMURAI_RUBY("samurai_ruby", 33, new int[]{3, 6, 8, 2}, 25,
             SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F,
-            () -> Ingredient.of(ItemsInit.RUBY.get())),
+            () -> Ingredient.of(ItemsRegistry.RUBY.get())),
 
     SAMURAI_ONYX("samurai_onyx", 33, new int[]{3, 6, 8, 2}, 25,
             SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F,
-            () -> Ingredient.of(ItemsInit.ONYX.get())),
+            () -> Ingredient.of(ItemsRegistry.ONYX.get())),
 
     SAMURAI_AQUA("samurai_aqua", 33, new int[]{3, 6, 8, 2}, 25,
             SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F,
-            () -> Ingredient.of(ItemsInit.AQUAMARINE.get())),
+            () -> Ingredient.of(ItemsRegistry.AQUAMARINE.get())),
 
     SAMURAI_JADE("samurai_jade", 33, new int[]{3, 6, 8, 2}, 25,
             SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F,
-            () -> Ingredient.of(ItemsInit.JADE.get())),
+            () -> Ingredient.of(ItemsRegistry.JADE.get())),
 
     SAMURAI_SILVER("samurai_silver", 20, new int[]{2, 5, 6, 2}, 12,
             SoundEvents.ARMOR_EQUIP_IRON, 0.5F, 0.0F,
-            () -> Ingredient.of(ItemsInit.SILVER_INGOT.get())),
+            () -> Ingredient.of(ItemsRegistry.SILVER_INGOT.get())),
 
     SAMURAI_DIAMOND("samurai_diamond", 33, new int[]{3, 6, 8, 2}, 12,
             SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F,
@@ -42,16 +42,16 @@ public enum ArmorMaterialsInit implements ArmorMaterial {
             () -> Ingredient.of(Items.NETHERITE_INGOT)),
 
     SAMURAI_SCULK("samurai_sculk", 55, new int[]{3, 6, 8, 3}, 25,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.2F,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.5F,
             () -> Ingredient.of(Items.ECHO_SHARD)),
 
     SAMURAI_AMETHYST("samurai_amethyst", 35, new int[]{3, 6, 8, 3}, 25,
             SoundEvents.AMETHYST_CLUSTER_PLACE, 2.5F, 0.0F,
-            () -> Ingredient.of(ItemsInit.AMETHYST_INGOT.get())),
+            () -> Ingredient.of(ItemsRegistry.AMETHYST_INGOT.get())),
 
     SAMURAI_QUARTZ("samurai_quartz", 35, new int[]{3, 6, 8, 3}, 25,
             SoundEvents.ARMOR_EQUIP_DIAMOND, 2.5F, 0.0F,
-            () -> Ingredient.of(ItemsInit.QUARTZ_INGOT.get())),
+            () -> Ingredient.of(ItemsRegistry.QUARTZ_INGOT.get())),
 
     SAMURAI_GOLD("samurai_gold", 15, new int[]{2, 4, 5, 2}, 25,
             SoundEvents.ARMOR_EQUIP_GOLD, 0.5F, 0.0F,
@@ -64,7 +64,7 @@ public enum ArmorMaterialsInit implements ArmorMaterial {
 
     STEEL("steel", 29, new int[]{3, 5, 7, 2}, 12,
             SoundEvents.ARMOR_EQUIP_IRON, 0.5F, 0.0F,
-            () -> Ingredient.of(ItemsInit.STEEL_INGOT.get())),
+            () -> Ingredient.of(ItemsRegistry.STEEL_INGOT.get())),
 
     STRAW("straw", 15, new int[]{1, 1, 1, 1}, 7,
     SoundEvents.ARMOR_EQUIP_LEATHER, 0.5F, 0.0F,
@@ -80,8 +80,8 @@ public enum ArmorMaterialsInit implements ArmorMaterial {
     private final float knockbackResistance;
     private final Supplier<Ingredient> repairIngredient;
 
-    ArmorMaterialsInit(String name, int durabilityMultiplier, int[] slotProtections, int enchantmentValue,
-                      SoundEvent sound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
+    ArmorMaterialsRegistry(String name, int durabilityMultiplier, int[] slotProtections, int enchantmentValue,
+                           SoundEvent sound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
         this.name = name;
         this.durabilityMultiplier = durabilityMultiplier;
         this.slotProtections = slotProtections;

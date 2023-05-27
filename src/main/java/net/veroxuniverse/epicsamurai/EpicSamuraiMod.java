@@ -7,16 +7,18 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.veroxuniverse.epicsamurai.client.custom_entities.*;
+import net.veroxuniverse.epicsamurai.compat.DeeperDarkerCompat;
 import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
-import net.veroxuniverse.epicsamurai.init.BlocksInit;
-import net.veroxuniverse.epicsamurai.init.ItemsInit;
-import net.veroxuniverse.epicsamurai.init.ParticlesInit;
+import net.veroxuniverse.epicsamurai.registry.BlocksRegistry;
+import net.veroxuniverse.epicsamurai.registry.ItemsRegistry;
+import net.veroxuniverse.epicsamurai.registry.ParticlesInit;
 import net.veroxuniverse.epicsamurai.world.feature.ModConfiguredFeatures;
 import net.veroxuniverse.epicsamurai.world.feature.ModPlacedFeatures;
 import org.slf4j.Logger;
@@ -39,11 +41,15 @@ public class EpicSamuraiMod
         ModConfiguredFeatures.register(modEventBus);
         ModPlacedFeatures.register(modEventBus);
 
-        ItemsInit.register(modEventBus);
-        BlocksInit.register(modEventBus);
+        ItemsRegistry.register(modEventBus);
+        BlocksRegistry.register(modEventBus);
         ParticlesInit.register(modEventBus);
 
         ModEnchantments.ENCHANTMENTS.register(modEventBus);
+
+        if(ModList.get().isLoaded("deeperdarker")) {
+            DeeperDarkerCompat.register(modEventBus);
+        }
 
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);

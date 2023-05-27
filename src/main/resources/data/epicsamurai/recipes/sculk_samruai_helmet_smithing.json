@@ -1,12 +1,25 @@
 {
-  "type": "minecraft:smithing",
-  "addition": {
-    "item": "deeperdarker:reinforced_echo_shard"
-  },
-  "base": {
-    "item": "epicsamurai:netherite_samurai_helmet"
-  },
-  "result": {
-    "item": "epicsamurai:sculk_samurai_helmet"
-  }
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "deeperdarker"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:smithing",
+        "addition": {
+          "item": "deeperdarker:reinforced_echo_shard"
+        },
+        "base": {
+          "item": "epicsamurai:netherite_samurai_helmet"
+        },
+        "result": {
+          "item": "epicsamurai:sculk_samurai_helmet"
+        }
+      }
+    }
+  ]
 }

@@ -1,8 +1,6 @@
 package net.veroxuniverse.epicsamurai.event;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.SpawnPlacements;
-import net.minecraft.world.entity.ambient.AmbientCreature;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
@@ -14,7 +12,7 @@ import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.client.particle.BlueFlame;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.entity.custom.*;
-import net.veroxuniverse.epicsamurai.init.ParticlesInit;
+import net.veroxuniverse.epicsamurai.registry.ParticlesInit;
 
 public class ModEvents {
 
