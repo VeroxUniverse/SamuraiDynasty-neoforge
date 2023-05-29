@@ -13,6 +13,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.veroxuniverse.epicsamurai.client.custom_entities.*;
+import net.veroxuniverse.epicsamurai.compat.ArsNouveauCompat;
+import net.veroxuniverse.epicsamurai.compat.CreateCompat;
 import net.veroxuniverse.epicsamurai.compat.DeeperDarkerCompat;
 import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
@@ -49,6 +51,12 @@ public class EpicSamuraiMod
 
         if(ModList.get().isLoaded("deeperdarker")) {
             DeeperDarkerCompat.register(modEventBus);
+        }
+        if(ModList.get().isLoaded("create")) {
+            CreateCompat.register(modEventBus);
+        }
+        if(ModList.get().isLoaded("ars_nouveau")) {
+            ArsNouveauCompat.register(modEventBus);
         }
 
         modEventBus.addListener(this::commonSetup);

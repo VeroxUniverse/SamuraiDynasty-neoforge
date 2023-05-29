@@ -1,0 +1,40 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "ars_nouveau"
+        }
+      ],
+      "recipe": {
+        "type": "ars_nouveau:enchanting_apparatus",
+        "keepNbtOfReagent": true,
+        "output": {
+          "item": "epicsamurai:mage_samurai_helmet"
+        },
+        "pedestalItems": [
+          {
+            "item": "ars_nouveau:magebloom_fiber"
+          },
+          {
+            "item": "ars_nouveau:magebloom_fiber"
+          },
+          {
+            "item": "ars_nouveau:magebloom_fiber"
+          },
+          {
+            "item": "ars_nouveau:magebloom_fiber"
+          }
+        ],
+        "reagent": [
+          {
+            "tag": "epicsamurai:armors/gem_samurai_armor_helmet"
+          }
+        ],
+        "sourceCost": 2500
+      }
+    }
+  ]
+}

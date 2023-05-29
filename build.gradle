@@ -127,6 +127,8 @@ dependencies {
     minecraft "net.minecraftforge:forge:${project.minecraft_version}-${project.loader_version}"
 
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${project.geckolib_version}")
+    implementation fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${project.minecraft_version}:${project.ars_version}")
+    implementation fg.deobf("top.theillusivec4.curios:curios-forge:${project.minecraft_version}-${project.curio_version}")
 
     // compile against the JEI API but do not include it at runtime
     compileOnly(fg.deobf("mezz.jei:jei-${project.minecraft_version}-common-api:${project.jei_version}"))
