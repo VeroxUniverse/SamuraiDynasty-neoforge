@@ -1,5 +1,8 @@
 package net.veroxuniverse.epicsamurai.compat;
 
+import com.hollingsworth.arsnouveau.api.ArsNouveauAPI;
+import com.hollingsworth.arsnouveau.api.perk.ArmorPerkHolder;
+import com.hollingsworth.arsnouveau.api.perk.PerkSlot;
 import com.hollingsworth.arsnouveau.common.armor.Materials;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
@@ -8,8 +11,12 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
+import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.ars_nouveau.MageSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.item.armor.MageSamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.util.EpicSamuraiModCreativeTabs;
+import software.bernie.ars_nouveau.geckolib3.renderers.geo.GeoArmorRenderer;
+
+import java.util.Arrays;
 
 public class ArsNouveauCompat {
 
@@ -28,5 +35,33 @@ public class ArsNouveauCompat {
 
     public static void register(IEventBus eventBus) {
         ARSN_ITEMS.register(eventBus);
+    }
+
+    public static void registerPerkProviders(){
+        var api = ArsNouveauAPI.getInstance();
+        api.registerPerkProvider(MAGE_SAMURAI_HELMET.get(), stack -> new ArmorPerkHolder(stack, Arrays.asList(
+                Arrays.asList(PerkSlot.ONE),
+                Arrays.asList(PerkSlot.ONE, PerkSlot.ONE),
+                Arrays.asList(PerkSlot.ONE, PerkSlot.ONE, PerkSlot.TWO)
+        )));
+        api.registerPerkProvider(MAGE_SAMURAI_CHESTPLATE.get(), stack -> new ArmorPerkHolder(stack, Arrays.asList(
+                Arrays.asList(PerkSlot.ONE),
+                Arrays.asList(PerkSlot.ONE, PerkSlot.ONE),
+                Arrays.asList(PerkSlot.ONE, PerkSlot.ONE, PerkSlot.TWO)
+        )));
+        api.registerPerkProvider(MAGE_SAMURAI_LEGGINGS.get(), stack -> new ArmorPerkHolder(stack, Arrays.asList(
+                Arrays.asList(PerkSlot.ONE),
+                Arrays.asList(PerkSlot.ONE, PerkSlot.ONE),
+                Arrays.asList(PerkSlot.ONE, PerkSlot.ONE, PerkSlot.TWO)
+        )));
+        api.registerPerkProvider(MAGE_SAMURAI_BOOTS.get(), stack -> new ArmorPerkHolder(stack, Arrays.asList(
+                Arrays.asList(PerkSlot.ONE),
+                Arrays.asList(PerkSlot.ONE, PerkSlot.ONE),
+                Arrays.asList(PerkSlot.ONE, PerkSlot.ONE, PerkSlot.TWO)
+        )));
+    }
+
+    public static void registerArmorRenderer() {
+        GeoArmorRenderer.registerArmorRenderer(MageSamuraiArmorItem.class, MageSamuraiArmorRenderer::new);
     }
 }
