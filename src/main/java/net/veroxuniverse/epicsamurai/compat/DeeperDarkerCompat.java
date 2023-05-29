@@ -9,7 +9,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.registry.ArmorMaterialsRegistry;
-import net.veroxuniverse.epicsamurai.item.SculkSamuraiArmorItem;
+import net.veroxuniverse.epicsamurai.item.armor.SculkSamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.util.EpicSamuraiModCreativeTabs;
 public class DeeperDarkerCompat {
 

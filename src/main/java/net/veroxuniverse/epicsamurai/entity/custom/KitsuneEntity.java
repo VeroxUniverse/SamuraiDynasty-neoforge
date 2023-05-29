@@ -19,7 +19,7 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
-import net.veroxuniverse.epicsamurai.entity.custom.AI.KitsuneAttackGoal;
+import net.veroxuniverse.epicsamurai.entity.custom.goals.KitsuneAttackGoal;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;

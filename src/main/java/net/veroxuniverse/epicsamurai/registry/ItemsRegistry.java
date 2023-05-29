@@ -11,6 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.item.*;
+import net.veroxuniverse.epicsamurai.item.armor.*;
 import net.veroxuniverse.epicsamurai.util.EpicSamuraiModCreativeTabs;
 
 @SuppressWarnings("unused")

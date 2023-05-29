@@ -1,5 +1,8 @@
 package net.veroxuniverse.epicsamurai;
 
+import com.hollingsworth.arsnouveau.api.ArsNouveauAPI;
+import com.hollingsworth.arsnouveau.api.perk.ArmorPerkHolder;
+import com.hollingsworth.arsnouveau.api.perk.PerkSlot;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
@@ -25,6 +28,8 @@ import net.veroxuniverse.epicsamurai.world.feature.ModConfiguredFeatures;
 import net.veroxuniverse.epicsamurai.world.feature.ModPlacedFeatures;
 import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
+
+import java.util.Arrays;
 
 
 @Mod(EpicSamuraiMod.MOD_ID)

@@ -9,7 +9,7 @@ import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
-import net.veroxuniverse.epicsamurai.client.particle.BlueFlame;
+import net.veroxuniverse.epicsamurai.particle.BlueFlame;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.entity.custom.*;
 import net.veroxuniverse.epicsamurai.registry.ParticlesInit;

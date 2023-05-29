@@ -8,7 +8,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
-import net.veroxuniverse.epicsamurai.item.MageSamuraiArmorItem;
+import net.veroxuniverse.epicsamurai.item.armor.MageSamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.util.EpicSamuraiModCreativeTabs;
 
 public class ArsNouveauCompat {
