@@ -1,7 +1,7 @@
 package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.ars_nouveau;
 
 import net.veroxuniverse.epicsamurai.item.armor.MageSamuraiArmorItem;
-import software.bernie.ars_nouveau.geckolib3.renderers.geo.GeoArmorRenderer;
+import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 
 public class MageSamuraiArmorRenderer extends GeoArmorRenderer<MageSamuraiArmorItem> {
     public MageSamuraiArmorRenderer() {

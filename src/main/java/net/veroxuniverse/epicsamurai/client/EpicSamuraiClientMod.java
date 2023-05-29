@@ -3,7 +3,6 @@ package net.veroxuniverse.epicsamurai.client;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.amethyst.AmethystSamuraiArmorRenderer;
@@ -22,7 +21,6 @@ import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.ruby.Red
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.silver.WhiteSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.straw_hat.StrawHatArmorRenderer;
 import net.veroxuniverse.epicsamurai.client.custom_armors.steel_armor.SteelArmorRenderer;
-import net.veroxuniverse.epicsamurai.compat.ArsNouveauCompat;
 import net.veroxuniverse.epicsamurai.item.armor.*;
 import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
 
@@ -50,8 +48,7 @@ public class EpicSamuraiClientMod {
         GeoArmorRenderer.registerArmorRenderer(AmethystSamuraiArmorItem.class, AmethystSamuraiArmorRenderer::new);
         GeoArmorRenderer.registerArmorRenderer(QuartzSamuraiArmorItem.class, QuartzSamuraiArmorRenderer::new);
         GeoArmorRenderer.registerArmorRenderer(SculkSamuraiArmorItem.class, SculkSamuraiArmorRenderer::new);
-        if (ModList.get().isLoaded("ars_nouveau"))
-            ArsNouveauCompat.registerArmorRenderer();
+        GeoArmorRenderer.registerArmorRenderer(MageSamuraiArmorItem.class, MageSamuraiArmorRenderer::new);
     }
 }
 
