@@ -28,13 +28,6 @@ public class ModEvents {
         }
 
         @SubscribeEvent
-        public static void registerParticleFactories(final RegisterParticleProvidersEvent event)
-        {
-            //Minecraft.getInstance().particleEngine.register(ParticlesInit.BLUE_FLAME.get(),BlueFlame.Provider::new);
-            event.register(ParticlesInit.BLUE_FLAME.get(), BlueFlame.Provider::new);
-        }
-
-        @SubscribeEvent
         public static void entitySpawnRestriction(SpawnPlacementRegisterEvent event) {
             event.register(ModEntityTypes.ONI.get(),
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
