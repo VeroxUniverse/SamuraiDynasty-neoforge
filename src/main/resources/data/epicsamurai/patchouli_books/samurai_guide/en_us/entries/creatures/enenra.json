@@ -5,7 +5,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "> $(n)Health:$() 20     $(br)> $(n)Attack Damage:$() 3     $(br)> $(n)Behavior:$() Aggressive     $(br)> $(n)Spawn:$() $(l)Overworld$() $(br)> $(n)Properties:$() $(br)Describtion"
+      "text": " $(thing)Health:$() 20     $(br) $(thing)Attack Damage:$() 3     $(br) $(thing)Behavior:$() Aggressive     $(br) $(thing)Spawn:$() $(l)Overworld$() $(br) $(thing)Description:$() $(br)Wanders around the caves to hunt the humans. Because of it's dark colors it is hard to see him in the caves. It can only be hurt by a special enchantment called $(item)Demon Slayer$()."
     },
     {
       "type": "patchouli:image",
@@ -14,7 +14,7 @@
         "epicsamurai:textures/patchouli_images/enenra_square.png"
       ],
       "border": "true",
-      "text": "$(n)Drops:$() -"
+      "text": "$(l)Drops:$() $(#00baff)(WIP)"
     }
   ]
 }

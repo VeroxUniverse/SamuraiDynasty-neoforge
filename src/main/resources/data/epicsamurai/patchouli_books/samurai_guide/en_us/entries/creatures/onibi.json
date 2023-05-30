@@ -1,0 +1,11 @@
+{
+  "name": "Onibi",
+  "icon": "epicsamurai:onibi_spawn_egg",
+  "category": "epicsamurai:creatures",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(thing)Work in Progress..."
+    }
+  ]
+}

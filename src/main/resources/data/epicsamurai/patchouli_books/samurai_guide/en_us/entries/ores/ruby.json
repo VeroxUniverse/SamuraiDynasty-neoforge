@@ -1,0 +1,12 @@
+{
+  "name": "Ruby",
+  "icon": "epicsamurai:ruby",
+  "category": "epicsamurai:ores",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "epicsamurai:ruby",
+      "text": "The Ruby can be found in the Overworld from $(thing)Y: $(item)-64 $()to $(thing)Y: $(item)30$(). It can be mined via an $(thing)Iron Pickaxe$()."
+    }
+  ]
+}

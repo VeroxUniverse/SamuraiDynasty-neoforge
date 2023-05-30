@@ -1,0 +1,12 @@
+{
+  "name": "Samurai Armor",
+  "icon": "epicsamurai:red_samurai_helmet",
+  "category": "epicsamurai:samurai_armor",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(thing)Work in Progress... pls use JEI for the Recipes!"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Aquamarine",
+  "icon": "epicsamurai:aquamarine",
+  "category": "epicsamurai:ores",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "epicsamurai:aquamarine",
+      "text": "The Aquamarine can be found in the Overworld from $(thing)Y: $(item)-64 $()to $(thing)Y: $(item)30$(). It can be mined via an $(thing)Iron Pickaxe$()."
+    }
+  ]
+}

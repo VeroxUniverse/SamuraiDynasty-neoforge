@@ -7,6 +7,7 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
+import net.veroxuniverse.epicsamurai.compat.CreateCompat;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
@@ -36,6 +37,10 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
     SAMURAI_DIAMOND("samurai_diamond", 33, new int[]{3, 6, 8, 2}, 12,
             SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F,
             () -> Ingredient.of(Items.DIAMOND)),
+
+    SAMURAI_BRASS("samurai_brass", 33, new int[]{3, 6, 8, 2}, 12,
+            SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 0.0F,
+            () -> Ingredient.of(CreateCompat.BRASS_REPAIR_KIT.get())),
 
     SAMURAI_NETHERITE("samurai_netherite", 45, new int[]{3, 6, 8, 3}, 25,
             SoundEvents.ARMOR_EQUIP_NETHERITE, 2.5F, 0.1F,

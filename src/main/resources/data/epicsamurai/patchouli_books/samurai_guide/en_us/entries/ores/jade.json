@@ -1,0 +1,12 @@
+{
+  "name": "Jade",
+  "icon": "epicsamurai:jade",
+  "category": "epicsamurai:ores",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "epicsamurai:jade",
+      "text": "The Jade can be found in the Overworld from $(thing)Y: $(item)-64 $()to $(thing)Y: $(item)30$(). It can be mined via an $(thing)Iron Pickaxe$()."
+    }
+  ]
+}

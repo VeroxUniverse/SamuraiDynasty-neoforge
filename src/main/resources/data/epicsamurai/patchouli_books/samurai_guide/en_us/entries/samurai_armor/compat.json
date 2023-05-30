@@ -1,0 +1,12 @@
+{
+  "name": "Compatibility",
+  "icon": "minecraft:emerald",
+  "category": "epicsamurai:samurai_armor",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "There are $(item)Compatibility$() for the following mods:$(br) > $(thing)Ars Nouveau$()$(br) > $(thing)Deeper and Darker$()$(br) > $(thing)Create"
+    }
+  ]
+}

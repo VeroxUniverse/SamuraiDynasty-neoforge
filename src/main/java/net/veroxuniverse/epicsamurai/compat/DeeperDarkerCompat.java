@@ -8,9 +8,12 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
-import net.veroxuniverse.epicsamurai.registry.ArmorMaterialsRegistry;
+import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.deeperdarker.SculkSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.item.armor.SculkSamuraiArmorItem;
+import net.veroxuniverse.epicsamurai.registry.ArmorMaterialsRegistry;
 import net.veroxuniverse.epicsamurai.util.EpicSamuraiModCreativeTabs;
+import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
+
 public class DeeperDarkerCompat {
 
     public static final DeferredRegister<Item> DEEPERDARKER_ITEMS =
@@ -25,6 +28,10 @@ public class DeeperDarkerCompat {
     public static final RegistryObject<Item> SCULK_SAMURAI_BOOTS = DEEPERDARKER_ITEMS.register("sculk_samurai_boots",
             () -> new SculkSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_SCULK, EquipmentSlot.FEET, new Item.Properties().tab(EpicSamuraiModCreativeTabs.EPICSAMURAI_TAB).rarity(Rarity.EPIC)));
 
+
+    public static void registerArmorRenderer() {
+        GeoArmorRenderer.registerArmorRenderer(SculkSamuraiArmorItem.class, SculkSamuraiArmorRenderer::new);
+    }
 
     public static void register(IEventBus eventBus) {
         DEEPERDARKER_ITEMS.register(eventBus);

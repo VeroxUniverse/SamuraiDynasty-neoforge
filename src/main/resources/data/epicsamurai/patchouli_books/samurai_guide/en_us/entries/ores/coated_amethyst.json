@@ -1,0 +1,12 @@
+{
+  "name": "Amethyst Ingot",
+  "icon": "epicsamurai:amethyst_ingot",
+  "category": "epicsamurai:ores",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "epicsamurai:amethyst_ingot",
+      "text": "You can Upgrade Steel.$(br)$(item)Steel$() can be combined with $(thing)Amethyst$() in the $(item)Smithing Table$()."
+    }
+  ]
+}

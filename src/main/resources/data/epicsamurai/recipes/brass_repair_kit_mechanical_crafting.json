@@ -1,0 +1,34 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "create"
+        }
+      ],
+      "recipe": {
+        "type": "create:mechanical_crafting",
+        "acceptMirrored": false,
+        "key": {
+          "A": {
+            "item": "create:andesite_alloy"
+          },
+          "B": {
+            "tag": "forge:ingots/brass"
+          }
+        },
+        "pattern": [
+          " A ",
+          "ABA",
+          " A "
+        ],
+        "result": {
+          "count": 1,
+          "item": "epicsamurai:brass_repair_kit"
+        }
+      }
+    }
+  ]
+}

@@ -5,7 +5,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "> $(n)Health:$() 100     $(br)> $(n)Attack Damage:$() 7     $(br)> $(n)Behavior:$() Aggressive     $(br)> $(n)Spawn:$() $(l)Nether$() $(br)> $(n)Properties:$() $(br)Describtion"
+      "text": " $(thing)Health:$() 100     $(br) $(thing)Attack Damage:$() 7     $(br) $(thing)Behavior:$() Aggressive     $(br) $(thing)Spawn:$() $(l)Nether() $(br) $(thing)Description:$() $(br)Wanders around the nether to scare the humans. It is very slow but deals a lot of damage. It can only be hurt by a special enchantment called $(item)Demon Slayer$()."
     },
     {
       "type": "patchouli:image",
@@ -14,7 +14,7 @@
         "epicsamurai:textures/patchouli_images/oni_square.png"
       ],
       "border": "true",
-      "text": "$(n)Drops:$() -"
+      "text": "$(l)Drops:$() $(#00baff)(WIP)"
     }
   ]
 }

@@ -5,7 +5,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "> $(n)Health:$() 20     $(br)> $(n)Attack Damage:$() 3     $(br)> $(n)Behavior:$() Aggressive     $(br)> $(n)Spawn:$() $(l)Nether$() $(br)> $(n)Properties:$() $(br)Describtion"
+      "text": " $(thing)Health:$() 20     $(br) $(thing)Attack Damage:$() 3     $(br) $(thing)Behavior:$() Aggressive     $(br) $(thing)Spawn:$() $(l)Nether() $(br) $(thing)Description:$() $(br)Wanders around the nether to scare the humans. It will attack with his long tongue to slow his enemy. It can only be hurt by a special enchantment called $(item)Demon Slayer$()."
     },
     {
       "type": "patchouli:image",
@@ -14,7 +14,7 @@
         "epicsamurai:textures/patchouli_images/akaname_square.png"
       ],
       "border": "true",
-      "text": "$(n)Drops:$() -"
+      "text": "$(l)Drops:$() $(#00baff)(WIP)"
     }
   ]
 }

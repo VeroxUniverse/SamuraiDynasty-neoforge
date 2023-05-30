@@ -70,7 +70,9 @@ public class EpicSamuraiMod
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-
+        if(ModList.get().isLoaded("ars_nouveau")) {
+            ArsNouveauCompat.registerPerkProviders();
+        }
     }
 
 

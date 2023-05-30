@@ -13,7 +13,7 @@
         "epicsamurai:textures/patchouli_images/kitsune_square.png"
       ],
       "border": "true",
-      "text": "$(l)Drops:$() $(#00baff)Spirit Orb"
+      "text": "$(l)Drops:$() $(#00baff)(WIP)"
     }
   ]
 }
