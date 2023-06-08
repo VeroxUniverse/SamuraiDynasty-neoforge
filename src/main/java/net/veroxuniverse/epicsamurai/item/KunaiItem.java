@@ -31,7 +31,6 @@ public class KunaiItem extends SwordItem implements Vanishable {
     public int getUseDuration(ItemStack pStack) {
         return 300;
     }
-
     public @NotNull InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
         pPlayer.getCooldowns().addCooldown(this, 20);
