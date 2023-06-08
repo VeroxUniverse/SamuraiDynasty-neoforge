@@ -43,7 +43,7 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
             () -> Ingredient.of(CreateCompat.BRASS_REPAIR_KIT.get())),
 
     SAMURAI_NETHERITE("samurai_netherite", 45, new int[]{3, 6, 8, 3}, 25,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 2.5F, 0.1F,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F,
             () -> Ingredient.of(Items.NETHERITE_INGOT)),
 
     SAMURAI_SCULK("samurai_sculk", 55, new int[]{3, 6, 8, 3}, 25,
