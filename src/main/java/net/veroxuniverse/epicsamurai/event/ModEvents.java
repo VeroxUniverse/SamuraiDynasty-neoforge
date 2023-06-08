@@ -40,6 +40,7 @@ public class ModEvents {
                     Monster::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
         }
 
+
     }
 
 }
