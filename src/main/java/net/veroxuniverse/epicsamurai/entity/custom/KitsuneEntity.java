@@ -33,7 +33,7 @@ import static net.minecraft.world.entity.monster.hoglin.HoglinBase.throwTarget;
 
 public class KitsuneEntity extends Monster implements IAnimatable {
 
-    private boolean invulnerable;
+    //private boolean invulnerable; / Disabele due to bugs!
 
     private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
 
@@ -69,8 +69,8 @@ public class KitsuneEntity extends Monster implements IAnimatable {
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
 
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, false));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
-        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Animal.class, false));
+        //this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));  / Disabele due to bugs!
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Animal.class, false));
     }
 
     @Override
@@ -110,6 +110,10 @@ public class KitsuneEntity extends Monster implements IAnimatable {
         }
     }
 
+    /*
+
+    / Disabele due to bugs! /
+
     @Override
     public boolean isInvulnerableTo(DamageSource pSource) {
         LivingEntity attacker = (LivingEntity) pSource.getEntity();
@@ -123,6 +127,8 @@ public class KitsuneEntity extends Monster implements IAnimatable {
             return pSource.isProjectile() || super.isInvulnerableTo(pSource);
         }
     }
+
+     */
 
 
 
