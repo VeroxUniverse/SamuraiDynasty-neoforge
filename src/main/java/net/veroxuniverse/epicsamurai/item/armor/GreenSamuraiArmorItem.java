@@ -7,6 +7,7 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.gold.GoldSamuraiArmorRenderer;
+import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.jade.GreenSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.onyx.GraySamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.item.armor.lib.SamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.registry.ArmorMaterialsRegistry;
@@ -23,13 +24,13 @@ public class GreenSamuraiArmorItem extends SamuraiArmorItem {
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
-            private GoldSamuraiArmorRenderer renderer;
+            private GreenSamuraiArmorRenderer renderer;
 
             @Override
             public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack,
                                                                    EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
                 if (this.renderer == null)
-                    this.renderer = new GoldSamuraiArmorRenderer();
+                    this.renderer = new GreenSamuraiArmorRenderer();
 
                 this.renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
                 return this.renderer;
