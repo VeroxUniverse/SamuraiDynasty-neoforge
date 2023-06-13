@@ -8,12 +8,12 @@ import software.bernie.geckolib.model.GeoModel;
 public class StrawHatArmorModel extends GeoModel<StrawHatArmorItem> {
     @Override
     public ResourceLocation  getModelResource(StrawHatArmorItem object) {
-        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/straw_hat.geo.json");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/straw_hat_new.geo.json");
     }
 
     @Override
     public ResourceLocation getTextureResource(StrawHatArmorItem object) {
-        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/models/armor/straw_hat_armor_textures.png");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/armor/straw_hat_armor_textures.png");
     }
 
     @Override

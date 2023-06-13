@@ -13,7 +13,7 @@ public class NetheriteSamuraiArmorModel extends GeoModel<NetheriteSamuraiArmorIt
 
     @Override
     public ResourceLocation getTextureResource(NetheriteSamuraiArmorItem object) {
-        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/models/armor/netherite_samurai_armor_textures.png");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/armor/netherite_samurai_armor_textures.png");
     }
 
     @Override

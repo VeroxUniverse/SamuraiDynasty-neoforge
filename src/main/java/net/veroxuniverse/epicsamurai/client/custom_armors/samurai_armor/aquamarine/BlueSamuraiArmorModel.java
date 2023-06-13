@@ -12,7 +12,7 @@ public class BlueSamuraiArmorModel extends GeoModel<BlueSamuraiArmorItem> {
 
     @Override
     public ResourceLocation getTextureResource(BlueSamuraiArmorItem object) {
-        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/models/armor/blue_samurai_armor_textures.png");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/armor/blue_samurai_armor_textures.png");
     }
 
     @Override

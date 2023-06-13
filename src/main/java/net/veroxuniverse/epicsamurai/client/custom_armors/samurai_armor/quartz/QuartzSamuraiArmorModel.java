@@ -13,7 +13,7 @@ public class QuartzSamuraiArmorModel extends GeoModel<QuartzSamuraiArmorItem> {
 
     @Override
     public ResourceLocation getTextureResource(QuartzSamuraiArmorItem object) {
-        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/models/armor/quartz_samurai_armor_textures.png");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/armor/quartz_samurai_armor_textures.png");
     }
 
     @Override

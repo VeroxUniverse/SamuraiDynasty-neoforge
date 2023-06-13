@@ -12,6 +12,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.veroxuniverse.epicsamurai.client.custom_entities.AkanameRenderer;
+import net.veroxuniverse.epicsamurai.client.custom_entities.EnenraRenderer;
+import net.veroxuniverse.epicsamurai.client.custom_entities.KitsuneRenderer;
+import net.veroxuniverse.epicsamurai.client.custom_entities.OniRenderer;
 import net.veroxuniverse.epicsamurai.compat.CreateCompat;
 import net.veroxuniverse.epicsamurai.compat.DeeperDarkerCompat;
 import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
@@ -73,12 +77,10 @@ public class EpicSamuraiMod
         public static void onClientSetup(FMLClientSetupEvent event)
         {
 
-            //EntityRenderers.register(ModEntityTypes.AKANAME.get(), AkanameRenderer::new);
-            //EntityRenderers.register(ModEntityTypes.ENENRA.get(), EnenraRenderer::new);
-            //EntityRenderers.register(ModEntityTypes.ONI.get(), OniRenderer::new);
-            //EntityRenderers.register(ModEntityTypes.ONIBI.get(), OnibiRenderer::new);
-            //EntityRenderers.register(ModEntityTypes.KITSUNE.get(), KitsuneRenderer::new);
-            //EntityRenderers.register(ModEntityTypes.KITSUNE_PROJECTILE.get(), KitsuneProjectileRenderer::new);
+            EntityRenderers.register(ModEntityTypes.AKANAME.get(), AkanameRenderer::new);
+            EntityRenderers.register(ModEntityTypes.ENENRA.get(), EnenraRenderer::new);
+            EntityRenderers.register(ModEntityTypes.ONI.get(), OniRenderer::new);
+            EntityRenderers.register(ModEntityTypes.KITSUNE.get(), KitsuneRenderer::new);
 
             EntityRenderers.register(ModEntityTypes.SHURIKEN.get(), ThrownItemRenderer::new);
             EntityRenderers.register(ModEntityTypes.KUNAI.get(), ThrownItemRenderer::new);

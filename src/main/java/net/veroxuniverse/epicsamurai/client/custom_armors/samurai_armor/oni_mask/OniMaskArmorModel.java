@@ -13,7 +13,7 @@ public class OniMaskArmorModel extends GeoModel<OniMaskArmorItem> {
 
     @Override
     public ResourceLocation getTextureResource(OniMaskArmorItem object) {
-        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/models/armor/oni_mask.png");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/armor/oni_mask.png");
     }
 
     @Override

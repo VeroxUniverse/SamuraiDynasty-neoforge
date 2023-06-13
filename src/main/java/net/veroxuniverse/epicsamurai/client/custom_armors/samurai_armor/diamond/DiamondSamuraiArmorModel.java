@@ -13,7 +13,7 @@ public class DiamondSamuraiArmorModel extends GeoModel<DiamondSamuraiArmorItem> 
 
     @Override
     public ResourceLocation getTextureResource(DiamondSamuraiArmorItem object) {
-        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/models/armor/diamond_samurai_armor_textures.png");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/armor/diamond_samurai_armor_textures.png");
     }
 
     @Override

@@ -130,8 +130,13 @@ public class ItemsRegistry {
 
     public static final RegistryObject<Item> STRAW_HAT = ITEMS.register("straw_hat",
             () -> new StrawHatArmorItem(ArmorMaterialsRegistry.STRAW, ArmorItem.Type.HELMET, new Item.Properties()));
+
+    /*
+
     public static final RegistryObject<Item> ONI_MASK = ITEMS.register("oni_mask",
             () -> new OniMaskArmorItem(ArmorMaterialsRegistry.STRAW, ArmorItem.Type.HELMET, new Item.Properties()));
+
+     */
 
     public static final RegistryObject<Item> KNIVE_HANDLE = ITEMS.register("knive_handle",
             () -> new Item(new Item.Properties()));
