@@ -6,6 +6,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
@@ -26,18 +27,22 @@ public class CreativeTabRegistry {
                         output.accept(item.get());
                     }
                 }
-                for(RegistryObject<Item> item : CreateCompat.CREATE_ITEMS.getEntries()){
-                    if(item.get() instanceof CustomTabs customTabBehavior){
-                        customTabBehavior.fillItemCategory(output);
-                    }else{
-                        output.accept(item.get());
+                if (ModList.get().isLoaded("create")) {
+                    for(RegistryObject<Item> item : CreateCompat.CREATE_ITEMS.getEntries()){
+                        if(item.get() instanceof CustomTabs customTabBehavior){
+                            customTabBehavior.fillItemCategory(output);
+                        }else{
+                            output.accept(item.get());
+                        }
                     }
                 }
-                for(RegistryObject<Item> item : DeeperDarkerCompat.DEEPERDARKER_ITEMS.getEntries()){
-                    if(item.get() instanceof CustomTabs customTabBehavior){
-                        customTabBehavior.fillItemCategory(output);
-                    }else{
-                        output.accept(item.get());
+                if (ModList.get().isLoaded("create")) {
+                    for(RegistryObject<Item> item : DeeperDarkerCompat.DEEPERDARKER_ITEMS.getEntries()){
+                        if(item.get() instanceof CustomTabs customTabBehavior){
+                            customTabBehavior.fillItemCategory(output);
+                        }else{
+                            output.accept(item.get());
+                        }
                     }
                 }
 

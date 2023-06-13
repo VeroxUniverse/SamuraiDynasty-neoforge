@@ -80,6 +80,7 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
         return Ingredient.of(CreateCompat.BRASS_REPAIR_KIT.get());
     }),
 
+
     SAMURAI_NETHERITE("samurai_netherite", 45,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
         armor.put(ArmorItem.Type.BOOTS, 3);
         armor.put(ArmorItem.Type.LEGGINGS, 6);
@@ -88,6 +89,7 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
     }), 25, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F, () -> {
         return Ingredient.of(Items.NETHERITE_INGOT);
     }),
+
 
     SAMURAI_SCULK("samurai_sculk", 45,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
         armor.put(ArmorItem.Type.BOOTS, 3);

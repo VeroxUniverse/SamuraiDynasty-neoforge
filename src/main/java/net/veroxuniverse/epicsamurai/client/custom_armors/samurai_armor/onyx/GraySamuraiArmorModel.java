@@ -8,7 +8,7 @@ import software.bernie.geckolib.model.GeoModel;
 public class GraySamuraiArmorModel extends GeoModel<GraySamuraiArmorItem> {
     @Override
     public ResourceLocation  getModelResource(GraySamuraiArmorItem object) {
-        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/samurai_armor.geo.json");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/samurai_armor_new.geo.json");
     }
 
     @Override
