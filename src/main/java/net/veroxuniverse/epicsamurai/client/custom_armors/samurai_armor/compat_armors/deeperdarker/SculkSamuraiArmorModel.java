@@ -3,9 +3,9 @@ package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.SculkSamuraiArmorItem;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib.model.GeoModel;
 
-public class SculkSamuraiArmorModel extends AnimatedGeoModel<SculkSamuraiArmorItem> {
+public class SculkSamuraiArmorModel extends GeoModel<SculkSamuraiArmorItem> {
     @Override
     public ResourceLocation  getModelResource(SculkSamuraiArmorItem object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/samurai_armor_two.geo.json");

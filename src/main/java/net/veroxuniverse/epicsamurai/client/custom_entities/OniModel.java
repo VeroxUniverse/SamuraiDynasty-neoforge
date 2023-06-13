@@ -1,15 +1,16 @@
 package net.veroxuniverse.epicsamurai.client.custom_entities;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
-import net.veroxuniverse.epicsamurai.entity.custom.EnenraEntity;
 import net.veroxuniverse.epicsamurai.entity.custom.OniEntity;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.processor.IBone;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
-import software.bernie.geckolib3.model.provider.data.EntityModelData;
+import software.bernie.geckolib.constant.DataTickets;
+import software.bernie.geckolib.core.animatable.model.CoreGeoBone;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.model.GeoModel;
+import software.bernie.geckolib.model.data.EntityModelData;
 
-public class OniModel extends AnimatedGeoModel<OniEntity> {
+public class OniModel extends GeoModel<OniEntity> {
     @Override
     public ResourceLocation getModelResource(OniEntity object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/oni.geo.json");
@@ -25,17 +26,15 @@ public class OniModel extends AnimatedGeoModel<OniEntity> {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/oni.animation.json");
     }
 
-    @SuppressWarnings({ "unchecked" })
     @Override
-    public void setLivingAnimations(OniEntity entity, Integer uniqueID, AnimationEvent customPredicate) {
-        super.setLivingAnimations(entity, uniqueID, customPredicate);
-        IBone head = this.getAnimationProcessor().getBone("head");
+    public void setCustomAnimations(OniEntity animatable, long instanceId, AnimationState<OniEntity> animationState) {
+        CoreGeoBone head = getAnimationProcessor().getBone("head");
 
-
-        EntityModelData extraData = (EntityModelData) customPredicate.getExtraDataOfType(EntityModelData.class).get(0);
         if (head != null) {
-            head.setRotationX(extraData.headPitch * ((float) Math.PI / 180F));
-            head.setRotationY(extraData.netHeadYaw * ((float) Math.PI / 180F));
+            EntityModelData entityData = animationState.getData(DataTickets.ENTITY_MODEL_DATA);
+
+            head.setRotX(entityData.headPitch() * Mth.DEG_TO_RAD);
+            head.setRotY(entityData.netHeadYaw() * Mth.DEG_TO_RAD);
         }
     }
 

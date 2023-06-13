@@ -3,9 +3,9 @@ package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.netheri
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.NetheriteSamuraiArmorItem;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib.model.GeoModel;
 
-public class NetheriteSamuraiArmorModel extends AnimatedGeoModel<NetheriteSamuraiArmorItem> {
+public class NetheriteSamuraiArmorModel extends GeoModel<NetheriteSamuraiArmorItem> {
     @Override
     public ResourceLocation  getModelResource(NetheriteSamuraiArmorItem object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/samurai_armor_two.geo.json");

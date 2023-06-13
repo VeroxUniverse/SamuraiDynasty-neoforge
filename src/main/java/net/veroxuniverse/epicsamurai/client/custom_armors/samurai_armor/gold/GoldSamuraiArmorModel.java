@@ -3,9 +3,9 @@ package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.gold;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.GoldSamuraiArmorItem;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib.model.GeoModel;
 
-public class GoldSamuraiArmorModel extends AnimatedGeoModel<GoldSamuraiArmorItem> {
+public class GoldSamuraiArmorModel extends GeoModel<GoldSamuraiArmorItem> {
     @Override
     public ResourceLocation  getModelResource(GoldSamuraiArmorItem object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/samurai_armor.geo.json");

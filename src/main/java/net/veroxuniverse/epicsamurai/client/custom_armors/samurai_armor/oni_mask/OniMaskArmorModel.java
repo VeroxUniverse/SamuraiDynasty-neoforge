@@ -3,9 +3,9 @@ package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.oni_mas
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.OniMaskArmorItem;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib.model.GeoModel;
 
-public class OniMaskArmorModel extends AnimatedGeoModel<OniMaskArmorItem> {
+public class OniMaskArmorModel extends GeoModel<OniMaskArmorItem> {
     @Override
     public ResourceLocation  getModelResource(OniMaskArmorItem object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/oni_mask.geo.json");

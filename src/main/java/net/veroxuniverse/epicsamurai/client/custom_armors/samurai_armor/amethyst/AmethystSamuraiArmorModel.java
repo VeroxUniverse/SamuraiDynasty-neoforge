@@ -3,9 +3,9 @@ package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.amethys
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.AmethystSamuraiArmorItem;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib.model.GeoModel;
 
-public class AmethystSamuraiArmorModel extends AnimatedGeoModel<AmethystSamuraiArmorItem> {
+public class AmethystSamuraiArmorModel extends GeoModel<AmethystSamuraiArmorItem> {
     @Override
     public ResourceLocation  getModelResource(AmethystSamuraiArmorItem object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/samurai_armor_two.geo.json");

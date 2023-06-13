@@ -3,9 +3,9 @@ package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.diamond
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.DiamondSamuraiArmorItem;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib.model.GeoModel;
 
-public class DiamondSamuraiArmorModel extends AnimatedGeoModel<DiamondSamuraiArmorItem> {
+public class DiamondSamuraiArmorModel extends GeoModel<DiamondSamuraiArmorItem> {
     @Override
     public ResourceLocation  getModelResource(DiamondSamuraiArmorItem object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/samurai_armor.geo.json");

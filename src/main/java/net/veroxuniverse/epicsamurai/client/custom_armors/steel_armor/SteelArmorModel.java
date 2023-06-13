@@ -3,9 +3,9 @@ package net.veroxuniverse.epicsamurai.client.custom_armors.steel_armor;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.SteelArmorItem;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib.model.GeoModel;
 
-public class SteelArmorModel extends AnimatedGeoModel<SteelArmorItem> {
+public class SteelArmorModel extends GeoModel<SteelArmorItem> {
     @Override
     public ResourceLocation  getModelResource(SteelArmorItem object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/steel_armor.geo.json");

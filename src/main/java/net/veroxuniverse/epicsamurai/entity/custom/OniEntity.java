@@ -17,22 +17,18 @@ import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.builder.ILoopType;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.util.GeckoLibUtil;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.Animation;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class OniEntity extends Monster implements IAnimatable {
+public class OniEntity extends Monster implements GeoEntity {
 
-    private static final AnimationBuilder ATTACK_ANIMATION = new AnimationBuilder().addAnimation("animation.oni.attack", ILoopType.EDefaultLoopTypes.PLAY_ONCE);
-    private static final AnimationBuilder IDLE_ANIMATION = new AnimationBuilder().addAnimation("animation.oni.idle", ILoopType.EDefaultLoopTypes.LOOP);
-    private static final AnimationBuilder WALK_ANIMATION = new AnimationBuilder().addAnimation("animation.oni.walk", ILoopType.EDefaultLoopTypes.LOOP);
-    private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
-
+    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     public OniEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
@@ -68,32 +64,31 @@ public class OniEntity extends Monster implements IAnimatable {
     }
 
     @Override
-    public void registerControllers(AnimationData data) {
-
-        data.addAnimationController(new AnimationController(this, "controller", 0, event -> {
-            if (event.isMoving() && !this.swinging){
-                event.getController().setAnimation(WALK_ANIMATION);
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(new AnimationController<>(this, "move_controller", 5, state -> {
+            if (state.isMoving() && !this.swinging){
+                state.setAnimation(RawAnimation.begin().then("animation.oni.walk", Animation.LoopType.LOOP));
                 return PlayState.CONTINUE;
-            } else if (!event.isMoving() && !this.swinging) {
-                event.getController().setAnimation(IDLE_ANIMATION);
+            } else if (!state.isMoving() && !this.swinging) {
+                state.setAnimation(RawAnimation.begin().then("animation.oni.idle", Animation.LoopType.LOOP));
                 return PlayState.CONTINUE;
             }
             return PlayState.STOP;
         }));
-
-        data.addAnimationController(new AnimationController(this, "attackController", 0, event -> {
+        controllers.add(new AnimationController<>(this, "attack_controller", 5, state -> {
             if (this.swinging) {
-                event.getController().setAnimation(ATTACK_ANIMATION);
+                state.setAnimation(RawAnimation.begin().then("animation.oni.attack", Animation.LoopType.PLAY_ONCE));
                 return PlayState.CONTINUE;
             }
-            event.getController().markNeedsReload();
+            state.getController().forceAnimationReset();
             return PlayState.STOP;
         }));
+
     }
 
     @Override
-    public AnimationFactory getFactory() {
-        return FACTORY;
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.cache;
     }
 
     protected void playStepSound(BlockPos pos, BlockState blockIn) {

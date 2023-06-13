@@ -17,18 +17,18 @@ import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.util.GeckoLibUtil;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.Animation;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class EnenraEntity extends Monster implements IAnimatable {
+public class EnenraEntity extends Monster implements GeoEntity {
 
-    private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
+    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
     public EnenraEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -59,14 +59,27 @@ public class EnenraEntity extends Monster implements IAnimatable {
     }
 
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.enenra.walk", true));
-            return PlayState.CONTINUE;
-        }
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(new AnimationController<>(this, "move_controller", 5, state -> {
+            if (state.isMoving() && !this.swinging){
+                state.setAnimation(RawAnimation.begin().then("animation.enenra.walk", Animation.LoopType.LOOP));
+                return PlayState.CONTINUE;
+            } else if (!state.isMoving() && !this.swinging) {
+                state.setAnimation(RawAnimation.begin().then("animation.enenra.idle", Animation.LoopType.LOOP));
+                return PlayState.CONTINUE;
+            }
+            return PlayState.STOP;
+        }));
+        controllers.add(new AnimationController<>(this, "attack_controller", 5, state -> {
+            if (this.swinging) {
+                state.setAnimation(RawAnimation.begin().then("animation.enenra.attack", Animation.LoopType.PLAY_ONCE));
+                return PlayState.CONTINUE;
+            }
+            state.getController().forceAnimationReset();
+            return PlayState.STOP;
+        }));
 
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.enenra.idle", true));
-        return PlayState.CONTINUE;
     }
 
     public void aiStep() {
@@ -92,9 +105,9 @@ public class EnenraEntity extends Monster implements IAnimatable {
             }
         }
 
-        if (this.level.isClientSide) {
+        if (this.level().isClientSide) {
             for(int i = 0; i < 2; ++i) {
-                this.level.addParticle(ParticleTypes.SMOKE, this.getRandomX(0.25D), this.getRandomY(), this.getRandomZ(0.25D), 0.0D, 0.0D, 0.0D);
+                this.level().addParticle(ParticleTypes.SMOKE, this.getRandomX(0.25D), this.getRandomY(), this.getRandomZ(0.25D), 0.0D, 0.0D, 0.0D);
             }
         }
 
@@ -105,17 +118,9 @@ public class EnenraEntity extends Monster implements IAnimatable {
         return false;
     }
 
-
     @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController(this, "controller",
-                0, this::predicate));
-    }
-
-
-    @Override
-    public AnimationFactory getFactory() {
-        return FACTORY;
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.cache;
     }
 
     /*

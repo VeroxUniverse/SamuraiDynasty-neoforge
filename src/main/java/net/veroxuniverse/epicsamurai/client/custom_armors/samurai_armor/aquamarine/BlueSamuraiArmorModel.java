@@ -3,9 +3,8 @@ package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.aquamar
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.BlueSamuraiArmorItem;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
-
-public class BlueSamuraiArmorModel extends AnimatedGeoModel<BlueSamuraiArmorItem> {
+import software.bernie.geckolib.model.GeoModel;
+public class BlueSamuraiArmorModel extends GeoModel<BlueSamuraiArmorItem> {
     @Override
     public ResourceLocation  getModelResource(BlueSamuraiArmorItem object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/samurai_armor.geo.json");

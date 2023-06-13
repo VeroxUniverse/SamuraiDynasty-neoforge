@@ -3,9 +3,9 @@ package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.straw_h
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.StrawHatArmorItem;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib.model.GeoModel;
 
-public class StrawHatArmorModel extends AnimatedGeoModel<StrawHatArmorItem> {
+public class StrawHatArmorModel extends GeoModel<StrawHatArmorItem> {
     @Override
     public ResourceLocation  getModelResource(StrawHatArmorItem object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/straw_hat.geo.json");

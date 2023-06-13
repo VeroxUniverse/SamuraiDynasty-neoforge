@@ -14,33 +14,20 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.enchantment.Enchantment;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
-import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
-import net.veroxuniverse.epicsamurai.entity.custom.goals.KitsuneAttackGoal;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.builder.ILoopType;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.util.GeckoLibUtil;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.Animation;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.RawAnimation;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 import static net.minecraft.world.entity.monster.hoglin.HoglinBase.throwTarget;
-
-public class KitsuneEntity extends Monster implements IAnimatable {
-
-    //private boolean invulnerable; / Disabele due to bugs!
-
-    private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
-
-    private static final AnimationBuilder ATTACK_ANIMATION = new AnimationBuilder().addAnimation("animation.kitsune.attack", ILoopType.EDefaultLoopTypes.PLAY_ONCE);
-    private static final AnimationBuilder IDLE_ANIMATION = new AnimationBuilder().addAnimation("animation.kitsune.idle", ILoopType.EDefaultLoopTypes.LOOP);
-    private static final AnimationBuilder WALK_ANIMATION = new AnimationBuilder().addAnimation("animation.kitsune.walk", ILoopType.EDefaultLoopTypes.LOOP);
-
+public class KitsuneEntity extends Monster implements GeoEntity {
+    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     public KitsuneEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.setPathfindingMalus(BlockPathTypes.POWDER_SNOW, -1.0F);
@@ -60,7 +47,7 @@ public class KitsuneEntity extends Monster implements IAnimatable {
 
         this.goalSelector.addGoal(1, new FloatGoal(this));
 
-        this.goalSelector.addGoal(2, new KitsuneAttackGoal(this, 1.2D, true));
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, true));
         //this.goalSelector.addGoal(3, new MoveTowardsTargetGoal(this, 1.2D, 25.0F));
 
         this.goalSelector.addGoal(4, new LeapAtTargetGoal(this, 0.4F));
@@ -69,8 +56,8 @@ public class KitsuneEntity extends Monster implements IAnimatable {
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
 
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, false));
-        //this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));  / Disabele due to bugs!
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Animal.class, false));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
+        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Animal.class, false));
     }
 
     @Override
@@ -79,74 +66,44 @@ public class KitsuneEntity extends Monster implements IAnimatable {
     }
 
     @Override
-    public void registerControllers(AnimationData data) {
-
-        data.addAnimationController(new AnimationController(this, "controller", 0, event -> {
-            if (event.isMoving() && !this.swinging){
-                event.getController().setAnimation(WALK_ANIMATION);
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(new AnimationController<>(this, "move_controller", 5, state -> {
+            if (state.isMoving() && !this.swinging){
+                state.setAnimation(RawAnimation.begin().then("animation.kitsune.walk", Animation.LoopType.LOOP));
                 return PlayState.CONTINUE;
-            } else if (!event.isMoving() && !this.swinging) {
-                event.getController().setAnimation(IDLE_ANIMATION);
+            } else if (!state.isMoving() && !this.swinging) {
+                state.setAnimation(RawAnimation.begin().then("animation.kitsune.idle", Animation.LoopType.LOOP));
                 return PlayState.CONTINUE;
             }
             return PlayState.STOP;
         }));
-
-        data.addAnimationController(new AnimationController(this, "attackController", 0, event -> {
+        controllers.add(new AnimationController<>(this, "attack_controller", 5, state -> {
             if (this.swinging) {
-                event.getController().setAnimation(ATTACK_ANIMATION);
+                state.setAnimation(RawAnimation.begin().then("animation.kitsune.attack", Animation.LoopType.PLAY_ONCE));
                 return PlayState.CONTINUE;
             }
-            event.getController().markNeedsReload();
+            state.getController().forceAnimationReset();
             return PlayState.STOP;
         }));
+
     }
-
-    public boolean hasEnchantment(Enchantment pEnchantment, LivingEntity pEntity) {
-        if (pEntity != null) {
-            return EnchantmentHelper.getEnchantmentLevel(pEnchantment, pEntity) > 0;
-        } else {
-            return false;
-        }
-    }
-
-    /*
-
-    / Disabele due to bugs! /
 
     @Override
-    public boolean isInvulnerableTo(DamageSource pSource) {
-        LivingEntity attacker = (LivingEntity) pSource.getEntity();
-        Enchantment enchantment = ModEnchantments.DEMON_SLAYER.get();
-
-        boolean hasSpiritSlayer = hasEnchantment(enchantment, attacker);
-
-        if (!hasSpiritSlayer && !pSource.isCreativePlayer() && attacker != null) {
-            return true;
-        } else {
-            return pSource.isProjectile() || super.isInvulnerableTo(pSource);
-        }
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.cache;
     }
 
-     */
-
-
-
-    @Override
-    public AnimationFactory getFactory() {
-        return FACTORY;
-    }
 
     static boolean hurtAndThrowTarget(LivingEntity pKitsune, LivingEntity pTarget) {
         float f1 = (float)pKitsune.getAttributeValue(Attributes.ATTACK_DAMAGE);
         float f;
         if ((int)f1 > 0) {
-            f = f1 / 2.0F + (float)pKitsune.level.random.nextInt((int)f1);
+            f = f1 / 2.0F + (float)pKitsune.level().random.nextInt((int)f1);
         } else {
             f = f1;
         }
 
-        boolean flag = pTarget.hurt(DamageSource.mobAttack(pKitsune), f);
+        boolean flag = pTarget.hurt(pTarget.damageSources().mobAttack(pKitsune), f);
         if (flag) {
             pKitsune.doEnchantDamageEffects(pKitsune, pTarget);
             throwTarget(pKitsune, pTarget);

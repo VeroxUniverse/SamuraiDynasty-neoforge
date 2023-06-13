@@ -30,7 +30,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
 
-    mappings channel: 'parchment', version: '2022.11.27-1.19.2'
+    mappings channel: 'official', version: '1.20'
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     runs {
@@ -132,13 +132,13 @@ dependencies {
 
     minecraft "net.minecraftforge:forge:${project.minecraft_version}-${project.loader_version}"
 
-    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${project.geckolib_version}")
-    implementation fg.deobf("top.theillusivec4.curios:curios-forge:${project.minecraft_version}-${project.curio_version}")
+    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${project.minecraft_version}:${project.geckolib_version}")
+    //implementation fg.deobf("top.theillusivec4.curios:curios-forge:${project.minecraft_version}-${project.curio_version}")
 
-    compileOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${project.minecraft_version}:${project.ars_version}")
-    runtimeOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${project.minecraft_version}:${project.ars_version}")
-    runtimeOnly fg.deobf("curse.maven:create-328085:${project.create_file_id}")
-    runtimeOnly fg.deobf("curse.maven:deeperdarker-659011:${project.deeperdarker_file_id}")
+    //compileOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${project.minecraft_version}:${project.ars_version}")
+    //runtimeOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${project.minecraft_version}:${project.ars_version}")
+    //runtimeOnly fg.deobf("curse.maven:create-328085:${project.create_file_id}")
+    //runtimeOnly fg.deobf("curse.maven:deeperdarker-659011:${project.deeperdarker_file_id}")
 
     // compile against the JEI API but do not include it at runtime
     compileOnly(fg.deobf("mezz.jei:jei-${project.minecraft_version}-common-api:${project.jei_version}"))
@@ -146,8 +146,8 @@ dependencies {
     // at runtime, use the full JEI jar for Forge
     runtimeOnly(fg.deobf("mezz.jei:jei-${project.minecraft_version}-forge:${project.jei_version}"))
 
-    compileOnly fg.deobf("vazkii.patchouli:Patchouli:${project.patchouli_version}:api")
-    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${project.patchouli_version}")
+    //compileOnly fg.deobf("vazkii.patchouli:Patchouli:${project.patchouli_version}:api")
+    //runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${project.patchouli_version}")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
 }

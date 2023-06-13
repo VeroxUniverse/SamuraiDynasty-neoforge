@@ -42,13 +42,6 @@ public class ModEntityTypes {
                             .fireImmune()
                             .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "oni").toString()));
 
-    public static final RegistryObject<EntityType<OnibiEntity>> ONIBI =
-            ENTITY_TYPES.register("onibi",
-                    () -> EntityType.Builder.of(OnibiEntity::new, MobCategory.MONSTER)
-                            .sized(0.2f, 0.8f)
-                            .fireImmune()
-                            .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "onibi").toString()));
-
     public static final RegistryObject<EntityType<ShurikenEntity>> SHURIKEN =
             ENTITY_TYPES.register("shuriken",
                     () -> EntityType.Builder.<ShurikenEntity>of(ShurikenEntity::new, MobCategory.MISC)
@@ -64,14 +57,6 @@ public class ModEntityTypes {
                             .clientTrackingRange(4)
                             .updateInterval(20)
                             .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "kunai").toString()));
-
-    public static final RegistryObject<EntityType<KitsuneProjectileEntity>> KITSUNE_PROJECTILE =
-            ENTITY_TYPES.register("kitsune_projectile",
-                    () -> EntityType.Builder.<KitsuneProjectileEntity>of(KitsuneProjectileEntity::new, MobCategory.MISC)
-                            .sized(0.25F, 0.25F)
-                            .clientTrackingRange(4)
-                            .updateInterval(20)
-                            .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "kitsune_projectile").toString()));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

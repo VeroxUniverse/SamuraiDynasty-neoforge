@@ -1,51 +1,52 @@
 package net.veroxuniverse.epicsamurai.item.armor;
 
+import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.silver.WhiteSamuraiArmorRenderer;
+import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.straw_hat.StrawHatArmorRenderer;
+import net.veroxuniverse.epicsamurai.item.armor.lib.SamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.registry.ArmorMaterialsRegistry;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.item.GeoArmorItem;
-import software.bernie.geckolib3.util.GeckoLibUtil;
+import org.jetbrains.annotations.NotNull;
+import software.bernie.geckolib.animatable.GeoItem;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.object.PlayState;
 
+import java.util.function.Consumer;
 
-public class WhiteSamuraiArmorItem extends GeoArmorItem implements IAnimatable {
-    private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
+public class WhiteSamuraiArmorItem extends SamuraiArmorItem {
 
-
-    public WhiteSamuraiArmorItem(ArmorMaterial material, EquipmentSlot slot, Properties settings) {
-        super(material, slot, settings);
+    public WhiteSamuraiArmorItem(ArmorMaterial material, Type type, Properties properties) {
+        super(material, type, properties);
     }
 
     @Override
-    public void registerControllers(AnimationData animationData) {
-        animationData.addAnimationController(new AnimationController<>(this, "controller",
-                0, this::predicate));
-    }
+    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+        consumer.accept(new IClientItemExtensions() {
+            private WhiteSamuraiArmorRenderer renderer;
 
-    @Override
-    public AnimationFactory getFactory() {
-        return this.FACTORY;
-    }
+            @Override
+            public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack,
+                                                                   EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
+                if (this.renderer == null)
+                    this.renderer = new WhiteSamuraiArmorRenderer();
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        //event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", true));
-        return PlayState.STOP;
+                this.renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
+                return this.renderer;
+            }
+        });
     }
-
-    @Override
-    public boolean canWalkOnPowderedSnow(ItemStack stack, LivingEntity wearer) {
-        return true;
-    }
-
     @Override
     public boolean makesPiglinsNeutral(ItemStack stack, LivingEntity wearer) {
         return this.material == ArmorMaterialsRegistry.SAMURAI_SILVER;
     }
+
 }
