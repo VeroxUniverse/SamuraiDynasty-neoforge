@@ -18,7 +18,6 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 public class BlueSamuraiArmorItem extends GeoArmorItem implements IAnimatable {
     private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
 
-
     public BlueSamuraiArmorItem(ArmorMaterial material, EquipmentSlot slot, Properties settings) {
         super(material, slot, settings);
     }

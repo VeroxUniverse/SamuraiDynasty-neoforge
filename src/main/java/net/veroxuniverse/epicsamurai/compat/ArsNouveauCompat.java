@@ -43,13 +43,13 @@ public class ArsNouveauCompat {
         )));
         api.registerPerkProvider(MAGE_SAMURAI_CHESTPLATE.get(), stack -> new ArmorPerkHolder(stack, Arrays.asList(
                 Arrays.asList(PerkSlot.ONE),
-                Arrays.asList(PerkSlot.ONE, PerkSlot.ONE),
-                Arrays.asList(PerkSlot.ONE, PerkSlot.ONE, PerkSlot.TWO)
+                Arrays.asList(PerkSlot.ONE, PerkSlot.TWO),
+                Arrays.asList(PerkSlot.ONE, PerkSlot.ONE, PerkSlot.THREE)
         )));
         api.registerPerkProvider(MAGE_SAMURAI_LEGGINGS.get(), stack -> new ArmorPerkHolder(stack, Arrays.asList(
                 Arrays.asList(PerkSlot.ONE),
-                Arrays.asList(PerkSlot.ONE, PerkSlot.ONE),
-                Arrays.asList(PerkSlot.ONE, PerkSlot.ONE, PerkSlot.TWO)
+                Arrays.asList(PerkSlot.ONE, PerkSlot.TWO),
+                Arrays.asList(PerkSlot.ONE, PerkSlot.ONE, PerkSlot.THREE)
         )));
         api.registerPerkProvider(MAGE_SAMURAI_BOOTS.get(), stack -> new ArmorPerkHolder(stack, Arrays.asList(
                 Arrays.asList(PerkSlot.ONE),
