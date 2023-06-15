@@ -27,7 +27,7 @@ public class EnenraRenderer extends GeoEntityRenderer<EnenraEntity> {
                                     @Nullable MultiBufferSource renderTypeBuffer,
                                     @Nullable VertexConsumer vertexBuilder, int packedLightIn,
                                     ResourceLocation textureLocation) {
-        stack.scale(0.8f, 0.8f, 0.8f);
+        stack.scale(1.0f, 1.0f, 1.0f);
         return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
     }
 }
