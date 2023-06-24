@@ -13,6 +13,8 @@ import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.item.KunaiItem;
 import net.veroxuniverse.epicsamurai.item.ShurikenItem;
 import net.veroxuniverse.epicsamurai.item.armor.*;
+import top.theillusivec4.curios.common.data.CuriosSlotManager;
+import top.theillusivec4.curios.common.inventory.CurioSlot;
 
 @SuppressWarnings("unused")
 public class ItemsRegistry {
@@ -131,12 +133,8 @@ public class ItemsRegistry {
     public static final RegistryObject<Item> STRAW_HAT = ITEMS.register("straw_hat",
             () -> new StrawHatArmorItem(ArmorMaterialsRegistry.STRAW, ArmorItem.Type.HELMET, new Item.Properties()));
 
-    /*
-
     public static final RegistryObject<Item> ONI_MASK = ITEMS.register("oni_mask",
             () -> new OniMaskArmorItem(ArmorMaterialsRegistry.STRAW, ArmorItem.Type.HELMET, new Item.Properties()));
-
-     */
 
     public static final RegistryObject<Item> KNIVE_HANDLE = ITEMS.register("knive_handle",
             () -> new Item(new Item.Properties()));
