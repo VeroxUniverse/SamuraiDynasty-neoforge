@@ -1,6 +1,7 @@
 package net.veroxuniverse.epicsamurai;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraftforge.api.distmarker.Dist;
@@ -12,10 +13,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.veroxuniverse.epicsamurai.client.custom_entities.AkanameRenderer;
-import net.veroxuniverse.epicsamurai.client.custom_entities.EnenraRenderer;
-import net.veroxuniverse.epicsamurai.client.custom_entities.KitsuneRenderer;
-import net.veroxuniverse.epicsamurai.client.custom_entities.OniRenderer;
+import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.oni_mask.OniMaskArmorRenderer;
+import net.veroxuniverse.epicsamurai.client.custom_entities.*;
 import net.veroxuniverse.epicsamurai.compat.CreateCompat;
 import net.veroxuniverse.epicsamurai.compat.DeeperDarkerCompat;
 import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
@@ -26,6 +25,7 @@ import net.veroxuniverse.epicsamurai.registry.ItemsRegistry;
 import net.veroxuniverse.epicsamurai.registry.ParticlesInit;
 import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
+import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
 
 @Mod(EpicSamuraiMod.MOD_ID)
@@ -76,10 +76,10 @@ public class EpicSamuraiMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-
             EntityRenderers.register(ModEntityTypes.AKANAME.get(), AkanameRenderer::new);
             EntityRenderers.register(ModEntityTypes.ENENRA.get(), EnenraRenderer::new);
             EntityRenderers.register(ModEntityTypes.ONI.get(), OniRenderer::new);
+            EntityRenderers.register(ModEntityTypes.ONIBI.get(), OnibiRenderer::new);
             EntityRenderers.register(ModEntityTypes.KITSUNE.get(), KitsuneRenderer::new);
 
             EntityRenderers.register(ModEntityTypes.SHURIKEN.get(), ThrownItemRenderer::new);

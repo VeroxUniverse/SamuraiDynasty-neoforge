@@ -42,6 +42,13 @@ public class ModEntityTypes {
                             .fireImmune()
                             .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "oni").toString()));
 
+    public static final RegistryObject<EntityType<OnibiEntity>> ONIBI =
+            ENTITY_TYPES.register("onibi",
+                    () -> EntityType.Builder.of(OnibiEntity::new, MobCategory.MONSTER)
+                            .sized(0.2f, 0.8f)
+                            .fireImmune()
+                            .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "onibi").toString()));
+
     public static final RegistryObject<EntityType<ShurikenEntity>> SHURIKEN =
             ENTITY_TYPES.register("shuriken",
                     () -> EntityType.Builder.<ShurikenEntity>of(ShurikenEntity::new, MobCategory.MISC)

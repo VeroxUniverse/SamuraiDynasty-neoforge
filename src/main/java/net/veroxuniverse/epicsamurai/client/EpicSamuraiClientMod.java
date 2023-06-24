@@ -1,6 +1,7 @@
 package net.veroxuniverse.epicsamurai.client;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
@@ -39,9 +40,6 @@ public class EpicSamuraiClientMod {
 
     @SubscribeEvent
     public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
-
-        CuriosRendererRegistry.register(OniMaskArmorItem, () -> new ICurioRenderer() {
-        });
 
     }
 

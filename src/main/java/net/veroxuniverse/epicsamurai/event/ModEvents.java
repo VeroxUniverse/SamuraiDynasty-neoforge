@@ -22,6 +22,7 @@ public class ModEvents {
             event.put(ModEntityTypes.ENENRA.get(), EnenraEntity.setAttributes());
             event.put(ModEntityTypes.ONI.get(), OniEntity.setAttributes());
             event.put(ModEntityTypes.KITSUNE.get(), KitsuneEntity.setAttributes());
+            event.put(ModEntityTypes.ONIBI.get(), OnibiEntity.setAttributes());
         }
         @SubscribeEvent
         public static void entitySpawnRestriction(SpawnPlacementRegisterEvent event) {
