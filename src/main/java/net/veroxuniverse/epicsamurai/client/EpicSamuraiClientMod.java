@@ -26,6 +26,8 @@ import net.veroxuniverse.epicsamurai.item.armor.*;
 import net.veroxuniverse.epicsamurai.particle.BlueFlame;
 import net.veroxuniverse.epicsamurai.registry.ParticlesInit;
 import software.bernie.geckolib.renderer.GeoArmorRenderer;
+import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
+import top.theillusivec4.curios.api.client.ICurioRenderer;
 
 @Mod.EventBusSubscriber(modid = EpicSamuraiMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class EpicSamuraiClientMod {
@@ -37,6 +39,10 @@ public class EpicSamuraiClientMod {
 
     @SubscribeEvent
     public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
+
+        CuriosRendererRegistry.register(OniMaskArmorItem, () -> new ICurioRenderer() {
+        });
+
     }
 
 }
