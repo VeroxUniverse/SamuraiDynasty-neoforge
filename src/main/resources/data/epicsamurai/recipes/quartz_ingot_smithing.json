@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:smithing",
+  "type": "minecraft:smithing_transform",
   "addition": {
     "tag": "forge:gems/quartz"
   },
@@ -8,5 +8,9 @@
   },
   "result": {
     "item": "epicsamurai:quartz_ingot"
+  },
+  "template": {
+    "tag": "forge:gems/quartz"
   }
 }
+

@@ -198,6 +198,18 @@ public class ItemsRegistry {
     public static final RegistryObject<Item> QUARTZ_INGOT = ITEMS.register("quartz_ingot",
             () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> KITSUNE_HIDE = ITEMS.register("kitsune_hide",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> KITSUNE_TAIL = ITEMS.register("kitsune_tail",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> AKANAME_TONGUE = ITEMS.register("akaname_tongue",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> ONI_HORN = ITEMS.register("oni_horn",
+            () -> new Item(new Item.Properties()));
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

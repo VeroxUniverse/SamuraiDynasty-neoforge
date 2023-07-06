@@ -36,7 +36,7 @@ public class CreativeTabRegistry {
                         }
                     }
                 }
-                if (ModList.get().isLoaded("create")) {
+                if (ModList.get().isLoaded("deeperdarker")) {
                     for(RegistryObject<Item> item : DeeperDarkerCompat.DEEPERDARKER_ITEMS.getEntries()){
                         if(item.get() instanceof CustomTabs customTabBehavior){
                             customTabBehavior.fillItemCategory(output);
