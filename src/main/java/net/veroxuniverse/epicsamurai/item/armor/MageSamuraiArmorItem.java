@@ -3,6 +3,7 @@
 package net.veroxuniverse.epicsamurai.item.armor;
 
 import com.hollingsworth.arsnouveau.common.armor.AnimatedMagicArmor;
+import com.hollingsworth.arsnouveau.common.armor.Materials;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -21,14 +22,19 @@ import software.bernie.ars_nouveau.geckolib.core.animation.AnimatableManager;
 import software.bernie.ars_nouveau.geckolib.core.animation.AnimationController;
 import software.bernie.ars_nouveau.geckolib.core.animation.AnimationState;
 import software.bernie.ars_nouveau.geckolib.core.object.PlayState;
+import software.bernie.ars_nouveau.geckolib.model.GeoModel;
 
 import java.util.function.Consumer;
 
 public class MageSamuraiArmorItem extends AnimatedMagicArmor implements GeoItem {
 
-    public MageSamuraiArmorItem(ArmorMaterial materialIn, ArmorItem.Type slot, Item.Properties builder) {
-        super(materialIn, slot, builder);
+    public GeoModel<AnimatedMagicArmor> model;
+
+    public MageSamuraiArmorItem(ArmorMaterial materialIn, ArmorItem.Type slot, Item.Properties builder, GeoModel<AnimatedMagicArmor> model) {
+        super(materialIn, slot, builder, model);
+        this.model = model;
     }
+
 
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
@@ -49,7 +55,7 @@ public class MageSamuraiArmorItem extends AnimatedMagicArmor implements GeoItem 
         }
     }
 
-    private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+    private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
@@ -62,11 +68,16 @@ public class MageSamuraiArmorItem extends AnimatedMagicArmor implements GeoItem 
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return cache;
+        return factory;
     }
 
     @Override
     public boolean canWalkOnPowderedSnow(ItemStack stack, LivingEntity wearer) {
+        return true;
+    }
+
+    @Override
+    public boolean makesPiglinsNeutral(ItemStack stack, LivingEntity wearer) {
         return true;
     }
 
