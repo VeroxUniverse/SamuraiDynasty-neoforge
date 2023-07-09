@@ -10,6 +10,7 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
+import net.veroxuniverse.epicsamurai.compat.ArsNouveauCompat;
 import net.veroxuniverse.epicsamurai.compat.CreateCompat;
 import net.veroxuniverse.epicsamurai.compat.DeeperDarkerCompat;
 
@@ -45,19 +46,15 @@ public class CreativeTabRegistry {
                         }
                     }
                 }
-
-                /* Ars Compat Removed
-
-                for(RegistryObject<Item> item : ArsNouveauCompat.ARSN_ITEMS.getEntries()){
-                    if(item.get() instanceof CustomTabs customTabBehavior){
-                        customTabBehavior.fillItemCategory(output);
-                    }else{
-                        output.accept(item.get());
+                if (ModList.get().isLoaded("ars_nouveau")) {
+                    for(RegistryObject<Item> item : ArsNouveauCompat.ARSN_ITEMS.getEntries()){
+                        if(item.get() instanceof CustomTabs customTabBehavior){
+                            customTabBehavior.fillItemCategory(output);
+                        }else{
+                            output.accept(item.get());
+                        }
                     }
                 }
-
-                 */
-
             })
             .build());
 

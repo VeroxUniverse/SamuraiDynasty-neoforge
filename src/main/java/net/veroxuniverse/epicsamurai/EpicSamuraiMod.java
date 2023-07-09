@@ -15,6 +15,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.oni_mask.OniMaskArmorRenderer;
 import net.veroxuniverse.epicsamurai.client.custom_entities.*;
+import net.veroxuniverse.epicsamurai.compat.ArsNouveauCompat;
 import net.veroxuniverse.epicsamurai.compat.CreateCompat;
 import net.veroxuniverse.epicsamurai.compat.DeeperDarkerCompat;
 import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
@@ -56,7 +57,7 @@ public class EpicSamuraiMod
             CreateCompat.register(modEventBus);
         }
         if(ModList.get().isLoaded("ars_nouveau")) {
-            //ArsNouveauCompat.register(modEventBus);
+            ArsNouveauCompat.register(modEventBus);
         }
 
         modEventBus.addListener(this::commonSetup);
@@ -66,7 +67,7 @@ public class EpicSamuraiMod
     private void commonSetup(final FMLCommonSetupEvent event)
     {
         if(ModList.get().isLoaded("ars_nouveau")) {
-            //ArsNouveauCompat.registerPerkProviders();
+            ArsNouveauCompat.registerPerkProviders();
         }
     }
 

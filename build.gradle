@@ -22,7 +22,7 @@ plugins {
 apply plugin: 'org.spongepowered.mixin'
 
 archivesBaseName = project.archives_base_name
-version = "project.mod_version"
+version = project.mod_version
 group = project.maven_group
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -135,9 +135,9 @@ dependencies {
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${project.geckolib_version}")
     implementation fg.deobf("top.theillusivec4.curios:curios-forge:${project.curio_version}")
 
-    //compileOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${project.minecraft_version}:${project.ars_version}")
-    //runtimeOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${project.minecraft_version}:${project.ars_version}")
-    //runtimeOnly fg.deobf("curse.maven:create-328085:${project.create_file_id}")
+    compileOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${project.minecraft_version}:${project.ars_version}")
+    runtimeOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${project.minecraft_version}:${project.ars_version}")
+    runtimeOnly fg.deobf("curse.maven:create-328085:${project.create_file_id}")
     //runtimeOnly fg.deobf("curse.maven:deeperdarker-659011:${project.deeperdarker_file_id}")
 
     // compile against the JEI API but do not include it at runtime
