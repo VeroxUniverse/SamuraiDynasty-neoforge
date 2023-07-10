@@ -14,9 +14,9 @@ public class MixinBrassArmorItem {
     @Redirect(
             method = "Lcom/simibubi/create/content/equipment/goggles/GoggleOverlayRenderer;renderOverlay(Lnet/minecraftforge/client/gui/overlay/ForgeGui;Lnet/minecraft/client/gui/GuiGraphics;FII)V",
             at = @At(value = "INVOKE",
-            target = "Lnet/veroxuniverse/epicsamurai/item/armor/BrassSamuraiArmorItem;isWearingGoggles(Lnet/minecraft/world/entity/player/Player;)Z"))
-    private static <GooglesItem> boolean injected(GooglesItem googlesItem, Player player){
-        return BrassSamuraiArmorItem.isWearingGoggles(mc.player) && GogglesItem.isWearingGoggles(mc.player);
+            target = "Lcom/simibubi/create/content/equipment/goggles/GogglesItem;isWearingGoggles(Lnet/minecraft/world/entity/player/Player;)Z"))
+    private static boolean injected(Player player){
+        return BrassSamuraiArmorItem.isWearingGoggles(player) && GogglesItem.isWearingGoggles(player);
     }
 
 }
