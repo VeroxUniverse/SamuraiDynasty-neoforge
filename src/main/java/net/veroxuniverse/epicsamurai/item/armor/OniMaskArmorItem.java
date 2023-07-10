@@ -1,7 +1,6 @@
 package net.veroxuniverse.epicsamurai.item.armor;
 
 import net.minecraft.client.model.HumanoidModel;
-import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorMaterial;
@@ -11,7 +10,6 @@ import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.oni_mask
 import net.veroxuniverse.epicsamurai.item.armor.lib.SamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.registry.ArmorMaterialsRegistry;
 import org.jetbrains.annotations.NotNull;
-import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import java.util.function.Consumer;
