@@ -10,7 +10,7 @@
     },
     {
       "type": "patchouli:smelting",
-      "recipe": "epicsamurai:steel_ingot",
+      "recipe": "epicsamurai:steel_ingot_from_blasting_iron_ingot",
       "text": "$(item)Steel$() can be smelted in the $(thing)Blast Furnace$()."
     }
   ]

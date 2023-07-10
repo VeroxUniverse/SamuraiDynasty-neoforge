@@ -1,5 +1,6 @@
 package net.veroxuniverse.epicsamurai.registry;
 
+import com.teammetallurgy.aquaculture.init.AquaItems;
 import net.minecraft.Util;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -10,6 +11,8 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.fml.ModList;
+import net.veroxuniverse.epicsamurai.compat.AquacultureCompat;
 import net.veroxuniverse.epicsamurai.compat.CreateCompat;
 
 import java.util.EnumMap;
@@ -109,6 +112,19 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
         return Ingredient.of(ItemsRegistry.AMETHYST_INGOT.get());
     }),
 
+    SAMURAI_NEPTUN("samurai_neptun", 35,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 3);
+        armor.put(ArmorItem.Type.LEGGINGS, 6);
+        armor.put(ArmorItem.Type.CHESTPLATE, 8);
+        armor.put(ArmorItem.Type.HELMET, 3);
+    }), 25, SoundEvents.ARMOR_EQUIP_NETHERITE, 2.5F, 0.0F, () -> {
+        if (ModList.get().isLoaded("aquaculture")) {
+            return Ingredient.of(AquaItems.NEPTUNIUM_INGOT.get());
+        } else {
+            return Ingredient.of(Items.HEART_OF_THE_SEA);
+        }
+    }),
+
     SAMURAI_QUARTZ("samurai_quartz", 35,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
         armor.put(ArmorItem.Type.BOOTS, 3);
         armor.put(ArmorItem.Type.LEGGINGS, 6);
@@ -136,7 +152,7 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
         return Ingredient.of(Items.IRON_INGOT);
     }),
 
-    STEEL("samurai_iron", 20,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+    STEEL("samurai_steel", 20,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
         armor.put(ArmorItem.Type.BOOTS, 3);
         armor.put(ArmorItem.Type.LEGGINGS, 5);
         armor.put(ArmorItem.Type.CHESTPLATE, 7);

@@ -8,12 +8,12 @@ import software.bernie.geckolib.model.GeoModel;
 public class BrassSamuraiArmorModel extends GeoModel<BrassSamuraiArmorItem> {
     @Override
     public ResourceLocation  getModelResource(BrassSamuraiArmorItem object) {
-        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/samurai_armor_new.geo.json");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/create_samurai_armor.geo.json");
     }
 
     @Override
     public ResourceLocation getTextureResource(BrassSamuraiArmorItem object) {
-        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/armor/brass_samurai_armor_textures.png");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/armor/goggle_create_samurai_armor_textures.png");
     }
 
     @Override

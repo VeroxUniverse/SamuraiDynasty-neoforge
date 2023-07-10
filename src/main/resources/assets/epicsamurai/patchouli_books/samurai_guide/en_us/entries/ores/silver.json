@@ -10,7 +10,7 @@
     },
     {
       "type": "patchouli:smelting",
-      "recipe": "epicsamurai:silver_ingot",
+      "recipe": "epicsamurai:ssilver_ingot_from_smelting_raw_silver",
       "text": "$(item)Raw Silver$() can be smelted in the $(thing)Furnace$()."
     }
   ]

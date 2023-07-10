@@ -173,6 +173,9 @@ public class ItemsRegistry {
     public static final RegistryObject<Item> ONIBI_SPAWN_EGG = ITEMS.register("onibi_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.ONIBI, 0x85929E, 0x0097FF,
                     new Item.Properties()));
+    public static final RegistryObject<Item> JOROGUMO_SPAWN_EGG = ITEMS.register("jorogumo_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.JOROGUMO, 0x5f3799, 0xffcedd,
+                    new Item.Properties()));
 
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby",
             () -> new Item(new Item.Properties()));

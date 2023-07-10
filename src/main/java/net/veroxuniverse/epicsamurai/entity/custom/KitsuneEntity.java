@@ -11,11 +11,13 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.veroxuniverse.epicsamurai.entity.custom.goals.KitsuneAttackGoal;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
@@ -47,8 +49,9 @@ public class KitsuneEntity extends Monster implements GeoEntity {
 
         this.goalSelector.addGoal(1, new FloatGoal(this));
 
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, true));
-        //this.goalSelector.addGoal(3, new MoveTowardsTargetGoal(this, 1.2D, 25.0F));
+        this.goalSelector.addGoal(2, new KitsuneAttackGoal(this, 1.2D, true));
+        //this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, true)); Not needed > KitsuneAttackGoal
+        //this.goalSelector.addGoal(3, new MoveTowardsTargetGoal(this, 1.2D, 25.0F)); Not needed > KitsuneAttackGoal
 
         this.goalSelector.addGoal(4, new LeapAtTargetGoal(this, 0.4F));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
@@ -56,8 +59,9 @@ public class KitsuneEntity extends Monster implements GeoEntity {
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
 
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, false));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
-        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Animal.class, false));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, false));
+        //this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, true)); Villager Attack
+
     }
 
     @Override

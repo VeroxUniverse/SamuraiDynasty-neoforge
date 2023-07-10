@@ -17,7 +17,10 @@ import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.util.LandRandomPos;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.monster.Skeleton;
+import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -101,8 +104,9 @@ public class OnibiEntity extends Monster implements GeoEntity {
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, false));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
-        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Animal.class, false));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, false));
+        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Zombie.class, false));
+        this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, Skeleton.class, false));
     }
 
     public boolean causeFallDamage(float pFallDistance, float pMultiplier, DamageSource pSource) {

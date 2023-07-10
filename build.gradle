@@ -137,6 +137,7 @@ dependencies {
 
     compileOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${project.minecraft_version}:${project.ars_version}")
     runtimeOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${project.minecraft_version}:${project.ars_version}")
+    compileOnly fg.deobf("curse.maven:create-328085:${project.create_file_id}")
     runtimeOnly fg.deobf("curse.maven:create-328085:${project.create_file_id}")
     //runtimeOnly fg.deobf("curse.maven:deeperdarker-659011:${project.deeperdarker_file_id}")
 
@@ -148,6 +149,11 @@ dependencies {
 
     compileOnly fg.deobf("vazkii.patchouli:Patchouli:${project.patchouli_version}:api")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${project.patchouli_version}")
+
+    // compile against Aquaculture
+    compileOnly fg.deobf("curse.maven:aquaculture-60028:${project.aquaculture_file_id}")
+    runtimeOnly fg.deobf("curse.maven:aquaculture-60028:${project.aquaculture_file_id}")
+
 
     annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
 }

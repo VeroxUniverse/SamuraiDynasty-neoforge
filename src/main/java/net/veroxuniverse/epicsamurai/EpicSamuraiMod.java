@@ -15,6 +15,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.oni_mask.OniMaskArmorRenderer;
 import net.veroxuniverse.epicsamurai.client.custom_entities.*;
+import net.veroxuniverse.epicsamurai.compat.AquacultureCompat;
 import net.veroxuniverse.epicsamurai.compat.ArsNouveauCompat;
 import net.veroxuniverse.epicsamurai.compat.CreateCompat;
 import net.veroxuniverse.epicsamurai.compat.DeeperDarkerCompat;
@@ -59,6 +60,9 @@ public class EpicSamuraiMod
         if(ModList.get().isLoaded("ars_nouveau")) {
             ArsNouveauCompat.register(modEventBus);
         }
+        if(ModList.get().isLoaded("aquaculture")) {
+            AquacultureCompat.register(modEventBus);
+        }
 
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
@@ -82,7 +86,9 @@ public class EpicSamuraiMod
             EntityRenderers.register(ModEntityTypes.ONI.get(), OniRenderer::new);
             EntityRenderers.register(ModEntityTypes.ONIBI.get(), OnibiRenderer::new);
             EntityRenderers.register(ModEntityTypes.KITSUNE.get(), KitsuneRenderer::new);
+            EntityRenderers.register(ModEntityTypes.JOROGUMO.get(), JorogumoRenderer::new);
 
+            EntityRenderers.register(ModEntityTypes.KITSUNE_PROJECTILE.get(), KitsuneProjectileRenderer::new);
             EntityRenderers.register(ModEntityTypes.SHURIKEN.get(), ThrownItemRenderer::new);
             EntityRenderers.register(ModEntityTypes.KUNAI.get(), ThrownItemRenderer::new);
 

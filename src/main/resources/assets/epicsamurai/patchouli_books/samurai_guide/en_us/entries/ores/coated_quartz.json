@@ -7,6 +7,10 @@
       "type": "patchouli:spotlight",
       "item": "epicsamurai:quartz_ingot",
       "text": "You can Upgrade Steel.$(br)$(item)Steel$() can be combined with $(thing)Quartz$() in the $(item)Smithing Table$()."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "epicsamurai:quartz_ingot_smithing"
     }
   ]
 }

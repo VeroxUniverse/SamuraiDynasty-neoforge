@@ -26,6 +26,7 @@ public class CreateCompat {
             () -> new BrassSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_BRASS, ArmorItem.Type.BOOTS, new Item.Properties()));
     public static final RegistryObject<Item> BRASS_REPAIR_KIT = CREATE_ITEMS.register("brass_repair_kit",
             () -> new Item(new Item.Properties()));
+
     public static void register(IEventBus eventBus) {
         CREATE_ITEMS.register(eventBus);
     }
