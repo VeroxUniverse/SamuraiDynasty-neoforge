@@ -1,9 +1,9 @@
 package net.veroxuniverse.epicsamurai;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -13,7 +13,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.oni_mask.OniMaskArmorRenderer;
 import net.veroxuniverse.epicsamurai.client.custom_entities.*;
 import net.veroxuniverse.epicsamurai.compat.AquacultureCompat;
 import net.veroxuniverse.epicsamurai.compat.ArsNouveauCompat;
@@ -21,13 +20,15 @@ import net.veroxuniverse.epicsamurai.compat.CreateCompat;
 import net.veroxuniverse.epicsamurai.compat.DeeperDarkerCompat;
 import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
+import net.veroxuniverse.epicsamurai.item.armor.BrassSamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.registry.BlocksRegistry;
 import net.veroxuniverse.epicsamurai.registry.CreativeTabRegistry;
 import net.veroxuniverse.epicsamurai.registry.ItemsRegistry;
 import net.veroxuniverse.epicsamurai.registry.ParticlesInit;
 import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
-import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
+
+import static com.simibubi.create.content.equipment.goggles.GogglesItem.addIsWearingPredicate;
 
 
 @Mod(EpicSamuraiMod.MOD_ID)
@@ -73,6 +74,13 @@ public class EpicSamuraiMod
         if(ModList.get().isLoaded("ars_nouveau")) {
             ArsNouveauCompat.registerPerkProviders();
         }
+
+        if(ModList.get().isLoaded("create")) {
+            addIsWearingPredicate((player) -> {
+                    return player.getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof BrassSamuraiArmorItem;
+            });
+        }
+
     }
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
