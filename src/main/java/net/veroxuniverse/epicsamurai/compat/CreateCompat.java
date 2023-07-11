@@ -7,10 +7,9 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
-import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.create.BrassSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.item.armor.BrassSamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.registry.ArmorMaterialsRegistry;
-import software.bernie.geckolib.renderer.GeoArmorRenderer;
+
 public class CreateCompat {
 
     public static final DeferredRegister<Item> CREATE_ITEMS =

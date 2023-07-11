@@ -133,7 +133,7 @@ dependencies {
     minecraft "net.minecraftforge:forge:${project.minecraft_version}-${project.loader_version}"
 
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${project.geckolib_version}")
-    implementation fg.deobf("top.theillusivec4.curios:curios-forge:${project.curio_version}")
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${project.curio_version}")
 
     compileOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${project.minecraft_version}:${project.ars_version}")
     runtimeOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${project.minecraft_version}:${project.ars_version}")

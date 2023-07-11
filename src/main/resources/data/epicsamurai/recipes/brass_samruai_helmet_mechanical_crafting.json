@@ -23,12 +23,15 @@
           },
           "S": {
             "tag": "forge:ingots/steel"
+          },
+          "G": {
+            "item": "create:goggles"
           }
         },
         "pattern": [
           " A ",
           "SRS",
-          "B B"
+          "BGB"
         ],
         "result": {
           "count": 1,

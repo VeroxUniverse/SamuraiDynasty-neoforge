@@ -125,5 +125,11 @@
 
   "itemGroup.epicsamurai": "Epic Samurai's",
 
-  "enchantment.epicsamurai.demon_slayer": "Demon Slayer"
+  "enchantment.epicsamurai.demon_slayer": "Demon Slayer",
+
+  "item.epicsamurai.brass_samurai_helmet.tooltip": "GOGGLES",
+  "item.epicsamurai.brass_samurai_helmet.tooltip.summary": "Augments your HUD with _miscellaneous information_ about placed components.",
+  "item.epicsamurai.brass_samurai_helmet.condition1": "When looking at blocks",
+  "item.epicsamurai.brass_samurai_helmet.behaviour1": "_Kinetic components_ show added _Stress Impact_ or _Capacity_. _Stressometers_ show statistics of their _attached kinetic network_. Some other blocks reveal information such as item and fluid content."
+
 }

@@ -13,8 +13,6 @@ import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.item.KunaiItem;
 import net.veroxuniverse.epicsamurai.item.ShurikenItem;
 import net.veroxuniverse.epicsamurai.item.armor.*;
-import top.theillusivec4.curios.common.data.CuriosSlotManager;
-import top.theillusivec4.curios.common.inventory.CurioSlot;
 
 @SuppressWarnings("unused")
 public class ItemsRegistry {

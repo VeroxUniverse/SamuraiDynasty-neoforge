@@ -10,11 +10,10 @@ import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.oni_mask
 import net.veroxuniverse.epicsamurai.item.armor.lib.SamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.registry.ArmorMaterialsRegistry;
 import org.jetbrains.annotations.NotNull;
-import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import java.util.function.Consumer;
 
-public class OniMaskArmorItem extends SamuraiArmorItem implements ICurioItem {
+public class OniMaskArmorItem extends SamuraiArmorItem{
 
     public OniMaskArmorItem(ArmorMaterial material, Type type, Properties properties) {
         super(material, type, properties);
