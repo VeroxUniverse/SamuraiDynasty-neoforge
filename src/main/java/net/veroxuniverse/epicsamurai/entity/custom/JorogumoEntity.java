@@ -150,7 +150,7 @@ public class JorogumoEntity extends Monster implements GeoEntity {
     }
 
     public boolean onClimbable() {
-        return this.isClimbing();
+        return this.isCurrentlyClimbing();
     }
 
     public void makeStuckInBlock(BlockState state, Vec3 vec3) {
@@ -173,7 +173,7 @@ public class JorogumoEntity extends Monster implements GeoEntity {
         return super.canBeAffected(effectInstance);
     }
 
-    public boolean isClimbing() {
+    public boolean isCurrentlyClimbing() {
         return (this.entityData.get(DATA_FLAGS_ID) & 1) != 0;
     }
 
