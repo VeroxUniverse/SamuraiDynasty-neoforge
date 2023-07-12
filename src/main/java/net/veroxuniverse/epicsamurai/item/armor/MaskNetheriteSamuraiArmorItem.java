@@ -4,6 +4,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -70,10 +71,13 @@ public class MaskNetheriteSamuraiArmorItem extends SamuraiArmorItem {
     @Override
     public void onArmorTick(ItemStack stack, Level level, Player player) {
         if(!level.isClientSide()) {
-            if(player.getInventory().getArmor(EquipmentSlot.HEAD.getIndex()).is(ItemsRegistry.AMETHYST_SAMURAI_HELMET.get())) {
+            if(player.getInventory().getArmor(EquipmentSlot.HEAD.getIndex()).is(ItemsRegistry.MASK_AMETHYST_SAMURAI_HELMET.get())) {
                 if(player.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
                 if(player.hasEffect(MobEffects.BLINDNESS)) player.removeEffect(MobEffects.BLINDNESS);
             }
+        }
+        if (this.type == Type.HELMET) {
+            player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 20, 0, false, false, false));
         }
     }
 

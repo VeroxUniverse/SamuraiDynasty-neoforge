@@ -73,7 +73,7 @@ public class MaskAmethystSamuraiArmorItem extends SamuraiArmorItem {
     @Override
     public void onArmorTick(ItemStack stack, Level level, Player player) {
         if(!level.isClientSide()) {
-            if(player.getInventory().getArmor(EquipmentSlot.HEAD.getIndex()).is(ItemsRegistry.AMETHYST_SAMURAI_HELMET.get())) {
+            if(player.getInventory().getArmor(EquipmentSlot.HEAD.getIndex()).is(ItemsRegistry.MASK_AMETHYST_SAMURAI_HELMET.get())) {
                 if(player.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
                 if(player.hasEffect(MobEffects.BLINDNESS)) player.removeEffect(MobEffects.BLINDNESS);
             }
