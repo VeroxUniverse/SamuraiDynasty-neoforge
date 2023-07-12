@@ -57,6 +57,20 @@ public class ModEntityTypes {
                             .fireImmune()
                             .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "jorogumo").toString()));
 
+    public static final RegistryObject<EntityType<RaijinEntity>> RAIJIN =
+            ENTITY_TYPES.register("raijin",
+                    () -> EntityType.Builder.of(RaijinEntity::new, MobCategory.MONSTER)
+                            .sized(1.8f, 2.0f)
+                            .fireImmune()
+                            .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "raijin").toString()));
+
+    public static final RegistryObject<EntityType<FujinEntity>> FUJIN =
+            ENTITY_TYPES.register("fujin",
+                    () -> EntityType.Builder.of(FujinEntity::new, MobCategory.MONSTER)
+                            .sized(1.8f, 2.0f)
+                            .fireImmune()
+                            .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "fujin").toString()));
+
     public static final RegistryObject<EntityType<ShurikenEntity>> SHURIKEN =
             ENTITY_TYPES.register("shuriken",
                     () -> EntityType.Builder.<ShurikenEntity>of(ShurikenEntity::new, MobCategory.MISC)

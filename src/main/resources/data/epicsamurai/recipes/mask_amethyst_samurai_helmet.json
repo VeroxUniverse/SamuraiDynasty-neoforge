@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "epicsamurai:amethyst_samurai_helmet"
+    },
+    {
+      "item": "epicsamurai:oni_mask"
+    }
+  ],
+  "result": {
+    "item": "epicsamurai:mask_amethyst_samurai_helmet"
+  }
+}
