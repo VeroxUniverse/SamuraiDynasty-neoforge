@@ -12,7 +12,7 @@
         "type": "minecraft:crafting_shaped",
         "key": {
           "X": {
-            "item": "forbidden_arcanus:qauatic_dragon_scale"
+            "item": "forbidden_arcanus:aquatic_dragon_scale"
           },
           "Y": {
             "item": "forbidden_arcanus:golden_dragon_scale"
