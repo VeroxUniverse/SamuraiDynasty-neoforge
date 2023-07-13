@@ -16,12 +16,10 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.util.LandRandomPos;
-import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.entity.monster.Zombie;
-import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LeavesBlock;
@@ -29,6 +27,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 import net.veroxuniverse.epicsamurai.registry.ParticlesInit;
+import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.AnimatableManager;
@@ -62,13 +61,13 @@ public class OnibiEntity extends Monster implements GeoEntity {
     public static AttributeSupplier setAttributes() {
         return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 8.0D)
-                .add(Attributes.FLYING_SPEED, (double)0.4F)
-                .add(Attributes.MOVEMENT_SPEED, (double)0.2F)
+                .add(Attributes.FLYING_SPEED, 0.4F)
+                .add(Attributes.MOVEMENT_SPEED, 0.2F)
                 .add(Attributes.ATTACK_DAMAGE, 4.0D)
                 .add(Attributes.FOLLOW_RANGE, 48.0D).build();
     }
 
-    protected PathNavigation createNavigation(Level pLevel) {
+    protected @NotNull PathNavigation createNavigation(@NotNull Level pLevel) {
         FlyingPathNavigation flyingpathnavigation = new FlyingPathNavigation(this, pLevel);
         flyingpathnavigation.setCanOpenDoors(false);
         flyingpathnavigation.setCanFloat(true);
@@ -109,11 +108,11 @@ public class OnibiEntity extends Monster implements GeoEntity {
         this.targetSelector.addGoal(5, new NearestAttackableTargetGoal<>(this, Skeleton.class, false));
     }
 
-    public boolean causeFallDamage(float pFallDistance, float pMultiplier, DamageSource pSource) {
+    public boolean causeFallDamage(float pFallDistance, float pMultiplier, @NotNull DamageSource pSource) {
         return false;
     }
 
-    protected void checkFallDamage(double pY, boolean pOnGround, BlockState pState, BlockPos pPos) {
+    protected void checkFallDamage(double pY, boolean pOnGround, @NotNull BlockState pState, @NotNull BlockPos pPos) {
     }
 
     public boolean isSensitiveToWater() {
@@ -122,7 +121,7 @@ public class OnibiEntity extends Monster implements GeoEntity {
 
 
 
-    public boolean doHurtTarget(Entity pEntity) {
+    public boolean doHurtTarget(@NotNull Entity pEntity) {
         if (!super.doHurtTarget(pEntity)) {
             return false;
         } else {
@@ -159,7 +158,7 @@ public class OnibiEntity extends Monster implements GeoEntity {
         return SoundEvents.ALLAY_AMBIENT_WITHOUT_ITEM;
     }
 
-    protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
+    protected SoundEvent getHurtSound(@NotNull DamageSource damageSourceIn) {
         return SoundEvents.ALLAY_HURT;
     }
 
@@ -179,7 +178,7 @@ public class OnibiEntity extends Monster implements GeoEntity {
         return true;
     }
 
-    protected void doPush(Entity pEntity) {
+    protected void doPush(@NotNull Entity pEntity) {
         if (!(pEntity instanceof Player)) {
             super.doPush(pEntity);
         }
@@ -199,8 +198,8 @@ public class OnibiEntity extends Monster implements GeoEntity {
         return !this.onGround();
     }
 
-    public Vec3 getLeashOffset() {
-        return new Vec3(0.0D, (double)(0.5F * this.getEyeHeight()), (double)(this.getBbWidth() * 0.4F));
+    public @NotNull Vec3 getLeashOffset() {
+        return new Vec3(0.0D, 0.5F * this.getEyeHeight(), this.getBbWidth() * 0.4F);
     }
 
     protected void onFlap() {

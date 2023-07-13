@@ -3,7 +3,6 @@ package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.straw_h
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.MaskStrawHatArmorItem;
-import net.veroxuniverse.epicsamurai.item.armor.StrawHatArmorItem;
 import software.bernie.geckolib.model.GeoModel;
 
 public class MaskStrawHatArmorModel extends GeoModel<MaskStrawHatArmorItem> {

@@ -3,7 +3,6 @@ package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.quartz;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.MaskQuartzSamuraiArmorItem;
-import net.veroxuniverse.epicsamurai.item.armor.QuartzSamuraiArmorItem;
 import software.bernie.geckolib.model.GeoModel;
 
 public class MaskQuartzSamuraiArmorModel extends GeoModel<MaskQuartzSamuraiArmorItem> {

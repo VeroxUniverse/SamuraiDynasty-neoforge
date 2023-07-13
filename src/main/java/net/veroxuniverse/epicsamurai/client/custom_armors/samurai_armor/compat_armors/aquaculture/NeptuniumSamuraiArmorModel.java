@@ -2,7 +2,6 @@ package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_
 
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
-import net.veroxuniverse.epicsamurai.item.armor.BrassSamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.item.armor.NeptuniumSamuraiArmorItem;
 import software.bernie.geckolib.model.GeoModel;
 

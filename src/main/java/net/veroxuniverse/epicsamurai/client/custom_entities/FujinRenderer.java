@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.entity.custom.FujinEntity;
-import net.veroxuniverse.epicsamurai.entity.custom.JorogumoEntity;
+import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 public class FujinRenderer extends GeoEntityRenderer<FujinEntity> {
@@ -16,13 +16,13 @@ public class FujinRenderer extends GeoEntityRenderer<FujinEntity> {
     }
 
     @Override
-    public ResourceLocation getTextureLocation(FujinEntity instance) {
+    public @NotNull ResourceLocation getTextureLocation(@NotNull FujinEntity instance) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/entity/fujin.png");
     }
 
     @Override
-    public void render(FujinEntity entity, float entityYaw, float partialTick, PoseStack poseStack,
-                       MultiBufferSource bufferSource, int packedLight) {
+    public void render(@NotNull FujinEntity entity, float entityYaw, float partialTick, @NotNull PoseStack poseStack,
+                       @NotNull MultiBufferSource bufferSource, int packedLight) {
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "epicsamurai:item/netherite_samurai_helmet"
+    "layer0": "epicsamurai:item/netherite_samurai_helmet_mask"
   }
 }

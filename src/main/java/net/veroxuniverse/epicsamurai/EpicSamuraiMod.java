@@ -1,7 +1,6 @@
 package net.veroxuniverse.epicsamurai;
 
 import com.mojang.logging.LogUtils;
-import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -46,7 +45,6 @@ public class EpicSamuraiMod
         GeckoLib.initialize();
 
         ItemsRegistry.register(modEventBus);
-        ItemsRegistry.register2(modEventBus);
         BlocksRegistry.register(modEventBus);
         ParticlesInit.register(modEventBus);
 
@@ -78,9 +76,8 @@ public class EpicSamuraiMod
         }
 
         if(ModList.get().isLoaded("create")) {
-            addIsWearingPredicate((player) -> {
-                    return player.getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof BrassSamuraiArmorItem;
-            });
+            addIsWearingPredicate((player) ->
+                    player.getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof BrassSamuraiArmorItem);
         }
 
     }

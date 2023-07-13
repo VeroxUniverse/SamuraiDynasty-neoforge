@@ -3,7 +3,6 @@ package net.veroxuniverse.epicsamurai.client.custom_entities;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
-import net.veroxuniverse.epicsamurai.entity.custom.AkanameEntity;
 import net.veroxuniverse.epicsamurai.entity.custom.EnenraEntity;
 import software.bernie.geckolib.constant.DataTickets;
 import software.bernie.geckolib.core.animatable.model.CoreGeoBone;
