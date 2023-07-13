@@ -23,7 +23,7 @@ public class CreativeTabRegistry {
             .icon(() -> new ItemStack(ItemsRegistry.RED_SAMURAI_HELMET.get()))
             .displayItems((enabledFeatures, output) -> {
                 for(RegistryObject<Item> item : ItemsRegistry.ITEMS.getEntries()){
-                    if(item.get() instanceof CustomTabs customTabBehavior && !item.get().getDefaultInstance().toString().startsWith("epicsamurai:mask_")) {
+                    if(item.get() instanceof CustomTabs customTabBehavior) {
                         customTabBehavior.fillItemCategory(output);
                     }else{
                         output.accept(item.get());

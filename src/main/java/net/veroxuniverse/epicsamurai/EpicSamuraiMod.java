@@ -46,6 +46,7 @@ public class EpicSamuraiMod
         GeckoLib.initialize();
 
         ItemsRegistry.register(modEventBus);
+        ItemsRegistry.register2(modEventBus);
         BlocksRegistry.register(modEventBus);
         ParticlesInit.register(modEventBus);
 

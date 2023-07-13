@@ -1,5 +1,6 @@
 package net.veroxuniverse.epicsamurai.registry;
 
+import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
@@ -18,6 +19,9 @@ import net.veroxuniverse.epicsamurai.item.armor.*;
 public class ItemsRegistry {
 
     public static final DeferredRegister<Item> ITEMS =
+            DeferredRegister.create(ForgeRegistries.ITEMS, EpicSamuraiMod.MOD_ID);
+
+    public static final DeferredRegister<Item> ITEMS_NOT_DISPLAYED =
             DeferredRegister.create(ForgeRegistries.ITEMS, EpicSamuraiMod.MOD_ID);
 
     public static final RegistryObject<Item> IRON_SAMURAI_HELMET = ITEMS.register("iron_samurai_helmet",
@@ -58,7 +62,7 @@ public class ItemsRegistry {
 
     public static final RegistryObject<Item> NETHERITE_SAMURAI_HELMET = ITEMS.register("netherite_samurai_helmet",
             () -> new NetheriteSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.HELMET, new Item.Properties().fireResistant()));
-    public static final RegistryObject<Item> MASK_NETHERITE_SAMURAI_HELMET = ITEMS.register("mask_netherite_samurai_helmet",
+    public static final RegistryObject<Item> MASK_NETHERITE_SAMURAI_HELMET = ITEMS_NOT_DISPLAYED.register("mask_netherite_samurai_helmet",
             () -> new MaskNetheriteSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.HELMET, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> NETHERITE_SAMURAI_CHESTPLATE = ITEMS.register("netherite_samurai_chestplate",
             () -> new NetheriteSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.CHESTPLATE, new Item.Properties().fireResistant()));
@@ -69,7 +73,7 @@ public class ItemsRegistry {
 
     public static final RegistryObject<Item> AMETHYST_SAMURAI_HELMET = ITEMS.register("amethyst_samurai_helmet",
             () -> new AmethystSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_AMETHYST, ArmorItem.Type.HELMET, new Item.Properties().fireResistant()));
-    public static final RegistryObject<Item> MASK_AMETHYST_SAMURAI_HELMET = ITEMS.register("mask_amethyst_samurai_helmet",
+    public static final RegistryObject<Item> MASK_AMETHYST_SAMURAI_HELMET = ITEMS_NOT_DISPLAYED.register("mask_amethyst_samurai_helmet",
             () -> new MaskAmethystSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_AMETHYST, ArmorItem.Type.HELMET, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> AMETHYST_SAMURAI_CHESTPLATE = ITEMS.register("amethyst_samurai_chestplate",
             () -> new AmethystSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_AMETHYST, ArmorItem.Type.CHESTPLATE, new Item.Properties().fireResistant()));
@@ -80,7 +84,7 @@ public class ItemsRegistry {
 
     public static final RegistryObject<Item> QUARTZ_SAMURAI_HELMET = ITEMS.register("quartz_samurai_helmet",
             () -> new QuartzSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_QUARTZ, ArmorItem.Type.HELMET, new Item.Properties().fireResistant()));
-    public static final RegistryObject<Item> MASK_QUARTZ_SAMURAI_HELMET = ITEMS.register("mask_quartz_samurai_helmet",
+    public static final RegistryObject<Item> MASK_QUARTZ_SAMURAI_HELMET = ITEMS_NOT_DISPLAYED.register("mask_quartz_samurai_helmet",
             () -> new MaskQuartzSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_QUARTZ, ArmorItem.Type.HELMET, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> QUARTZ_SAMURAI_CHESTPLATE = ITEMS.register("quartz_samurai_chestplate",
             () -> new QuartzSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_QUARTZ, ArmorItem.Type.CHESTPLATE, new Item.Properties().fireResistant()));
@@ -136,7 +140,7 @@ public class ItemsRegistry {
 
     public static final RegistryObject<Item> STRAW_HAT = ITEMS.register("straw_hat",
             () -> new StrawHatArmorItem(ArmorMaterialsRegistry.STRAW, ArmorItem.Type.HELMET, new Item.Properties()));
-    public static final RegistryObject<Item> MASK_STRAW_HAT = ITEMS.register("mask_straw_hat",
+    public static final RegistryObject<Item> MASK_STRAW_HAT = ITEMS_NOT_DISPLAYED.register("mask_straw_hat",
             () -> new MaskStrawHatArmorItem(ArmorMaterialsRegistry.STEEL, ArmorItem.Type.HELMET, new Item.Properties().fireResistant()));
 
     public static final RegistryObject<Item> ONI_MASK = ITEMS.register("oni_mask",
@@ -222,5 +226,8 @@ public class ItemsRegistry {
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
+    }
+    public static void register2(IEventBus eventBus) {
+        ITEMS_NOT_DISPLAYED.register(eventBus);
     }
 }
