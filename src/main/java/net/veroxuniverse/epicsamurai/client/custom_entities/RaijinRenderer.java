@@ -5,8 +5,8 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
-import net.veroxuniverse.epicsamurai.entity.custom.FujinEntity;
 import net.veroxuniverse.epicsamurai.entity.custom.RaijinEntity;
+import org.jetbrains.annotations.NotNull;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 public class RaijinRenderer extends GeoEntityRenderer<RaijinEntity> {
@@ -16,13 +16,13 @@ public class RaijinRenderer extends GeoEntityRenderer<RaijinEntity> {
     }
 
     @Override
-    public ResourceLocation getTextureLocation(RaijinEntity instance) {
+    public @NotNull ResourceLocation getTextureLocation(@NotNull RaijinEntity instance) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/entity/raijin.png");
     }
 
     @Override
-    public void render(RaijinEntity entity, float entityYaw, float partialTick, PoseStack poseStack,
-                       MultiBufferSource bufferSource, int packedLight) {
+    public void render(@NotNull RaijinEntity entity, float entityYaw, float partialTick, @NotNull PoseStack poseStack,
+                       @NotNull MultiBufferSource bufferSource, int packedLight) {
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
 }

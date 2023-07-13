@@ -3,7 +3,6 @@ package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.netheri
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.MaskNetheriteSamuraiArmorItem;
-import net.veroxuniverse.epicsamurai.item.armor.NetheriteSamuraiArmorItem;
 import software.bernie.geckolib.model.GeoModel;
 
 public class MaskNetheriteSamuraiArmorModel extends GeoModel<MaskNetheriteSamuraiArmorItem> {

@@ -1,9 +1,12 @@
 package net.veroxuniverse.epicsamurai.item.armor.lib;
 
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.veroxuniverse.epicsamurai.utils.HelperMethods;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
@@ -38,4 +41,8 @@ public class SamuraiArmorItem extends ArmorItem implements GeoItem {
         return true;
     }
 
+    @Override
+    public void onArmorTick(ItemStack stack, Level level, Player player) {
+        HelperMethods.onMaskArmorTick(level, player, this.type == Type.HELMET);
+    }
 }

@@ -14,6 +14,7 @@ buildscript {
 
 plugins {
     id 'eclipse'
+    id 'idea'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
@@ -21,30 +22,31 @@ plugins {
 
 apply plugin: 'org.spongepowered.mixin'
 
-archivesBaseName = project.archives_base_name
-version = project.mod_version
-group = project.maven_group
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
-
-    mappings channel: 'official', version: '1.20.1'
+    mappings channel: mapping_channel, version: mapping_version
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    copyIdeResources = true
 
     runs {
         client {
             workingDirectory project.file('run')
 
             property 'forge.logging.markers', 'REGISTRIES'
-
             property 'forge.logging.console.level', 'debug'
-
-            property 'forge.enabledGameTestNamespaces', 'epicsamurai'
+            property 'forge.enabledGameTestNamespaces', mod_id
 
             mods {
-                epicsamurai {
+                "${mod_id}" {
                     source sourceSets.main
                 }
             }
@@ -57,10 +59,10 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            property 'forge.enabledGameTestNamespaces', 'epicsamurai'
+            property 'forge.enabledGameTestNamespaces', mod_id
 
             mods {
-                epicsamurai {
+                "${mod_id}" {
                     source sourceSets.main
                 }
             }
@@ -73,10 +75,10 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            property 'forge.enabledGameTestNamespaces', 'epicsamurai'
+            property 'forge.enabledGameTestNamespaces', mod_id
 
             mods {
-                epicsamurai {
+                "${mod_id}" {
                     source sourceSets.main
                 }
             }
@@ -89,10 +91,10 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            args '--mod', 'epicsamurai', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                epicsamurai {
+                "${mod_id}" {
                     source sourceSets.main
                 }
             }
@@ -108,8 +110,10 @@ mixin {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
-    maven { url 'https://maven.blamejared.com' }
+    maven {
+        name = 'GeckoLib'
+        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+    }
     maven {
         // location of the maven that hosts JEI files since January 2023
         name = "Jared's maven"
@@ -130,43 +134,61 @@ repositories {
 
 dependencies {
 
-    minecraft "net.minecraftforge:forge:${project.minecraft_version}-${project.loader_version}"
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${project.geckolib_version}")
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${project.curio_version}")
+    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curio_version}")
 
-    compileOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${project.minecraft_version}:${project.ars_version}")
-    runtimeOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${project.minecraft_version}:${project.ars_version}")
-    compileOnly fg.deobf("curse.maven:create-328085:${project.create_file_id}")
-    runtimeOnly fg.deobf("curse.maven:create-328085:${project.create_file_id}")
+    compileOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${minecraft_version}:${ars_version}")
+    runtimeOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${minecraft_version}:${ars_version}")
+    compileOnly fg.deobf("curse.maven:create-328085:${create_version}")
+    runtimeOnly fg.deobf("curse.maven:create-328085:${create_version}")
     //runtimeOnly fg.deobf("curse.maven:deeperdarker-659011:${project.deeperdarker_file_id}")
 
     // compile against the JEI API but do not include it at runtime
-    compileOnly(fg.deobf("mezz.jei:jei-${project.minecraft_version}-common-api:${project.jei_version}"))
-    compileOnly(fg.deobf("mezz.jei:jei-${project.minecraft_version}-forge-api:${project.jei_version}"))
+    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
+    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
     // at runtime, use the full JEI jar for Forge
-    runtimeOnly(fg.deobf("mezz.jei:jei-${project.minecraft_version}-forge:${project.jei_version}"))
+    runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
 
-    compileOnly fg.deobf("vazkii.patchouli:Patchouli:${project.patchouli_version}:api")
-    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${project.patchouli_version}")
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
 
     // compile against Aquaculture
-    compileOnly fg.deobf("curse.maven:aquaculture-60028:${project.aquaculture_file_id}")
-    runtimeOnly fg.deobf("curse.maven:aquaculture-60028:${project.aquaculture_file_id}")
+    compileOnly fg.deobf("curse.maven:aquaculture-60028:${aquaculture_version}")
+    runtimeOnly fg.deobf("curse.maven:aquaculture-60028:${aquaculture_version}")
 
 
     annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
 }
 
+def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
+def replaceProperties = [
+        minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
+        forge_version: forge_version, forge_version_range: forge_version_range,
+        loader_version_range: loader_version_range,
+        mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+        mod_authors: mod_authors, mod_description: mod_description
+]
+
+processResources {
+    inputs.properties replaceProperties
+    replaceProperties.put 'project', project
+
+    filesMatching(resourceTargets) {
+        expand replaceProperties
+    }
+}
+
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "epicsamurai",
-                "Specification-Vendor"    : "epicsamuraisareus",
+                "Specification-Title"     : mod_id,
+                "Specification-Vendor"    : mod_authors,
                 "Specification-Version"   : "1", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "epicsamuraisareus",
+                "Implementation-Vendor"   : mod_authors,
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }

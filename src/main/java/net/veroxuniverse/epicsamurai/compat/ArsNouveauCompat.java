@@ -16,6 +16,7 @@ import net.veroxuniverse.epicsamurai.item.armor.MageSamuraiArmorItem;
 import software.bernie.ars_nouveau.geckolib.model.GeoModel;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class ArsNouveauCompat {
 
@@ -36,22 +37,22 @@ public class ArsNouveauCompat {
 
     public static void registerPerkProviders(){
         PerkRegistry.registerPerkProvider(MAGE_SAMURAI_HELMET.get(), stack -> new ArmorPerkHolder(stack, Arrays.asList(
-                Arrays.asList(PerkSlot.ONE),
+                List.of(PerkSlot.ONE),
                 Arrays.asList(PerkSlot.ONE, PerkSlot.ONE),
                 Arrays.asList(PerkSlot.ONE, PerkSlot.ONE, PerkSlot.TWO)
         )));
         PerkRegistry.registerPerkProvider(MAGE_SAMURAI_CHESTPLATE.get(), stack -> new ArmorPerkHolder(stack, Arrays.asList(
-                Arrays.asList(PerkSlot.ONE),
+                List.of(PerkSlot.ONE),
                 Arrays.asList(PerkSlot.ONE, PerkSlot.ONE),
                 Arrays.asList(PerkSlot.ONE, PerkSlot.ONE, PerkSlot.TWO)
         )));
         PerkRegistry.registerPerkProvider(MAGE_SAMURAI_LEGGINGS.get(), stack -> new ArmorPerkHolder(stack, Arrays.asList(
-                Arrays.asList(PerkSlot.ONE),
+                List.of(PerkSlot.ONE),
                 Arrays.asList(PerkSlot.ONE, PerkSlot.ONE),
                 Arrays.asList(PerkSlot.ONE, PerkSlot.ONE, PerkSlot.TWO)
         )));
         PerkRegistry.registerPerkProvider(MAGE_SAMURAI_BOOTS.get(), stack -> new ArmorPerkHolder(stack, Arrays.asList(
-                Arrays.asList(PerkSlot.ONE),
+                List.of(PerkSlot.ONE),
                 Arrays.asList(PerkSlot.ONE, PerkSlot.ONE),
                 Arrays.asList(PerkSlot.ONE, PerkSlot.ONE, PerkSlot.TWO)
         )));

@@ -11,7 +11,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.fml.ModList;
-import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.amethyst.AmethystSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.deeperdarker.SculkSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.compat.DeeperDarkerCompat;
 import net.veroxuniverse.epicsamurai.item.armor.lib.SamuraiArmorItem;
@@ -27,7 +26,7 @@ public class SculkSamuraiArmorItem extends SamuraiArmorItem {
     }
 
     @Override
-    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+    public void initializeClient(@NotNull Consumer<IClientItemExtensions> consumer) {
         if (ModList.get().isLoaded("deeperdarker")) {
             consumer.accept(new IClientItemExtensions() {
                 private SculkSamuraiArmorRenderer renderer;

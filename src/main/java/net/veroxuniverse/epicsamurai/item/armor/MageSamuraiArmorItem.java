@@ -3,7 +3,6 @@
 package net.veroxuniverse.epicsamurai.item.armor;
 
 import com.hollingsworth.arsnouveau.common.armor.AnimatedMagicArmor;
-import com.hollingsworth.arsnouveau.common.armor.Materials;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -59,10 +58,10 @@ public class MageSamuraiArmorItem extends AnimatedMagicArmor implements GeoItem 
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-        controllerRegistrar.add(new AnimationController(this, "controller", 0, this::predicate));
+        controllerRegistrar.add(new AnimationController<>(this, "controller", 0, this::predicate));
     }
 
-    private PlayState predicate(AnimationState animationState) {
+    private PlayState predicate(AnimationState<MageSamuraiArmorItem> animationState) {
         return PlayState.STOP;
     }
 
