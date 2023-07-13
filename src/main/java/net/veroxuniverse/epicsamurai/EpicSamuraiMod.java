@@ -1,28 +1,35 @@
 package net.veroxuniverse.epicsamurai;
 
 import com.mojang.logging.LogUtils;
+import com.simibubi.create.content.equipment.goggles.GogglesItem;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.veroxuniverse.epicsamurai.client.custom_entities.*;
 import net.veroxuniverse.epicsamurai.compat.ArsNouveauCompat;
 import net.veroxuniverse.epicsamurai.compat.CreateCompat;
-import net.veroxuniverse.epicsamurai.compat.DeeperDarkerCompat;
+import net.veroxuniverse.epicsamurai.compat.ForbiddenArcanusCompat;
+import net.veroxuniverse.epicsamurai.config.ModCommonConfigs;
 import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
+import net.veroxuniverse.epicsamurai.item.armor.BrassSamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.registry.BlocksRegistry;
 import net.veroxuniverse.epicsamurai.registry.ItemsRegistry;
 import net.veroxuniverse.epicsamurai.registry.ParticlesInit;
-import net.veroxuniverse.epicsamurai.world.feature.ModConfiguredFeatures;
-import net.veroxuniverse.epicsamurai.world.feature.ModPlacedFeatures;
 import org.slf4j.Logger;
 import software.bernie.geckolib3.GeckoLib;
 
@@ -35,13 +42,11 @@ public class EpicSamuraiMod
 
     public EpicSamuraiMod()
     {
+        new ModCommonConfigs();
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModEntityTypes.register(modEventBus);
         GeckoLib.initialize();
-
-        ModConfiguredFeatures.register(modEventBus);
-        ModPlacedFeatures.register(modEventBus);
 
         ItemsRegistry.register(modEventBus);
         BlocksRegistry.register(modEventBus);
@@ -49,14 +54,14 @@ public class EpicSamuraiMod
 
         ModEnchantments.ENCHANTMENTS.register(modEventBus);
 
-        if(ModList.get().isLoaded("deeperdarker")) {
-            DeeperDarkerCompat.register(modEventBus);
-        }
         if(ModList.get().isLoaded("create")) {
             CreateCompat.register(modEventBus);
         }
         if(ModList.get().isLoaded("ars_nouveau")) {
             ArsNouveauCompat.register(modEventBus);
+        }
+        if(ModList.get().isLoaded("forbidden_arcanus")) {
+            ForbiddenArcanusCompat.register(modEventBus);
         }
 
         modEventBus.addListener(this::commonSetup);
@@ -65,8 +70,33 @@ public class EpicSamuraiMod
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-        if(ModList.get().isLoaded("ars_nouveau")) {
-            ArsNouveauCompat.registerPerkProviders();
+
+        SpawnPlacements.register(ModEntityTypes.KITSUNE.get(),
+                SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Monster::checkMonsterSpawnRules);
+
+        SpawnPlacements.register(ModEntityTypes.ONI.get(),
+                SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Monster::checkMonsterSpawnRules);
+
+        SpawnPlacements.register(ModEntityTypes.AKANAME.get(),
+                SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Monster::checkMonsterSpawnRules);
+
+        SpawnPlacements.register(ModEntityTypes.ENENRA.get(),
+                SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Monster::checkMonsterSpawnRules);
+
+
+
+        if(ModList.get().isLoaded("create")) {
+            GogglesItem.addIsWearingPredicate((player) -> {
+                return player.getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof BrassSamuraiArmorItem;
+            });
         }
     }
 

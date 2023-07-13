@@ -33,7 +33,7 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 
 public class AkanameEntity extends Monster implements IAnimatable {
 
-    private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
+    private AnimationFactory FACTORY = new AnimationFactory(this);
 
     private static final AnimationBuilder ATTACK_ANIMATION = new AnimationBuilder().addAnimation("animation.akaname.attack", ILoopType.EDefaultLoopTypes.PLAY_ONCE);
     private static final AnimationBuilder IDLE_ANIMATION = new AnimationBuilder().addAnimation("animation.akaname.idle", ILoopType.EDefaultLoopTypes.LOOP);

@@ -9,6 +9,7 @@ buildscript {
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+        classpath 'org.parchmentmc:librarian:1.+'
     }
 }
 
@@ -30,7 +31,8 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
 
-    mappings channel: 'parchment', version: '2022.11.27-1.19.2'
+    //mappings channel: 'parchment', version: '1.18.1-2022.02.13-1.18.2'
+    mappings channel: 'parchment', version: '2022.11.06-1.18.2'
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     runs {
@@ -108,6 +110,7 @@ mixin {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    maven { url "https://maven.shedaniel.me/" }
     maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
     maven { url 'https://maven.blamejared.com' }
     maven {
@@ -130,6 +133,8 @@ repositories {
 
 dependencies {
 
+    implementation fg.deobf("me.shedaniel.cloth:cloth-config-forge:6.5.102")
+
     minecraft "net.minecraftforge:forge:${project.minecraft_version}-${project.loader_version}"
 
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${project.geckolib_version}")
@@ -138,18 +143,19 @@ dependencies {
     compileOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${project.minecraft_version}:${project.ars_version}")
     runtimeOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${project.minecraft_version}:${project.ars_version}")
     runtimeOnly fg.deobf("curse.maven:create-328085:${project.create_file_id}")
-    runtimeOnly fg.deobf("curse.maven:deeperdarker-659011:${project.deeperdarker_file_id}")
+    compileOnly fg.deobf("curse.maven:create-328085:${project.create_file_id}")
+    runtimeOnly fg.deobf("curse.maven:forbidden-arcanus-309858:${project.forbidden_arcanus_file_id}")
+    compileOnly fg.deobf("curse.maven:forbidden-arcanus-309858:${project.forbidden_arcanus_file_id}")
+    runtimeOnly fg.deobf("curse.maven:valhelsia-core-416935:${project.valhelsia_file_id}")
 
     // compile against the JEI API but do not include it at runtime
     compileOnly(fg.deobf("mezz.jei:jei-${project.minecraft_version}-common-api:${project.jei_version}"))
     compileOnly(fg.deobf("mezz.jei:jei-${project.minecraft_version}-forge-api:${project.jei_version}"))
     // at runtime, use the full JEI jar for Forge
     runtimeOnly(fg.deobf("mezz.jei:jei-${project.minecraft_version}-forge:${project.jei_version}"))
-
-    compileOnly fg.deobf("vazkii.patchouli:Patchouli:${project.patchouli_version}:api")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${project.patchouli_version}")
 
-    annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 jar {

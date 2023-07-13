@@ -1,11 +1,13 @@
 package net.veroxuniverse.epicsamurai.registry;
 
+import com.stal111.forbidden_arcanus.core.init.ModItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.fml.ModList;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.compat.CreateCompat;
 import org.jetbrains.annotations.NotNull;
@@ -46,10 +48,6 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
             SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F,
             () -> Ingredient.of(Items.NETHERITE_INGOT)),
 
-    SAMURAI_SCULK("samurai_sculk", 55, new int[]{3, 6, 8, 3}, 25,
-            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.5F,
-            () -> Ingredient.of(Items.ECHO_SHARD)),
-
     SAMURAI_AMETHYST("samurai_amethyst", 35, new int[]{3, 6, 8, 3}, 25,
             SoundEvents.AMETHYST_CLUSTER_PLACE, 2.5F, 0.0F,
             () -> Ingredient.of(ItemsRegistry.AMETHYST_INGOT.get())),
@@ -70,6 +68,26 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
     STEEL("steel", 29, new int[]{3, 5, 7, 2}, 12,
             SoundEvents.ARMOR_EQUIP_IRON, 0.5F, 0.0F,
             () -> Ingredient.of(ItemsRegistry.STEEL_INGOT.get())),
+
+    SAMURAI_TYR("samurai_tyr", 50, new int[]{8, 10, 12, 7}, 15,
+            SoundEvents.ARMOR_EQUIP_GOLD, 4.0F, 0.2F,
+            () -> {
+                if (ModList.get().isLoaded("forbidden_arcanus")) {
+                    return Ingredient.of(ModItems.AQUATIC_DRAGON_SCALE.get());
+                } else {
+                    return Ingredient.of(Items.GOLD_INGOT);
+                }
+            }),
+
+    SAMURAI_DRACO("samurai_draco", 40, new int[]{6, 8, 10, 6}, 15,
+            SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F,
+            () -> {
+                if (ModList.get().isLoaded("forbidden_arcanus")) {
+                    return Ingredient.of(ModItems.DRAGON_SCALE.get());
+                } else {
+                    return Ingredient.of(Items.OBSIDIAN);
+                }
+            }),
 
     STRAW("straw", 15, new int[]{1, 1, 1, 1}, 7,
     SoundEvents.ARMOR_EQUIP_LEATHER, 0.5F, 0.0F,

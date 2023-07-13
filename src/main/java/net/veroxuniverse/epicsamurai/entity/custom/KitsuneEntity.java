@@ -35,7 +35,7 @@ public class KitsuneEntity extends Monster implements IAnimatable {
 
     //private boolean invulnerable; / Disabele due to bugs!
 
-    private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
+    private AnimationFactory FACTORY = new AnimationFactory(this);
 
     private static final AnimationBuilder ATTACK_ANIMATION = new AnimationBuilder().addAnimation("animation.kitsune.attack", ILoopType.EDefaultLoopTypes.PLAY_ONCE);
     private static final AnimationBuilder IDLE_ANIMATION = new AnimationBuilder().addAnimation("animation.kitsune.idle", ILoopType.EDefaultLoopTypes.LOOP);

@@ -11,17 +11,17 @@ import software.bernie.geckolib3.model.provider.data.EntityModelData;
 
 public class OniModel extends AnimatedGeoModel<OniEntity> {
     @Override
-    public ResourceLocation getModelResource(OniEntity object) {
+    public ResourceLocation getModelLocation(OniEntity object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/oni.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureResource(OniEntity object) {
+    public ResourceLocation getTextureLocation(OniEntity object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/entity/oni.png");
     }
 
     @Override
-    public ResourceLocation getAnimationResource(OniEntity animatable) {
+    public ResourceLocation getAnimationFileLocation(OniEntity animatable) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/oni.animation.json");
     }
 

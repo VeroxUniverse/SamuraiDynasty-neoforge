@@ -1,46 +1,40 @@
 package net.veroxuniverse.epicsamurai.item.armor;
 
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.item.GeoArmorItem;
-import software.bernie.geckolib3.util.GeckoLibUtil;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
+import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
+import net.veroxuniverse.epicsamurai.compat.CreateCompat;
+import net.veroxuniverse.epicsamurai.item.armor.armoritem.SamuraiArmorItem;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 
-public class BrassSamuraiArmorItem extends GeoArmorItem implements IAnimatable {
-    private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
-
+public class BrassSamuraiArmorItem extends SamuraiArmorItem {
 
     public BrassSamuraiArmorItem(ArmorMaterial material, EquipmentSlot slot, Properties settings) {
         super(material, slot, settings);
     }
 
     @Override
-    public void registerControllers(AnimationData animationData) {
-        animationData.addAnimationController(new AnimationController<>(this, "controller",
-                0, this::predicate));
-    }
+    public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> components, @NotNull TooltipFlag flag) {
 
-    @Override
-    public AnimationFactory getFactory() {
-        return this.FACTORY;
-    }
+        if(Screen.hasShiftDown() && stack.getItem() == CreateCompat.BRASS_SAMURAI_HELMET.get()) {
+            components.add(new TranslatableComponent("tooltip." + EpicSamuraiMod.MOD_ID + ".brass_helmet.summary").withStyle(ChatFormatting.GRAY));
+            components.add(new TranslatableComponent("tooltip." + EpicSamuraiMod.MOD_ID + ".brass_helmet.empty").withStyle(ChatFormatting.DARK_GREEN));
+            components.add(new TranslatableComponent("tooltip." + EpicSamuraiMod.MOD_ID + ".brass_helmet.goggles").withStyle(ChatFormatting.DARK_GREEN));
+        } else if (stack.getItem() == CreateCompat.BRASS_SAMURAI_HELMET.get()) {
+            components.add(new TranslatableComponent("tooltip." + EpicSamuraiMod.MOD_ID + ".brass_helmet.summary").withStyle(ChatFormatting.GRAY));
+        }
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        //event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", true));
-        return PlayState.STOP;
-    }
-
-    @Override
-    public boolean canWalkOnPowderedSnow(ItemStack stack, LivingEntity wearer) {
-        return true;
+        super.appendHoverText(stack, level, components, flag);
     }
 
 }

@@ -2,6 +2,7 @@ package net.veroxuniverse.epicsamurai.item;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -12,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.entity.custom.ShurikenEntity;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -45,8 +47,8 @@ public class ShurikenItem extends Item {
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> components, @NotNull TooltipFlag flag) {
 
-        components.add(Component.literal("Throwable Item:").withStyle(ChatFormatting.GRAY));
-        components.add(Component.literal(" 6 Ranged Damage").withStyle(ChatFormatting.DARK_GREEN));
+        components.add(new TranslatableComponent("tooltip." + EpicSamuraiMod.MOD_ID + ".throwable").withStyle(ChatFormatting.GRAY));
+        components.add(new TranslatableComponent("tooltip." + EpicSamuraiMod.MOD_ID + ".shuriken_damage").withStyle(ChatFormatting.DARK_GREEN));
 
         super.appendHoverText(stack, level, components, flag);
     }

@@ -1,10 +1,6 @@
 package net.veroxuniverse.epicsamurai.event;
 
-import net.minecraft.world.entity.SpawnPlacements;
-import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
@@ -23,23 +19,6 @@ public class ModEvents {
             event.put(ModEntityTypes.KITSUNE.get(), KitsuneEntity.setAttributes());
             event.put(ModEntityTypes.ONIBI.get(), OnibiEntity.setAttributes());
         }
-
-        @SubscribeEvent
-        public static void entitySpawnRestriction(SpawnPlacementRegisterEvent event) {
-            event.register(ModEntityTypes.ONI.get(),
-                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-            event.register(ModEntityTypes.ENENRA.get(),
-                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-            event.register(ModEntityTypes.AKANAME.get(),
-                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-            event.register(ModEntityTypes.AKANAME.get(),
-                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-        }
-
 
     }
 

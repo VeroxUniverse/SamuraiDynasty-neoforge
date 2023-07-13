@@ -10,17 +10,17 @@ import software.bernie.geckolib3.model.provider.data.EntityModelData;
 
 public class AkanameModel extends AnimatedGeoModel<AkanameEntity> {
     @Override
-    public ResourceLocation getModelResource(AkanameEntity object) {
+    public ResourceLocation getModelLocation(AkanameEntity object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/akaname.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureResource(AkanameEntity object) {
+    public ResourceLocation getTextureLocation(AkanameEntity object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/entity/akaname.png");
     }
 
     @Override
-    public ResourceLocation getAnimationResource(AkanameEntity animatable) {
+    public ResourceLocation getAnimationFileLocation(AkanameEntity animatable) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/akaname.animation.json");
     }
 

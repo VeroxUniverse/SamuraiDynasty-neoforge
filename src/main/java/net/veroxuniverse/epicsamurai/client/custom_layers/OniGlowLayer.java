@@ -22,7 +22,7 @@ public class OniGlowLayer<T extends OniEntity> extends GeoLayerRenderer<T> {
     @Override
     public void render(PoseStack matrixStackIn, MultiBufferSource bufferIn,
                        int packedLightIn, T entityLivingBaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch){
-        RenderType glow = RenderType.entityTranslucentEmissive(ONI_GLOW);
+        RenderType glow = RenderType.entityTranslucentCull(ONI_GLOW);
         this.getRenderer().render(this.getEntityModel().getModel(ONI_ENTITY),entityLivingBaseIn,partialTicks,glow,
                 matrixStackIn,bufferIn,bufferIn.getBuffer(glow),packedLightIn, OverlayTexture.NO_OVERLAY,1f,1f,1f,5.0f
         );

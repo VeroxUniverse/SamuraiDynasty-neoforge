@@ -7,17 +7,17 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class OniMaskArmorModel extends AnimatedGeoModel<OniMaskArmorItem> {
     @Override
-    public ResourceLocation  getModelResource(OniMaskArmorItem object) {
+    public ResourceLocation  getModelLocation(OniMaskArmorItem object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/oni_mask.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureResource(OniMaskArmorItem object) {
+    public ResourceLocation getTextureLocation(OniMaskArmorItem object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/models/armor/oni_mask.png");
     }
 
     @Override
-    public ResourceLocation getAnimationResource(OniMaskArmorItem animatable) {
+    public ResourceLocation getAnimationFileLocation(OniMaskArmorItem animatable) {
         return null;
         //return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/samurai_armor_animation.json");
     }

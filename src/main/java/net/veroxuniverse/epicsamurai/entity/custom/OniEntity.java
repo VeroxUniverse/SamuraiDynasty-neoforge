@@ -31,7 +31,7 @@ public class OniEntity extends Monster implements IAnimatable {
     private static final AnimationBuilder ATTACK_ANIMATION = new AnimationBuilder().addAnimation("animation.oni.attack", ILoopType.EDefaultLoopTypes.PLAY_ONCE);
     private static final AnimationBuilder IDLE_ANIMATION = new AnimationBuilder().addAnimation("animation.oni.idle", ILoopType.EDefaultLoopTypes.LOOP);
     private static final AnimationBuilder WALK_ANIMATION = new AnimationBuilder().addAnimation("animation.oni.walk", ILoopType.EDefaultLoopTypes.LOOP);
-    private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
+    private AnimationFactory FACTORY = new AnimationFactory(this);
 
     public OniEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -93,7 +93,7 @@ public class OniEntity extends Monster implements IAnimatable {
 
     @Override
     public AnimationFactory getFactory() {
-        return FACTORY;
+        return this.FACTORY;
     }
 
     protected void playStepSound(BlockPos pos, BlockState blockIn) {

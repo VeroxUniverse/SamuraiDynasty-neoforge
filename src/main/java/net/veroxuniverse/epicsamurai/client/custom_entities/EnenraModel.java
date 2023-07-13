@@ -11,17 +11,17 @@ import software.bernie.geckolib3.model.provider.data.EntityModelData;
 
 public class EnenraModel extends AnimatedGeoModel<EnenraEntity> {
     @Override
-    public ResourceLocation getModelResource(EnenraEntity object) {
+    public ResourceLocation getModelLocation(EnenraEntity object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/enenra.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureResource(EnenraEntity object) {
+    public ResourceLocation getTextureLocation(EnenraEntity object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/entity/enenra.png");
     }
 
     @Override
-    public ResourceLocation getAnimationResource(EnenraEntity animatable) {
+    public ResourceLocation getAnimationFileLocation(EnenraEntity animatable) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/enenra.animation.json");
     }
 

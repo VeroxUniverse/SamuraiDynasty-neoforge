@@ -7,17 +7,17 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class NetheriteSamuraiArmorModel extends AnimatedGeoModel<NetheriteSamuraiArmorItem> {
     @Override
-    public ResourceLocation  getModelResource(NetheriteSamuraiArmorItem object) {
+    public ResourceLocation  getModelLocation(NetheriteSamuraiArmorItem object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/samurai_armor_two.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureResource(NetheriteSamuraiArmorItem object) {
+    public ResourceLocation getTextureLocation(NetheriteSamuraiArmorItem object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/models/armor/netherite_samurai_armor_textures.png");
     }
 
     @Override
-    public ResourceLocation getAnimationResource(NetheriteSamuraiArmorItem animatable) {
+    public ResourceLocation getAnimationFileLocation(NetheriteSamuraiArmorItem animatable) {
         return null;
         //return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/samurai_armor_animation.json");
     }

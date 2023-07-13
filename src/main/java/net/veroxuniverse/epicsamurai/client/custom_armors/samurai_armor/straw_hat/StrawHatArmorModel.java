@@ -7,17 +7,17 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class StrawHatArmorModel extends AnimatedGeoModel<StrawHatArmorItem> {
     @Override
-    public ResourceLocation  getModelResource(StrawHatArmorItem object) {
+    public ResourceLocation  getModelLocation(StrawHatArmorItem object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/straw_hat.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureResource(StrawHatArmorItem object) {
+    public ResourceLocation getTextureLocation(StrawHatArmorItem object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/models/armor/straw_hat_armor_textures.png");
     }
 
     @Override
-    public ResourceLocation getAnimationResource(StrawHatArmorItem animatable) {
+    public ResourceLocation getAnimationFileLocation(StrawHatArmorItem animatable) {
         return null;
         //return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/samurai_armor_animation.json");
     }

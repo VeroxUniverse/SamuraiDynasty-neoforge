@@ -14,7 +14,7 @@ import net.veroxuniverse.epicsamurai.entity.custom.*;
 public class ModEntityTypes {
 
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
-            DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, EpicSamuraiMod.MOD_ID);
+            DeferredRegister.create(ForgeRegistries.ENTITIES, EpicSamuraiMod.MOD_ID);
 
     public static final RegistryObject<EntityType<AkanameEntity>> AKANAME =
             ENTITY_TYPES.register("akaname",

@@ -39,7 +39,7 @@ public class OnibiEntity extends Monster implements IAnimatable {
 
     private static final AnimationBuilder IDLE_ANIMATION = new AnimationBuilder().addAnimation("animation.spirit.idle", ILoopType.EDefaultLoopTypes.LOOP);
     private static final AnimationBuilder MOVE_ANIMATION = new AnimationBuilder().addAnimation("animation.spirit.move", ILoopType.EDefaultLoopTypes.LOOP);
-    private final AnimationFactory FACTORY = GeckoLibUtil.createFactory(this);
+    private AnimationFactory FACTORY = new AnimationFactory(this);
 
     public float flap;
     public float flapSpeed;
@@ -152,15 +152,15 @@ public class OnibiEntity extends Monster implements IAnimatable {
     }
 
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ALLAY_AMBIENT_WITHOUT_ITEM;
+        return SoundEvents.VEX_AMBIENT;
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundEvents.ALLAY_HURT;
+        return SoundEvents.VEX_HURT;
     }
 
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ALLAY_DEATH;
+        return SoundEvents.VEX_DEATH;
     }
 
     protected float getSoundVolume() {

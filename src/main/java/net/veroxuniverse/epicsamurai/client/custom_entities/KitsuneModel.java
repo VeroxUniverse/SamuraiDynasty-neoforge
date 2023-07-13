@@ -11,17 +11,17 @@ import software.bernie.geckolib3.model.provider.data.EntityModelData;
 
 public class KitsuneModel extends AnimatedGeoModel<KitsuneEntity> {
     @Override
-    public ResourceLocation getModelResource(KitsuneEntity object) {
+    public ResourceLocation getModelLocation(KitsuneEntity object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/kitsune.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureResource(KitsuneEntity object) {
+    public ResourceLocation getTextureLocation(KitsuneEntity object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/entity/kitsune.png");
     }
 
     @Override
-    public ResourceLocation getAnimationResource(KitsuneEntity animatable) {
+    public ResourceLocation getAnimationFileLocation(KitsuneEntity animatable) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/kitsune.animation.json");
     }
 

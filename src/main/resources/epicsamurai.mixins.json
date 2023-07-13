@@ -1,5 +1,5 @@
 {
-  "required": true,
+  "required": false,
   "package": "net.veroxuniverse.epicsamurai.mixin",
   "compatibilityLevel": "JAVA_8",
   "refmap": "arclight.mixins.refmap.json",

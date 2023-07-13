@@ -7,17 +7,17 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class SteelArmorModel extends AnimatedGeoModel<SteelArmorItem> {
     @Override
-    public ResourceLocation  getModelResource(SteelArmorItem object) {
+    public ResourceLocation  getModelLocation(SteelArmorItem object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "geo/steel_armor.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureResource(SteelArmorItem object) {
+    public ResourceLocation getTextureLocation(SteelArmorItem object) {
         return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/models/armor/steel_armor_textures.png");
     }
 
     @Override
-    public ResourceLocation getAnimationResource(SteelArmorItem animatable) {
+    public ResourceLocation getAnimationFileLocation(SteelArmorItem animatable) {
         return null;
         //return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/samurai_armor_animation.json");
     }
