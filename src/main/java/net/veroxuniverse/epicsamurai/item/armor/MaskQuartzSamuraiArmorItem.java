@@ -14,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.amethyst.MaskAmethystSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.quartz.MaskQuartzSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.item.armor.lib.SamuraiArmorItem;
@@ -34,14 +35,14 @@ public class MaskQuartzSamuraiArmorItem extends SamuraiArmorItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown() && stack.getItem() == ItemsRegistry.MASK_QUARTZ_SAMURAI_HELMET.get()) {
-            components.add(Component.literal("§8Hold [§7Shift§8] for Summary"));
+            components.add(Component.translatable("info." + EpicSamuraiMod.MOD_ID + ".summary.text"));
             components.add(Component.literal(""));
-            components.add(Component.literal("§7Enhanced with §bOni Mask§7.").withStyle(ChatFormatting.GRAY));
-            components.add(Component.literal("§7Applies §bFire Resistance§7.").withStyle(ChatFormatting.GRAY));
-            components.add(Component.literal("§7Immune to §bBlindness§7.").withStyle(ChatFormatting.GRAY));
-            components.add(Component.literal("§7Immune to §bSlowness§7.").withStyle(ChatFormatting.GRAY));
+            components.add(Component.translatable("info." + EpicSamuraiMod.MOD_ID + ".mask_name.text"));
+            components.add(Component.translatable("info." + EpicSamuraiMod.MOD_ID + ".mask.ability_1"));
+            components.add(Component.translatable("info." + EpicSamuraiMod.MOD_ID + ".mask.ability_2"));
+            components.add(Component.translatable("info." + EpicSamuraiMod.MOD_ID + ".mask.ability_3"));
         } else if (stack.getItem() == ItemsRegistry.MASK_QUARTZ_SAMURAI_HELMET.get()) {
-            components.add(Component.literal("§8Hold [§7Shift§8] for Summary"));
+            components.add(Component.translatable("info." + EpicSamuraiMod.MOD_ID + ".summary.text"));
         }
 
         super.appendHoverText(stack, level, components, flag);

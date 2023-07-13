@@ -14,17 +14,17 @@ import software.bernie.geckolib.core.object.PlayState;
 
 public class SamuraiArmorItem extends ArmorItem implements GeoItem {
 
-    private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+    private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
     public SamuraiArmorItem(ArmorMaterial material, Type type, Properties properties) {
         super(material, type, properties);
     }
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-        controllerRegistrar.add(new AnimationController(this, "controller", 0, this::predicate));
+        controllerRegistrar.add(new AnimationController<>(this, "controller", 0, this::predicate));
     }
 
-    private PlayState predicate(AnimationState animationState) {
+    private PlayState predicate(AnimationState<SamuraiArmorItem> animationState) {
         return PlayState.STOP;
     }
 
