@@ -12,13 +12,11 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
-import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
 import net.veroxuniverse.epicsamurai.entity.custom.goals.KitsuneAttackGoal;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -27,13 +25,10 @@ import software.bernie.geckolib3.core.builder.ILoopType;
 import software.bernie.geckolib3.core.controller.AnimationController;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.util.GeckoLibUtil;
 
 import static net.minecraft.world.entity.monster.hoglin.HoglinBase.throwTarget;
 
 public class KitsuneEntity extends Monster implements IAnimatable {
-
-    //private boolean invulnerable; / Disabele due to bugs!
 
     private AnimationFactory FACTORY = new AnimationFactory(this);
 
@@ -109,28 +104,6 @@ public class KitsuneEntity extends Monster implements IAnimatable {
             return false;
         }
     }
-
-    /*
-
-    / Disabele due to bugs! /
-
-    @Override
-    public boolean isInvulnerableTo(DamageSource pSource) {
-        LivingEntity attacker = (LivingEntity) pSource.getEntity();
-        Enchantment enchantment = ModEnchantments.DEMON_SLAYER.get();
-
-        boolean hasSpiritSlayer = hasEnchantment(enchantment, attacker);
-
-        if (!hasSpiritSlayer && !pSource.isCreativePlayer() && attacker != null) {
-            return true;
-        } else {
-            return pSource.isProjectile() || super.isInvulnerableTo(pSource);
-        }
-    }
-
-     */
-
-
 
     @Override
     public AnimationFactory getFactory() {

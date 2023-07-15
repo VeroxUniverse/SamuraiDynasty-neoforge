@@ -13,9 +13,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -24,7 +22,6 @@ import net.veroxuniverse.epicsamurai.compat.ArsNouveauCompat;
 import net.veroxuniverse.epicsamurai.compat.CreateCompat;
 import net.veroxuniverse.epicsamurai.compat.ForbiddenArcanusCompat;
 import net.veroxuniverse.epicsamurai.config.ModCommonConfigs;
-import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.item.armor.BrassSamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.registry.BlocksRegistry;
@@ -51,8 +48,6 @@ public class EpicSamuraiMod
         ItemsRegistry.register(modEventBus);
         BlocksRegistry.register(modEventBus);
         ParticlesInit.register(modEventBus);
-
-        ModEnchantments.ENCHANTMENTS.register(modEventBus);
 
         if(ModList.get().isLoaded("create")) {
             CreateCompat.register(modEventBus);
