@@ -27,6 +27,7 @@ public class HelperMethods {
             if(player.getInventory().getArmor(EquipmentSlot.HEAD.getIndex()).is(ItemsRegistry.MASK_AMETHYST_SAMURAI_HELMET.get())
                     || player.getInventory().getArmor(EquipmentSlot.HEAD.getIndex()).is(ItemsRegistry.MASK_QUARTZ_SAMURAI_HELMET.get())
                     || player.getInventory().getArmor(EquipmentSlot.HEAD.getIndex()).is(ItemsRegistry.MASK_NETHERITE_SAMURAI_HELMET.get())
+                    || player.getInventory().getArmor(EquipmentSlot.HEAD.getIndex()).is(ItemsRegistry.ONI_MASK.get())
                     || player.getInventory().getArmor(EquipmentSlot.HEAD.getIndex()).is(ItemsRegistry.MASK_STRAW_HAT.get())) {
                 if(player.hasEffect(MobEffects.MOVEMENT_SLOWDOWN)) player.removeEffect(MobEffects.MOVEMENT_SLOWDOWN);
                 if(player.hasEffect(MobEffects.BLINDNESS)) player.removeEffect(MobEffects.BLINDNESS);

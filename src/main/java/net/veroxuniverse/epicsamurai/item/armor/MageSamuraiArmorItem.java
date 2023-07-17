@@ -14,18 +14,20 @@ import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.fml.ModList;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.ars_nouveau.MageSamuraiArmorRenderer;
 import org.jetbrains.annotations.NotNull;
-import software.bernie.ars_nouveau.geckolib.animatable.GeoItem;
-import software.bernie.ars_nouveau.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.ars_nouveau.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.ars_nouveau.geckolib.core.animation.AnimatableManager;
-import software.bernie.ars_nouveau.geckolib.core.animation.AnimationController;
-import software.bernie.ars_nouveau.geckolib.core.animation.AnimationState;
-import software.bernie.ars_nouveau.geckolib.core.object.PlayState;
-import software.bernie.ars_nouveau.geckolib.model.GeoModel;
+import software.bernie.geckolib.animatable.GeoItem;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.model.GeoModel;
 
 import java.util.function.Consumer;
 
 public class MageSamuraiArmorItem extends AnimatedMagicArmor implements GeoItem {
+
+    private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
     public GeoModel<AnimatedMagicArmor> model;
 
@@ -54,8 +56,6 @@ public class MageSamuraiArmorItem extends AnimatedMagicArmor implements GeoItem 
         }
     }
 
-    private AnimatableInstanceCache factory = new SingletonAnimatableInstanceCache(this);
-
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
         controllerRegistrar.add(new AnimationController<>(this, "controller", 0, this::predicate));
@@ -67,7 +67,7 @@ public class MageSamuraiArmorItem extends AnimatedMagicArmor implements GeoItem 
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return factory;
+        return cache;
     }
 
     @Override

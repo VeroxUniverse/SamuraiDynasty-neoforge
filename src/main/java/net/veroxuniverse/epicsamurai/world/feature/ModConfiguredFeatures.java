@@ -12,6 +12,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguratio
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
+import net.veroxuniverse.epicsamurai.config.ModCommonConfigs;
 import net.veroxuniverse.epicsamurai.registry.BlocksRegistry;
 
 import java.util.List;
@@ -42,8 +43,9 @@ public class ModConfiguredFeatures {
                 OreConfiguration.target(deepslateReplaceables, BlocksRegistry.DEEPSLATE_SILVER_ORE.get().defaultBlockState()));
 
 
-        register(context, OVERWORLD_SILVER_ORE_KEY, Feature.ORE, new OreConfiguration(overworldSilverOres, 9));
-
+        if (ModCommonConfigs.SILVER_ORE_VEIN_SIZE.get() > 0) {
+            register(context, OVERWORLD_SILVER_ORE_KEY, Feature.ORE, new OreConfiguration(overworldSilverOres, ModCommonConfigs.SILVER_ORE_VEIN_SIZE.get()));
+        }
 
 
         List<OreConfiguration.TargetBlockState> overworldJadeOres = List.of(OreConfiguration.target(stoneReplaceables,

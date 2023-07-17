@@ -14,6 +14,7 @@ import net.veroxuniverse.epicsamurai.compat.AquacultureCompat;
 import net.veroxuniverse.epicsamurai.compat.ArsNouveauCompat;
 import net.veroxuniverse.epicsamurai.compat.CreateCompat;
 import net.veroxuniverse.epicsamurai.compat.DeeperDarkerCompat;
+import net.veroxuniverse.epicsamurai.item.armor.MageSamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.item.armor.lib.SamuraiArmorItem;
 
 public class CreativeTabRegistry {
@@ -40,7 +41,7 @@ public class CreativeTabRegistry {
 
                         if (ModList.get().isLoaded("ars_nouveau"))
                             for (RegistryObject<Item> item : ArsNouveauCompat.ARSN_ITEMS.getEntries())
-                                if (item.get() instanceof SamuraiArmorItem )
+                                if (item.get() instanceof MageSamuraiArmorItem)
                                     output.accept(item.get());
 
                         if (ModList.get().isLoaded("aquaculture"))

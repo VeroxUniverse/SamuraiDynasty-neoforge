@@ -3,7 +3,7 @@ package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.MageSamuraiArmorItem;
-import software.bernie.ars_nouveau.geckolib.model.GeoModel;
+import software.bernie.geckolib.model.GeoModel;
 
 public class MageSamuraiArmorModel extends GeoModel<MageSamuraiArmorItem> {
     @Override

@@ -18,6 +18,7 @@ import net.veroxuniverse.epicsamurai.compat.AquacultureCompat;
 import net.veroxuniverse.epicsamurai.compat.ArsNouveauCompat;
 import net.veroxuniverse.epicsamurai.compat.CreateCompat;
 import net.veroxuniverse.epicsamurai.compat.DeeperDarkerCompat;
+import net.veroxuniverse.epicsamurai.config.ModCommonConfigs;
 import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.item.armor.BrassSamuraiArmorItem;
@@ -39,10 +40,13 @@ public class EpicSamuraiMod
 
     public EpicSamuraiMod()
     {
+
+        new ModCommonConfigs();
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModEntityTypes.register(modEventBus);
         GeckoLib.initialize();
+        //MixinExtrasBootstrap.init();
 
         ItemsRegistry.register(modEventBus);
         BlocksRegistry.register(modEventBus);
