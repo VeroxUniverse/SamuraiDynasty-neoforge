@@ -12,5 +12,4 @@ public class MageSamuraiArmorItem extends AnimatedMagicArmor {
 
     }
 
-
 }

@@ -1,6 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "epicsamurai:item/mage_samurai_boots"
+    "layer0": "epicsamurai:item/battlemage/mage_samurai_boots_tint",
+    "layer1": "epicsamurai:item/battlemage/mage_samurai_boots_gold"
   }
 }

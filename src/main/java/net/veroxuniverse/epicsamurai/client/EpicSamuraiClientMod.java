@@ -1,5 +1,7 @@
 package net.veroxuniverse.epicsamurai.client;
 
+import com.hollingsworth.arsnouveau.client.renderer.item.ArmorRenderer;
+import com.hollingsworth.arsnouveau.client.renderer.tile.GenericModel;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
@@ -9,7 +11,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.amethyst.AmethystSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.aquamarine.BlueSamuraiArmorRenderer;
-import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.ars_nouveau.MageSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.deeperdarker.SculkSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.diamond.DiamondSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.gold.GoldSamuraiArmorRenderer;
@@ -43,6 +44,13 @@ public class EpicSamuraiClientMod {
 
     @SubscribeEvent
     public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
+    }
+
+    @SubscribeEvent
+    public static void registerLayers(EntityRenderersEvent.AddLayers addLayers) {
+        if (ModList.get().isLoaded("ars_nouveau")){
+            software.bernie.ars_nouveau.geckolib3.renderers.geo.GeoArmorRenderer.registerArmorRenderer(MageSamuraiArmorItem.class, () -> new ArmorRenderer(new GenericModel<>("samurai_armor_two", "items/battlemage").withEmptyAnim()));
+        }
     }
 
     @SubscribeEvent
