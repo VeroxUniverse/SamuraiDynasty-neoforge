@@ -1,0 +1,14 @@
+{
+  "type": "ars_nouveau:dye",
+  "ingredients": [
+    {
+      "tag": "forge:dyes"
+    },
+    {
+      "item": "epicsamurai:mage_samurai_boots"
+    }
+  ],
+  "result": {
+    "item": "epicsamurai:mage_samurai_boots"
+  }
+}

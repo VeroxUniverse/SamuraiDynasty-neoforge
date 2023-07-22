@@ -12,9 +12,10 @@ public class MageSamuraiArmorModel extends AnimatedGeoModel<MageSamuraiArmorItem
     }
 
     @Override
-    public ResourceLocation getTextureResource(MageSamuraiArmorItem object) {
-        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/models/armor/mage_samurai_armor_textures.png");
+    public ResourceLocation getTextureResource(MageSamuraiArmorItem mageSamuraiArmorItem) {
+        return null;
     }
+
 
     @Override
     public ResourceLocation getAnimationResource(MageSamuraiArmorItem animatable) {
