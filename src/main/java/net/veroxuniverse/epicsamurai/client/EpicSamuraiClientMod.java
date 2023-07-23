@@ -4,6 +4,7 @@ import com.hollingsworth.arsnouveau.client.renderer.item.ArmorRenderer;
 import com.hollingsworth.arsnouveau.client.renderer.tile.GenericModel;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -29,8 +30,11 @@ import net.veroxuniverse.epicsamurai.compat.CreateCompat;
 import net.veroxuniverse.epicsamurai.compat.DeeperDarkerCompat;
 import net.veroxuniverse.epicsamurai.item.armor.*;
 import net.veroxuniverse.epicsamurai.particle.BlueFlame;
+import net.veroxuniverse.epicsamurai.registry.ItemsRegistry;
 import net.veroxuniverse.epicsamurai.registry.ParticlesInit;
 import software.bernie.geckolib3.renderers.geo.GeoArmorRenderer;
+
+import static com.hollingsworth.arsnouveau.client.events.ClientHandler.colorFromArmor;
 
 @Mod.EventBusSubscriber(modid = EpicSamuraiMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class EpicSamuraiClientMod {
@@ -47,10 +51,25 @@ public class EpicSamuraiClientMod {
     }
 
     @SubscribeEvent
-    public static void registerLayers(EntityRenderersEvent.AddLayers addLayers) {
+    public static void initItemColors(final RegisterColorHandlersEvent.Item event) {
+
         if (ModList.get().isLoaded("ars_nouveau")){
-            software.bernie.ars_nouveau.geckolib3.renderers.geo.GeoArmorRenderer.registerArmorRenderer(MageSamuraiArmorItem.class, () -> new ArmorRenderer(new GenericModel<>("samurai_armor_two", "items/battlemage").withEmptyAnim()));
+
+            event.register((stack, color) -> color > 0 ? -1 :
+                            colorFromArmor(stack),
+                    ArsNouveauCompat.MAGE_SAMURAI_BOOTS.get());
+            event.register((stack, color) -> color > 0 ? -1 :
+                            colorFromArmor(stack),
+                    ArsNouveauCompat.MAGE_SAMURAI_CHESTPLATE.get());
+            event.register((stack, color) -> color > 0 ? -1 :
+                            colorFromArmor(stack),
+                    ArsNouveauCompat.MAGE_SAMURAI_HELMET.get());
+            event.register((stack, color) -> color > 0 ? -1 :
+                            colorFromArmor(stack),
+                    ArsNouveauCompat.MAGE_SAMURAI_LEGGINGS.get());
+
         }
+
     }
 
     @SubscribeEvent
