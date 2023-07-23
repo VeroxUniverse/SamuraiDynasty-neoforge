@@ -28,6 +28,7 @@ public class ArsNouveauCompat {
             () -> new MageSamuraiArmorItem(Materials.HEAVY, ArmorItem.Type.HELMET, new Item.Properties(), model));
     public static final RegistryObject<Item> MAGE_SAMURAI_CHESTPLATE = ARSN_ITEMS.register("mage_samurai_chestplate",
             () -> new MageSamuraiArmorItem(Materials.HEAVY, ArmorItem.Type.CHESTPLATE, new Item.Properties(), model));
+
     public static final RegistryObject<Item> MAGE_SAMURAI_LEGGINGS = ARSN_ITEMS.register("mage_samurai_leggings",
             () -> new MageSamuraiArmorItem(Materials.HEAVY, ArmorItem.Type.LEGGINGS, new Item.Properties(), model));
     public static final RegistryObject<Item> MAGE_SAMURAI_BOOTS = ARSN_ITEMS.register("mage_samurai_boots",

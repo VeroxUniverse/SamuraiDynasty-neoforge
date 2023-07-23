@@ -36,7 +36,6 @@ public class MageSamuraiArmorItem extends AnimatedMagicArmor implements GeoItem 
         this.model = model;
     }
 
-
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         if (ModList.get().isLoaded("ars_nouveau")) {
