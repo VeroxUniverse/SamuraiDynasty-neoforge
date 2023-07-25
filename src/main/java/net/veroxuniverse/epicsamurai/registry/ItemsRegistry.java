@@ -155,6 +155,10 @@ public class ItemsRegistry {
             () -> new SwordItem(ItemMaterialsRegistry.SAMURAI,2,-2.4f, new Item.Properties()));
     public static final RegistryObject<Item> NAGAMAKI = ITEMS.register("nagamaki",
             () -> new SwordItem(ItemMaterialsRegistry.SAMURAI,2,-2.4f, new Item.Properties()));
+    public static final RegistryObject<Item> SHUKO = ITEMS.register("shuko",
+            () -> new SwordItem(ItemMaterialsRegistry.SAMURAI,-1,-2.0f, new Item.Properties()));
+    public static final RegistryObject<Item> TETSUBO = ITEMS.register("tetsubo",
+            () -> new SwordItem(ItemMaterialsRegistry.SAMURAI,4,-3.4f, new Item.Properties()));
     public static final RegistryObject<Item> KUNAI = ITEMS.register("kunai",
             () -> new KunaiItem(ItemMaterialsRegistry.SAMURAI,-1,-2.0f, new Item.Properties()));
     public static final RegistryObject<Item> KAMA = ITEMS.register("kama",

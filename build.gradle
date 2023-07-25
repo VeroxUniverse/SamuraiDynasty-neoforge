@@ -161,6 +161,10 @@ dependencies {
     compileOnly fg.deobf("curse.maven:aquaculture-60028:${aquaculture_version}")
     runtimeOnly fg.deobf("curse.maven:aquaculture-60028:${aquaculture_version}")
 
+    runtimeOnly fg.deobf("curse.maven:better-combat-by-daedelus-639842:${bettercombat_version}-forge")
+    runtimeOnly fg.deobf("curse.maven:cloth-config-348521:${cloth_version}-forge")
+    runtimeOnly fg.deobf("curse.maven:playeranimator-658587:${playeranimator_version}-forge")
+
 
     annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
 }

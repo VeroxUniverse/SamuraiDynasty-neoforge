@@ -1,14 +1,27 @@
 {
-  "type": "ars_nouveau:dye",
-  "ingredients": [
+  "type": "forge:conditional",
+  "recipes": [
     {
-      "tag": "forge:dyes"
-    },
-    {
-      "item": "epicsamurai:mage_samurai_helmet"
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "ars_nouveau"
+        }
+      ],
+      "recipe": {
+        "type": "ars_nouveau:dye",
+        "ingredients": [
+          {
+            "tag": "forge:dyes"
+          },
+          {
+            "item": "epicsamurai:mage_samurai_helmet"
+          }
+        ],
+        "result": {
+          "item": "epicsamurai:mage_samurai_helmet"
+        }
+      }
     }
-  ],
-  "result": {
-    "item": "epicsamurai:mage_samurai_helmet"
-  }
+  ]
 }
