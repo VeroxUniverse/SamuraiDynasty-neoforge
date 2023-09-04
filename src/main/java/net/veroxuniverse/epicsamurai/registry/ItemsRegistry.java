@@ -134,6 +134,15 @@ public class ItemsRegistry {
     public static final RegistryObject<Item> STEEL_BOOTS = ITEMS.register("steel_boots",
             () -> new SteelArmorItem(ArmorMaterialsRegistry.STEEL, ArmorItem.Type.BOOTS, new Item.Properties()));
 
+    public static final RegistryObject<Item> STEEL_NINJA_HELMET = ITEMS.register("steel_ninja_helmet",
+            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.STEEL, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> STEEL_NINJA_CHESTPLATE = ITEMS.register("steel_ninja_chestplate",
+            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.STEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> STEEL_NINJA_LEGGINGS = ITEMS.register("steel_ninja_leggings",
+            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.STEEL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> STEEL_NINJA_BOOTS = ITEMS.register("steel_ninja_boots",
+            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.STEEL, ArmorItem.Type.BOOTS, new Item.Properties()));
+
     public static final RegistryObject<Item> STRAW_HAT = ITEMS.register("straw_hat",
             () -> new StrawHatArmorItem(ArmorMaterialsRegistry.STRAW, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> MASK_STRAW_HAT = ITEMS.register("mask_straw_hat",
