@@ -1,0 +1,24 @@
+{
+  "type": "create:splashing",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "create:crushed_raw_silver"
+    }
+  ],
+  "results": [
+    {
+      "count": 9,
+      "item": "epicsamurai:silver_nugget"
+    },
+    {
+      "chance": 0.25,
+      "item": "minecraft:coal"
+    }
+  ]
+}

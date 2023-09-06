@@ -126,30 +126,86 @@ public class ItemsRegistry {
             () -> new GraySamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_ONYX, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     public static final RegistryObject<Item> STEEL_HELMET = ITEMS.register("steel_helmet",
-            () -> new SteelArmorItem(ArmorMaterialsRegistry.STEEL, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new SteelArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> STEEL_CHESTPLATE = ITEMS.register("steel_chestplate",
-            () -> new SteelArmorItem(ArmorMaterialsRegistry.STEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new SteelArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final RegistryObject<Item> STEEL_LEGGINGS = ITEMS.register("steel_leggings",
-            () -> new SteelArmorItem(ArmorMaterialsRegistry.STEEL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new SteelArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> STEEL_BOOTS = ITEMS.register("steel_boots",
-            () -> new SteelArmorItem(ArmorMaterialsRegistry.STEEL, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new SteelArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.BOOTS, new Item.Properties()));
 
+    public static final RegistryObject<Item> IRON_NINJA_HELMET = ITEMS.register("iron_ninja_helmet",
+            () -> new IronNinjaArmorItem(ArmorMaterialsRegistry.NINJA_IRON, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> IRON_NINJA_CHESTPLATE = ITEMS.register("iron_ninja_chestplate",
+            () -> new IronNinjaArmorItem(ArmorMaterialsRegistry.NINJA_IRON, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+   /*
+    public static final RegistryObject<Item> IRON_NINJA_LEGGINGS = ITEMS.register("iron_ninja_leggings",
+            () -> new IronNinjaArmorItem(ArmorMaterialsRegistry.NINJA_IRON, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    */
+    public static final RegistryObject<Item> IRON_NINJA_BOOTS = ITEMS.register("iron_ninja_boots",
+            () -> new IronNinjaArmorItem(ArmorMaterialsRegistry.NINJA_IRON, ArmorItem.Type.BOOTS, new Item.Properties()));
+    
     public static final RegistryObject<Item> STEEL_NINJA_HELMET = ITEMS.register("steel_ninja_helmet",
-            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.STEEL, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.NINJA_STEEL, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> STEEL_NINJA_CHESTPLATE = ITEMS.register("steel_ninja_chestplate",
-            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.STEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.NINJA_STEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+     /*
     public static final RegistryObject<Item> STEEL_NINJA_LEGGINGS = ITEMS.register("steel_ninja_leggings",
-            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.STEEL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.NINJA_STEEL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+      */
     public static final RegistryObject<Item> STEEL_NINJA_BOOTS = ITEMS.register("steel_ninja_boots",
-            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.STEEL, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.NINJA_STEEL, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+    public static final RegistryObject<Item> GOLD_NINJA_HELMET = ITEMS.register("gold_ninja_helmet",
+            () -> new GoldNinjaArmorItem(ArmorMaterialsRegistry.NINJA_GOLD, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> GOLD_NINJA_CHESTPLATE = ITEMS.register("gold_ninja_chestplate",
+            () -> new GoldNinjaArmorItem(ArmorMaterialsRegistry.NINJA_GOLD, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+     /*
+    public static final RegistryObject<Item> GOLD_NINJA_LEGGINGS = ITEMS.register("gold_ninja_leggings",
+            () -> new GoldNinjaArmorItem(ArmorMaterialsRegistry.NINJA_GOLD, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+      */
+    public static final RegistryObject<Item> GOLD_NINJA_BOOTS = ITEMS.register("gold_ninja_boots",
+            () -> new GoldNinjaArmorItem(ArmorMaterialsRegistry.NINJA_GOLD, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+    public static final RegistryObject<Item> DIAMOND_NINJA_HELMET = ITEMS.register("diamond_ninja_helmet",
+            () -> new DiamondNinjaArmorItem(ArmorMaterialsRegistry.NINJA_DIAMOND, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> DIAMOND_NINJA_CHESTPLATE = ITEMS.register("diamond_ninja_chestplate",
+            () -> new DiamondNinjaArmorItem(ArmorMaterialsRegistry.NINJA_DIAMOND, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+     /*
+    public static final RegistryObject<Item> DIAMOND_NINJA_LEGGINGS = ITEMS.register("diamond_ninja_leggings",
+            () -> new DiamondNinjaArmorItem(ArmorMaterialsRegistry.NINJA_DIAMOND, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+      */
+    public static final RegistryObject<Item> DIAMOND_NINJA_BOOTS = ITEMS.register("diamond_ninja_boots",
+            () -> new DiamondNinjaArmorItem(ArmorMaterialsRegistry.NINJA_DIAMOND, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+    public static final RegistryObject<Item> NETHERITE_NINJA_HELMET = ITEMS.register("netherite_ninja_helmet",
+            () -> new NetheriteNinjaArmorItem(ArmorMaterialsRegistry.NINJA_NETHERITE, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> NETHERITE_NINJA_CHESTPLATE = ITEMS.register("netherite_ninja_chestplate",
+            () -> new NetheriteNinjaArmorItem(ArmorMaterialsRegistry.NINJA_NETHERITE, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    /*
+    public static final RegistryObject<Item> NETHERITE_NINJA_LEGGINGS = ITEMS.register("netherite_ninja_leggings",
+            () -> new NetheriteNinjaArmorItem(ArmorMaterialsRegistry.NINJA_NETHERITE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+     */
+    public static final RegistryObject<Item> NETHERITE_NINJA_BOOTS = ITEMS.register("netherite_ninja_boots",
+            () -> new NetheriteNinjaArmorItem(ArmorMaterialsRegistry.NINJA_NETHERITE, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+    public static final RegistryObject<Item> NINJA_LEGGINGS = ITEMS.register("ninja_leggings",
+            () -> new IronNinjaArmorItem(ArmorMaterialsRegistry.CLOTH, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+
+
+    public static final RegistryObject<Item> KIMONO = ITEMS.register("kimono",
+            () -> new KimonoArmorItem(ArmorMaterialsRegistry.CLOTH, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
 
     public static final RegistryObject<Item> STRAW_HAT = ITEMS.register("straw_hat",
             () -> new StrawHatArmorItem(ArmorMaterialsRegistry.STRAW, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> MASK_STRAW_HAT = ITEMS.register("mask_straw_hat",
-            () -> new MaskStrawHatArmorItem(ArmorMaterialsRegistry.STEEL, ArmorItem.Type.HELMET, new Item.Properties().fireResistant()));
+            () -> new MaskStrawHatArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.HELMET, new Item.Properties().fireResistant()));
 
     public static final RegistryObject<Item> ONI_MASK = ITEMS.register("oni_mask",
-            () -> new OniMaskArmorItem(ArmorMaterialsRegistry.STEEL, ArmorItem.Type.HELMET, new Item.Properties().fireResistant()));
+            () -> new OniMaskArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.HELMET, new Item.Properties().fireResistant()));
+
+    public static final RegistryObject<Item> KITSUNE_MASK = ITEMS.register("kitsune_mask",
+            () -> new KitsuneMaskArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.HELMET, new Item.Properties().fireResistant()));
 
     public static final RegistryObject<Item> KNIVE_HANDLE = ITEMS.register("knive_handle",
             () -> new Item(new Item.Properties()));
@@ -230,6 +286,9 @@ public class ItemsRegistry {
             () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> ONI_HORN = ITEMS.register("oni_horn",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> CLOTH = ITEMS.register("cloth",
             () -> new Item(new Item.Properties()));
 
 

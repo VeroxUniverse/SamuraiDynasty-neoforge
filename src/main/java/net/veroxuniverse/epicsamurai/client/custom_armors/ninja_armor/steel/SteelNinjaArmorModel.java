@@ -13,7 +13,7 @@ public class SteelNinjaArmorModel extends GeoModel<SteelNinjaArmorItem> {
 
     @Override
     public ResourceLocation getTextureResource(SteelNinjaArmorItem object) {
-        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/armor/steel_ninja_armor_textures.png");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/armor/ninja_steel_armor_textures.png");
     }
 
     @Override

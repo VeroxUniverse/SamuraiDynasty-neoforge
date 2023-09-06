@@ -146,7 +146,7 @@ dependencies {
     runtimeOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${minecraft_version}:${ars_version}")
     compileOnly fg.deobf("curse.maven:create-328085:${create_version}")
     runtimeOnly fg.deobf("curse.maven:create-328085:${create_version}")
-    //runtimeOnly fg.deobf("curse.maven:deeperdarker-659011:${project.deeperdarker_file_id}")
+    runtimeOnly fg.deobf("curse.maven:deeperdarker-659011:${project.deeperdarker_file_id}")
 
     // compile against the JEI API but do not include it at runtime
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))

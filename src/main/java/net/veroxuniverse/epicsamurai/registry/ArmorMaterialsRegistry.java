@@ -18,6 +18,46 @@ import java.util.function.Supplier;
 
 public enum ArmorMaterialsRegistry implements ArmorMaterial {
 
+    NINJA_GOLD("ninja_gold", 15,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 1);
+        armor.put(ArmorItem.Type.LEGGINGS, 2);
+        armor.put(ArmorItem.Type.CHESTPLATE, 4);
+        armor.put(ArmorItem.Type.HELMET, 1);
+    }), 25, SoundEvents.ARMOR_EQUIP_GOLD, 0.0F, 0.0F,
+            () -> Ingredient.of(Items.GOLD_INGOT)),
+
+    NINJA_IRON("ninja_iron", 20,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 2);
+        armor.put(ArmorItem.Type.LEGGINGS, 3);
+        armor.put(ArmorItem.Type.CHESTPLATE, 5);
+        armor.put(ArmorItem.Type.HELMET, 2);
+    }), 12, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F,
+            () -> Ingredient.of(Items.IRON_INGOT)),
+
+    NINJA_DIAMOND("ninja_diamond", 33,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 3);
+        armor.put(ArmorItem.Type.LEGGINGS, 4);
+        armor.put(ArmorItem.Type.CHESTPLATE, 7);
+        armor.put(ArmorItem.Type.HELMET, 2);
+    }), 12, SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F,
+            () -> Ingredient.of(Items.DIAMOND)),
+
+    NINJA_STEEL("ninja_steel", 20,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 2);
+        armor.put(ArmorItem.Type.LEGGINGS, 3);
+        armor.put(ArmorItem.Type.CHESTPLATE, 6);
+        armor.put(ArmorItem.Type.HELMET, 2);
+    }), 12, SoundEvents.ARMOR_EQUIP_IRON, 0.5F, 0.0F,
+            () -> Ingredient.of(ItemsRegistry.STEEL_INGOT.get())),
+
+    NINJA_NETHERITE("ninja_netherite", 45,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 3);
+        armor.put(ArmorItem.Type.LEGGINGS, 6);
+        armor.put(ArmorItem.Type.CHESTPLATE, 8);
+        armor.put(ArmorItem.Type.HELMET, 3);
+    }), 25, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F,
+            () -> Ingredient.of(Items.NETHERITE_INGOT)),
+
     SAMURAI_RUBY("samurai_ruby", 33,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
         armor.put(ArmorItem.Type.BOOTS, 3);
         armor.put(ArmorItem.Type.LEGGINGS, 6);
@@ -138,7 +178,7 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
     }), 12, SoundEvents.ARMOR_EQUIP_IRON, 0.5F, 0.0F,
             () -> Ingredient.of(Items.IRON_INGOT)),
 
-    STEEL("samurai_steel", 20,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+    SAMURAI_STEEL("samurai_steel", 20,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
         armor.put(ArmorItem.Type.BOOTS, 3);
         armor.put(ArmorItem.Type.LEGGINGS, 5);
         armor.put(ArmorItem.Type.CHESTPLATE, 7);
@@ -152,7 +192,15 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
         armor.put(ArmorItem.Type.CHESTPLATE, 1);
         armor.put(ArmorItem.Type.HELMET, 1);
     }), 7, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F,
-            () -> Ingredient.of(Items.WHEAT));
+            () -> Ingredient.of(Items.WHEAT)),
+
+    CLOTH("cloth", 15,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 1);
+        armor.put(ArmorItem.Type.LEGGINGS, 2);
+        armor.put(ArmorItem.Type.CHESTPLATE, 3);
+        armor.put(ArmorItem.Type.HELMET, 1);
+    }), 12, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0F, 0.0F,
+            () -> Ingredient.of(ItemsRegistry.CLOTH.get()));
 
     private static final EnumMap<ArmorItem.Type, Integer> HEALTH_FUNCTION_FOR_TYPE = Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266653_) -> {
         p_266653_.put(ArmorItem.Type.BOOTS, 13);
