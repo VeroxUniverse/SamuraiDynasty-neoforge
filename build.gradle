@@ -157,6 +157,10 @@ dependencies {
     compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
 
+    //compileOnly fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:${spells_version}")
+    //runtimeOnly fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:${spells_version}")
+
+
     // compile against Aquaculture
     compileOnly fg.deobf("curse.maven:aquaculture-60028:${aquaculture_version}")
     runtimeOnly fg.deobf("curse.maven:aquaculture-60028:${aquaculture_version}")

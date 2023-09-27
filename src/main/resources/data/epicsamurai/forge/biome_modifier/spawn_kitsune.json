@@ -1,10 +1,10 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "#forge:is_forest",
+  "biomes": "#minecraft:is_overworld",
   "spawners":{
     "type": "epicsamurai:kitsune",
     "weight": 2,
     "minCount": 1,
-    "maxCount": 3
+    "maxCount": 1
   }
 }

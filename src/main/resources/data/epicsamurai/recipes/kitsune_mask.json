@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "epicsamurai:kitsune_hide"
+    },
+    "S": {
+      "tag": "forge:ingots/steel"
+    }
+  },
+  "pattern": [
+    "XSX",
+    "SSS"
+  ],
+  "result": {
+    "item": "epicsamurai:kitsune_mask"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "tag": "forge:ingots/iron"
+    },
+    "S": {
+      "item": "epicsamurai:cloth"
+    }
+  },
+  "pattern": [
+    "XSX",
+    "X X"
+  ],
+  "result": {
+    "item": "epicsamurai:iron_ninja_boots"
+  }
+}
