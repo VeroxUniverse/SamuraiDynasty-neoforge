@@ -13,11 +13,16 @@ public class MageSamuraiArmorRenderer extends GeoArmorRenderer<MageSamuraiArmorI
 
     @Override
     public ResourceLocation getTextureLocation(MageSamuraiArmorItem instance) {
+        /*
+
         if(model instanceof GenericModel<MageSamuraiArmorItem> genericModel){
             return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/models/armor/ars_nouveau/ars_samurai_armor_textures_" + instance.getColor(getCurrentStack()) + ".png");
         }
 
         return super.getTextureLocation(instance);
+
+         */
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/models/armor/ars_nouveau/ars_samurai_armor_textures_" + instance.getColor(getCurrentStack()) + ".png");
     }
 
 }
