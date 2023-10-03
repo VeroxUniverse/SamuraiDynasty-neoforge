@@ -110,6 +110,7 @@ mixin {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    maven {url 'https://libs.azuredoom.com:4443/mods'}
     maven {
         name = 'GeckoLib'
         url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
@@ -140,6 +141,7 @@ dependencies {
     implementation("com.github.llamalad7.mixinextras:mixinextras-forge:${mixinextras_version}")
 
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
+    //implementation fg.deobf("mod.azure.azurelib:azurelib-forge-${minecraft_version}:${azurelib_version}")
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curio_version}")
 
     compileOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${minecraft_version}:${ars_version}")

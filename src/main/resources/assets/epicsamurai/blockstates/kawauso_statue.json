@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "epicsamurai:block/kawauso_statue",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "epicsamurai:block/kawauso_statue"
+    },
+    "facing=south": {
+      "model": "epicsamurai:block/kawauso_statue",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "epicsamurai:block/kawauso_statue",
+      "y": 270
+    }
+  }
+}
