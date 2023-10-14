@@ -39,6 +39,10 @@ public class KomainuRenderer extends GeoEntityRenderer<KomainuEntity> {
     @Override
     public void render(KomainuEntity entity, float entityYaw, float partialTick, PoseStack poseStack,
                        MultiBufferSource bufferSource, int packedLight) {
+
+        if(entity.isBaby()) {
+            poseStack.scale(0.6f, 0.6f, 0.6f);
+        }
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
 }

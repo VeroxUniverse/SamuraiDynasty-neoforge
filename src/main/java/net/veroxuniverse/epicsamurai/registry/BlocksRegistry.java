@@ -76,6 +76,11 @@ public class BlocksRegistry {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK)
                     .strength(4f).requiresCorrectToolForDrops()));
 
+
+    //* WORK IN PROGRESS *//
+
+     /*
+
     public static final RegistryObject<Block> TANUKI_STATUE = registerBlock("tanuki_statue",
             () -> new StatueBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()
                     .strength(4f).requiresCorrectToolForDrops()));
@@ -97,6 +102,8 @@ public class BlocksRegistry {
     public static final RegistryObject<Block> STONE_ROOF_TOP = registerBlock("stone_roof_top",
             () -> new RoofBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()
                     .strength(4f).requiresCorrectToolForDrops()));
+
+     */
 
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);

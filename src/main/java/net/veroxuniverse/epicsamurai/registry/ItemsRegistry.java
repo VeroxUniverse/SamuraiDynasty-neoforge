@@ -253,7 +253,15 @@ public class ItemsRegistry {
                     new Item.Properties()));
 
     public static final RegistryObject<Item> KOMAINU_SPAWN_EGG = ITEMS.register("komainu_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntityTypes.KOMAINU, 0x5f3799, 0xffcedd,
+            () -> new ForgeSpawnEggItem(ModEntityTypes.KOMAINU, 0x00ffc8, 0xff7200,
+                    new Item.Properties()));
+
+    public static final RegistryObject<Item> TANUKI_SPAWN_EGG = ITEMS.register("tanuki_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.TANUKI, 0x544719, 0x3186e0,
+                    new Item.Properties()));
+
+    public static final RegistryObject<Item> KAWAUSO_SPAWN_EGG = ITEMS.register("kawauso_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.KAWAUSO, 0x544719, 0x096e0f,
                     new Item.Properties()));
 
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby",

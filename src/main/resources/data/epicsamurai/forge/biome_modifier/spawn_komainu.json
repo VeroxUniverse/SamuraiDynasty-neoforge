@@ -2,8 +2,8 @@
   "type": "forge:add_spawns",
   "biomes": "#minecraft:is_overworld",
   "spawners":{
-    "type": "epicsamurai:jorogumo",
-    "weight": 5,
+    "type": "epicsamurai:komainu",
+    "weight": 1,
     "minCount": 1,
     "maxCount": 2
   }

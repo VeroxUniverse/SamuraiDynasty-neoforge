@@ -72,10 +72,24 @@ public class ModEntityTypes {
 
     public static final RegistryObject<EntityType<KomainuEntity>> KOMAINU =
             ENTITY_TYPES.register("komainu",
-                    () -> EntityType.Builder.of(KomainuEntity::new, MobCategory.MONSTER)
+                    () -> EntityType.Builder.of(KomainuEntity::new, MobCategory.CREATURE)
                             .sized(1.0f, 0.8f)
                             .fireImmune()
                             .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "komainu").toString()));
+
+    public static final RegistryObject<EntityType<TanukiEntity>> TANUKI =
+            ENTITY_TYPES.register("tanuki",
+                    () -> EntityType.Builder.of(TanukiEntity::new, MobCategory.CREATURE)
+                            .sized(1.0f, 0.8f)
+                            .fireImmune()
+                            .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "tanuki").toString()));
+
+    public static final RegistryObject<EntityType<KawausoEntity>> KAWAUSO =
+            ENTITY_TYPES.register("kawauso",
+                    () -> EntityType.Builder.of(KawausoEntity::new, MobCategory.CREATURE)
+                            .sized(1.0f, 0.8f)
+                            .fireImmune()
+                            .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "kawauso").toString()));
 
     public static final RegistryObject<EntityType<ShurikenEntity>> SHURIKEN =
             ENTITY_TYPES.register("shuriken",

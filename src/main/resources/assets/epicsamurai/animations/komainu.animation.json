@@ -173,13 +173,13 @@
 				"jaw": {
 					"rotation": {
 						"0.0": {
-							"vector": [47.5, 0, 0]
+							"vector": [17.36, 0, 0]
 						},
 						"0.72": {
 							"vector": [8.5, 0, 0]
 						},
 						"1.64": {
-							"vector": [7.5, 0, 0]
+							"vector": [17.36, 0, 0]
 						}
 					},
 					"position": {
@@ -455,7 +455,7 @@
 			}
 		},
 		"animation.komainu.attack": {
-			"animation_length": 1.32,
+			"animation_length": 0.72,
 			"bones": {
 				"komianu": {
 					"rotation": {
@@ -791,6 +791,218 @@
 						},
 						"0.72": {
 							"vector": [0, 0.3, 0]
+						}
+					}
+				}
+			}
+		},
+		"animation.komainu.sit": {
+			"loop": true,
+			"animation_length": 1.64,
+			"bones": {
+				"komianu": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.64": {
+							"vector": [0, 0, 0]
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, -3, 0]
+						},
+						"0.84": {
+							"vector": [0, -3, 0]
+						},
+						"1.64": {
+							"vector": [0, -3, 0]
+						}
+					}
+				},
+				"left_leg": {
+					"rotation": {
+						"0.0": {
+							"vector": [-45, 0, 0]
+						},
+						"1.64": {
+							"vector": [-45, 0, 0]
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.84": {
+							"vector": [0, 0.1, 0]
+						},
+						"1.64": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"right_leg": {
+					"rotation": {
+						"0.0": {
+							"vector": [-45, 0, 0]
+						},
+						"1.64": {
+							"vector": [-45, 0, 0]
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.84": {
+							"vector": [0, 0.1, 0]
+						},
+						"1.64": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"right_arm": {
+					"rotation": {
+						"0.0": {
+							"vector": [22.5, 0, 0]
+						},
+						"1.64": {
+							"vector": [22.5, 0, 0]
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.84": {
+							"vector": [0, 0.1, 0]
+						},
+						"1.64": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"left_arm": {
+					"rotation": {
+						"0.0": {
+							"vector": [22.5, 0, 0]
+						},
+						"1.64": {
+							"vector": [22.5, 0, 0]
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.84": {
+							"vector": [0, 0.1, 0]
+						},
+						"1.64": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"tail": {
+					"rotation": {
+						"0.0": {
+							"vector": [27.5, 0, 0]
+						},
+						"0.24": {
+							"vector": [26.5, 0, 0]
+						},
+						"1.64": {
+							"vector": [27.5, 0, 0]
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.64": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"head": {
+					"rotation": {
+						"0.0": {
+							"vector": [30, 0, 0]
+						},
+						"1.64": {
+							"vector": [30, 0, 0]
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.6": {
+							"vector": [0, -0.1, 0]
+						},
+						"1.64": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"right_eyebrow": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.64": {
+							"vector": [0, 0, 0]
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0.3, 0]
+						},
+						"1.64": {
+							"vector": [0, 0.3, 0]
+						}
+					}
+				},
+				"jaw": {
+					"rotation": {
+						"vector": [7.5, 0, 0]
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, -0.1, 0]
+						},
+						"1.64": {
+							"vector": [0, -0.1, 0]
+						}
+					}
+				},
+				"left_eyebrow": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"1.64": {
+							"vector": [0, 0, 0]
+						}
+					},
+					"position": {
+						"0.0": {
+							"vector": [0, 0.3, 0]
+						},
+						"1.64": {
+							"vector": [0, 0.3, 0]
+						}
+					}
+				},
+				"body": {
+					"rotation": {
+						"0.0": {
+							"vector": [-22.5, 0, 0]
+						},
+						"1.64": {
+							"vector": [-22.5, 0, 0]
 						}
 					}
 				}

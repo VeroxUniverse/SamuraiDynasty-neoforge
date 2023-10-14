@@ -26,6 +26,7 @@ import net.veroxuniverse.epicsamurai.registry.BlocksRegistry;
 import net.veroxuniverse.epicsamurai.registry.CreativeTabRegistry;
 import net.veroxuniverse.epicsamurai.registry.ItemsRegistry;
 import net.veroxuniverse.epicsamurai.registry.ParticlesInit;
+import net.veroxuniverse.epicsamurai.world.ModBiomeModifiers;
 import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
 
@@ -101,6 +102,8 @@ public class EpicSamuraiMod
             EntityRenderers.register(ModEntityTypes.FUJIN.get(), FujinRenderer::new);
             EntityRenderers.register(ModEntityTypes.RAIJIN.get(), RaijinRenderer::new);
             EntityRenderers.register(ModEntityTypes.KOMAINU.get(), KomainuRenderer::new);
+            EntityRenderers.register(ModEntityTypes.TANUKI.get(), TanukiRenderer::new);
+            EntityRenderers.register(ModEntityTypes.KAWAUSO.get(), KawausoRenderer::new);
 
             EntityRenderers.register(ModEntityTypes.KITSUNE_PROJECTILE.get(), KitsuneProjectileRenderer::new);
             EntityRenderers.register(ModEntityTypes.SHURIKEN.get(), ThrownItemRenderer::new);

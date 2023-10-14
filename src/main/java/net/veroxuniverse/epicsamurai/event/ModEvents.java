@@ -1,6 +1,7 @@
 package net.veroxuniverse.epicsamurai.event;
 
 import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -27,6 +28,8 @@ public class ModEvents {
             event.put(ModEntityTypes.FUJIN.get(), FujinEntity.setAttributes());
             event.put(ModEntityTypes.RAIJIN.get(), RaijinEntity.setAttributes());
             event.put(ModEntityTypes.KOMAINU.get(), KomainuEntity.setAttributes());
+            event.put(ModEntityTypes.TANUKI.get(), KomainuEntity.setAttributes());
+            event.put(ModEntityTypes.KAWAUSO.get(), KomainuEntity.setAttributes());
         }
         @SubscribeEvent
         public static void entitySpawnRestriction(SpawnPlacementRegisterEvent event) {
@@ -40,11 +43,20 @@ public class ModEvents {
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Monster::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
             event.register(ModEntityTypes.KITSUNE.get(),
-                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING,
                     Monster::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
             event.register(ModEntityTypes.JOROGUMO.get(),
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Monster::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+            event.register(ModEntityTypes.TANUKI.get(),
+                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+            event.register(ModEntityTypes.KAWAUSO.get(),
+                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+            event.register(ModEntityTypes.KOMAINU.get(),
+                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
         }
 
     }
