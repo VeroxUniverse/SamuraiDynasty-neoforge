@@ -70,6 +70,13 @@ public class ModEntityTypes {
                             .fireImmune()
                             .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "fujin").toString()));
 
+    public static final RegistryObject<EntityType<KomainuEntity>> KOMAINU =
+            ENTITY_TYPES.register("komainu",
+                    () -> EntityType.Builder.of(KomainuEntity::new, MobCategory.MONSTER)
+                            .sized(1.0f, 0.8f)
+                            .fireImmune()
+                            .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "komainu").toString()));
+
     public static final RegistryObject<EntityType<ShurikenEntity>> SHURIKEN =
             ENTITY_TYPES.register("shuriken",
                     () -> EntityType.Builder.<ShurikenEntity>of(ShurikenEntity::new, MobCategory.MISC)

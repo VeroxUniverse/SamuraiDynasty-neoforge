@@ -252,6 +252,10 @@ public class ItemsRegistry {
             () -> new ForgeSpawnEggItem(ModEntityTypes.JOROGUMO, 0x5f3799, 0xffcedd,
                     new Item.Properties()));
 
+    public static final RegistryObject<Item> KOMAINU_SPAWN_EGG = ITEMS.register("komainu_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.KOMAINU, 0x5f3799, 0xffcedd,
+                    new Item.Properties()));
+
     public static final RegistryObject<Item> RUBY = ITEMS.register("ruby",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> JADE = ITEMS.register("jade",

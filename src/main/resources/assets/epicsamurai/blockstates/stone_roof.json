@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "epicsamurai:block/stone_roof",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "epicsamurai:block/stone_roof"
+    },
+    "facing=south": {
+      "model": "epicsamurai:block/stone_roof",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "epicsamurai:block/stone_roof",
+      "y": 270
+    }
+  }
+}

@@ -3,13 +3,16 @@ package net.veroxuniverse.epicsamurai.registry;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
+import net.veroxuniverse.epicsamurai.block.RoofBlock;
 import net.veroxuniverse.epicsamurai.block.StatueBlock;
 
 import java.util.function.Supplier;
@@ -81,6 +84,18 @@ public class BlocksRegistry {
                     .strength(4f).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> KAWAUSO_STATUE = registerBlock("kawauso_statue",
             () -> new StatueBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()
+                    .strength(4f).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> STONE_ROOF = registerBlock("stone_roof",
+            () -> new RoofBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()
+                    .strength(4f).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> STONE_ROOF_CORNER = registerBlock("stone_roof_corner",
+            () -> new RoofBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()
+                    .strength(4f).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> STONE_ROOF_TOP = registerBlock("stone_roof_top",
+            () -> new RoofBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()
                     .strength(4f).requiresCorrectToolForDrops()));
 
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {

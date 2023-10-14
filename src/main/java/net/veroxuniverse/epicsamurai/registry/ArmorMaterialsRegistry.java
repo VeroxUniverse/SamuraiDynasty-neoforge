@@ -125,11 +125,11 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
 
 
     SAMURAI_SCULK("samurai_sculk", 45,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
-        armor.put(ArmorItem.Type.BOOTS, 3);
-        armor.put(ArmorItem.Type.LEGGINGS, 6);
-        armor.put(ArmorItem.Type.CHESTPLATE, 8);
-        armor.put(ArmorItem.Type.HELMET, 3);
-    }), 25, SoundEvents.SCULK_BLOCK_PLACE, 3.0F, 0.1F,
+        armor.put(ArmorItem.Type.BOOTS, 4);
+        armor.put(ArmorItem.Type.LEGGINGS, 7);
+        armor.put(ArmorItem.Type.CHESTPLATE, 9);
+        armor.put(ArmorItem.Type.HELMET, 4);
+    }), 25, SoundEvents.SCULK_BLOCK_PLACE, 4.0F, 0.1F,
             () -> Ingredient.of(Items.ECHO_SHARD)),
 
     SAMURAI_AMETHYST("samurai_amethyst", 35,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {

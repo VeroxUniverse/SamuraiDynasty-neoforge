@@ -26,6 +26,7 @@ public class ModEvents {
             event.put(ModEntityTypes.JOROGUMO.get(), JorogumoEntity.setAttributes());
             event.put(ModEntityTypes.FUJIN.get(), FujinEntity.setAttributes());
             event.put(ModEntityTypes.RAIJIN.get(), RaijinEntity.setAttributes());
+            event.put(ModEntityTypes.KOMAINU.get(), KomainuEntity.setAttributes());
         }
         @SubscribeEvent
         public static void entitySpawnRestriction(SpawnPlacementRegisterEvent event) {
