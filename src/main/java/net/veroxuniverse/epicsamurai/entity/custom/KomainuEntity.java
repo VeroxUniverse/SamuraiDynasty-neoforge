@@ -51,6 +51,9 @@ public class KomainuEntity extends TamableAnimal implements GeoEntity {
 
     private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT =
             SynchedEntityData.defineId(KomainuEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Boolean> ATTACKING =
+            SynchedEntityData.defineId(KomainuEntity.class, EntityDataSerializers.BOOLEAN);
+
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
@@ -88,10 +91,24 @@ public class KomainuEntity extends TamableAnimal implements GeoEntity {
         this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
     }
 
+    /*
+
+    public void setAttacking(boolean attacking) {
+        this.entityData.set(ATTACKING, attacking);
+    }
+
+    public boolean isAttacking() {
+        return this.entityData.get(ATTACKING);
+    }
+
+     */
+
+
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
+        this.entityData.define(ATTACKING, false);
     }
 
     //* VARIANT *//
