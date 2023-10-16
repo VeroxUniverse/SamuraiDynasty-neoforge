@@ -150,6 +150,10 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:create-328085:${create_version}")
     runtimeOnly fg.deobf("curse.maven:deeperdarker-659011:${project.deeperdarker_file_id}")
 
+    compileOnly fg.deobf("curse.maven:l_ender-s-cataclysm-551586:${project.cataclysm_file_id}")
+    runtimeOnly fg.deobf("curse.maven:l_ender-s-cataclysm-551586:${project.cataclysm_file_id}")
+    runtimeOnly fg.deobf("curse.maven:citadel-331936:4786380")
+
     // compile against the JEI API but do not include it at runtime
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))

@@ -10,10 +10,7 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
-import net.veroxuniverse.epicsamurai.compat.AquacultureCompat;
-import net.veroxuniverse.epicsamurai.compat.ArsNouveauCompat;
-import net.veroxuniverse.epicsamurai.compat.CreateCompat;
-import net.veroxuniverse.epicsamurai.compat.DeeperDarkerCompat;
+import net.veroxuniverse.epicsamurai.compat.*;
 import net.veroxuniverse.epicsamurai.item.armor.MageSamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.item.armor.lib.SamuraiArmorItem;
 
@@ -48,6 +45,13 @@ public class CreativeTabRegistry {
                             for (RegistryObject<Item> item : AquacultureCompat.AQUA_ITEMS.getEntries())
                                 if (item.get() instanceof SamuraiArmorItem)
                                     output.accept(item.get());
+                        /*
+                        if (ModList.get().isLoaded("cataclysm"))
+                            for (RegistryObject<Item> item : CataclysmCompat.CATACLYSM_ITEMS.getEntries())
+                                if (item.get() instanceof SamuraiArmorItem)
+                                    output.accept(item.get());
+                         */
+
                     })
                     .build()
     );
