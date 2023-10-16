@@ -1,10 +1,13 @@
 package net.veroxuniverse.epicsamurai.entity.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
@@ -14,6 +17,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -32,6 +36,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.entity.custom.goals.KomainuAttackGoal;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -46,21 +51,21 @@ import java.util.HashMap;
 
 public class TanukiEntity extends TamableAnimal implements GeoEntity {
 
-    private static final EntityDataAccessor<Long> HEALING =
-            SynchedEntityData.defineId(TanukiEntity.class, EntityDataSerializers.LONG);
+    private static final EntityDataAccessor<Integer> HEALING =
+            SynchedEntityData.defineId(TanukiEntity.class, EntityDataSerializers.INT);
 
-    long lastHeal = isHealing();
-    long coolDownTime = 120;
-    long time = this.level().getGameTime();
+    private int healTimer; // = 1200;
+    private final int coolDownTime = 1200;
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
     public TanukiEntity(EntityType<? extends TamableAnimal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
+        this.setTame(false);
     }
 
     public static AttributeSupplier setAttributes() {
-        return Monster.createMobAttributes()
+        return Animal.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 20.0D)
                 .add(Attributes.FOLLOW_RANGE, 25D)
                 .add(Attributes.ATTACK_DAMAGE, 3.0f)
@@ -70,52 +75,73 @@ public class TanukiEntity extends TamableAnimal implements GeoEntity {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(1, new BreedGoal(this, 1.0D));
-        this.goalSelector.addGoal(2, new TemptGoal(this, 1.2D, Ingredient.of(Items.WHEAT), true));
-        this.goalSelector.addGoal(3, new FollowOwnerGoal(this, 1.2F, 8.0F, 2.0F, false));
-        this.goalSelector.addGoal(3, new FollowParentGoal(this, 1.2F));
+        this.goalSelector.addGoal(0, new SitWhenOrderedToGoal(this));
+        //this.goalSelector.addGoal(1, new BreedGoal(this, 1.0D));
+        this.goalSelector.addGoal(1, new TemptGoal(this, 1.2D, Ingredient.of(Items.WHEAT), true));
+        this.goalSelector.addGoal(2, new FollowOwnerGoal(this, 1.2F, 8.0F, 2.0F, false));
+        //this.goalSelector.addGoal(2, new FollowParentGoal(this, 1.2F));
 
-        this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));
-        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+        this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 6.0F));
+        this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
     }
 
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
-        return null;
+        return ModEntityTypes.TANUKI.get().create(pLevel);
     }
 
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(HEALING, lastHeal);
+        this.entityData.define(HEALING, 1200);
     }
 
-    public void setHealing(long healing) {
+    @Override
+    public void readAdditionalSaveData(CompoundTag pCompound) {
+        super.readAdditionalSaveData(pCompound);
+        this.entityData.set(HEALING, pCompound.getInt("HealCooldown"));
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag pCompound) {
+        super.addAdditionalSaveData(pCompound);
+        pCompound.putInt("HealCooldown", this.getHealCooldown());
+    }
+
+    public void setHealCooldown(int healing) {
         this.entityData.set(HEALING, healing);
     }
 
-    public long isHealing() {
+    public int getHealCooldown() {
         return this.entityData.get(HEALING);
     }
 
-
     @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "move_controller", 5, state -> {
-            if (state.isMoving()){
-                state.setAnimation(RawAnimation.begin().then("animation.tanuki.walk", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
-            } else if (!state.isMoving()) {
-                state.setAnimation(RawAnimation.begin().then("animation.tanuki.idle", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
+    public void tick(){
+        if (getHealCooldown() > coolDownTime + 1) {
+            setHealCooldown(coolDownTime + 1);
+        }
+
+        if (getHealCooldown() <= coolDownTime) {
+            healTimer = getHealCooldown();
+            healTimer++;
+            setHealCooldown(healTimer);
+        }
+
+        if (getHealCooldown() == coolDownTime) {
+
+            Player pOwner = (Player) this.getOwner();
+
+            if (this.getOwner() != null) {
+                this.playSound(SoundEvents.ENCHANTMENT_TABLE_USE, 100, 2);
+                if(pOwner instanceof ServerPlayer player) {
+                    player.displayClientMessage(Component.literal("\u00A7a\u00A7lHeal\u00A77 is ready!"), true);
+                }
             }
-            return PlayState.STOP;
-        }));
-
+        }
     }
-
 
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
@@ -155,13 +181,21 @@ public class TanukiEntity extends TamableAnimal implements GeoEntity {
 
         if(isTame() && pHand == InteractionHand.MAIN_HAND && pPlayer.isShiftKeyDown() && !isFood(itemstack)) {
 
-            if (time > isHealing() + coolDownTime) {
-                lastHeal = time;
-                setHealing(lastHeal);
-                pPlayer.addEffect(new MobEffectInstance(MobEffects.HEAL, 1, 2, false, false, false));
+            if (getHealCooldown() >= coolDownTime) {
+                setHealCooldown(0);
+                healTimer = 0;
                 pPlayer.playSound(SoundEvents.BREWING_STAND_BREW, 100, 1);
-            } else if (time < isHealing() + coolDownTime) {
+                if( pPlayer instanceof ServerPlayer player) {
+                    player.addEffect(new MobEffectInstance(MobEffects.HEAL, 1, 2, false, false, false));
+                    player.displayClientMessage(Component.literal("\u00A7e" + (coolDownTime / 20) + " \u00A77seconds left!"), true);
+                }
+            } else {
                 pPlayer.playSound(SoundEvents.VILLAGER_NO, 100, 1.6f);
+                if( pPlayer instanceof ServerPlayer player) {
+                    player.displayClientMessage(Component.literal("\u00A7e" + ((coolDownTime - healTimer) / 20) + " \u00A77seconds left!"), true);
+                }
+
+
             }
 
             return InteractionResult.SUCCESS;
@@ -173,9 +207,33 @@ public class TanukiEntity extends TamableAnimal implements GeoEntity {
     }
 
     @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+        controllers.add(new AnimationController<>(this, "move_controller", 5, state -> {
+            if (state.isMoving()){
+                state.setAnimation(RawAnimation.begin().then("animation.tanuki.walk", Animation.LoopType.LOOP));
+                return PlayState.CONTINUE;
+            } else if (!state.isMoving() && !this.isInSittingPose()) {
+                state.setAnimation(RawAnimation.begin().then("animation.tanuki.idle", Animation.LoopType.LOOP));
+                return PlayState.CONTINUE;
+            }
+            return PlayState.STOP;
+        }));
+        controllers.add(new AnimationController<>(this, "sit_controller", 5, state -> {
+            if (this.isInSittingPose() && this.isTame()) {
+                state.setAnimation(RawAnimation.begin().then("animation.tanuki.sit", Animation.LoopType.LOOP));
+                return PlayState.CONTINUE;
+            }
+            state.getController().forceAnimationReset();
+            return PlayState.STOP;
+        }));
+
+    }
+
+    @Override
     public boolean isFood(ItemStack pStack) {
         return pStack.is(Items.WHEAT);
     }
+
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
