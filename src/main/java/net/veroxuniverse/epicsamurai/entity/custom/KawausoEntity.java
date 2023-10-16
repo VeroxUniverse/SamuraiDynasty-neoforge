@@ -21,7 +21,8 @@ import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.ai.goal.target.OwnerHurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.OwnerHurtTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -31,6 +32,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
+import net.veroxuniverse.epicsamurai.entity.custom.goals.KomainuAttackGoal;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -46,8 +49,8 @@ public class KawausoEntity extends TamableAnimal implements GeoEntity {
     private static final EntityDataAccessor<Integer> VISION =
             SynchedEntityData.defineId(KawausoEntity.class, EntityDataSerializers.INT);
 
-    private int visionTimer; // = 2400;
-    private final int coolDownTimeVision = 2400;
+    private int visionTimer; // = 6000;
+    private final int coolDownTimeVision = 6000;
 
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
@@ -55,9 +58,8 @@ public class KawausoEntity extends TamableAnimal implements GeoEntity {
         super(pEntityType, pLevel);
         this.setTame(false);
     }
-
     public static AttributeSupplier setAttributes() {
-        return Animal.createMobAttributes()
+        return TamableAnimal.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 20.0D)
                 .add(Attributes.FOLLOW_RANGE, 25D)
                 .add(Attributes.ATTACK_DAMAGE, 3.0f)
@@ -68,36 +70,33 @@ public class KawausoEntity extends TamableAnimal implements GeoEntity {
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(0, new SitWhenOrderedToGoal(this));
+        //this.goalSelector.addGoal(1, new LeapAtTargetGoal(this, 0.4F));
         //this.goalSelector.addGoal(1, new BreedGoal(this, 1.0D));
-        this.goalSelector.addGoal(1, new TemptGoal(this, 1.2D, Ingredient.of(Items.WHEAT), true));
-        this.goalSelector.addGoal(2, new FollowOwnerGoal(this, 1.2F, 8.0F, 2.0F, false));
-        //this.goalSelector.addGoal(2, new FollowParentGoal(this, 1.2F));
+        this.goalSelector.addGoal(2, new TemptGoal(this, 1.2D, Ingredient.of(Items.POTION), true));
+        this.goalSelector.addGoal(3, new FollowOwnerGoal(this, 1.2F, 8.0F, 2.0F, false));
+        this.goalSelector.addGoal(3, new FollowParentGoal(this, 1.2F));
 
-        this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 6.0F));
-        this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+        this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));
+        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
     }
 
-    @Nullable
-    @Override
-    public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
-        return ModEntityTypes.KAWAUSO.get().create(pLevel);
-    }
+
 
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
-        this.entityData.define(VISION, 2400);
+        this.entityData.define(VISION, 6000);
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag pCompound) {
+    public void readAdditionalSaveData(@NotNull CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
         this.entityData.set(VISION, pCompound.getInt("HealCooldown"));
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag pCompound) {
+    public void addAdditionalSaveData(@NotNull CompoundTag pCompound) {
         super.addAdditionalSaveData(pCompound);
         pCompound.putInt("HealCooldown", this.getVisionCooldown());
     }
@@ -129,10 +128,11 @@ public class KawausoEntity extends TamableAnimal implements GeoEntity {
             if (this.getOwner() != null) {
                 this.playSound(SoundEvents.ENCHANTMENT_TABLE_USE, 100, 2);
                 if(pOwner instanceof ServerPlayer player) {
-                    player.displayClientMessage(Component.literal("\u00A7a\u00A7lVision\u00A77 is ready!"), true);
+                    player.displayClientMessage(Component.literal("\u00A7a\u00A7lNight Vision\u00A77 is ready!"), true);
                 }
             }
         }
+        super.tick();
     }
 
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
@@ -176,9 +176,9 @@ public class KawausoEntity extends TamableAnimal implements GeoEntity {
             if (getVisionCooldown() >= coolDownTimeVision) {
                 setVisionCooldown(0);
                 visionTimer = 0;
-                pPlayer.playSound(SoundEvents.BREWING_STAND_BREW, 100, 1);
+                pPlayer.playSound(SoundEvents.AMETHYST_BLOCK_PLACE, 100, 1);
                 if( pPlayer instanceof ServerPlayer player) {
-                    player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 600, 0, false, false, false));
+                    player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 3600, 0, false, false, false));
                     player.displayClientMessage(Component.literal("\u00A7e" + (coolDownTimeVision / 20) + " \u00A77seconds left!"), true);
                 }
             } else {
@@ -210,7 +210,15 @@ public class KawausoEntity extends TamableAnimal implements GeoEntity {
             }
             return PlayState.STOP;
         }));
-        controllers.add(new AnimationController<>(this, "sit_controller", 5, state -> {
+        controllers.add(new AnimationController<>(this, "attack_controller", 5, state -> {
+            if (this.swinging) {
+                state.setAnimation(RawAnimation.begin().then("animation.kawauso.attack", Animation.LoopType.PLAY_ONCE));
+                return PlayState.CONTINUE;
+            }
+            state.getController().forceAnimationReset();
+            return PlayState.STOP;
+        }));
+        controllers.add(new AnimationController<>(this, "kawauso_sit_controller", 5, state -> {
             if (this.isInSittingPose() && this.isTame()) {
                 state.setAnimation(RawAnimation.begin().then("animation.kawauso.sit", Animation.LoopType.LOOP));
                 return PlayState.CONTINUE;
@@ -252,5 +260,10 @@ public class KawausoEntity extends TamableAnimal implements GeoEntity {
         return 0.2F;
     }
 
+    @Nullable
+    @Override
+    public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
+        return ModEntityTypes.KAWAUSO.get().create(pLevel);
+    }
 
 }

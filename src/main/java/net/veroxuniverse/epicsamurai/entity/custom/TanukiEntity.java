@@ -1,6 +1,7 @@
 package net.veroxuniverse.epicsamurai.entity.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -15,10 +16,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.AgeableMob;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.TamableAnimal;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -65,7 +63,7 @@ public class TanukiEntity extends TamableAnimal implements GeoEntity {
     }
 
     public static AttributeSupplier setAttributes() {
-        return Animal.createMobAttributes()
+        return TamableAnimal.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 20.0D)
                 .add(Attributes.FOLLOW_RANGE, 25D)
                 .add(Attributes.ATTACK_DAMAGE, 3.0f)
@@ -76,20 +74,15 @@ public class TanukiEntity extends TamableAnimal implements GeoEntity {
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(0, new SitWhenOrderedToGoal(this));
+        //this.goalSelector.addGoal(1, new LeapAtTargetGoal(this, 0.4F));
         //this.goalSelector.addGoal(1, new BreedGoal(this, 1.0D));
-        this.goalSelector.addGoal(1, new TemptGoal(this, 1.2D, Ingredient.of(Items.WHEAT), true));
-        this.goalSelector.addGoal(2, new FollowOwnerGoal(this, 1.2F, 8.0F, 2.0F, false));
-        //this.goalSelector.addGoal(2, new FollowParentGoal(this, 1.2F));
+        this.goalSelector.addGoal(2, new TemptGoal(this, 1.2D, Ingredient.of(Items.POTION), true));
+        this.goalSelector.addGoal(3, new FollowOwnerGoal(this, 1.2F, 8.0F, 2.0F, false));
+        this.goalSelector.addGoal(3, new FollowParentGoal(this, 1.2F));
 
-        this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 6.0F));
-        this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
-    }
-
-    @Nullable
-    @Override
-    public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
-        return ModEntityTypes.TANUKI.get().create(pLevel);
+        this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+        this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));
+        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
     }
 
     @Override
@@ -99,13 +92,13 @@ public class TanukiEntity extends TamableAnimal implements GeoEntity {
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag pCompound) {
+    public void readAdditionalSaveData(@NotNull CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
         this.entityData.set(HEALING, pCompound.getInt("HealCooldown"));
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag pCompound) {
+    public void addAdditionalSaveData(@NotNull CompoundTag pCompound) {
         super.addAdditionalSaveData(pCompound);
         pCompound.putInt("HealCooldown", this.getHealCooldown());
     }
@@ -141,6 +134,7 @@ public class TanukiEntity extends TamableAnimal implements GeoEntity {
                 }
             }
         }
+        super.tick();
     }
 
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
@@ -218,6 +212,14 @@ public class TanukiEntity extends TamableAnimal implements GeoEntity {
             }
             return PlayState.STOP;
         }));
+        controllers.add(new AnimationController<>(this, "attack_controller", 5, state -> {
+            if (this.swinging) {
+                state.setAnimation(RawAnimation.begin().then("animation.tanuki.attack", Animation.LoopType.PLAY_ONCE));
+                return PlayState.CONTINUE;
+            }
+            state.getController().forceAnimationReset();
+            return PlayState.STOP;
+        }));
         controllers.add(new AnimationController<>(this, "sit_controller", 5, state -> {
             if (this.isInSittingPose() && this.isTame()) {
                 state.setAnimation(RawAnimation.begin().then("animation.tanuki.sit", Animation.LoopType.LOOP));
@@ -233,7 +235,6 @@ public class TanukiEntity extends TamableAnimal implements GeoEntity {
     public boolean isFood(ItemStack pStack) {
         return pStack.is(Items.WHEAT);
     }
-
 
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
@@ -260,5 +261,10 @@ public class TanukiEntity extends TamableAnimal implements GeoEntity {
         return 0.2F;
     }
 
+    @Nullable
+    @Override
+    public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
+        return ModEntityTypes.TANUKI.get().create(pLevel);
+    }
 
 }
