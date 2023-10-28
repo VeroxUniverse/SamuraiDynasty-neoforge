@@ -8,6 +8,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
+import net.veroxuniverse.epicsamurai.entity.custom.TwoTailedFox;
 import net.veroxuniverse.epicsamurai.entity.custom.*;
 
 public class ModEntityTypes {
@@ -83,6 +84,13 @@ public class ModEntityTypes {
                             .sized(1.0f, 0.8f)
                             .fireImmune()
                             .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "tanuki").toString()));
+
+    public static final RegistryObject<EntityType<TwoTailedFox>> TWOTAILED =
+            ENTITY_TYPES.register("twotailed",
+                    () -> EntityType.Builder.of(TwoTailedFox::new, MobCategory.CREATURE)
+                            .sized(1.0f, 0.8f)
+                            .fireImmune()
+                            .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "twotailed").toString()));
 
     public static final RegistryObject<EntityType<KawausoEntity>> KAWAUSO =
             ENTITY_TYPES.register("kawauso",

@@ -14,7 +14,7 @@ import net.veroxuniverse.epicsamurai.registry.ArmorMaterialsRegistry;
 
 public class CataclysmCompat {
 
-    /*
+
     public static final DeferredRegister<Item> CATACLYSM_ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, EpicSamuraiMod.MOD_ID);
 
@@ -31,6 +31,4 @@ public class CataclysmCompat {
     public static void register(IEventBus eventBus) {
         CATACLYSM_ITEMS.register(eventBus);
     }
-
-     */
 }

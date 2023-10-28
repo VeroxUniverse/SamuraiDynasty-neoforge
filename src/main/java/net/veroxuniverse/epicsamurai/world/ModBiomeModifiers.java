@@ -27,6 +27,8 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> SPAWN_AKANAME = registerKey("spawn_akaname");
     public static final ResourceKey<BiomeModifier> SPAWN_JOROGUMO = registerKey("spawn_jorogumo");
 
+    public static final ResourceKey<BiomeModifier> SPAWN_TWOTAILED = registerKey("spawn_twotailed");
+
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
         var biomes = context.lookup(Registries.BIOME);
@@ -55,6 +57,9 @@ public class ModBiomeModifiers {
         context.register(SPAWN_KOMAINU, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
                 List.of(new MobSpawnSettings.SpawnerData(ModEntityTypes.KOMAINU.get(), 20, 2, 4))));
+        context.register(SPAWN_TWOTAILED, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntityTypes.TWOTAILED.get(), 20, 2, 4))));
     }
 
 

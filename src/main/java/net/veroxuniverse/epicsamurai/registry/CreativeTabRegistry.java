@@ -45,12 +45,6 @@ public class CreativeTabRegistry {
                             for (RegistryObject<Item> item : AquacultureCompat.AQUA_ITEMS.getEntries())
                                 if (item.get() instanceof SamuraiArmorItem)
                                     output.accept(item.get());
-                        /*
-                        if (ModList.get().isLoaded("cataclysm"))
-                            for (RegistryObject<Item> item : CataclysmCompat.CATACLYSM_ITEMS.getEntries())
-                                if (item.get() instanceof SamuraiArmorItem)
-                                    output.accept(item.get());
-                         */
 
                     })
                     .build()

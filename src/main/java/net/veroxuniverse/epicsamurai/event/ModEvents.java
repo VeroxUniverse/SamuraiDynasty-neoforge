@@ -30,6 +30,7 @@ public class ModEvents {
             event.put(ModEntityTypes.KOMAINU.get(), KomainuEntity.setAttributes());
             event.put(ModEntityTypes.TANUKI.get(), KomainuEntity.setAttributes());
             event.put(ModEntityTypes.KAWAUSO.get(), KomainuEntity.setAttributes());
+            event.put(ModEntityTypes.TWOTAILED.get(), TwoTailedFox.setAttributes());
         }
         @SubscribeEvent
         public static void entitySpawnRestriction(SpawnPlacementRegisterEvent event) {
@@ -52,6 +53,9 @@ public class ModEvents {
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
             event.register(ModEntityTypes.KAWAUSO.get(),
+                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
+            event.register(ModEntityTypes.TWOTAILED.get(),
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
             event.register(ModEntityTypes.KOMAINU.get(),

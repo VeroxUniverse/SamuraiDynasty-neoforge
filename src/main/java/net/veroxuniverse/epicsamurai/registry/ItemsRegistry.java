@@ -245,6 +245,10 @@ public class ItemsRegistry {
     public static final RegistryObject<Item> KITSUNE_SPAWN_EGG = ITEMS.register("kitsune_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.KITSUNE, 0xff9356, 0xdd0885,
                     new Item.Properties()));
+
+    public static final RegistryObject<Item> KITSUNE_SMALL_SPAWN_EGG = ITEMS.register("kitsune_small_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntityTypes.TWOTAILED, 0xF1F0ED, 0x2596be,
+                    new Item.Properties()));
     public static final RegistryObject<Item> ONIBI_SPAWN_EGG = ITEMS.register("onibi_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.ONIBI, 0x85929E, 0x0097FF,
                     new Item.Properties()));

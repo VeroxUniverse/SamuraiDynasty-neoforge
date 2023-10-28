@@ -1,14 +1,32 @@
 package net.veroxuniverse.epicsamurai.item.armor;
 
+import com.github.L_Ender.cataclysm.config.CMConfig;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import net.minecraftforge.fml.ModList;
+import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.cataclysm.IgnitiumSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.item.armor.lib.SamuraiArmorItem;
+import net.veroxuniverse.epicsamurai.registry.ArmorMaterialsRegistry;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import net.minecraft.network.chat.Component;
+
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.logging.Level;
 
 public class IgnitiumSamuraiArmorItem extends SamuraiArmorItem {
 
     public IgnitiumSamuraiArmorItem(ArmorMaterial material, Type type, Properties properties) {
         super(material, type, properties);
     }
-/*
+
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
@@ -56,7 +74,5 @@ public class IgnitiumSamuraiArmorItem extends SamuraiArmorItem {
     public boolean makesPiglinsNeutral(ItemStack stack, LivingEntity wearer) {
         return this.material == ArmorMaterialsRegistry.SAMURAI_IGNITIUM;
     }
-
- */
 
 }

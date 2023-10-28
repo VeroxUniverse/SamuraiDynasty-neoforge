@@ -107,6 +107,7 @@ public class EpicSamuraiMod
             EntityRenderers.register(ModEntityTypes.KOMAINU.get(), KomainuRenderer::new);
             EntityRenderers.register(ModEntityTypes.TANUKI.get(), TanukiRenderer::new);
             EntityRenderers.register(ModEntityTypes.KAWAUSO.get(), KawausoRenderer::new);
+            EntityRenderers.register(ModEntityTypes.TWOTAILED.get(), TwoTailedRenderer::new);
 
             EntityRenderers.register(ModEntityTypes.KITSUNE_PROJECTILE.get(), KitsuneProjectileRenderer::new);
             EntityRenderers.register(ModEntityTypes.SHURIKEN.get(), ThrownItemRenderer::new);
