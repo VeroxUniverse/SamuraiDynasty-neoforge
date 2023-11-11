@@ -11,6 +11,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.compat.*;
+import net.veroxuniverse.epicsamurai.item.armor.EtyriteSamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.item.armor.MageSamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.item.armor.lib.SamuraiArmorItem;
 
@@ -39,6 +40,11 @@ public class CreativeTabRegistry {
                         if (ModList.get().isLoaded("ars_nouveau"))
                             for (RegistryObject<Item> item : ArsNouveauCompat.ARSN_ITEMS.getEntries())
                                 if (item.get() instanceof MageSamuraiArmorItem)
+                                    output.accept(item.get());
+
+                        if (ModList.get().isLoaded("eldritch_end"))
+                            for (RegistryObject<Item> item : EldritchEndCompat.ELDRITCH_ITEMS.getEntries())
+                                if (item.get() instanceof EtyriteSamuraiArmorItem)
                                     output.accept(item.get());
 
                         if (ModList.get().isLoaded("aquaculture"))

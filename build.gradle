@@ -142,34 +142,50 @@ dependencies {
 
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
     //implementation fg.deobf("mod.azure.azurelib:azurelib-forge-${minecraft_version}:${azurelib_version}")
+
+    // Ars Nouveau
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curio_version}")
 
     compileOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${minecraft_version}:${ars_version}")
     runtimeOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${minecraft_version}:${ars_version}")
+
+    // Create
+
     compileOnly fg.deobf("curse.maven:create-328085:${create_version}")
     runtimeOnly fg.deobf("curse.maven:create-328085:${create_version}")
+
+    // Deeper and Darker
+
     runtimeOnly fg.deobf("curse.maven:deeperdarker-659011:${project.deeperdarker_file_id}")
 
-    compileOnly fg.deobf("curse.maven:l_ender-s-cataclysm-551586:${project.cataclysm_file_id}")
-    runtimeOnly fg.deobf("curse.maven:l_ender-s-cataclysm-551586:${project.cataclysm_file_id}")
-    runtimeOnly fg.deobf("curse.maven:citadel-331936:4786380")
+    // Eldritch End
 
-    // compile against the JEI API but do not include it at runtime
+    compileOnly fg.deobf("curse.maven:necronomicon-586157:${necronomicon_fileid}")
+    runtimeOnly fg.deobf("curse.maven:necronomicon-586157:${necronomicon_fileid}")
+
+    // JEI
+
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
-    // at runtime, use the full JEI jar for Forge
     runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
+
+    // Patchouli
 
     compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
+
+    // Irons Spellbooks
 
     //compileOnly fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:${spells_version}")
     //runtimeOnly fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:${spells_version}")
 
 
-    // compile against Aquaculture
+    // Aquaculture
+
     compileOnly fg.deobf("curse.maven:aquaculture-60028:${aquaculture_version}")
     runtimeOnly fg.deobf("curse.maven:aquaculture-60028:${aquaculture_version}")
+
+    // Better Combat
 
     runtimeOnly fg.deobf("curse.maven:better-combat-by-daedelus-639842:${bettercombat_version}-forge")
     runtimeOnly fg.deobf("curse.maven:cloth-config-348521:${cloth_version}-forge")

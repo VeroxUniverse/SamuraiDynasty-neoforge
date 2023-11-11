@@ -1,8 +1,8 @@
 package net.veroxuniverse.epicsamurai.registry;
 
-import com.github.L_Ender.cataclysm.init.ModItems;
 import com.google.common.base.Suppliers;
 import com.teammetallurgy.aquaculture.init.AquaItems;
+import elocindev.eldritch_end.registry.ItemRegistry;
 import net.minecraft.Util;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -10,7 +10,7 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.fml.ModList;
 import net.veroxuniverse.epicsamurai.compat.CreateCompat;
 import org.jetbrains.annotations.NotNull;
@@ -156,19 +156,13 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
         }
     }),
 
-    SAMURAI_IGNITIUM("samurai_ignitium", 45 ,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
-        armor.put(ArmorItem.Type.BOOTS, 5);
-        armor.put(ArmorItem.Type.LEGGINGS, 8);
-        armor.put(ArmorItem.Type.CHESTPLATE, 10);
-        armor.put(ArmorItem.Type.HELMET, 5);
-    }), 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 4.0F, 0.15F,
-            () -> {
-                if (ModList.get().isLoaded("cataclysm")) {
-                    return Ingredient.of(ModItems.IGNITIUM_INGOT.get());
-                } else {
-                    return Ingredient.of(Blocks.MAGMA_BLOCK);
-                }
-            }),
+    SAMURAI_ETYRITE("etyrite_samurai", 35,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 3);
+        armor.put(ArmorItem.Type.LEGGINGS, 6);
+        armor.put(ArmorItem.Type.CHESTPLATE, 8);
+        armor.put(ArmorItem.Type.HELMET, 3);
+    }), 25, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F,
+            () -> Ingredient.of(Items.NETHERITE_INGOT)),
 
     SAMURAI_QUARTZ("samurai_quartz", 35,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
         armor.put(ArmorItem.Type.BOOTS, 3);

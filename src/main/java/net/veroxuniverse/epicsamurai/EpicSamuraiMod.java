@@ -66,6 +66,9 @@ public class EpicSamuraiMod
         if(ModList.get().isLoaded("aquaculture")) {
             AquacultureCompat.register(modEventBus);
         }
+        if(ModList.get().isLoaded("eldritch_end")) {
+            EldritchEndCompat.register(modEventBus);
+        }
 
         /*
         if(ModList.get().isLoaded("cataclysm")) {
