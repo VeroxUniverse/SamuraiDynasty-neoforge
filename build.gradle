@@ -161,7 +161,12 @@ dependencies {
     // Eldritch End
 
     compileOnly fg.deobf("curse.maven:necronomicon-586157:${necronomicon_fileid}")
-    runtimeOnly fg.deobf("curse.maven:necronomicon-586157:${necronomicon_fileid}")
+    //runtimeOnly fg.deobf("curse.maven:necronomicon-586157:${necronomicon_fileid}")
+
+    // Blood Magic
+
+    implementation fg.deobf("curse.maven:blood-magic-224791:${bloodmagic_fileid}")
+
 
     // JEI
 

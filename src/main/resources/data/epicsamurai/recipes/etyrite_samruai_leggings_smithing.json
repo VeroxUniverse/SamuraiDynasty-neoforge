@@ -1,0 +1,29 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "eldritch_end"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:smithing_transform",
+        "addition": {
+          "item": "eldritch_end:etyr_ingot"
+        },
+        "base": {
+          "item": "epicsamurai:netherite_samurai_leggings"
+        },
+        "result": {
+          "item": "epicsamurai:etyrite_samurai_leggings"
+        },
+        "template": {
+          "item": "eldritch_end:etyr_upgrade_template"
+        }
+      }
+    }
+  ]
+}
+

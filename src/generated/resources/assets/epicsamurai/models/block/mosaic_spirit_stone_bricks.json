@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "epicsamurai:block/mosaic_spirit_stone_bricks"
+  }
+}

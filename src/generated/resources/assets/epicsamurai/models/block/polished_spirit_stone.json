@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "epicsamurai:block/polished_spirit_stone"
+  }
+}

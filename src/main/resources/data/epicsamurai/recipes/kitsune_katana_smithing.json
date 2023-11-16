@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "epicsamurai:kitsune_tail"
+  },
+  "base": {
+    "item": "epicsamurai:katana_netherite"
+  },
+  "result": {
+    "item": "epicsamurai:katana_kitsune"
+  },
+  "template": {
+    "item": "epicsamurai:spirit_upgrade_smithing_template"
+  }
+}

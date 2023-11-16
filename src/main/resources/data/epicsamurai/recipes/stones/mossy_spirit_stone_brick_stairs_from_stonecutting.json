@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "epicsamurai:mossy_spirit_stone_bricks"
+  },
+  "result": "epicsamurai:mossy_spirit_stone_brick_stairs"
+}

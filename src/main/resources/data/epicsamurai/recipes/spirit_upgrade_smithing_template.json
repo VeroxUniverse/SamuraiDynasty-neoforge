@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "epicsamurai:spirit_stone"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "S": {
+      "item": "epicsamurai:spirit_upgrade_smithing_template"
+    }
+  },
+  "pattern": [
+    "XDX",
+    "XSX",
+    "XXX"
+  ],
+  "result": {
+    "count": 2,
+    "item": "epicsamurai:spirit_upgrade_smithing_template"
+  }
+}

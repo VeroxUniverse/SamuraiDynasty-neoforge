@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "epicsamurai:spirit_stone"
+  },
+  "result": "epicsamurai:spirit_stone_slab"
+}

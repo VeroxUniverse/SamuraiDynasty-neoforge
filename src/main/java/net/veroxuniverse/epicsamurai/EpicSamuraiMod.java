@@ -16,6 +16,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.veroxuniverse.epicsamurai.client.custom_entities.*;
 import net.veroxuniverse.epicsamurai.compat.*;
 import net.veroxuniverse.epicsamurai.config.ModCommonConfigs;
+import net.veroxuniverse.epicsamurai.datagen.loot.ModLootModifiers;
 import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.item.armor.BrassSamuraiArmorItem;
@@ -39,8 +40,10 @@ public class EpicSamuraiMod
     public EpicSamuraiMod()
     {
 
-        new ModCommonConfigs();
+        //new ModCommonConfigs();
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModLootModifiers.register(modEventBus);
 
         ModEntityTypes.register(modEventBus);
         GeckoLib.initialize();
@@ -68,6 +71,9 @@ public class EpicSamuraiMod
         }
         if(ModList.get().isLoaded("eldritch_end")) {
             EldritchEndCompat.register(modEventBus);
+        }
+        if(ModList.get().isLoaded("bloodmagic")) {
+            BloodMagicCompat.register(modEventBus);
         }
 
         /*
@@ -115,6 +121,7 @@ public class EpicSamuraiMod
             EntityRenderers.register(ModEntityTypes.KITSUNE_PROJECTILE.get(), KitsuneProjectileRenderer::new);
             EntityRenderers.register(ModEntityTypes.SHURIKEN.get(), ThrownItemRenderer::new);
             EntityRenderers.register(ModEntityTypes.KUNAI.get(), ThrownItemRenderer::new);
+            EntityRenderers.register(ModEntityTypes.KUNAI_NETHERITE.get(), ThrownItemRenderer::new);
 
         }
     }

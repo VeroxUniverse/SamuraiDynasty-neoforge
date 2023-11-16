@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "tag": "forge:stone"
+    },
+    "S": {
+      "item": "epicsamurai:spirit_flame"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "XSX",
+    "XXX"
+  ],
+  "result": {
+    "count": 8,
+    "item": "epicsamurai:spirit_stone"
+  }
+}

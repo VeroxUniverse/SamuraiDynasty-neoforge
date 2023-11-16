@@ -10,6 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.entity.custom.TwoTailedFox;
 import net.veroxuniverse.epicsamurai.entity.custom.*;
+import net.veroxuniverse.epicsamurai.entity.custom.NetheriteKunaiEntity;
 
 public class ModEntityTypes {
 
@@ -114,6 +115,15 @@ public class ModEntityTypes {
                             .clientTrackingRange(4)
                             .updateInterval(20)
                             .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "kunai").toString()));
+
+    public static final RegistryObject<EntityType<NetheriteKunaiEntity>> KUNAI_NETHERITE =
+            ENTITY_TYPES.register("kunai_netherite",
+                    () -> EntityType.Builder.<NetheriteKunaiEntity>of(NetheriteKunaiEntity::new, MobCategory.MISC)
+                            .sized(0.25F, 0.25F)
+                            .clientTrackingRange(4)
+                            .updateInterval(20)
+                            .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "kunai").toString()));
+
 
     public static final RegistryObject<EntityType<KitsuneProjectileEntity>> KITSUNE_PROJECTILE =
             ENTITY_TYPES.register("kitsune_projectile",

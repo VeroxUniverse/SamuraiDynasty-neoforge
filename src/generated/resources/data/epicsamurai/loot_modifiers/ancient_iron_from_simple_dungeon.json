@@ -1,0 +1,14 @@
+{
+  "type": "epicsamurai:add_item",
+  "conditions": [
+    {
+      "chance": 0.15,
+      "condition": "minecraft:random_chance"
+    },
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/simple_dungeon"
+    }
+  ],
+  "item": "epicsamurai:spirit_upgrade_smithing_template"
+}

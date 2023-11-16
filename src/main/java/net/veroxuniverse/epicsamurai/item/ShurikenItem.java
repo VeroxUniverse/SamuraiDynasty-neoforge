@@ -25,7 +25,7 @@ public class ShurikenItem extends Item {
 
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
-        pPlayer.getCooldowns().addCooldown(this, 20);
+        pPlayer.getCooldowns().addCooldown(this, 10);
         pLevel.playSound((Player)null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.TRIDENT_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!pLevel.isClientSide) {
             ShurikenEntity shurikenEntity = new ShurikenEntity(pLevel, pPlayer);

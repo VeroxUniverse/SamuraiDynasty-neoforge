@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "epicsamurai:block/polished_spirit_stone",
+    "side": "epicsamurai:block/polished_spirit_stone",
+    "top": "epicsamurai:block/polished_spirit_stone"
+  }
+}

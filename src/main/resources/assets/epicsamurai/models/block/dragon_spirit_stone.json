@@ -1,0 +1,12 @@
+{
+  "parent": "epicsamurai:block/cube_bottom_top_sides",
+  "textures": {
+    "bottom": "epicsamurai:block/dragon_spirit_stone_bottom",
+    "top": "epicsamurai:block/dragon_spirit_stone_top",
+    "front": "epicsamurai:block/dragon_spirit_stone_front",
+    "back": "epicsamurai:block/dragon_spirit_stone_back",
+    "left": "epicsamurai:block/dragon_spirit_stone_left",
+    "right": "epicsamurai:block/dragon_spirit_stone_right",
+    "particle": "epicsamurai:block/spirit_stone"
+  }
+}

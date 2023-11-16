@@ -3,17 +3,14 @@ package net.veroxuniverse.epicsamurai.registry;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DropExperienceBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
-import net.veroxuniverse.epicsamurai.block.RoofBlock;
-import net.veroxuniverse.epicsamurai.block.StatueBlock;
+import net.veroxuniverse.epicsamurai.block.DragonBlock;
 
 import java.util.function.Supplier;
 public class BlocksRegistry {
@@ -76,6 +73,63 @@ public class BlocksRegistry {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK)
                     .strength(4f).requiresCorrectToolForDrops()));
 
+    public static final RegistryObject<Block> SPIRIT_STONE = registerBlock("spirit_stone",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(4f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> SPIRIT_STONE_STAIRS = registerBlock("spirit_stone_stairs",
+            () -> new StairBlock(() -> BlocksRegistry.SPIRIT_STONE.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE_STAIRS)
+                    .strength(4f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> SPIRIT_STONE_SLAB = registerBlock("spirit_stone_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(4f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> SPIRIT_STONE_WALL = registerBlock("spirit_stone_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE_WALL)));
+    public static final RegistryObject<Block> MOSSY_SPIRIT_STONE_BRICKS = registerBlock("mossy_spirit_stone_bricks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(4f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> MOSSY_SPIRIT_STONE_BRICK_STAIRS = registerBlock("mossy_spirit_stone_brick_stairs",
+            () -> new StairBlock(() -> BlocksRegistry.MOSSY_SPIRIT_STONE_BRICKS.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE_STAIRS)
+                            .strength(4f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> MOSSY_SPIRIT_STONE_BRICK_SLAB = registerBlock("mossy_spirit_stone_brick_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(4f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> MOSSY_SPIRIT_STONE_BRICK_WALL = registerBlock("mossy_spirit_stone_brick_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE_WALL)));
+    public static final RegistryObject<Block> DRAGON_SPIRIT_STONE = registerBlock("dragon_spirit_stone",
+            () -> new DragonBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(4f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> POLISHED_SPIRIT_STONE = registerBlock("polished_spirit_stone",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(4f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> POLISHED_SPIRIT_STONE_STAIRS = registerBlock("polished_spirit_stone_stairs",
+            () -> new StairBlock(() -> BlocksRegistry.POLISHED_SPIRIT_STONE.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.STONE_STAIRS)
+                            .strength(4f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> POLISHED_SPIRIT_STONE_SLAB = registerBlock("polished_spirit_stone_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(4f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> POLISHED_SPIRIT_STONE_WALL = registerBlock("polished_spirit_stone_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.COBBLESTONE_WALL)));
+    public static final RegistryObject<Block> CHISELED_SPIRIT_STONE_BRICKS = registerBlock("chiseled_spirit_stone_bricks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(4f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> CHISELED_PATTERN_SPIRIT_STONE_BRICKS = registerBlock("chiseled_pattern_spirit_stone_bricks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(4f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> MOSAIC_SPIRIT_STONE_BRICKS = registerBlock("mosaic_spirit_stone_bricks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(4f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> PATTERN_SPIRIT_STONE_BRICKS = registerBlock("pattern_spirit_stone_bricks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(4f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> PATTERN_MOSSY_SPIRIT_STONE_BRICKS = registerBlock("pattern_mossy_spirit_stone_bricks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(4f).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> PATH_SPIRIT_STONE_BRICKS = registerBlock("path_spirit_stone_bricks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(4f).requiresCorrectToolForDrops()));
 
     //* WORK IN PROGRESS *//
 

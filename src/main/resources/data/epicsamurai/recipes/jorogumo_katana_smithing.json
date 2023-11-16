@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "epicsamurai:jorogumo_eye"
+  },
+  "base": {
+    "item": "epicsamurai:katana_netherite"
+  },
+  "result": {
+    "item": "epicsamurai:katana_jorogumo"
+  },
+  "template": {
+    "item": "epicsamurai:spirit_upgrade_smithing_template"
+  }
+}

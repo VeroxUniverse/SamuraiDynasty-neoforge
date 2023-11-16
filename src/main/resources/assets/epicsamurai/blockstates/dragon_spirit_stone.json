@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "epicsamurai:block/dragon_spirit_stone",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "epicsamurai:block/dragon_spirit_stone"
+    },
+    "facing=south": {
+      "model": "epicsamurai:block/dragon_spirit_stone",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "epicsamurai:block/dragon_spirit_stone",
+      "y": 270
+    }
+  }
+}

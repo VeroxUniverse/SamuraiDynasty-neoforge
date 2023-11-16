@@ -2,7 +2,6 @@ package net.veroxuniverse.epicsamurai.registry;
 
 import com.google.common.base.Suppliers;
 import com.teammetallurgy.aquaculture.init.AquaItems;
-import elocindev.eldritch_end.registry.ItemRegistry;
 import net.minecraft.Util;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -10,7 +9,6 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.fml.ModList;
 import net.veroxuniverse.epicsamurai.compat.CreateCompat;
 import org.jetbrains.annotations.NotNull;
@@ -156,7 +154,7 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
         }
     }),
 
-    SAMURAI_ETYRITE("etyrite_samurai", 35,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+    SAMURAI_ETYRITE("samurai_etyrite", 35,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
         armor.put(ArmorItem.Type.BOOTS, 3);
         armor.put(ArmorItem.Type.LEGGINGS, 6);
         armor.put(ArmorItem.Type.CHESTPLATE, 8);

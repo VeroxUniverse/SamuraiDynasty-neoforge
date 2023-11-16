@@ -52,6 +52,11 @@ public class CreativeTabRegistry {
                                 if (item.get() instanceof SamuraiArmorItem)
                                     output.accept(item.get());
 
+                        if (ModList.get().isLoaded("bloodmagic"))
+                            for (RegistryObject<Item> item : BloodMagicCompat.BLOOD_ITEMS.getEntries())
+                                if (item.get() instanceof SamuraiArmorItem)
+                                    output.accept(item.get());
+
                     })
                     .build()
     );
