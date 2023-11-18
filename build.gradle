@@ -132,6 +132,10 @@ repositories {
         }
     }
     maven { url = "https://jitpack.io" }
+    maven {
+        name = "Sinytra"
+        url = "https://maven.su5ed.dev/releases"
+    }
 }
 
 dependencies {
@@ -160,8 +164,20 @@ dependencies {
 
     // Eldritch End
 
-    compileOnly fg.deobf("curse.maven:necronomicon-586157:${necronomicon_fileid}")
+    minecraftLibrary fg.deobf("dev.su5ed.sinytra:Connector:${sinytra_version}")
+    runtimeOnly fg.deobf("dev.su5ed.sinytra.fabric-api:fabric-api:${sinytra_fabricapi_version}")
+
+    //compileOnly "some.fabric:mod:<version>"
+
+    //compileOnly fg.deobf("curse.maven:eldritch-end-877553:${eldritch_end_fileid}")
+    //runtimeOnly fg.deobf("curse.maven:eldritch-end-877553:${eldritch_end_fileid}")
+
+    //compileOnly fg.deobf("curse.maven:necronomicon-586157:${necronomicon_fileid}")
     //runtimeOnly fg.deobf("curse.maven:necronomicon-586157:${necronomicon_fileid}")
+
+    //runtimeOnly fg.deobf("curse.maven:azurelib-817423:${azurelib_fileid}")
+
+    //runtimeOnly fg.deobf("mod.azure.azurelib:azurelib-forge-${minecraft_version}:${azurelib_version}")
 
     // Blood Magic
 
