@@ -2,7 +2,7 @@
   "type": "epicsamurai:add_item",
   "conditions": [
     {
-      "chance": 0.15,
+      "chance": 1.0,
       "condition": "minecraft:random_chance"
     },
     {

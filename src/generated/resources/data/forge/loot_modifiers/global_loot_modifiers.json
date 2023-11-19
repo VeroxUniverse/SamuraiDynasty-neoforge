@@ -1,14 +1,14 @@
 {
   "entries": [
-    "epicsamurai:ancient_iron_from_nether_bastion3",
-    "epicsamurai:ancient_iron_from_simple_dungeon",
-    "epicsamurai:ancient_iron_from_nether_bastion2",
-    "epicsamurai:ancient_iron_from_nether_bastion4",
-    "epicsamurai:ancient_iron_from_desert_pyramid",
-    "epicsamurai:ancient_iron_from_nether_bastion1",
-    "epicsamurai:ancient_iron_from_jungle_temple",
-    "epicsamurai:ancient_iron_from_nether_fortress",
-    "epicsamurai:ancient_iron_from_ruined_portal"
+    "epicsamurai:spirit_template_from_jungle_temple",
+    "epicsamurai:spirit_template_from_simple_dungeon",
+    "epicsamurai:spirit_template_from_ruined_portal",
+    "epicsamurai:spirit_template_from_desert_pyramid",
+    "epicsamurai:spirit_template_from_nether_bastion4",
+    "epicsamurai:spirit_template_from_nether_bastion3",
+    "epicsamurai:spirit_template_from_nether_bastion2",
+    "epicsamurai:spirit_template_from_nether_fortress",
+    "epicsamurai:spirit_template_from_nether_bastion1"
   ],
   "replace": false
 }

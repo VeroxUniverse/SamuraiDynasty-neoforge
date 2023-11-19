@@ -1,6 +1,7 @@
 package net.veroxuniverse.epicsamurai.client;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.api.distmarker.Dist;
@@ -15,6 +16,7 @@ import net.veroxuniverse.epicsamurai.network.packet.KatanaActivateC2SPacket;
 import net.veroxuniverse.epicsamurai.particle.BlueFlame;
 import net.veroxuniverse.epicsamurai.registry.ParticlesInit;
 import net.veroxuniverse.epicsamurai.utils.KeyBinding;
+import software.bernie.shadowed.eliotlash.mclib.math.functions.limit.Min;
 
 import static com.hollingsworth.arsnouveau.client.registry.ClientHandler.colorFromArmor;
 
@@ -57,7 +59,7 @@ public class EpicSamuraiClientMod {
     public static class ClientForgeEvents {
         @SubscribeEvent
         public static void onKeyInput(InputEvent.Key event) {
-            if(Minecraft.getInstance().player != null && KeyBinding.KATANA_KEY.isDown()) {
+            if((Minecraft.getInstance().player != null) && KeyBinding.KATANA_KEY.isDown()) {
                 ModMessages.sendToServer(Minecraft.getInstance().player);
                 Minecraft.getInstance().player.sendSystemMessage(Component.literal("This is a test message!"));
             }

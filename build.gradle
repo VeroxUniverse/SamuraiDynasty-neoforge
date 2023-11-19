@@ -164,8 +164,8 @@ dependencies {
 
     // Eldritch End
 
-    minecraftLibrary fg.deobf("dev.su5ed.sinytra:Connector:${sinytra_version}")
-    runtimeOnly fg.deobf("dev.su5ed.sinytra.fabric-api:fabric-api:${sinytra_fabricapi_version}")
+    //minecraftLibrary fg.deobf("dev.su5ed.sinytra:Connector:${sinytra_version}")
+    //runtimeOnly fg.deobf("dev.su5ed.sinytra.fabric-api:fabric-api:${sinytra_fabricapi_version}")
 
     //compileOnly "some.fabric:mod:<version>"
 

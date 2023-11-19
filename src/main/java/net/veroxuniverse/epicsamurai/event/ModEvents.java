@@ -1,6 +1,5 @@
 package net.veroxuniverse.epicsamurai.event;
 
-import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -26,7 +25,6 @@ import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.entity.custom.*;
 import net.veroxuniverse.epicsamurai.network.FriendlyByteBufs;
 import net.veroxuniverse.epicsamurai.network.ModMessages;
-import net.veroxuniverse.epicsamurai.network.packet.KiDataSyncS2CPacket;
 import net.veroxuniverse.epicsamurai.reiki.PlayerKi;
 import net.veroxuniverse.epicsamurai.reiki.PlayerKiProvider;
 import net.veroxuniverse.epicsamurai.utils.KeyBinding;

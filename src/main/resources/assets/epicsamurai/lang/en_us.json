@@ -217,6 +217,12 @@
   "info.epicsamurai.mask_name.text": "§7Enhanced with §bOni Mask§7.",
   "info.epicsamurai.mask.ability_1": "§7Applies §bFire Resistance§7.",
   "info.epicsamurai.mask.ability_2": "§7Immune to §bBlindness§7.",
-  "info.epicsamurai.mask.ability_3": "§7Immune to §bSlowness§7."
+  "info.epicsamurai.mask.ability_3": "§7Immune to §bSlowness§7.",
+
+  "key.category.epicsamurai.katana": "Tutorial Mod",
+  "key.epicsamurai.katana_activate": "Activate Katana",
+
+  "message.epicsamurai.activate_katana": "Katana is active!",
+  "message.epicsamurai.no_ki": "No Ki!"
 
 }
