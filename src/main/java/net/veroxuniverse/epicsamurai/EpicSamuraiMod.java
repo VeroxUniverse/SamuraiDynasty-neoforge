@@ -15,16 +15,13 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.veroxuniverse.epicsamurai.client.custom_entities.*;
 import net.veroxuniverse.epicsamurai.compat.*;
-import net.veroxuniverse.epicsamurai.config.ModCommonConfigs;
 import net.veroxuniverse.epicsamurai.datagen.loot.ModLootModifiers;
-import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.item.armor.BrassSamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.registry.BlocksRegistry;
 import net.veroxuniverse.epicsamurai.registry.CreativeTabRegistry;
 import net.veroxuniverse.epicsamurai.registry.ItemsRegistry;
 import net.veroxuniverse.epicsamurai.registry.ParticlesInit;
-import net.veroxuniverse.epicsamurai.world.ModBiomeModifiers;
 import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
 
@@ -40,7 +37,7 @@ public class EpicSamuraiMod
     public EpicSamuraiMod()
     {
 
-        //new ModCommonConfigs();
+
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModLootModifiers.register(modEventBus);
@@ -53,9 +50,11 @@ public class EpicSamuraiMod
         BlocksRegistry.register(modEventBus);
         ParticlesInit.register(modEventBus);
 
+
+
+
         CreativeTabRegistry.register(modEventBus);
 
-        ModEnchantments.ENCHANTMENTS.register(modEventBus);
 
         if(ModList.get().isLoaded("deeperdarker")) {
             DeeperDarkerCompat.register(modEventBus);
@@ -76,11 +75,6 @@ public class EpicSamuraiMod
             BloodMagicCompat.register(modEventBus);
         }
 
-        /*
-        if(ModList.get().isLoaded("cataclysm")) {
-            CataclysmCompat.register(modEventBus);
-        }
-         */
 
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
@@ -88,6 +82,8 @@ public class EpicSamuraiMod
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
+
+
         if(ModList.get().isLoaded("ars_nouveau")) {
             ArsNouveauCompat.registerPerkProviders();
         }
@@ -96,6 +92,8 @@ public class EpicSamuraiMod
             addIsWearingPredicate((player) ->
                     player.getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof BrassSamuraiArmorItem);
         }
+
+        //ModMessages.register();
 
     }
 
