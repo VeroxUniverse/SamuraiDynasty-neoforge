@@ -3,7 +3,7 @@
   "biomes": "#minecraft:is_nether",
   "spawners":{
     "type": "epicsamurai:akaname",
-    "weight": 5,
+    "weight": 2,
     "minCount": 2,
     "maxCount": 5
   }
