@@ -3,7 +3,7 @@
   "biomes": "#minecraft:is_overworld",
   "spawners":{
     "type": "epicsamurai:kitsune",
-    "weight": 0.2,
+    "weight": 1,
     "minCount": 1,
     "maxCount": 1
   }

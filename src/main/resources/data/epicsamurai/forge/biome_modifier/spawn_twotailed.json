@@ -6,8 +6,8 @@
   ],
   "spawners":{
     "type": "epicsamurai:twotailed",
-    "weight": 5,
-    "minCount": 2,
+    "weight": 3,
+    "minCount": 1,
     "maxCount": 3
   }
 }

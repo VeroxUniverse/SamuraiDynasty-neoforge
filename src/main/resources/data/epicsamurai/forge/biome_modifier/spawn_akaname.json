@@ -4,7 +4,7 @@
   "spawners":{
     "type": "epicsamurai:akaname",
     "weight": 2,
-    "minCount": 2,
-    "maxCount": 5
+    "minCount": 1,
+    "maxCount": 3
   }
 }
