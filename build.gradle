@@ -212,6 +212,10 @@ dependencies {
     //runtimeOnly fg.deobf("curse.maven:cloth-config-348521:${cloth_version}-forge")
     //runtimeOnly fg.deobf("curse.maven:playeranimator-658587:${playeranimator_version}-forge")
 
+    // Epic Fight
+
+    //runtimeOnly fg.deobf("curse.maven:epic-fight-mod-405076:${epicfight_version}")
+
 
     annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
 }
