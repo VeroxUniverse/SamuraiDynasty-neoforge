@@ -35,7 +35,7 @@ public class ModEvents {
             event.register(ModEntityTypes.AKANAME.get(),
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Monster::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
-            event.register(ModEntityTypes.AKANAME.get(),
+            event.register(ModEntityTypes.KITSUNE.get(),
                     SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                     Monster::checkMonsterSpawnRules, SpawnPlacementRegisterEvent.Operation.REPLACE);
         }
