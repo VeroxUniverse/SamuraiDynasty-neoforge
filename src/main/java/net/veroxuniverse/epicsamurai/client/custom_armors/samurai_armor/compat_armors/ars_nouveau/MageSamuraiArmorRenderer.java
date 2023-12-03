@@ -1,6 +1,5 @@
 package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.ars_nouveau;
 
-import com.hollingsworth.arsnouveau.client.renderer.tile.GenericModel;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.MageSamuraiArmorItem;

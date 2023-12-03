@@ -1,6 +1,7 @@
 package net.veroxuniverse.epicsamurai;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -16,6 +17,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.veroxuniverse.epicsamurai.client.custom_entities.*;
 import net.veroxuniverse.epicsamurai.compat.*;
 import net.veroxuniverse.epicsamurai.datagen.loot.ModLootModifiers;
+import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.item.armor.BrassSamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.registry.BlocksRegistry;
@@ -41,6 +43,7 @@ public class EpicSamuraiMod
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModLootModifiers.register(modEventBus);
+        ModEnchantments.register(modEventBus);
 
         ModEntityTypes.register(modEventBus);
         GeckoLib.initialize();

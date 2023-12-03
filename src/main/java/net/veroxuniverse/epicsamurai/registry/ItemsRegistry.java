@@ -181,15 +181,15 @@ public class ItemsRegistry {
             () -> new DiamondNinjaArmorItem(ArmorMaterialsRegistry.NINJA_DIAMOND, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     public static final RegistryObject<Item> NETHERITE_NINJA_HELMET = ITEMS.register("netherite_ninja_helmet",
-            () -> new NetheriteNinjaArmorItem(ArmorMaterialsRegistry.NINJA_NETHERITE, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new NetheriteNinjaArmorItem(ArmorMaterialsRegistry.NINJA_NETHERITE, ArmorItem.Type.HELMET, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> NETHERITE_NINJA_CHESTPLATE = ITEMS.register("netherite_ninja_chestplate",
-            () -> new NetheriteNinjaArmorItem(ArmorMaterialsRegistry.NINJA_NETHERITE, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new NetheriteNinjaArmorItem(ArmorMaterialsRegistry.NINJA_NETHERITE, ArmorItem.Type.CHESTPLATE, new Item.Properties().fireResistant()));
     /*
     public static final RegistryObject<Item> NETHERITE_NINJA_LEGGINGS = ITEMS.register("netherite_ninja_leggings",
             () -> new NetheriteNinjaArmorItem(ArmorMaterialsRegistry.NINJA_NETHERITE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
      */
     public static final RegistryObject<Item> NETHERITE_NINJA_BOOTS = ITEMS.register("netherite_ninja_boots",
-            () -> new NetheriteNinjaArmorItem(ArmorMaterialsRegistry.NINJA_NETHERITE, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new NetheriteNinjaArmorItem(ArmorMaterialsRegistry.NINJA_NETHERITE, ArmorItem.Type.BOOTS, new Item.Properties().fireResistant()));
 
     public static final RegistryObject<Item> NINJA_LEGGINGS = ITEMS.register("ninja_leggings",
             () -> new IronNinjaArmorItem(ArmorMaterialsRegistry.CLOTH, ArmorItem.Type.LEGGINGS, new Item.Properties()));
@@ -238,32 +238,32 @@ public class ItemsRegistry {
 
 
     public static final RegistryObject<Item> KATANA_NETHERITE = ITEMS.register("katana_netherite",
-            () -> new SwordItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,2,-2.0f, new Item.Properties()));
+            () -> new SwordItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,2,-2.0f, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> KATANA_ONI = ITEMS.register("katana_oni",
-            () -> new OniKatanaItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,2,-2.0f, new Item.Properties().rarity(Rarity.RARE)));
+            () -> new OniKatanaItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,2,-2.0f, new Item.Properties().rarity(Rarity.RARE).fireResistant()));
     public static final RegistryObject<Item> KATANA_KITSUNE = ITEMS.register("katana_kitsune",
-            () -> new KitsuneKatanaItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,2,-2.0f, new Item.Properties().rarity(Rarity.RARE)));
+            () -> new KitsuneKatanaItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,2,-2.0f, new Item.Properties().rarity(Rarity.RARE).fireResistant()));
     public static final RegistryObject<Item> KATANA_KITSUNE_BLUE = ITEMS.register("katana_kitsune_blue",
-            () -> new KitsuneKatanaBlueItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,2,-2.0f, new Item.Properties().rarity(Rarity.RARE)));
+            () -> new KitsuneKatanaBlueItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,2,-2.0f, new Item.Properties().rarity(Rarity.RARE).fireResistant()));
     public static final RegistryObject<Item> KATANA_AKANAME = ITEMS.register("katana_akaname",
-            () -> new AkanameKatanaItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,2,-2.0f, new Item.Properties().rarity(Rarity.RARE)));
+            () -> new AkanameKatanaItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,2,-2.0f, new Item.Properties().rarity(Rarity.RARE).fireResistant()));
     public static final RegistryObject<Item> KATANA_JOROGUMO = ITEMS.register("katana_jorogumo",
-            () -> new JorogumoKatanaItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,2,-2.0f, new Item.Properties().rarity(Rarity.RARE)));
+            () -> new JorogumoKatanaItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,2,-2.0f, new Item.Properties().rarity(Rarity.RARE).fireResistant()));
 
     public static final RegistryObject<Item> NAGINATA_NETHERITE = ITEMS.register("naginata_netherite",
-            () -> new SwordItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,2,-2.7f, new Item.Properties()));
+            () -> new SwordItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,2,-2.7f, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> NAGAMAKI_NETHERITE = ITEMS.register("nagamaki_netherite",
-            () -> new SwordItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,2,-2.6f, new Item.Properties()));
+            () -> new SwordItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,2,-2.6f, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> SHUKO_NETHERITE = ITEMS.register("shuko_netherite",
-            () -> new SwordItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,-1,-1.5f, new Item.Properties()));
+            () -> new SwordItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,-1,-1.5f, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> TETSUBO_NETHERITE = ITEMS.register("tetsubo_netherite",
-            () -> new SwordItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,8,-3.4f, new Item.Properties()));
+            () -> new SwordItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,8,-3.4f, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> KUNAI_NETHERITE = ITEMS.register("kunai_netherite",
-            () -> new NetheriteKunaiItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,-1,-2.0f, new Item.Properties()));
+            () -> new NetheriteKunaiItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,-1,-2.0f, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> KAMA_NETHERITE = ITEMS.register("kama_netherite",
-            () -> new SwordItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,-1,-1.5f, new Item.Properties()));
+            () -> new SwordItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,-1,-1.5f, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> SAI_NETHERITE = ITEMS.register("sai_netherite",
-            () -> new SwordItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,-1,-1.5f, new Item.Properties()));
+            () -> new SwordItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,-1,-1.5f, new Item.Properties().fireResistant()));
 
     public static final RegistryObject<Item> AKANAME_SPAWN_EGG = ITEMS.register("akaname_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntityTypes.AKANAME, 0x5e100a, 0xa88c8a,

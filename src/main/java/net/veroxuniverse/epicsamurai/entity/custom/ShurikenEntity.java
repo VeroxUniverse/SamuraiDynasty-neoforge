@@ -6,10 +6,12 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
@@ -52,10 +54,26 @@ public class ShurikenEntity extends ThrowableItemProjectile {
 
     protected void onHit(@NotNull HitResult pResult) {
         super.onHit(pResult);
+        HitResult.Type hitresulttype = pResult.getType();
+
         if (!this.level().isClientSide) {
             this.level().broadcastEntityEvent(this, (byte) 3);
             this.discard();
         }
+    }
 
+    @Override
+    protected void onHitBlock(BlockHitResult pResult) {
+
+        ItemEntity dropShuriken = new ItemEntity(this.level(), pResult.getBlockPos().getX(), pResult.getBlockPos().getY() + 1, pResult.getBlockPos().getZ(), new ItemStack(ItemsRegistry.SHURIKEN.get()));
+        dropShuriken.setPickUpDelay(0);
+
+        if(!this.level().isClientSide) {
+            this.level().broadcastEntityEvent(this, ((byte) 3));
+            this.level().addFreshEntity(dropShuriken);
+        }
+
+        this.discard();
+        super.onHitBlock(pResult);
     }
 }

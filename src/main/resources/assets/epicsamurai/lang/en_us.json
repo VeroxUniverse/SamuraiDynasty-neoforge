@@ -206,7 +206,7 @@
 
   "itemGroup.epicsamurai": "Epic Samurai's",
 
-  "enchantment.epicsamurai.demon_slayer": "Demon Slayer",
+  "enchantment.epicsamurai.returning_blade": "Returning Blade",
 
   "item.epicsamurai.brass_samurai_helmet.tooltip": "GOGGLES",
   "item.epicsamurai.brass_samurai_helmet.tooltip.summary": "Augments your HUD with _miscellaneous information_ about placed components.",
@@ -219,10 +219,7 @@
   "info.epicsamurai.mask.ability_2": "§7Immune to §bBlindness§7.",
   "info.epicsamurai.mask.ability_3": "§7Immune to §bSlowness§7.",
 
-  "key.category.epicsamurai.katana": "Epic Samurai's",
-  "key.epicsamurai.katana_activate": "Activate Katana",
 
-  "message.epicsamurai.activate_katana": "Katana is active!",
-  "message.epicsamurai.no_ki": "No Ki!"
+  "enchantment.epicsamurai.returning_blade.desc": "The Kunai does not lose durability when used."
 
 }
