@@ -1,5 +1,7 @@
 package net.veroxuniverse.epicsamurai.item.armor;
 
+import mod.azure.azurelib.animatable.GeoItem;
+import mod.azure.azurelib.animatable.client.RenderProvider;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.model.HumanoidModel;
@@ -13,6 +15,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.fml.ModList;
+import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.aquamarine.BlueSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.create.BrassSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.compat.CreateCompat;
 import net.veroxuniverse.epicsamurai.item.armor.lib.SamuraiArmorItem;
@@ -23,28 +26,34 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class BrassSamuraiArmorItem extends SamuraiArmorItem {
 
     private static final List<Predicate<Player>> IS_WEARING_PREDICATES = new ArrayList();
 
+    private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
+
+    // Creates the render
     @Override
-    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        if (ModList.get().isLoaded("create")) {
-            consumer.accept(new IClientItemExtensions() {
-                private BrassSamuraiArmorRenderer renderer;
+    public void createRenderer(Consumer<Object> consumer) {
+        consumer.accept(new RenderProvider() {
+            // Your render made above
+            private BrassSamuraiArmorRenderer renderer;
 
-                @Override
-                public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack,
-                                                                       EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
-                    if (this.renderer == null)
-                        this.renderer = new BrassSamuraiArmorRenderer();
+            @Override
+            public @NotNull HumanoidModel<LivingEntity> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<LivingEntity> original) {
+                if (renderer == null)
+                    return new BrassSamuraiArmorRenderer();
+                renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
+                return this.renderer;
+            }
+        });
+    }
 
-                    this.renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
-                    return this.renderer;
-                }
-            });
-        }
+    @Override
+    public Supplier<Object> getRenderProvider() {
+        return renderProvider;
     }
 
     @Override

@@ -1,7 +1,6 @@
 package net.veroxuniverse.epicsamurai;
 
 import com.mojang.logging.LogUtils;
-import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -46,7 +45,9 @@ public class EpicSamuraiMod
         ModEnchantments.register(modEventBus);
 
         ModEntityTypes.register(modEventBus);
-        GeckoLib.initialize();
+        if(ModList.get().isLoaded("ars_nouveau")) {
+            GeckoLib.initialize();
+        }
         //MixinExtrasBootstrap.init();
 
         ItemsRegistry.register(modEventBus);

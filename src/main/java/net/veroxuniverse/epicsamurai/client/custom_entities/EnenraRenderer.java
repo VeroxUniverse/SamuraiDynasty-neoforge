@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.entity.custom.EnenraEntity;
-import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import mod.azure.azurelib.renderer.GeoEntityRenderer;
 
 public class EnenraRenderer extends GeoEntityRenderer<EnenraEntity> {
     public EnenraRenderer(EntityRendererProvider.Context renderManager) {

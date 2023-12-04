@@ -1,9 +1,9 @@
 package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.jade;
 
+import mod.azure.azurelib.model.GeoModel;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.GreenSamuraiArmorItem;
-import software.bernie.geckolib.model.GeoModel;
 
 public class GreenSamuraiArmorModel extends GeoModel<GreenSamuraiArmorItem> {
     @Override
@@ -18,8 +18,7 @@ public class GreenSamuraiArmorModel extends GeoModel<GreenSamuraiArmorItem> {
 
     @Override
     public ResourceLocation getAnimationResource(GreenSamuraiArmorItem animatable) {
-        return null;
-        //return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/samurai_armor_animation.json");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/empty.animation.json");
     }
 
 }

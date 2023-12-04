@@ -1,7 +1,7 @@
 package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.amethyst;
 
+import mod.azure.azurelib.renderer.GeoArmorRenderer;
 import net.veroxuniverse.epicsamurai.item.armor.AmethystSamuraiArmorItem;
-import software.bernie.geckolib.renderer.GeoArmorRenderer;
 
 public class AmethystSamuraiArmorRenderer extends GeoArmorRenderer<AmethystSamuraiArmorItem> {
     public AmethystSamuraiArmorRenderer() {

@@ -1,5 +1,7 @@
 package net.veroxuniverse.epicsamurai.item.armor;
 
+import mod.azure.azurelib.animatable.GeoItem;
+import mod.azure.azurelib.animatable.client.RenderProvider;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -13,31 +15,38 @@ import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.fml.ModList;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.aquaculture.NeptuniumSamuraiArmorRenderer;
+import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.straw_hat.MaskStrawHatArmorRenderer;
 import net.veroxuniverse.epicsamurai.item.armor.lib.SamuraiArmorItem;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class NeptuniumSamuraiArmorItem extends SamuraiArmorItem {
 
+    private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
+
+    // Creates the render
     @Override
-    public void initializeClient(@NotNull Consumer<IClientItemExtensions> consumer) {
-        if (ModList.get().isLoaded("aquaculture")) {
-            consumer.accept(new IClientItemExtensions() {
-                private NeptuniumSamuraiArmorRenderer renderer;
+    public void createRenderer(Consumer<Object> consumer) {
+        consumer.accept(new RenderProvider() {
+            // Your render made above
+            private NeptuniumSamuraiArmorRenderer renderer;
 
-                @Override
-                public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack,
-                                                                       EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
-                    if (this.renderer == null)
-                        this.renderer = new NeptuniumSamuraiArmorRenderer();
+            @Override
+            public @NotNull HumanoidModel<LivingEntity> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<LivingEntity> original) {
+                if (renderer == null)
+                    return new NeptuniumSamuraiArmorRenderer();
+                renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
+                return this.renderer;
+            }
+        });
+    }
 
-                    this.renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
-                    return this.renderer;
-                }
-            });
-        }
+    @Override
+    public Supplier<Object> getRenderProvider() {
+        return renderProvider;
     }
 
     public void onArmorTick(@Nonnull ItemStack stack, Level world, Player player) {

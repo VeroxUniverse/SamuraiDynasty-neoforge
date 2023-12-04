@@ -7,7 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.entity.custom.FujinEntity;
 import org.jetbrains.annotations.NotNull;
-import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import mod.azure.azurelib.renderer.GeoEntityRenderer;
 
 public class FujinRenderer extends GeoEntityRenderer<FujinEntity> {
     public FujinRenderer(EntityRendererProvider.Context renderManager) {

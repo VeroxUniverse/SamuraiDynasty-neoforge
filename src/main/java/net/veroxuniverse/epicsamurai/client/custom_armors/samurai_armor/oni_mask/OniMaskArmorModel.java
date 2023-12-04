@@ -1,9 +1,9 @@
 package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.oni_mask;
 
+import mod.azure.azurelib.model.GeoModel;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.OniMaskArmorItem;
-import software.bernie.geckolib.model.GeoModel;
 
 public class OniMaskArmorModel extends GeoModel<OniMaskArmorItem> {
     @Override
@@ -18,8 +18,7 @@ public class OniMaskArmorModel extends GeoModel<OniMaskArmorItem> {
 
     @Override
     public ResourceLocation getAnimationResource(OniMaskArmorItem animatable) {
-        return null;
-        //return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/samurai_armor_animation.json");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/empty.animation.json");
     }
 
 }

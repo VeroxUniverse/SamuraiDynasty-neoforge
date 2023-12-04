@@ -1,9 +1,9 @@
 package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.amethyst;
 
+import mod.azure.azurelib.model.GeoModel;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.MaskAmethystSamuraiArmorItem;
-import software.bernie.geckolib.model.GeoModel;
 
 public class MaskAmethystSamuraiArmorModel extends GeoModel<MaskAmethystSamuraiArmorItem> {
     @Override
@@ -18,8 +18,7 @@ public class MaskAmethystSamuraiArmorModel extends GeoModel<MaskAmethystSamuraiA
 
     @Override
     public ResourceLocation getAnimationResource(MaskAmethystSamuraiArmorItem animatable) {
-        return null;
-        //return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/samurai_armor_animation.json");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/empty.animation.json");
     }
 
 }

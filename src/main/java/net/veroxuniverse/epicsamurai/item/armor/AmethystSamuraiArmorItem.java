@@ -1,5 +1,7 @@
 package net.veroxuniverse.epicsamurai.item.armor;
 
+import mod.azure.azurelib.animatable.GeoItem;
+import mod.azure.azurelib.animatable.client.RenderProvider;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -12,6 +14,7 @@ import net.veroxuniverse.epicsamurai.registry.ArmorMaterialsRegistry;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class AmethystSamuraiArmorItem extends SamuraiArmorItem {
 
@@ -19,22 +22,30 @@ public class AmethystSamuraiArmorItem extends SamuraiArmorItem {
         super(material, type, properties);
     }
 
+    private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
+
+    // Creates the render
     @Override
-    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        consumer.accept(new IClientItemExtensions() {
+    public void createRenderer(Consumer<Object> consumer) {
+        consumer.accept(new RenderProvider() {
+            // Your render made above
             private AmethystSamuraiArmorRenderer renderer;
 
             @Override
-            public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack,
-                                                                   EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
-                if (this.renderer == null)
-                    this.renderer = new AmethystSamuraiArmorRenderer();
-
-                this.renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
+            public @NotNull HumanoidModel<LivingEntity> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<LivingEntity> original) {
+                if (renderer == null)
+                    return new AmethystSamuraiArmorRenderer();
+                renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
                 return this.renderer;
             }
         });
     }
+
+    @Override
+    public Supplier<Object> getRenderProvider() {
+        return renderProvider;
+    }
+
     @Override
     public boolean makesPiglinsNeutral(ItemStack stack, LivingEntity wearer) {
         return this.material == ArmorMaterialsRegistry.SAMURAI_AMETHYST;

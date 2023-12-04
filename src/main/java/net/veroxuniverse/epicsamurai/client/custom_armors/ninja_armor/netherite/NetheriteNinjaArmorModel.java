@@ -1,9 +1,9 @@
 package net.veroxuniverse.epicsamurai.client.custom_armors.ninja_armor.netherite;
 
+import mod.azure.azurelib.model.GeoModel;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.NetheriteNinjaArmorItem;
-import software.bernie.geckolib.model.GeoModel;
 
 public class NetheriteNinjaArmorModel extends GeoModel<NetheriteNinjaArmorItem> {
     @Override
@@ -18,8 +18,7 @@ public class NetheriteNinjaArmorModel extends GeoModel<NetheriteNinjaArmorItem> 
 
     @Override
     public ResourceLocation getAnimationResource(NetheriteNinjaArmorItem animatable) {
-        return null;
-        //return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/samurai_armor_animation.json");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/empty.animation.json");
     }
 
 }

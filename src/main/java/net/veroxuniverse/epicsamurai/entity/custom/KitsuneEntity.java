@@ -1,5 +1,13 @@
 package net.veroxuniverse.epicsamurai.entity.custom;
 
+import mod.azure.azurelib.animatable.GeoEntity;
+import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
+import mod.azure.azurelib.core.animation.AnimatableManager;
+import mod.azure.azurelib.core.animation.Animation;
+import mod.azure.azurelib.core.animation.AnimationController;
+import mod.azure.azurelib.core.animation.RawAnimation;
+import mod.azure.azurelib.core.object.PlayState;
+import mod.azure.azurelib.util.AzureLibUtil;
 import net.minecraft.Util;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -22,17 +30,8 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.veroxuniverse.epicsamurai.entity.custom.goals.KitsuneAttackGoal;
 import net.veroxuniverse.epicsamurai.entity.variant.KitsuneVariant;
-import net.veroxuniverse.epicsamurai.entity.variant.KomainuVariant;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib.animatable.GeoEntity;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimatableManager;
-import software.bernie.geckolib.core.animation.Animation;
-import software.bernie.geckolib.core.animation.AnimationController;
-import software.bernie.geckolib.core.animation.RawAnimation;
-import software.bernie.geckolib.core.object.PlayState;
-import software.bernie.geckolib.util.GeckoLibUtil;
 
 import static net.minecraft.world.entity.monster.hoglin.HoglinBase.throwTarget;
 public class KitsuneEntity extends Monster implements GeoEntity {
@@ -40,7 +39,12 @@ public class KitsuneEntity extends Monster implements GeoEntity {
     private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT =
             SynchedEntityData.defineId(KitsuneEntity.class, EntityDataSerializers.INT);
 
-    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
+    private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return cache;
+    }
     public KitsuneEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.setPathfindingMalus(BlockPathTypes.POWDER_SNOW, -1.0F);
@@ -140,12 +144,6 @@ public class KitsuneEntity extends Monster implements GeoEntity {
         }));
 
     }
-
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return this.cache;
-    }
-
 
     static boolean hurtAndThrowTarget(LivingEntity pKitsune, LivingEntity pTarget) {
         float f1 = (float)pKitsune.getAttributeValue(Attributes.ATTACK_DAMAGE);

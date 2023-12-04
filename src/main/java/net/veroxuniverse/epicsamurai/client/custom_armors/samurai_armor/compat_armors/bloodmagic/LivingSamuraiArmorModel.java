@@ -1,10 +1,9 @@
 package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.bloodmagic;
 
+import mod.azure.azurelib.model.GeoModel;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.LivingSamuraiArmorItem;
-import net.veroxuniverse.epicsamurai.item.armor.NeptuniumSamuraiArmorItem;
-import software.bernie.geckolib.model.GeoModel;
 
 public class LivingSamuraiArmorModel extends GeoModel<LivingSamuraiArmorItem> {
     @Override
@@ -19,8 +18,7 @@ public class LivingSamuraiArmorModel extends GeoModel<LivingSamuraiArmorItem> {
 
     @Override
     public ResourceLocation getAnimationResource(LivingSamuraiArmorItem animatable) {
-        return null;
-        //return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/samurai_armor_animation.json");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/empty.animation.json");
     }
 
 }

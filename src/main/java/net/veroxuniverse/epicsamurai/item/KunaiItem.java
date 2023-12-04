@@ -24,12 +24,12 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class KunaiItem extends SwordItem implements Vanishable {
-
     public static final float BASE_DAMAGE = 8.0F;
 
     public KunaiItem(Tier toolMaterial, int attackDamage, float attackSpeed, Item.Properties settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
     }
+
 
     public int getUseDuration(ItemStack pStack) {
         return 300;

@@ -2,17 +2,14 @@ package net.veroxuniverse.epicsamurai.client.custom_entities;
 
 import com.google.common.collect.Maps;
 import com.mojang.blaze3d.vertex.PoseStack;
+import mod.azure.azurelib.renderer.GeoEntityRenderer;
 import net.minecraft.Util;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
-import net.veroxuniverse.epicsamurai.entity.custom.AkanameEntity;
-import net.veroxuniverse.epicsamurai.entity.custom.KomainuEntity;
 import net.veroxuniverse.epicsamurai.entity.custom.TwoTailedFox;
-import net.veroxuniverse.epicsamurai.entity.variant.KomainuVariant;
 import net.veroxuniverse.epicsamurai.entity.variant.TwoTailedVariant;
-import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 import java.util.Map;
 

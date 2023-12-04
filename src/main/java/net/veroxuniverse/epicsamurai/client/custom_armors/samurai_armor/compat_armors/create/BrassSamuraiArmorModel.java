@@ -1,9 +1,9 @@
 package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.create;
 
+import mod.azure.azurelib.model.GeoModel;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.BrassSamuraiArmorItem;
-import software.bernie.geckolib.model.GeoModel;
 
 public class BrassSamuraiArmorModel extends GeoModel<BrassSamuraiArmorItem> {
     @Override
@@ -18,8 +18,7 @@ public class BrassSamuraiArmorModel extends GeoModel<BrassSamuraiArmorItem> {
 
     @Override
     public ResourceLocation getAnimationResource(BrassSamuraiArmorItem animatable) {
-        return null;
-        //return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/samurai_armor_animation.json");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/empty.animation.json");
     }
 
 }

@@ -11,7 +11,7 @@ import net.veroxuniverse.epicsamurai.entity.custom.KitsuneEntity;
 import net.veroxuniverse.epicsamurai.entity.custom.KomainuEntity;
 import net.veroxuniverse.epicsamurai.entity.variant.KitsuneVariant;
 import net.veroxuniverse.epicsamurai.entity.variant.KomainuVariant;
-import software.bernie.geckolib.renderer.GeoEntityRenderer;
+import mod.azure.azurelib.renderer.GeoEntityRenderer;
 
 import java.util.Map;
 

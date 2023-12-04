@@ -1,9 +1,9 @@
 package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.quartz;
 
+import mod.azure.azurelib.model.GeoModel;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.MaskQuartzSamuraiArmorItem;
-import software.bernie.geckolib.model.GeoModel;
 
 public class MaskQuartzSamuraiArmorModel extends GeoModel<MaskQuartzSamuraiArmorItem> {
     @Override
@@ -18,8 +18,7 @@ public class MaskQuartzSamuraiArmorModel extends GeoModel<MaskQuartzSamuraiArmor
 
     @Override
     public ResourceLocation getAnimationResource(MaskQuartzSamuraiArmorItem animatable) {
-        return null;
-        //return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/samurai_armor_animation.json");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/empty.animation.json");
     }
 
 }

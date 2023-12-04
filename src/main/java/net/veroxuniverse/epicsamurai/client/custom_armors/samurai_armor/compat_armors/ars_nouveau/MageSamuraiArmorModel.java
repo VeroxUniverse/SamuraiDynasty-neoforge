@@ -19,8 +19,7 @@ public class MageSamuraiArmorModel extends GeoModel<MageSamuraiArmorItem> {
 
     @Override
     public ResourceLocation getAnimationResource(MageSamuraiArmorItem animatable) {
-        return null;
-        //return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/samurai_armor_animation.json");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/empty.animation.json");
     }
 
 

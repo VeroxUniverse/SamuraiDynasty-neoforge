@@ -1,9 +1,9 @@
 package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.aquaculture;
 
+import mod.azure.azurelib.model.GeoModel;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.NeptuniumSamuraiArmorItem;
-import software.bernie.geckolib.model.GeoModel;
 
 public class NeptuniumSamuraiArmorModel extends GeoModel<NeptuniumSamuraiArmorItem> {
     @Override
@@ -18,8 +18,7 @@ public class NeptuniumSamuraiArmorModel extends GeoModel<NeptuniumSamuraiArmorIt
 
     @Override
     public ResourceLocation getAnimationResource(NeptuniumSamuraiArmorItem animatable) {
-        return null;
-        //return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/samurai_armor_animation.json");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "animations/empty.animation.json");
     }
 
 }
