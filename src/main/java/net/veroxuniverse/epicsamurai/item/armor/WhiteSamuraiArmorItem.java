@@ -29,15 +29,15 @@ public class WhiteSamuraiArmorItem extends SamuraiArmorItem {
     @Override
     public void createRenderer(Consumer<Object> consumer) {
         consumer.accept(new RenderProvider() {
-            // Your render made above
             private WhiteSamuraiArmorRenderer renderer;
 
             @Override
             public @NotNull HumanoidModel<LivingEntity> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<LivingEntity> original) {
                 if (renderer == null)
-                    return new WhiteSamuraiArmorRenderer();
+                    renderer = new WhiteSamuraiArmorRenderer();
+
                 renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
-                return this.renderer;
+                return renderer;
             }
         });
     }

@@ -14,6 +14,7 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.amethyst.MaskAmethystSamuraiArmorRenderer;
+import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.netherite.MaskNetheriteSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.quartz.MaskQuartzSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.item.armor.lib.SamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.registry.ArmorMaterialsRegistry;
@@ -49,15 +50,15 @@ public class MaskQuartzSamuraiArmorItem extends SamuraiArmorItem {
     @Override
     public void createRenderer(Consumer<Object> consumer) {
         consumer.accept(new RenderProvider() {
-            // Your render made above
             private MaskQuartzSamuraiArmorRenderer renderer;
 
             @Override
             public @NotNull HumanoidModel<LivingEntity> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<LivingEntity> original) {
                 if (renderer == null)
-                    return new MaskQuartzSamuraiArmorRenderer();
+                    renderer = new MaskQuartzSamuraiArmorRenderer();
+
                 renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
-                return this.renderer;
+                return renderer;
             }
         });
     }
