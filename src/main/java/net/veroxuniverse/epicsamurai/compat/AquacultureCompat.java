@@ -1,11 +1,9 @@
+/*
+
 package net.veroxuniverse.epicsamurai.compat;
 
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.NeptuniumSamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.registry.ArmorMaterialsRegistry;
@@ -28,3 +26,5 @@ public class AquacultureCompat {
         AQUA_ITEMS.register(eventBus);
     }
 }
+
+ */

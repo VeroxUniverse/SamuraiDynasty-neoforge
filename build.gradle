@@ -1,14 +1,17 @@
 plugins {
+    id 'java-library'
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle' version '[6.0.18,6.2)'
-    id 'org.spongepowered.mixin' version '0.7.+'
-    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    id 'net.neoforged.gradle.userdev' version '7.0.57'
 }
 
 version = mod_version
 group = mod_group_id
+
+repositories {
+    mavenLocal()
+}
 
 base {
     archivesName = mod_id
@@ -17,42 +20,35 @@ base {
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
-minecraft {
+runs {
 
-    mappings channel: mapping_channel, version: mapping_version
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    configureEach {
 
-    copyIdeResources = true
+        systemProperty 'forge.logging.markers', 'REGISTRIES'
 
-    runs {
-        configureEach {
-            workingDirectory project.file("run/${it.name}")
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
+        systemProperty 'forge.logging.console.level', 'debug'
 
-            mods {
-                "${mod_id}" {
-                    source sourceSets.main
-                }
-            }
-        }
+        modSource project.sourceSets.main
+    }
 
-        client {
-            property 'forge.enabledGameTestNamespaces', mod_id
-        }
+    client {
 
-        server {
-            property 'forge.enabledGameTestNamespaces', mod_id
-            args '--nogui'
-        }
-        gameTestServer {
-            property 'forge.enabledGameTestNamespaces', mod_id
-        }
+        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+    }
 
-        data {
-            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-        }
+    server {
+        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+        programArgument '--nogui'
+    }
+
+
+    gameTestServer {
+        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+    }
+
+    data {
+
+        programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
     }
 }
 
@@ -81,93 +77,67 @@ repositories {
         }
     }
     maven { url = "https://jitpack.io" }
-    maven {
-        name = "Sinytra"
-        url = "https://maven.su5ed.dev/releases"
-    }
 }
 
 dependencies {
 
-    minecraft "net.neoforged:forge:${minecraft_version}-${forge_version}"
+    implementation "net.neoforged:neoforge:${forge_version}"
 
-    implementation("com.github.llamalad7.mixinextras:mixinextras-forge:${mixinextras_version}")
-    implementation fg.deobf("mod.azure.azurelib:azurelib-neo-${minecraft_version}:${azurelib_version}")
+    //implementation("com.github.llamalad7.mixinextras:mixinextras-forge:${mixinextras_version}")
+    implementation "mod.azure.azurelib:azurelib-neo-${minecraft_version}:${azurelib_version}"
 
     // Ars Nouveau
 
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curio_version}")
-    compileOnly fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
-    runtimeOnly fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
+    //runtimeOnly "top.theillusivec4.curios:curios-forge:${curio_version}"
+    //compileOnly "software.bernie.geckolib:geckolib-forge-${geckolib_version}"
+    //runtimeOnly "software.bernie.geckolib:geckolib-forge-${geckolib_version}"
 
-    compileOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${minecraft_version}:${ars_version}")
-    runtimeOnly fg.deobf("com.hollingsworth.ars_nouveau:ars_nouveau-${minecraft_version}:${ars_version}")
+    //compileOnly "com.hollingsworth.ars_nouveau:ars_nouveau-${minecraft_version}:${ars_version}"
+    //runtimeOnly "com.hollingsworth.ars_nouveau:ars_nouveau-${minecraft_version}:${ars_version}"
 
     // Create
 
-    compileOnly fg.deobf("curse.maven:create-328085:${create_version}")
-    runtimeOnly fg.deobf("curse.maven:create-328085:${create_version}")
+    //compileOnly "curse.maven:create-328085:${create_version}"
+    //runtimeOnly "curse.maven:create-328085:${create_version}"
 
     // Deeper and Darker
 
-    runtimeOnly fg.deobf("curse.maven:deeperdarker-659011:${project.deeperdarker_file_id}")
-
-    // Eldritch End
-
-    //minecraftLibrary fg.deobf("dev.su5ed.sinytra:Connector:${sinytra_version}")
-    //runtimeOnly fg.deobf("dev.su5ed.sinytra.fabric-api:fabric-api:${sinytra_fabricapi_version}")
-
-    //compileOnly "some.fabric:mod:<version>"
-
-    //compileOnly fg.deobf("curse.maven:eldritch-end-877553:${eldritch_end_fileid}")
-    //runtimeOnly fg.deobf("curse.maven:eldritch-end-877553:${eldritch_end_fileid}")
-
-    //compileOnly fg.deobf("curse.maven:necronomicon-586157:${necronomicon_fileid}")
-    //runtimeOnly fg.deobf("curse.maven:necronomicon-586157:${necronomicon_fileid}")
-
-    //runtimeOnly fg.deobf("curse.maven:azurelib-817423:${azurelib_fileid}")
-
-    //runtimeOnly fg.deobf("mod.azure.azurelib:azurelib-forge-${minecraft_version}:${azurelib_version}")
+    //runtimeOnly "curse.maven:deeperdarker-659011:${project.deeperdarker_file_id}"
 
     // Blood Magic
 
-    implementation fg.deobf("curse.maven:blood-magic-224791:${bloodmagic_fileid}")
+    //implementation "curse.maven:blood-magic-224791:${bloodmagic_fileid}"
 
 
     // JEI
 
-    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
-    compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
-    runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
+    compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
+    compileOnly "mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"
+    runtimeOnly "mezz.jei:jei-${minecraft_version}-forge:${jei_version}"
 
     // Patchouli
 
-    compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
-    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
-
-    // Irons Spellbooks
-
-    //compileOnly fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:${spells_version}")
-    //runtimeOnly fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:${spells_version}")
-
+    //compileOnly "vazkii.patchouli:Patchouli:${patchouli_version}:api"
+    //runtimeOnly "vazkii.patchouli:Patchouli:${patchouli_version}"
 
     // Aquaculture
 
-    compileOnly fg.deobf("curse.maven:aquaculture-60028:${aquaculture_version}")
-    runtimeOnly fg.deobf("curse.maven:aquaculture-60028:${aquaculture_version}")
+    //compileOnly "curse.maven:aquaculture-60028:${aquaculture_version}"
+    //runtimeOnly "curse.maven:aquaculture-60028:${aquaculture_version}"
 
     // Better Combat
 
-    //runtimeOnly fg.deobf("curse.maven:better-combat-by-daedelus-639842:${bettercombat_version}-forge")
-    //runtimeOnly fg.deobf("curse.maven:cloth-config-348521:${cloth_version}-forge")
-    //runtimeOnly fg.deobf("curse.maven:playeranimator-658587:${playeranimator_version}-forge")
+    //runtimeOnly "curse.maven:better-combat-by-daedelus-639842:${bettercombat_version}-forge"
+    //runtimeOnly "curse.maven:cloth-config-348521:${cloth_version}-forge"
+    //runtimeOnly "curse.maven:playeranimator-658587:${playeranimator_version}-forge"
 
     // Epic Fight
 
-    //runtimeOnly fg.deobf("curse.maven:epic-fight-mod-405076:${epicfight_version}")
+    //runtimeOnly "curse.maven:epic-fight-mod-405076:${epicfight_version}"
 
 
-    annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
+    //annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
+
 }
 
 tasks.withType(ProcessResources).configureEach {
@@ -185,31 +155,15 @@ tasks.withType(ProcessResources).configureEach {
     }
 }
 
-tasks.named('jar', Jar).configure {
-    manifest {
-        attributes([
-                'Specification-Title'     : mod_id,
-                'Specification-Vendor'    : mod_authors,
-                'Specification-Version'   : '1', // We are version 1 of ourselves
-                'Implementation-Title'    : project.name,
-                'Implementation-Version'  : project.jar.archiveVersion,
-                'Implementation-Vendor'   : mod_authors,
-                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
-    }
-
-    finalizedBy 'reobfJar'
-}
-
 publishing {
     publications {
         register('mavenJava', MavenPublication) {
-            artifact jar
+            from components.java
         }
     }
     repositories {
         maven {
-            url "file://${project.projectDir}/mcmodsrepo"
+            url "file://${project.projectDir}/repo"
         }
     }
 }
