@@ -45,7 +45,7 @@ public class EpicSamuraiMod
          */
         ItemsRegistry.register();
         BlocksRegistry.register();
-        ParticlesInit.register();
+        //ParticlesInit.register();
         CreativeTabRegistry.register();
         /* // WAIT FOR 1.20.2 UPDATES //
         if(ModList.get().isLoaded("deeperdarker")) {
