@@ -10,6 +10,7 @@ import mod.azure.azurelib.core.object.PlayState;
 import mod.azure.azurelib.util.AzureLibUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
@@ -186,7 +187,7 @@ public class OnibiEntity extends Monster implements GeoEntity {
     public void aiStep() {
         if (this.level().isClientSide) {
             for(int i = 0; i < 2; ++i) {
-                this.level().addParticle(ParticlesInit.BLUE_FLAME.get(), this.getRandomX(0.25D), this.getRandomY(), this.getRandomZ(0.25D), 0.0D, 0.0D, 0.0D);
+                this.level().addParticle(ParticleTypes.FLAME, this.getRandomX(0.25D), this.getRandomY(), this.getRandomZ(0.25D), 0.0D, 0.0D, 0.0D);
             }
         }
 

@@ -4,11 +4,11 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
-import net.minecraftforge.common.data.GlobalLootModifierProvider;
-import net.minecraftforge.common.loot.LootTableIdCondition;
+import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
+import net.neoforged.neoforge.common.loot.LootTableIdCondition;
+import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.datagen.loot.AddItemModifier;
 import net.veroxuniverse.epicsamurai.registry.ItemsRegistry;
-import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 
 public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
     public ModGlobalLootModifierProvider(PackOutput output) {

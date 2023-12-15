@@ -36,7 +36,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.event.ForgeEventFactory;
+import net.neoforged.neoforge.event.EventHooks;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -150,8 +150,7 @@ public class KawausoEntity extends TamableAnimal implements GeoEntity {
                 if (!pPlayer.getAbilities().instabuild) {
                     itemstack.shrink(1);
                 }
-
-                if (!ForgeEventFactory.onAnimalTame(this, pPlayer)) {
+                if (!EventHooks.onAnimalTame(this, pPlayer)) {
                     super.tame(pPlayer);
                     this.navigation.recomputePath();
                     this.setTarget(null);

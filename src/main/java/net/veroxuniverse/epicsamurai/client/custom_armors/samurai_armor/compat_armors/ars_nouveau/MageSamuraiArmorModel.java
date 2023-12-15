@@ -1,3 +1,5 @@
+/*
+
 package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.ars_nouveau;
 
 import net.minecraft.resources.ResourceLocation;
@@ -24,3 +26,5 @@ public class MageSamuraiArmorModel extends GeoModel<MageSamuraiArmorItem> {
 
 
 }
+
+ */

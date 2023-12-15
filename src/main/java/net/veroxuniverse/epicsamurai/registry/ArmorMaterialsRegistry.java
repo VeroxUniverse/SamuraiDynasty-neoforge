@@ -1,7 +1,6 @@
 package net.veroxuniverse.epicsamurai.registry;
 
 import com.google.common.base.Suppliers;
-import com.teammetallurgy.aquaculture.init.AquaItems;
 import net.minecraft.Util;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -9,8 +8,6 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraftforge.fml.ModList;
-import net.veroxuniverse.epicsamurai.compat.CreateCompat;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
@@ -106,40 +103,7 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
     }), 12, SoundEvents.ARMOR_EQUIP_IRON, 0.5F, 0.0F,
             () -> Ingredient.of(ItemsRegistry.SILVER_INGOT.get())),
 
-    SAMURAI_BRASS("samurai_brass", 33,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
-        armor.put(ArmorItem.Type.BOOTS, 3);
-        armor.put(ArmorItem.Type.LEGGINGS, 6);
-        armor.put(ArmorItem.Type.CHESTPLATE, 8);
-        armor.put(ArmorItem.Type.HELMET, 2);
-    }), 12, SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 0.0F,
-            () -> Ingredient.of(CreateCompat.BRASS_REPAIR_KIT.get())),
-
-
-    SAMURAI_NETHERITE("samurai_netherite", 45,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
-        armor.put(ArmorItem.Type.BOOTS, 3);
-        armor.put(ArmorItem.Type.LEGGINGS, 6);
-        armor.put(ArmorItem.Type.CHESTPLATE, 8);
-        armor.put(ArmorItem.Type.HELMET, 3);
-    }), 25, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F,
-            () -> Ingredient.of(Items.NETHERITE_INGOT)),
-
-
-    SAMURAI_SCULK("samurai_sculk", 45,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
-        armor.put(ArmorItem.Type.BOOTS, 4);
-        armor.put(ArmorItem.Type.LEGGINGS, 7);
-        armor.put(ArmorItem.Type.CHESTPLATE, 9);
-        armor.put(ArmorItem.Type.HELMET, 4);
-    }), 25, SoundEvents.SCULK_BLOCK_PLACE, 4.0F, 0.1F,
-            () -> Ingredient.of(Items.ECHO_SHARD)),
-
-    SAMURAI_AMETHYST("samurai_amethyst", 35,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
-        armor.put(ArmorItem.Type.BOOTS, 3);
-        armor.put(ArmorItem.Type.LEGGINGS, 6);
-        armor.put(ArmorItem.Type.CHESTPLATE, 8);
-        armor.put(ArmorItem.Type.HELMET, 3);
-    }), 25, SoundEvents.AMETHYST_CLUSTER_PLACE, 2.5F, 0.0F,
-            () -> Ingredient.of(ItemsRegistry.AMETHYST_INGOT.get())),
-
+    /*
     SAMURAI_NEPTUN("samurai_neptun", 35,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
         armor.put(ArmorItem.Type.BOOTS, 3);
         armor.put(ArmorItem.Type.LEGGINGS, 6);
@@ -161,6 +125,41 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
         armor.put(ArmorItem.Type.HELMET, 3);
     }), 25, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F,
             () -> Ingredient.of(Items.NETHERITE_INGOT)),
+
+    SAMURAI_SCULK("samurai_sculk", 45,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 4);
+        armor.put(ArmorItem.Type.LEGGINGS, 7);
+        armor.put(ArmorItem.Type.CHESTPLATE, 9);
+        armor.put(ArmorItem.Type.HELMET, 4);
+    }), 25, SoundEvents.SCULK_BLOCK_PLACE, 4.0F, 0.1F,
+            () -> Ingredient.of(Items.ECHO_SHARD)),
+
+    SAMURAI_BRASS("samurai_brass", 33,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 3);
+        armor.put(ArmorItem.Type.LEGGINGS, 6);
+        armor.put(ArmorItem.Type.CHESTPLATE, 8);
+        armor.put(ArmorItem.Type.HELMET, 2);
+    }), 12, SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 0.0F,
+            () -> Ingredient.of(CreateCompat.BRASS_REPAIR_KIT.get())),
+
+     */
+
+
+    SAMURAI_NETHERITE("samurai_netherite", 45,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 3);
+        armor.put(ArmorItem.Type.LEGGINGS, 6);
+        armor.put(ArmorItem.Type.CHESTPLATE, 8);
+        armor.put(ArmorItem.Type.HELMET, 3);
+    }), 25, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F,
+            () -> Ingredient.of(Items.NETHERITE_INGOT)),
+
+    SAMURAI_AMETHYST("samurai_amethyst", 35,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 3);
+        armor.put(ArmorItem.Type.LEGGINGS, 6);
+        armor.put(ArmorItem.Type.CHESTPLATE, 8);
+        armor.put(ArmorItem.Type.HELMET, 3);
+    }), 25, SoundEvents.AMETHYST_CLUSTER_PLACE, 2.5F, 0.0F,
+            () -> Ingredient.of(ItemsRegistry.AMETHYST_INGOT.get())),
 
     SAMURAI_QUARTZ("samurai_quartz", 35,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
         armor.put(ArmorItem.Type.BOOTS, 3);

@@ -1,21 +1,27 @@
 package net.veroxuniverse.epicsamurai.registry;
 
+import net.minecraft.core.Registry;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 
 public class ParticlesInit {
     public static final DeferredRegister<ParticleType<?>> PARTICLE_TYPES =
-            DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, EpicSamuraiMod.MOD_ID);
+            DeferredRegister.create(BuiltInRegistries.PARTICLE_TYPE, EpicSamuraiMod.MOD_ID);
 
-    public static final RegistryObject<SimpleParticleType> BLUE_FLAME =
-            PARTICLE_TYPES.register("blue_flame", () -> new SimpleParticleType(true));
 
-    public static void register(IEventBus eventBus) {
-        PARTICLE_TYPES.register(eventBus);
+    public static final SimpleParticleType BLUE_FLAME = register("blue_flame", true);
+
+    private static SimpleParticleType register(String name, boolean b) {
+        return Registry.register(BuiltInRegistries.PARTICLE_TYPE, name, new SimpleParticleType(b));
+    }
+
+
+    public static void register() {
+        PARTICLE_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 }

@@ -5,29 +5,28 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
-import net.veroxuniverse.epicsamurai.compat.*;
-import net.veroxuniverse.epicsamurai.item.armor.EtyriteSamuraiArmorItem;
-import net.veroxuniverse.epicsamurai.item.armor.MageSamuraiArmorItem;
-import net.veroxuniverse.epicsamurai.item.armor.lib.SamuraiArmorItem;
+
+import java.util.function.Supplier;
 
 public class CreativeTabRegistry {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, EpicSamuraiMod.MOD_ID);
 
     @SuppressWarnings("unused")
-    public static final RegistryObject<CreativeModeTab> TAB = CREATIVE_TABS.register(
+    public static final Supplier<CreativeModeTab> TAB = CREATIVE_TABS.register(
             EpicSamuraiMod.MOD_ID,
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup." + EpicSamuraiMod.MOD_ID))
                     .icon(() -> new ItemStack(ItemsRegistry.RED_SAMURAI_HELMET.get()))
                     .displayItems((displayParameters, output) -> {
-                        for (RegistryObject<Item> item : ItemsRegistry.ITEMS.getEntries())
+                        for (DeferredHolder<Item, ? extends Item> item : ItemsRegistry.ITEM_REGISTER.getEntries())
                             output.accept(item.get());
-
+/*
                         if (ModList.get().isLoaded("create"))
                             for (RegistryObject<Item> item : CreateCompat.CREATE_ITEMS.getEntries())
                                 output.accept(item.get());
@@ -57,11 +56,13 @@ public class CreativeTabRegistry {
                                 if (item.get() instanceof SamuraiArmorItem)
                                     output.accept(item.get());
 
+ */
+
                     })
                     .build()
     );
 
-    public static void register(IEventBus eventBus) {
-        CREATIVE_TABS.register(eventBus);
+    public static void register() {
+        CREATIVE_TABS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 }

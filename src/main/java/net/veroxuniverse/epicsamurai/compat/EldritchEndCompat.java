@@ -1,3 +1,5 @@
+/*
+
 package net.veroxuniverse.epicsamurai.compat;
 
 import net.minecraft.world.item.ArmorItem;
@@ -29,3 +31,5 @@ public class EldritchEndCompat {
         ELDRITCH_ITEMS.register(eventBus);
     }
 }
+
+ */

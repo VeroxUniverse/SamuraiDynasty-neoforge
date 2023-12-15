@@ -35,6 +35,9 @@ import mod.azure.azurelib.core.animation.Animation;
 import mod.azure.azurelib.core.animation.AnimationController;
 import mod.azure.azurelib.core.animation.RawAnimation;
 import mod.azure.azurelib.core.object.PlayState;
+import net.neoforged.bus.api.Event;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 
 public class JorogumoEntity extends Monster implements GeoEntity {
 
@@ -171,9 +174,9 @@ public class JorogumoEntity extends Monster implements GeoEntity {
 
     public boolean canBeAffected(MobEffectInstance effectInstance) {
         if (effectInstance.getEffect() == MobEffects.POISON) {
-            net.minecraftforge.event.entity.living.MobEffectEvent.Applicable event = new net.minecraftforge.event.entity.living.MobEffectEvent.Applicable(this, effectInstance);
-            net.minecraftforge.common.MinecraftForge.EVENT_BUS.post(event);
-            return event.getResult() == net.minecraftforge.eventbus.api.Event.Result.ALLOW;
+            MobEffectEvent.Applicable event = new MobEffectEvent.Applicable(this, effectInstance);
+            NeoForge.EVENT_BUS.post(event);
+            return event.getResult() == Event.Result.ALLOW;
         }
         return super.canBeAffected(effectInstance);
     }

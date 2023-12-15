@@ -1,3 +1,5 @@
+/*
+
 package net.veroxuniverse.epicsamurai.item.armor;
 
 import mod.azure.azurelib.animatable.GeoItem;
@@ -13,9 +15,6 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import net.minecraftforge.fml.ModList;
-import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.aquamarine.BlueSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.create.BrassSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.compat.CreateCompat;
 import net.veroxuniverse.epicsamurai.item.armor.lib.SamuraiArmorItem;
@@ -74,3 +73,5 @@ public class BrassSamuraiArmorItem extends SamuraiArmorItem {
     }
 
 }
+
+ */

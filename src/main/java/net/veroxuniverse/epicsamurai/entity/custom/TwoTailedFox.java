@@ -1,5 +1,12 @@
 package net.veroxuniverse.epicsamurai.entity.custom;
 
+import mod.azure.azurelib.animatable.GeoEntity;
+import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
+import mod.azure.azurelib.core.animation.AnimatableManager;
+import mod.azure.azurelib.core.animation.Animation;
+import mod.azure.azurelib.core.animation.AnimationController;
+import mod.azure.azurelib.core.animation.RawAnimation;
+import mod.azure.azurelib.core.object.PlayState;
 import mod.azure.azurelib.util.AzureLibUtil;
 import net.minecraft.Util;
 import net.minecraft.nbt.CompoundTag;
@@ -28,18 +35,10 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraftforge.event.ForgeEventFactory;
+import net.neoforged.neoforge.event.EventHooks;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
-import net.veroxuniverse.epicsamurai.entity.custom.goals.TwoTailedAttackGoal;
 import net.veroxuniverse.epicsamurai.entity.variant.TwoTailedVariant;
 import org.jetbrains.annotations.Nullable;
-import mod.azure.azurelib.animatable.GeoEntity;
-import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
-import mod.azure.azurelib.core.animation.AnimatableManager;
-import mod.azure.azurelib.core.animation.Animation;
-import mod.azure.azurelib.core.animation.AnimationController;
-import mod.azure.azurelib.core.animation.RawAnimation;
-import mod.azure.azurelib.core.object.PlayState;
 
 import java.util.function.Predicate;
 
@@ -82,9 +81,10 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity {
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(0, new SitWhenOrderedToGoal(this));
-        //this.goalSelector.addGoal(1, new LeapAtTargetGoal(this, 0.4F));
+        this.goalSelector.addGoal(1, new LeapAtTargetGoal(this, 0.4F));
         this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Player.class, 16.0F, 1.6D, 1.4D));
-        this.goalSelector.addGoal(2, new TwoTailedAttackGoal(this, 1.2D, true));
+        //this.goalSelector.addGoal(2, new TwoTailedAttackGoal(this, 1.2D, true)); - disabled
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, true));
         this.goalSelector.addGoal(3, new BreedGoal(this, 1.0D));
         this.goalSelector.addGoal(4, new TemptGoal(this, 1.2D, Ingredient.of(Items.BLAZE_POWDER), true));
         this.goalSelector.addGoal(5, new FollowOwnerGoal(this, 1.2F, 8.0F, 2.0F, false));
@@ -179,7 +179,7 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity {
                     itemstack.shrink(1);
                 }
 
-                if (!ForgeEventFactory.onAnimalTame(this, pPlayer)) {
+                if (!EventHooks.onAnimalTame(this, pPlayer)) {
                     super.tame(pPlayer);
                     this.navigation.recomputePath();
                     this.setTarget(null);

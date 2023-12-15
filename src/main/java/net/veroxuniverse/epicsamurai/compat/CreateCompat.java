@@ -1,4 +1,7 @@
+/*
+
 package net.veroxuniverse.epicsamurai.compat;
+
 
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
@@ -30,3 +33,5 @@ public class CreateCompat {
         CREATE_ITEMS.register(eventBus);
     }
 }
+
+ */

@@ -1,4 +1,7 @@
+/*
+
 package net.veroxuniverse.epicsamurai.compat;
+
 
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
@@ -26,3 +29,5 @@ public class DeeperDarkerCompat {
         DEEPERDARKER_ITEMS.register(eventBus);
     }
 }
+
+ */

@@ -1,3 +1,5 @@
+/*
+
 package net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.create;
 
 import mod.azure.azurelib.renderer.GeoArmorRenderer;
@@ -9,3 +11,5 @@ public class BrassSamuraiArmorRenderer extends GeoArmorRenderer<BrassSamuraiArmo
 
     }
 }
+
+ */

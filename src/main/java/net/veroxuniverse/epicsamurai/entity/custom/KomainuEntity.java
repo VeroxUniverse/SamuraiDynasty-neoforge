@@ -36,9 +36,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.event.ForgeEventFactory;
+import net.neoforged.neoforge.event.EventHooks;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
-import net.veroxuniverse.epicsamurai.entity.custom.goals.KomainuAttackGoal;
 import net.veroxuniverse.epicsamurai.entity.variant.KomainuVariant;
 import org.jetbrains.annotations.Nullable;
 
@@ -76,8 +75,9 @@ public class KomainuEntity extends TamableAnimal implements GeoEntity {
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(0, new SitWhenOrderedToGoal(this));
-        //this.goalSelector.addGoal(1, new LeapAtTargetGoal(this, 0.4F));
-        this.goalSelector.addGoal(2, new KomainuAttackGoal(this, 1.2D, true));
+        this.goalSelector.addGoal(1, new LeapAtTargetGoal(this, 0.4F));
+        //this.goalSelector.addGoal(2, new KomainuAttackGoal(this, 1.2D, true)); - disabled
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, true));
         this.goalSelector.addGoal(3, new BreedGoal(this, 1.0D));
         this.goalSelector.addGoal(4, new TemptGoal(this, 1.2D, Ingredient.of(Items.COOKED_BEEF), true));
         this.goalSelector.addGoal(5, new FollowOwnerGoal(this, 1.2F, 8.0F, 2.0F, false));
@@ -171,7 +171,7 @@ public class KomainuEntity extends TamableAnimal implements GeoEntity {
                     itemstack.shrink(1);
                 }
 
-                if (!ForgeEventFactory.onAnimalTame(this, pPlayer)) {
+                if (!EventHooks.onAnimalTame(this, pPlayer)) {
                     super.tame(pPlayer);
                     this.navigation.recomputePath();
                     this.setTarget(null);

@@ -1,4 +1,7 @@
+/*
+
 package net.veroxuniverse.epicsamurai.item.armor;
+
 
 import mod.azure.azurelib.animatable.GeoItem;
 import mod.azure.azurelib.animatable.client.RenderProvider;
@@ -53,3 +56,5 @@ public class EtyriteSamuraiArmorItem extends SamuraiArmorItem {
     }
 
 }
+
+ */

@@ -1,4 +1,4 @@
-
+/*
 
 package net.veroxuniverse.epicsamurai.item.armor;
 
@@ -90,4 +90,6 @@ public class MageSamuraiArmorItem extends AnimatedMagicArmor implements GeoItem 
     }
 
 }
+
+ */
 

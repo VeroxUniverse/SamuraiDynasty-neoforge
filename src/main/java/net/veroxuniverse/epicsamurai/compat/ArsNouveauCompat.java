@@ -1,3 +1,5 @@
+/*
+
 package net.veroxuniverse.epicsamurai.compat;
 
 import com.hollingsworth.arsnouveau.api.perk.ArmorPerkHolder;
@@ -9,8 +11,10 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.item.armor.MageSamuraiArmorItem;
 import software.bernie.geckolib.model.GeoModel;
@@ -20,18 +24,17 @@ import java.util.List;
 
 public class ArsNouveauCompat {
 
-    public static final DeferredRegister<Item> ARSN_ITEMS =
-            DeferredRegister.create(ForgeRegistries.ITEMS, EpicSamuraiMod.MOD_ID);
+    public static final DeferredRegister.Items ARSN_ITEMS = DeferredRegister.createItems(EpicSamuraiMod.MOD_ID);
 
     public static GeoModel<AnimatedMagicArmor> model;
-    public static final RegistryObject<Item> MAGE_SAMURAI_HELMET = ARSN_ITEMS.register("mage_samurai_helmet",
+    public static final DeferredItem<Item> MAGE_SAMURAI_HELMET = ARSN_ITEMS.register("mage_samurai_helmet",
             () -> new MageSamuraiArmorItem(Materials.HEAVY, ArmorItem.Type.HELMET, new Item.Properties(), model));
-    public static final RegistryObject<Item> MAGE_SAMURAI_CHESTPLATE = ARSN_ITEMS.register("mage_samurai_chestplate",
+    public static final DeferredItem<Item> MAGE_SAMURAI_CHESTPLATE = ARSN_ITEMS.register("mage_samurai_chestplate",
             () -> new MageSamuraiArmorItem(Materials.HEAVY, ArmorItem.Type.CHESTPLATE, new Item.Properties(), model));
 
-    public static final RegistryObject<Item> MAGE_SAMURAI_LEGGINGS = ARSN_ITEMS.register("mage_samurai_leggings",
+    public static final DeferredItem<Item> MAGE_SAMURAI_LEGGINGS = ARSN_ITEMS.register("mage_samurai_leggings",
             () -> new MageSamuraiArmorItem(Materials.HEAVY, ArmorItem.Type.LEGGINGS, new Item.Properties(), model));
-    public static final RegistryObject<Item> MAGE_SAMURAI_BOOTS = ARSN_ITEMS.register("mage_samurai_boots",
+    public static final DeferredItem<Item> MAGE_SAMURAI_BOOTS = ARSN_ITEMS.register("mage_samurai_boots",
             () -> new MageSamuraiArmorItem(Materials.HEAVY, ArmorItem.Type.BOOTS, new Item.Properties(), model));
 
 
@@ -63,3 +66,5 @@ public class ArsNouveauCompat {
         ARSN_ITEMS.register(eventBus);
     }
 }
+
+ */

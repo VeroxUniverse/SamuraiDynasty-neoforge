@@ -1,3 +1,5 @@
+/*
+
 package net.veroxuniverse.epicsamurai.item.armor;
 
 import mod.azure.azurelib.animatable.GeoItem;
@@ -69,3 +71,5 @@ public class NeptuniumSamuraiArmorItem extends SamuraiArmorItem {
     }
 
 }
+
+ */

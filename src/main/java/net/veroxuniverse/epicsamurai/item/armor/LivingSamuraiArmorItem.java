@@ -1,3 +1,5 @@
+/*
+
 package net.veroxuniverse.epicsamurai.item.armor;
 
 import com.google.common.collect.HashMultimap;
@@ -22,9 +24,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.bloodmagic.LivingSamuraiArmorRenderer;
-import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.kitsune_mask.KitsuneMaskArmorRenderer;
 import net.veroxuniverse.epicsamurai.compat.BloodMagicCompat;
 import net.veroxuniverse.epicsamurai.item.armor.lib.SamuraiArmorItem;
 import org.jetbrains.annotations.NotNull;
@@ -165,3 +165,5 @@ public class LivingSamuraiArmorItem extends SamuraiArmorItem implements ILivingC
     }
 
 }
+
+ */

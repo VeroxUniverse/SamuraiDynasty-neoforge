@@ -1,4 +1,6 @@
+/*
 package net.veroxuniverse.epicsamurai.item.armor;
+
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
@@ -78,13 +80,6 @@ public class SculkSamuraiArmorItem extends SamuraiArmorItem {
                 if(player.hasEffect(MobEffects.BLINDNESS)) player.removeEffect(MobEffects.BLINDNESS);
                 if(player.hasEffect(MobEffects.DARKNESS)) player.removeEffect(MobEffects.DARKNESS);
             }
-
-            /*
-            if(player.getInventory().getArmor(EquipmentSlot.LEGS.getIndex()).is(DeeperDarkerCompat.SCULK_SAMURAI_LEGGINGS.get())) {
-                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 25, 0, true, false, false));
-            }
-             */
-
         }
     }
 
@@ -94,3 +89,5 @@ public class SculkSamuraiArmorItem extends SamuraiArmorItem {
     }
 
 }
+
+ */

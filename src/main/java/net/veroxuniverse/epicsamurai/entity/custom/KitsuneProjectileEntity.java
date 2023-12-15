@@ -1,8 +1,10 @@
 package net.veroxuniverse.epicsamurai.entity.custom;
 
 import com.google.common.base.MoreObjects;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -20,6 +22,8 @@ import net.minecraft.world.phys.Vec3;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.registry.ParticlesInit;
 import org.jetbrains.annotations.NotNull;
+
+import static net.neoforged.neoforge.event.EventHooks.onProjectileImpact;
 
 public class KitsuneProjectileEntity extends AbstractHurtingProjectile {
 
@@ -81,7 +85,7 @@ public class KitsuneProjectileEntity extends AbstractHurtingProjectile {
             super.tick();
 
             HitResult hitresult = ProjectileUtil.getHitResultOnMoveVector(this, this::canHitEntity);
-            if (hitresult.getType() != HitResult.Type.MISS && !net.minecraftforge.event.ForgeEventFactory.onProjectileImpact(this, hitresult)) {
+            if (hitresult.getType() != HitResult.Type.MISS && !onProjectileImpact(this, hitresult)) {
                 this.onHit(hitresult);
             }
 
@@ -96,7 +100,7 @@ public class KitsuneProjectileEntity extends AbstractHurtingProjectile {
             if (this.isInWater()) {
                 for(int i = 0; i < 4; ++i) {
                     float f1 = 0.25F;
-                    this.level().addParticle(ParticlesInit.BLUE_FLAME.get(), d0 - vec3.x * 0.25D, d1 - vec3.y * 0.25D, d2 - vec3.z * 0.25D, vec3.x, vec3.y, vec3.z);
+                    this.level().addParticle(ParticleTypes.FLAME, d0 - vec3.x * 0.25D, d1 - vec3.y * 0.25D, d2 - vec3.z * 0.25D, vec3.x, vec3.y, vec3.z);
                 }
 
                 f = 1.6F;
@@ -126,7 +130,7 @@ public class KitsuneProjectileEntity extends AbstractHurtingProjectile {
     }
 
     protected @NotNull ParticleOptions getTrailParticle() {
-        return ParticlesInit.BLUE_FLAME.get();
+        return ParticleTypes.FLAME;
     }
 
     public boolean isPickable() {
