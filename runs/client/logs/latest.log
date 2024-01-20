@@ -1,0 +1,242 @@
+[15Dec2023 15:01:45.343] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, 20.2.86, --assetIndex, asset-index, --assetsDir, C:\Users\StauP\.gradle\caches\minecraft\assets\1.20.2, --gameDir, ., --fml.neoForgeVersion, 20.2.86, --fml.fmlVersion, 1.0.16, --fml.mcVersion, 1.20.2, --fml.neoFormVersion, 20231019.002635]
+[15Dec2023 15:01:45.348] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.8.1 by Amazon.com Inc.; OS Windows 11 arch amd64 version 10.0
+[15Dec2023 15:01:45.488] [main/INFO] [net.neoforged.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[15Dec2023 15:01:45.570] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[15Dec2023 15:01:45.804] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
+[15Dec2023 15:01:45.887] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/StauP/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23171!/ Service=ModLauncher Env=CLIENT
+[15Dec2023 15:01:45.930] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: NVIDIA GeForce RTX 3080/PCIe/SSE2 GL version 4.6.0 NVIDIA 546.01, NVIDIA Corporation
+[15Dec2023 15:01:46.075] [main/WARN] [net.neoforged.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\StauP\.gradle\caches\modules-2\files-2.1\net.neoforged.fancymodloader\core\1.0.16\6bab0913ca1635a8e272ef89c17befb52115a3c2\core-1.0.16.jar is missing mods.toml file
+[15Dec2023 15:01:46.081] [main/WARN] [net.neoforged.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\StauP\.gradle\caches\modules-2\files-2.1\net.neoforged.fancymodloader\language-minecraft\1.0.16\c1f7785ff7fc0b18aa6d2d4056dcff4fee1b32be\language-minecraft-1.0.16.jar is missing mods.toml file
+[15Dec2023 15:01:46.086] [main/WARN] [net.neoforged.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\StauP\.gradle\caches\modules-2\files-2.1\net.neoforged.fancymodloader\language-lowcode\1.0.16\e627c78870d4286826c4b14c0137319ff03b4e0\language-lowcode-1.0.16.jar is missing mods.toml file
+[15Dec2023 15:01:46.092] [main/WARN] [net.neoforged.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\StauP\.gradle\caches\modules-2\files-2.1\net.neoforged.fancymodloader\language-java\1.0.16\2ddedcd8a488fd73e3e92a59949845e9c3a7d9f2\language-java-1.0.16.jar is missing mods.toml file
+[15Dec2023 15:01:46.106] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "core-1.0.16.jar" of type LIBRARY with provider net.neoforged.fml.loading.moddiscovery.MinecraftLocator@28f8e165
+[15Dec2023 15:01:46.106] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "language-minecraft-1.0.16.jar" of type LANGPROVIDER with provider net.neoforged.fml.loading.moddiscovery.MinecraftLocator@28f8e165
+[15Dec2023 15:01:46.107] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "language-lowcode-1.0.16.jar" of type LANGPROVIDER with provider net.neoforged.fml.loading.moddiscovery.MinecraftLocator@28f8e165
+[15Dec2023 15:01:46.107] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "language-java-1.0.16.jar" of type LANGPROVIDER with provider net.neoforged.fml.loading.moddiscovery.MinecraftLocator@28f8e165
+[15Dec2023 15:01:46.107] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "neoforge-20.2.86.jar" of type MOD with provider net.neoforged.fml.loading.moddiscovery.MinecraftLocator@28f8e165
+[15Dec2023 15:01:46.108] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "main" of type MOD with provider net.neoforged.fml.loading.moddiscovery.MinecraftLocator@28f8e165
+[15Dec2023 15:01:46.108] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "" of type MOD with provider net.neoforged.fml.loading.moddiscovery.MinecraftLocator@28f8e165
+[15Dec2023 15:01:46.136] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "azurelib-neo-1.20.2-2.0.12.jar" of type MOD with provider net.neoforged.fml.loading.moddiscovery.ClasspathLocator@5339bbad
+[15Dec2023 15:01:46.136] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "azurelib-neo-1.20.2-2.0.12.jar" of type MOD with provider net.neoforged.fml.loading.moddiscovery.ClasspathLocator@5339bbad
+[15Dec2023 15:01:46.145] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "events-1.0.16.jar" of type GAMELIBRARY with provider net.neoforged.fml.loading.moddiscovery.BuiltinGameLibraryLocator@7fcff1b9
+[15Dec2023 15:01:46.269] [main/INFO] [net.neoforged.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 1 dependencies adding them to mods collection
+[15Dec2023 15:01:46.270] [main/INFO] [net.neoforged.fml.loading.moddiscovery.ModDiscoverer/SCAN]: Found mod file "mixinextras-neoforge-0.3.1.jar" of type GAMELIBRARY with provider net.neoforged.fml.loading.moddiscovery.JarInJarDependencyLocator@547c04c4
+[15Dec2023 15:01:48.487] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[15Dec2023 15:01:48.487] [main/ERROR] [mixin/]: Mixin config azurelib.mixins.json does not specify "minVersion" property
+[15Dec2023 15:01:48.489] [main/ERROR] [mixin/]: Mixin config azurelib.neo.mixins.json does not specify "minVersion" property
+[15Dec2023 15:01:48.499] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, 20.2.86, --gameDir, ., --assetsDir, C:\Users\StauP\.gradle\caches\minecraft\assets\1.20.2, --assetIndex, asset-index]
+[15Dec2023 15:01:48.857] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.3.1).
+[15Dec2023 15:01:52.792] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 192 Datafixer optimizations took 167 milliseconds
+[15Dec2023 15:01:54.434] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/StauP/IdeaProjects/EpicSamurai-forge/.gradle/repositories/ng_dummy_ng/net/neoforged/neoforge/20.2.86/neoforge-20.2.86.jar%23192!/assets/.mcassetsroot' uses unexpected schema
+[15Dec2023 15:01:54.435] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/StauP/IdeaProjects/EpicSamurai-forge/.gradle/repositories/ng_dummy_ng/net/neoforged/neoforge/20.2.86/neoforge-20.2.86.jar%23192!/data/.mcassetsroot' uses unexpected schema
+[15Dec2023 15:01:54.457] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: Environment[accountsHost=https://api.mojang.com, sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[15Dec2023 15:01:54.480] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[15Dec2023 15:01:54.637] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.2+13
+[15Dec2023 15:01:54.928] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 20.2.86, for MC 1.20.2 with MCP 20231019.002635
+[15Dec2023 15:01:54.979] [modloading-worker-0/INFO] [azurelib/FileWatching]: Registered azurelib config for auto-sync function
+[15Dec2023 15:01:55.233] [Render thread/ERROR] [net.neoforged.fml.javafmlmod.FMLModContainer/]: Exception caught during firing event: Trying to access unbound value: ResourceKey[minecraft:entity_type / epicsamurai:akaname]
+	Index: 3
+	Listeners:
+		0: net.neoforged.neoforge.registries.DeferredRegister$$Lambda$5198/0x00000217bdc24d50@a3e0ff4
+		1: net.neoforged.neoforge.registries.DeferredRegister$$Lambda$5198/0x00000217bdc24d50@24a660af
+		2: net.neoforged.neoforge.registries.DeferredRegister$$Lambda$5198/0x00000217bdc24d50@988d236
+		3: net.neoforged.neoforge.registries.DeferredRegister$$Lambda$5198/0x00000217bdc24d50@5a05d194
+		4: net.neoforged.neoforge.registries.DeferredRegister$$Lambda$5198/0x00000217bdc24d50@54792b0d
+		5: net.neoforged.neoforge.registries.DeferredRegister$$Lambda$5198/0x00000217bdc24d50@433305e2
+java.lang.NullPointerException: Trying to access unbound value: ResourceKey[minecraft:entity_type / epicsamurai:akaname]
+	at TRANSFORMER/neoforge@20.2.86/net.neoforged.neoforge.registries.DeferredHolder.value(DeferredHolder.java:102)
+	at TRANSFORMER/neoforge@20.2.86/net.neoforged.neoforge.registries.DeferredHolder.get(DeferredHolder.java:116)
+	at TRANSFORMER/epicsamurai@0.0.33-1.20.2-neo/net.veroxuniverse.epicsamurai.registry.ItemsRegistry.lambda$static$97(ItemsRegistry.java:263)
+	at TRANSFORMER/neoforge@20.2.86/net.neoforged.neoforge.registries.DeferredRegister.lambda$register$0(DeferredRegister.java:184)
+	at TRANSFORMER/neoforge@20.2.86/net.neoforged.neoforge.registries.DeferredRegister.lambda$register$1(DeferredRegister.java:203)
+	at TRANSFORMER/neoforge@20.2.86/net.neoforged.neoforge.registries.DeferredRegister.lambda$addEntries$2(DeferredRegister.java:344)
+	at TRANSFORMER/neoforge@20.2.86/net.neoforged.neoforge.registries.RegisterEvent.register(RegisterEvent.java:50)
+	at TRANSFORMER/neoforge@20.2.86/net.neoforged.neoforge.registries.DeferredRegister.addEntries(DeferredRegister.java:344)
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.ConsumerEventHandler.invoke(ConsumerEventHandler.java:26)
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventBus.post(EventBus.java:386)
+	at MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventBus.post(EventBus.java:365)
+	at LAYER PLUGIN/fml_core@1.0.16/net.neoforged.fml.ModContainer.acceptEvent(ModContainer.java:211)
+	at LAYER PLUGIN/fml_core@1.0.16/net.neoforged.fml.ModLoader.lambda$postEventWithWrapInModOrder$32(ModLoader.java:359)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at LAYER PLUGIN/fml_core@1.0.16/net.neoforged.fml.ModList.forEachModInOrder(ModList.java:231)
+	at LAYER PLUGIN/fml_core@1.0.16/net.neoforged.fml.ModLoader.postEventWithWrapInModOrder(ModLoader.java:357)
+	at LAYER PLUGIN/fml_core@1.0.16/net.neoforged.fml.ModLoader.postEventWrapContainerInModOrder(ModLoader.java:349)
+	at TRANSFORMER/neoforge@20.2.86/net.neoforged.neoforge.registries.GameData.postRegisterEvents(GameData.java:94)
+	at TRANSFORMER/neoforge@20.2.86/net.neoforged.neoforge.internal.NeoForgeStatesProvider.lambda$new$3(NeoForgeStatesProvider.java:22)
+	at LAYER PLUGIN/fml_core@1.0.16/net.neoforged.fml.ModLoader.handleInlineTransition(ModLoader.java:220)
+	at LAYER PLUGIN/fml_core@1.0.16/net.neoforged.fml.ModLoader.lambda$dispatchAndHandleError$19(ModLoader.java:212)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at LAYER PLUGIN/fml_core@1.0.16/net.neoforged.fml.ModLoader.dispatchAndHandleError(ModLoader.java:212)
+	at LAYER PLUGIN/fml_core@1.0.16/net.neoforged.fml.ModLoader.lambda$gatherAndInitializeMods$13(ModLoader.java:186)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at LAYER PLUGIN/fml_core@1.0.16/net.neoforged.fml.ModLoader.gatherAndInitializeMods(ModLoader.java:186)
+	at TRANSFORMER/neoforge@20.2.86/net.neoforged.neoforge.client.loading.ClientModLoader.lambda$begin$1(ClientModLoader.java:62)
+	at TRANSFORMER/neoforge@20.2.86/net.neoforged.neoforge.client.loading.ClientModLoader.lambda$createRunnableWithCatch$4(ClientModLoader.java:82)
+	at TRANSFORMER/neoforge@20.2.86/net.neoforged.neoforge.client.loading.ClientModLoader.begin(ClientModLoader.java:62)
+	at TRANSFORMER/minecraft@1.20.2/net.minecraft.client.Minecraft.<init>(Minecraft.java:475)
+	at TRANSFORMER/minecraft@1.20.2/net.minecraft.client.main.Main.main(Main.java:195)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at MC-BOOTSTRAP/fml_loader@1.0.16/net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:126)
+	at MC-BOOTSTRAP/fml_loader@1.0.16/net.neoforged.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:114)
+	at MC-BOOTSTRAP/fml_loader@1.0.16/net.neoforged.fml.loading.targets.ForgeClientUserdevLaunchHandler.runService(ForgeClientUserdevLaunchHandler.java:19)
+	at MC-BOOTSTRAP/fml_loader@1.0.16/net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:108)
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30)
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53)
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71)
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.run(Launcher.java:108)
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.Launcher.main(Launcher.java:78)
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26)
+	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
+	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
+
+[15Dec2023 15:01:55.235] [Render thread/ERROR] [net.neoforged.fml.ModContainer/LOADING]: Caught exception during event net.neoforged.neoforge.registries.RegisterEvent@70cf7d1e dispatch for modid epicsamurai
+java.lang.NullPointerException: Trying to access unbound value: ResourceKey[minecraft:entity_type / epicsamurai:akaname]
+	at net.neoforged.neoforge.registries.DeferredHolder.value(DeferredHolder.java:102) ~[neoforge-20.2.86.jar:?]
+	at net.neoforged.neoforge.registries.DeferredHolder.get(DeferredHolder.java:116) ~[neoforge-20.2.86.jar:?]
+	at net.veroxuniverse.epicsamurai.registry.ItemsRegistry.lambda$static$97(ItemsRegistry.java:263) ~[main/:?]
+	at net.neoforged.neoforge.registries.DeferredRegister.lambda$register$0(DeferredRegister.java:184) ~[neoforge-20.2.86.jar:?]
+	at net.neoforged.neoforge.registries.DeferredRegister.lambda$register$1(DeferredRegister.java:203) ~[neoforge-20.2.86.jar:?]
+	at net.neoforged.neoforge.registries.DeferredRegister.lambda$addEntries$2(DeferredRegister.java:344) ~[neoforge-20.2.86.jar:?]
+	at net.neoforged.neoforge.registries.RegisterEvent.register(RegisterEvent.java:50) ~[neoforge-20.2.86.jar:?]
+	at net.neoforged.neoforge.registries.DeferredRegister.addEntries(DeferredRegister.java:344) ~[neoforge-20.2.86.jar:?]
+	at net.neoforged.bus.ConsumerEventHandler.invoke(ConsumerEventHandler.java:26) ~[bus-7.2.0.jar:?]
+	at net.neoforged.bus.EventBus.post(EventBus.java:386) ~[bus-7.2.0.jar:?]
+	at net.neoforged.bus.EventBus.post(EventBus.java:365) ~[bus-7.2.0.jar:?]
+	at net.neoforged.fml.ModContainer.acceptEvent(ModContainer.java:211) ~[core-1.0.16.jar:1.0]
+	at net.neoforged.fml.ModLoader.lambda$postEventWithWrapInModOrder$32(ModLoader.java:359) ~[core-1.0.16.jar:1.0]
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?]
+	at net.neoforged.fml.ModList.forEachModInOrder(ModList.java:231) ~[core-1.0.16.jar:1.0]
+	at net.neoforged.fml.ModLoader.postEventWithWrapInModOrder(ModLoader.java:357) ~[core-1.0.16.jar:1.0]
+	at net.neoforged.fml.ModLoader.postEventWrapContainerInModOrder(ModLoader.java:349) ~[core-1.0.16.jar:1.0]
+	at net.neoforged.neoforge.registries.GameData.postRegisterEvents(GameData.java:94) ~[neoforge-20.2.86.jar:?]
+	at net.neoforged.neoforge.internal.NeoForgeStatesProvider.lambda$new$3(NeoForgeStatesProvider.java:22) ~[neoforge-20.2.86.jar:?]
+	at net.neoforged.fml.ModLoader.handleInlineTransition(ModLoader.java:220) ~[core-1.0.16.jar:1.0]
+	at net.neoforged.fml.ModLoader.lambda$dispatchAndHandleError$19(ModLoader.java:212) ~[core-1.0.16.jar:1.0]
+	at java.util.Optional.ifPresent(Optional.java:178) ~[?:?]
+	at net.neoforged.fml.ModLoader.dispatchAndHandleError(ModLoader.java:212) ~[core-1.0.16.jar:1.0]
+	at net.neoforged.fml.ModLoader.lambda$gatherAndInitializeMods$13(ModLoader.java:186) ~[core-1.0.16.jar:1.0]
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?]
+	at net.neoforged.fml.ModLoader.gatherAndInitializeMods(ModLoader.java:186) ~[core-1.0.16.jar:1.0]
+	at net.neoforged.neoforge.client.loading.ClientModLoader.lambda$begin$1(ClientModLoader.java:62) ~[neoforge-20.2.86.jar:?]
+	at net.neoforged.neoforge.client.loading.ClientModLoader.lambda$createRunnableWithCatch$4(ClientModLoader.java:82) ~[neoforge-20.2.86.jar:?]
+	at net.neoforged.neoforge.client.loading.ClientModLoader.begin(ClientModLoader.java:62) ~[neoforge-20.2.86.jar:?]
+	at net.minecraft.client.Minecraft.<init>(Minecraft.java:475) ~[neoforge-20.2.86.jar:?]
+	at net.minecraft.client.main.Main.main(Main.java:195) ~[neoforge-20.2.86.jar:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:126) ~[loader-1.0.16.jar:1.0]
+	at net.neoforged.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:114) ~[loader-1.0.16.jar:1.0]
+	at net.neoforged.fml.loading.targets.ForgeClientUserdevLaunchHandler.runService(ForgeClientUserdevLaunchHandler.java:19) ~[loader-1.0.16.jar:1.0]
+	at net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:108) ~[loader-1.0.16.jar:1.0]
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?]
+[15Dec2023 15:01:55.424] [Render thread/ERROR] [net.neoforged.neoforge.registries.GameData/]: Failed to register some entries, see suppressed exceptions for details
+java.lang.RuntimeException: null
+	at net.neoforged.neoforge.registries.GameData.postRegisterEvents(GameData.java:85) ~[neoforge-20.2.86.jar:?]
+	at net.neoforged.neoforge.internal.NeoForgeStatesProvider.lambda$new$3(NeoForgeStatesProvider.java:22) ~[neoforge-20.2.86.jar:?]
+	at net.neoforged.fml.ModLoader.handleInlineTransition(ModLoader.java:220) ~[core-1.0.16.jar:1.0]
+	at net.neoforged.fml.ModLoader.lambda$dispatchAndHandleError$19(ModLoader.java:212) ~[core-1.0.16.jar:1.0]
+	at java.util.Optional.ifPresent(Optional.java:178) ~[?:?]
+	at net.neoforged.fml.ModLoader.dispatchAndHandleError(ModLoader.java:212) ~[core-1.0.16.jar:1.0]
+	at net.neoforged.fml.ModLoader.lambda$gatherAndInitializeMods$13(ModLoader.java:186) ~[core-1.0.16.jar:1.0]
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?]
+	at net.neoforged.fml.ModLoader.gatherAndInitializeMods(ModLoader.java:186) ~[core-1.0.16.jar:1.0]
+	at net.neoforged.neoforge.client.loading.ClientModLoader.lambda$begin$1(ClientModLoader.java:62) ~[neoforge-20.2.86.jar:?]
+	at net.neoforged.neoforge.client.loading.ClientModLoader.lambda$createRunnableWithCatch$4(ClientModLoader.java:82) ~[neoforge-20.2.86.jar:?]
+	at net.neoforged.neoforge.client.loading.ClientModLoader.begin(ClientModLoader.java:62) ~[neoforge-20.2.86.jar:?]
+	at net.minecraft.client.Minecraft.<init>(Minecraft.java:475) ~[neoforge-20.2.86.jar:?]
+	at net.minecraft.client.main.Main.main(Main.java:195) ~[neoforge-20.2.86.jar:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+	at net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:126) ~[loader-1.0.16.jar:1.0]
+	at net.neoforged.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:114) ~[loader-1.0.16.jar:1.0]
+	at net.neoforged.fml.loading.targets.ForgeClientUserdevLaunchHandler.runService(ForgeClientUserdevLaunchHandler.java:19) ~[loader-1.0.16.jar:1.0]
+	at net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:108) ~[loader-1.0.16.jar:1.0]
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.9.jar:?]
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?]
+	Suppressed: net.neoforged.fml.ModLoadingException: Epic Samurai (epicsamurai) encountered an error during the common_setup event phase
+§7java.lang.NullPointerException: Trying to access unbound value: ResourceKey[minecraft:entity_type / epicsamurai:akaname]
+		at net.neoforged.fml.ModContainer.acceptEvent(ModContainer.java:215) ~[core-1.0.16.jar:1.0]
+		at net.neoforged.fml.ModLoader.lambda$postEventWithWrapInModOrder$32(ModLoader.java:359) ~[core-1.0.16.jar:1.0]
+		at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?]
+		at net.neoforged.fml.ModList.forEachModInOrder(ModList.java:231) ~[core-1.0.16.jar:1.0]
+		at net.neoforged.fml.ModLoader.postEventWithWrapInModOrder(ModLoader.java:357) ~[core-1.0.16.jar:1.0]
+		at net.neoforged.fml.ModLoader.postEventWrapContainerInModOrder(ModLoader.java:349) ~[core-1.0.16.jar:1.0]
+		at net.neoforged.neoforge.registries.GameData.postRegisterEvents(GameData.java:94) ~[neoforge-20.2.86.jar:?]
+		at net.neoforged.neoforge.internal.NeoForgeStatesProvider.lambda$new$3(NeoForgeStatesProvider.java:22) ~[neoforge-20.2.86.jar:?]
+		at net.neoforged.fml.ModLoader.handleInlineTransition(ModLoader.java:220) ~[core-1.0.16.jar:1.0]
+		at net.neoforged.fml.ModLoader.lambda$dispatchAndHandleError$19(ModLoader.java:212) ~[core-1.0.16.jar:1.0]
+		at java.util.Optional.ifPresent(Optional.java:178) ~[?:?]
+		at net.neoforged.fml.ModLoader.dispatchAndHandleError(ModLoader.java:212) ~[core-1.0.16.jar:1.0]
+		at net.neoforged.fml.ModLoader.lambda$gatherAndInitializeMods$13(ModLoader.java:186) ~[core-1.0.16.jar:1.0]
+		at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?]
+		at net.neoforged.fml.ModLoader.gatherAndInitializeMods(ModLoader.java:186) ~[core-1.0.16.jar:1.0]
+		at net.neoforged.neoforge.client.loading.ClientModLoader.lambda$begin$1(ClientModLoader.java:62) ~[neoforge-20.2.86.jar:?]
+		at net.neoforged.neoforge.client.loading.ClientModLoader.lambda$createRunnableWithCatch$4(ClientModLoader.java:82) ~[neoforge-20.2.86.jar:?]
+		at net.neoforged.neoforge.client.loading.ClientModLoader.begin(ClientModLoader.java:62) ~[neoforge-20.2.86.jar:?]
+		at net.minecraft.client.Minecraft.<init>(Minecraft.java:475) ~[neoforge-20.2.86.jar:?]
+		at net.minecraft.client.main.Main.main(Main.java:195) ~[neoforge-20.2.86.jar:?]
+		at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+		at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
+		at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+		at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?]
+		at net.neoforged.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:126) ~[loader-1.0.16.jar:1.0]
+		at net.neoforged.fml.loading.targets.CommonLaunchHandler.clientService(CommonLaunchHandler.java:114) ~[loader-1.0.16.jar:1.0]
+		at net.neoforged.fml.loading.targets.ForgeClientUserdevLaunchHandler.runService(ForgeClientUserdevLaunchHandler.java:19) ~[loader-1.0.16.jar:1.0]
+		at net.neoforged.fml.loading.targets.CommonLaunchHandler.lambda$launchService$4(CommonLaunchHandler.java:108) ~[loader-1.0.16.jar:1.0]
+		at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.9.jar:?]
+		at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.9.jar:?]
+		at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.9.jar:?]
+		at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.9.jar:?]
+		at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.9.jar:?]
+		at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.9.jar:?]
+		at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.9.jar:?]
+		at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?]
+	Caused by: java.lang.NullPointerException: Trying to access unbound value: ResourceKey[minecraft:entity_type / epicsamurai:akaname]
+		at net.neoforged.neoforge.registries.DeferredHolder.value(DeferredHolder.java:102) ~[neoforge-20.2.86.jar:?]
+		at net.neoforged.neoforge.registries.DeferredHolder.get(DeferredHolder.java:116) ~[neoforge-20.2.86.jar:?]
+		at net.veroxuniverse.epicsamurai.registry.ItemsRegistry.lambda$static$97(ItemsRegistry.java:263) ~[main/:?]
+		at net.neoforged.neoforge.registries.DeferredRegister.lambda$register$0(DeferredRegister.java:184) ~[neoforge-20.2.86.jar:?]
+		at net.neoforged.neoforge.registries.DeferredRegister.lambda$register$1(DeferredRegister.java:203) ~[neoforge-20.2.86.jar:?]
+		at net.neoforged.neoforge.registries.DeferredRegister.lambda$addEntries$2(DeferredRegister.java:344) ~[neoforge-20.2.86.jar:?]
+		at net.neoforged.neoforge.registries.RegisterEvent.register(RegisterEvent.java:50) ~[neoforge-20.2.86.jar:?]
+		at net.neoforged.neoforge.registries.DeferredRegister.addEntries(DeferredRegister.java:344) ~[neoforge-20.2.86.jar:?]
+		at net.neoforged.bus.ConsumerEventHandler.invoke(ConsumerEventHandler.java:26) ~[bus-7.2.0.jar:?]
+		at net.neoforged.bus.EventBus.post(EventBus.java:386) ~[bus-7.2.0.jar:?]
+		at net.neoforged.bus.EventBus.post(EventBus.java:365) ~[bus-7.2.0.jar:?]
+		at net.neoforged.fml.ModContainer.acceptEvent(ModContainer.java:211) ~[core-1.0.16.jar:1.0]
+		... 35 more
+[15Dec2023 15:01:55.441] [Render thread/ERROR] [net.neoforged.neoforge.registries.GameData/]: Rolling back to VANILLA state
+[15Dec2023 15:01:55.519] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:akaname has no attributes
+[15Dec2023 15:01:55.520] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:kitsune has no attributes
+[15Dec2023 15:01:55.520] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:enenra has no attributes
+[15Dec2023 15:01:55.520] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:oni has no attributes
+[15Dec2023 15:01:55.521] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:onibi has no attributes
+[15Dec2023 15:01:55.521] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:jorogumo has no attributes
+[15Dec2023 15:01:55.521] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:raijin has no attributes
+[15Dec2023 15:01:55.521] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:fujin has no attributes
+[15Dec2023 15:01:55.521] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:komainu has no attributes
+[15Dec2023 15:01:55.521] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:tanuki has no attributes
+[15Dec2023 15:01:55.522] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:twotailed has no attributes
+[15Dec2023 15:01:55.522] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:kawauso has no attributes
+[15Dec2023 15:01:55.959] [Render thread/FATAL] [net.neoforged.neoforge.common.NeoForgeMod/]: Preparing crash report with UUID 66d85465-39d5-4d1e-9544-fc7a7d330990
+[15Dec2023 15:01:55.975] [Render thread/FATAL] [net.neoforged.neoforge.common.NeoForgeMod/]: Preparing crash report with UUID a69f4e70-a214-4652-be7d-5e041d0100e2

@@ -13,7 +13,7 @@ public class SculkSamuraiArmorModel extends GeoModel<SculkSamuraiArmorItem> {
 
     @Override
     public ResourceLocation getTextureResource(SculkSamuraiArmorItem object) {
-        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/armor/sculk_samurai_armor_textures.png");
+        return new ResourceLocation(EpicSamuraiMod.MOD_ID, "textures/armor/two_sword_samurai_armor.png");
     }
 
     @Override
