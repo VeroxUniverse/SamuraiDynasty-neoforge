@@ -20,7 +20,7 @@
           "item": "epicsamurai:etyrite_samurai_helmet"
         },
         "template": {
-          "item": "eldritch_end:etyr_upgrade_template"
+          "item": "eldritch_end:etyr_upgrade_pattern"
         }
       }
     }
