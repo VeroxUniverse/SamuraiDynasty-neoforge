@@ -1,15 +1,28 @@
 {
   "values": [
-    "minecraft:leather_chestplate",
-    "minecraft:chainmail_chestplate",
-    "minecraft:iron_chestplate",
-    "minecraft:golden_chestplate",
-    "minecraft:diamond_chestplate",
-    "minecraft:netherite_chestplate",
     "epicsamurai:red_samurai_chestplate",
     "epicsamurai:blue_samurai_chestplate",
     "epicsamurai:gray_samurai_chestplate",
     "epicsamurai:green_samurai_chestplate",
-    "epicsamurai:white_samurai_chestplate"
-  ]
+    "epicsamurai:white_samurai_chestplate",
+    "epicsamurai:iron_samurai_chestplate",
+    "epicsamurai:diamond_samurai_chestplate",
+    "epicsamurai:gold_samurai_chestplate",
+    "epicsamurai:netherite_samurai_chestplate",
+    "epicsamurai:amethyst_samurai_chestplate",
+    "epicsamurai:quartz_samurai_chestplate",
+    "epicsamurai:steel_chestplate",
+    "epicsamurai:brass_samurai_chestplate",
+    "epicsamurai:sculk_samurai_chestplate",
+    "epicsamurai:mage_samurai_chestplate",
+    "epicsamurai:neptunium_samurai_chestplate",
+    "epicsamurai:living_samurai_chestplate",
+    "epicsamurai:etyrite_samurai_chestplate",
+    "epicsamurai:iron_ninja_chestplate",
+    "epicsamurai:steel_ninja_chestplate",
+    "epicsamurai:gold_ninja_chestplate",
+    "epicsamurai:diamond_ninja_chestplate",
+    "epicsamurai:netherite_ninja_chestplate"
+  ],
+  "required": false
 }

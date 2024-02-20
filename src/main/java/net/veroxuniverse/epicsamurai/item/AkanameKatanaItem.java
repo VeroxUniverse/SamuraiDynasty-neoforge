@@ -33,8 +33,7 @@ public class AkanameKatanaItem extends SwordItem {
         if(Screen.hasShiftDown() && stack.getItem() == ItemsRegistry.KATANA_AKANAME.get()) {
             components.add(Component.literal("§8Hold [§7Shift§8] for Summary"));
             components.add(Component.literal(""));
-            components.add(Component.literal("§7Applies §bPoison§7 on hit.").withStyle(ChatFormatting.GRAY));
-            components.add(Component.literal("§7Applies §bHunger§7 on hit.").withStyle(ChatFormatting.GRAY));
+            components.add(Component.literal("§7Applies §bSlowness§7 on hit.").withStyle(ChatFormatting.GRAY));
             components.add(Component.literal(""));
             components.add(Component.literal("§7Ability [§eRight-Click§7]"));
             components.add(Component.literal("§7Applies §bStrength§7.").withStyle(ChatFormatting.GRAY));
@@ -59,8 +58,7 @@ public class AkanameKatanaItem extends SwordItem {
     @Override
     public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
         if(entity instanceof LivingEntity livingEntity) {
-            livingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 1), player);
-            livingEntity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 200, 1), player);
+            livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 1), player);
         }
 
         return super.onLeftClickEntity(stack, player, entity);

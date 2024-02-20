@@ -1,15 +1,28 @@
 {
   "values": [
-    "minecraft:leather_boots",
-    "minecraft:chainmail_boots",
-    "minecraft:iron_boots",
-    "minecraft:golden_boots",
-    "minecraft:diamond_boots",
-    "minecraft:netherite_boots",
     "epicsamurai:red_samurai_boots",
     "epicsamurai:blue_samurai_boots",
     "epicsamurai:gray_samurai_boots",
     "epicsamurai:green_samurai_boots",
-    "epicsamurai:white_samurai_boots"
-  ]
+    "epicsamurai:white_samurai_boots",
+    "epicsamurai:iron_samurai_boots",
+    "epicsamurai:diamond_samurai_boots",
+    "epicsamurai:gold_samurai_boots",
+    "epicsamurai:netherite_samurai_boots",
+    "epicsamurai:amethyst_samurai_boots",
+    "epicsamurai:quartz_samurai_boots",
+    "epicsamurai:steel_boots",
+    "epicsamurai:brass_samurai_boots",
+    "epicsamurai:sculk_samurai_boots",
+    "epicsamurai:mage_samurai_boots",
+    "epicsamurai:neptunium_samurai_boots",
+    "epicsamurai:living_samurai_boots",
+    "epicsamurai:etyrite_samurai_boots",
+    "epicsamurai:iron_ninja_boots",
+    "epicsamurai:steel_ninja_boots",
+    "epicsamurai:gold_ninja_boots",
+    "epicsamurai:diamond_ninja_boots",
+    "epicsamurai:netherite_ninja_boots"
+  ],
+  "required": false
 }

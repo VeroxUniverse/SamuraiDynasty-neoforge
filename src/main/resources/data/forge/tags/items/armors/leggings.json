@@ -1,15 +1,24 @@
 {
   "values": [
-    "minecraft:leather_leggings",
-    "minecraft:chainmail_leggings",
-    "minecraft:iron_leggings",
-    "minecraft:golden_leggings",
-    "minecraft:diamond_leggings",
-    "minecraft:netherite_leggings",
     "epicsamurai:red_samurai_leggings",
     "epicsamurai:blue_samurai_leggings",
     "epicsamurai:gray_samurai_leggings",
     "epicsamurai:green_samurai_leggings",
-    "epicsamurai:white_samurai_leggings"
-  ]
+    "epicsamurai:white_samurai_leggings",
+    "epicsamurai:iron_samurai_leggings",
+    "epicsamurai:diamond_samurai_leggings",
+    "epicsamurai:gold_samurai_leggings",
+    "epicsamurai:netherite_samurai_leggings",
+    "epicsamurai:amethyst_samurai_leggings",
+    "epicsamurai:quartz_samurai_leggings",
+    "epicsamurai:steel_leggings",
+    "epicsamurai:brass_samurai_leggings",
+    "epicsamurai:sculk_samurai_leggings",
+    "epicsamurai:mage_samurai_leggings",
+    "epicsamurai:neptunium_samurai_leggings",
+    "epicsamurai:living_samurai_leggings",
+    "epicsamurai:etyrite_samurai_leggings",
+    "epicsamurai:ninja_leggings"
+  ],
+  "required": false
 }
