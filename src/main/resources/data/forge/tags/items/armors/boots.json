@@ -12,17 +12,18 @@
     "epicsamurai:amethyst_samurai_boots",
     "epicsamurai:quartz_samurai_boots",
     "epicsamurai:steel_boots",
-    "epicsamurai:brass_samurai_boots",
-    "epicsamurai:sculk_samurai_boots",
-    "epicsamurai:mage_samurai_boots",
-    "epicsamurai:neptunium_samurai_boots",
-    "epicsamurai:living_samurai_boots",
-    "epicsamurai:etyrite_samurai_boots",
+    {"id": "epicsamurai:brass_samurai_boots", "required":  false},
+    {"id": "epicsamurai:sculk_samurai_boots", "required":  false},
+    {"id": "epicsamurai:mage_samurai_boots", "required":  false},
+    {"id": "epicsamurai:neptunium_samurai_boots", "required":  false},
+    {"id": "epicsamurai:living_samurai_boots", "required":  false},
+    {"id": "epicsamurai:etyrite_samurai_boots", "required":  false},
+    {"id": "epicsamurai:tyr_samurai_boots", "required":  false},
+    {"id": "epicsamurai:draco_samurai_boots", "required":  false},
     "epicsamurai:iron_ninja_boots",
     "epicsamurai:steel_ninja_boots",
     "epicsamurai:gold_ninja_boots",
     "epicsamurai:diamond_ninja_boots",
     "epicsamurai:netherite_ninja_boots"
-  ],
-  "required": false
+  ]
 }

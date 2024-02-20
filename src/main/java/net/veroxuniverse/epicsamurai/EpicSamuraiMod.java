@@ -78,6 +78,9 @@ public class EpicSamuraiMod
         if(ModList.get().isLoaded("bloodmagic")) {
             BloodMagicCompat.register(modEventBus);
         }
+        if(ModList.get().isLoaded("forbidden_arcanus")) {
+            ForbiddenCompat.register(modEventBus);
+        }
 
 
         modEventBus.addListener(this::commonSetup);

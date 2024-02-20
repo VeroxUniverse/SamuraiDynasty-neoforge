@@ -156,6 +156,13 @@ dependencies {
     compileOnly fg.deobf("curse.maven:aquaculture-60028:${aquaculture_version}")
     runtimeOnly fg.deobf("curse.maven:aquaculture-60028:${aquaculture_version}")
 
+    // Forbidden and Arcanus
+
+    compileOnly fg.deobf("curse.maven:forbidden-arcanus-309858:${fa_version}")
+    runtimeOnly fg.deobf("curse.maven:forbidden-arcanus-309858:${fa_version}")
+    compileOnly fg.deobf("curse.maven:valhelsia-core-416935:4735319")
+    runtimeOnly fg.deobf("curse.maven:valhelsia-core-416935:4735319")
+
     // Better Combat
 
     //runtimeOnly fg.deobf("curse.maven:better-combat-by-daedelus-639842:${bettercombat_version}-forge")

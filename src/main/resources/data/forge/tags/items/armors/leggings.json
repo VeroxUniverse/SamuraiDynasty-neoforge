@@ -12,13 +12,14 @@
     "epicsamurai:amethyst_samurai_leggings",
     "epicsamurai:quartz_samurai_leggings",
     "epicsamurai:steel_leggings",
-    "epicsamurai:brass_samurai_leggings",
-    "epicsamurai:sculk_samurai_leggings",
-    "epicsamurai:mage_samurai_leggings",
-    "epicsamurai:neptunium_samurai_leggings",
-    "epicsamurai:living_samurai_leggings",
-    "epicsamurai:etyrite_samurai_leggings",
+    {"id": "epicsamurai:brass_samurai_leggings", "required":  false},
+    {"id": "epicsamurai:sculk_samurai_leggings", "required":  false},
+    {"id": "epicsamurai:mage_samurai_leggings", "required":  false},
+    {"id": "epicsamurai:neptunium_samurai_leggings", "required":  false},
+    {"id": "epicsamurai:living_samurai_leggings", "required":  false},
+    {"id": "epicsamurai:etyrite_samurai_leggings", "required":  false},
+    {"id": "epicsamurai:tyr_samurai_leggings", "required":  false},
+    {"id": "epicsamurai:draco_samurai_leggings", "required":  false},
     "epicsamurai:ninja_leggings"
-  ],
-  "required": false
+  ]
 }

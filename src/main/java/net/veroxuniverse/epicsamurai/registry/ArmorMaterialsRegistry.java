@@ -1,6 +1,7 @@
 package net.veroxuniverse.epicsamurai.registry;
 
 import com.google.common.base.Suppliers;
+import com.stal111.forbidden_arcanus.core.init.ModItems;
 import com.teammetallurgy.aquaculture.init.AquaItems;
 import net.minecraft.Util;
 import net.minecraft.sounds.SoundEvent;
@@ -201,6 +202,35 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
         armor.put(ArmorItem.Type.HELMET, 1);
     }), 7, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F,
             () -> Ingredient.of(Items.WHEAT)),
+
+    SAMURAI_TYR("samurai_tyr", 50,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 8);
+        armor.put(ArmorItem.Type.LEGGINGS, 10);
+        armor.put(ArmorItem.Type.CHESTPLATE, 12);
+        armor.put(ArmorItem.Type.HELMET, 7);
+    }), 25, SoundEvents.ARMOR_EQUIP_IRON, 4.0F, 0.2F,
+            () -> {
+                if (ModList.get().isLoaded("forbidden_arcanus")) {
+                    return Ingredient.of(ModItems.AQUATIC_DRAGON_SCALE.get());
+                } else {
+                    return Ingredient.of(Items.GOLD_INGOT);
+                }
+            }),
+
+    SAMURAI_DRACO("samurai_draco", 40,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 6);
+        armor.put(ArmorItem.Type.LEGGINGS, 8);
+        armor.put(ArmorItem.Type.CHESTPLATE, 10);
+        armor.put(ArmorItem.Type.HELMET, 16);
+    }), 15, SoundEvents.ARMOR_EQUIP_IRON, 3.0F, 0.1F,
+            () -> {
+                if (ModList.get().isLoaded("forbidden_arcanus")) {
+                    return Ingredient.of(ModItems.DRAGON_SCALE.get());
+                } else {
+                    return Ingredient.of(Items.GOLD_INGOT);
+                }
+            }),
+
 
     CLOTH("cloth", 15,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
         armor.put(ArmorItem.Type.BOOTS, 1);

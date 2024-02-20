@@ -1,0 +1,35 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "forbidden_arcanus"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "key": {
+          "X": {
+            "item": "forbidden_arcanus:obsidian_ingot"
+          },
+          "Y": {
+            "item": "forbidden_arcanus:dragon_scale"
+          },
+          "S": {
+            "tag": "forge:ingots/steel"
+          }
+        },
+        "pattern": [
+          "XYX",
+          "YSY",
+          "X X"
+        ],
+        "result": {
+          "item": "epicsamurai:draco_samurai_leggings"
+        }
+      }
+    }
+  ]
+}

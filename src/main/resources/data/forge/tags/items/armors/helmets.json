@@ -12,12 +12,14 @@
     "epicsamurai:amethyst_samurai_helmet",
     "epicsamurai:quartz_samurai_helmet",
     "epicsamurai:steel_helmet",
-    "epicsamurai:brass_samurai_helmet",
-    "epicsamurai:sculk_samurai_helmet",
-    "epicsamurai:mage_samurai_helmet",
-    "epicsamurai:neptunium_samurai_helmet",
-    "epicsamurai:living_samurai_helmet",
-    "epicsamurai:etyrite_samurai_helmet",
+    {"id": "epicsamurai:brass_samurai_helmet", "required":  false},
+    {"id": "epicsamurai:sculk_samurai_helmet", "required":  false},
+    {"id": "epicsamurai:mage_samurai_helmet", "required":  false},
+    {"id": "epicsamurai:neptunium_samurai_helmet", "required":  false},
+    {"id": "epicsamurai:living_samurai_helmet", "required":  false},
+    {"id": "epicsamurai:etyrite_samurai_helmet", "required":  false},
+    {"id": "epicsamurai:tyr_samurai_helmet", "required":  false},
+    {"id": "epicsamurai:draco_samurai_helmet", "required":  false},
     "epicsamurai:iron_ninja_helmet",
     "epicsamurai:steel_ninja_helmet",
     "epicsamurai:gold_ninja_helmet",
@@ -30,6 +32,5 @@
     "epicsamurai:mask_straw_hat",
     "epicsamurai:oni_mask",
     "epicsamurai:kitsune_mask"
-  ],
-  "required": false
+  ]
 }
