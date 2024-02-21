@@ -1,4 +1,4 @@
-// 1.20.1	2023-11-16T00:54:33.7287898	Block Tags
-cf5f9745123458d560f2e25ebc4a842d20e88354 data/minecraft/tags/blocks/mineable/pickaxe.json
-cf5f9745123458d560f2e25ebc4a842d20e88354 data/minecraft/tags/blocks/needs_iron_tool.json
+// 1.20.1	2024-02-21T03:20:36.6128641	Block Tags
+c7fddcb4d196c809af4f56781ad9f24592e92144 data/minecraft/tags/blocks/mineable/pickaxe.json
+c7fddcb4d196c809af4f56781ad9f24592e92144 data/minecraft/tags/blocks/needs_iron_tool.json
 b2cea57f3ac7055b27e68a2b7ccf8bc743a25514 data/minecraft/tags/blocks/walls.json

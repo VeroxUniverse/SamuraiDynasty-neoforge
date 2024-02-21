@@ -1,18 +1,33 @@
 {
   "variants": {
-    "facing=east": {
-      "model": "epicsamurai:block/komainu_statue",
+    "facing=west,half=lower": {
+      "model": "epicsamurai:block/komainu_statue_lower",
       "y": 90
     },
-    "facing=north": {
-      "model": "epicsamurai:block/komainu_statue"
+    "facing=south,half=lower": {
+      "model": "epicsamurai:block/komainu_statue_lower"
     },
-    "facing=south": {
-      "model": "epicsamurai:block/komainu_statue",
+    "facing=north,half=lower": {
+      "model": "epicsamurai:block/komainu_statue_lower",
       "y": 180
     },
-    "facing=west": {
-      "model": "epicsamurai:block/komainu_statue",
+    "facing=east,half=lower": {
+      "model": "epicsamurai:block/komainu_statue_lower",
+      "y": 270
+    },
+    "facing=west,half=upper": {
+      "model": "epicsamurai:block/komainu_statue_top",
+      "y": 90
+    },
+    "facing=south,half=upper": {
+      "model": "epicsamurai:block/komainu_statue_top"
+    },
+    "facing=north,half=upper": {
+      "model": "epicsamurai:block/komainu_statue_top",
+      "y": 180
+    },
+    "facing=east,half=upper": {
+      "model": "epicsamurai:block/komainu_statue_top",
       "y": 270
     }
   }

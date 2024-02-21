@@ -55,7 +55,14 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                         BlocksRegistry.MOSSY_SPIRIT_STONE_BRICK_WALL.get(),
                         BlocksRegistry.MOSSY_SPIRIT_STONE_BRICK_SLAB.get(),
                         BlocksRegistry.MOSSY_SPIRIT_STONE_BRICK_STAIRS.get(),
-                        BlocksRegistry.DRAGON_SPIRIT_STONE.get());
+                        BlocksRegistry.DRAGON_SPIRIT_STONE.get(),
+                        BlocksRegistry.SPIRIT_STONE_BASE.get(),
+                        BlocksRegistry.TANUKI_STATUE.get(),
+                        BlocksRegistry.KOMAINU_STATUE.get(),
+                        BlocksRegistry.KAWAUSO_STATUE.get(),
+                        BlocksRegistry.STONE_ROOF.get(),
+                        BlocksRegistry.STONE_ROOF_TOP.get(),
+                        BlocksRegistry.STONE_ROOF_CORNER.get());
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(BlocksRegistry.SPIRIT_STONE.get(),
@@ -92,7 +99,16 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                         BlocksRegistry.MOSSY_SPIRIT_STONE_BRICK_WALL.get(),
                         BlocksRegistry.MOSSY_SPIRIT_STONE_BRICK_SLAB.get(),
                         BlocksRegistry.MOSSY_SPIRIT_STONE_BRICK_STAIRS.get(),
-                        BlocksRegistry.DRAGON_SPIRIT_STONE.get());
+                        BlocksRegistry.DRAGON_SPIRIT_STONE.get(),
+                        BlocksRegistry.TANUKI_STATUE.get(),
+                        BlocksRegistry.KOMAINU_STATUE.get(),
+                        BlocksRegistry.KAWAUSO_STATUE.get(),
+                        BlocksRegistry.STONE_ROOF.get(),
+                        BlocksRegistry.STONE_ROOF_TOP.get(),
+                        BlocksRegistry.STONE_ROOF_CORNER.get());
+
+        this.tag(BlockTags.NEEDS_STONE_TOOL)
+                .add(BlocksRegistry.SPIRIT_STONE_BASE.get());
 
         this.tag(BlockTags.WALLS)
                 .add(BlocksRegistry.SPIRIT_STONE_WALL.get(),

@@ -2,27 +2,36 @@ package net.veroxuniverse.epicsamurai.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nullable;
+
 public class StatueBlock extends HorizontalDirectionalBlock {
+    public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
-    public static final VoxelShape SHAPE_BASE = Block.box(1.0D, 0.01D, 1.0D, 15.0D, 30.0D, 15.0D);
-    public static final VoxelShape SHAPE_OCCLUSION = Block.box(0D, 0D, 0D, 16.0D, 32.0D, 16.0D);
+    public static final VoxelShape SHAPE_BASE = Block.box(1.0D, 0.01D, 1.0D, 15.0D, 16.0D, 15.0D);
+    public static final VoxelShape SHAPE_OCCLUSION = Block.box(0D, 0D, 0D, 16.0D, 16.0D, 16.0D);
 
     public StatueBlock(BlockBehaviour.Properties pProperties) {
         super(pProperties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
+        this.registerDefaultState(this.stateDefinition.any()
+                .setValue(FACING, Direction.NORTH)
+                .setValue(HALF, DoubleBlockHalf.LOWER));
     }
 
 
@@ -36,10 +45,6 @@ public class StatueBlock extends HorizontalDirectionalBlock {
 
     public boolean useShapeForLightOcclusion(BlockState pState) {
         return true;
-    }
-
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
     }
 
     public @NotNull VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
@@ -60,7 +65,32 @@ public class StatueBlock extends HorizontalDirectionalBlock {
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(FACING);
+        pBuilder.add(HALF, FACING);
     }
+
+    @Nullable
+    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+        BlockPos blockpos = pContext.getClickedPos();
+        Level level = pContext.getLevel();
+        if (blockpos.getY() < level.getMaxBuildHeight() - 1 && level.getBlockState(blockpos.above()).canBeReplaced(pContext)) {
+            return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection()).setValue(HALF, DoubleBlockHalf.LOWER);
+        } else {
+            return null;
+        }
+    }
+
+    public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
+        DoubleBlockHalf doubleblockhalf = pState.getValue(HALF);
+        if (pFacing.getAxis() == Direction.Axis.Y && doubleblockhalf == DoubleBlockHalf.LOWER == (pFacing == Direction.UP)) {
+            return pFacingState.is(this) && pFacingState.getValue(HALF) != doubleblockhalf ? pState.setValue(FACING, pFacingState.getValue(FACING)) : Blocks.AIR.defaultBlockState();
+        } else {
+            return doubleblockhalf == DoubleBlockHalf.LOWER && pFacing == Direction.DOWN && !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
+        }
+    }
+
+    public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, LivingEntity pPlacer, ItemStack pStack) {
+        pLevel.setBlock(pPos.above(), pState.setValue(HALF, DoubleBlockHalf.UPPER), 3);
+    }
+
 
 }

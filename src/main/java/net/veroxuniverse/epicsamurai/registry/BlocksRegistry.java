@@ -11,6 +11,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.block.DragonBlock;
+import net.veroxuniverse.epicsamurai.block.RoofBlock;
+import net.veroxuniverse.epicsamurai.block.StatueBlock;
 
 import java.util.function.Supplier;
 public class BlocksRegistry {
@@ -73,6 +75,10 @@ public class BlocksRegistry {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIAMOND_BLOCK)
                     .strength(4f).requiresCorrectToolForDrops()));
 
+    public static final RegistryObject<Block> SPIRIT_STONE_BASE = registerBlock("spirit_stone_base",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(4f).requiresCorrectToolForDrops()));
+
     public static final RegistryObject<Block> SPIRIT_STONE = registerBlock("spirit_stone",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)
                     .strength(4f).requiresCorrectToolForDrops()));
@@ -133,8 +139,6 @@ public class BlocksRegistry {
 
     //* WORK IN PROGRESS *//
 
-     /*
-
     public static final RegistryObject<Block> TANUKI_STATUE = registerBlock("tanuki_statue",
             () -> new StatueBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()
                     .strength(4f).requiresCorrectToolForDrops()));
@@ -157,7 +161,6 @@ public class BlocksRegistry {
             () -> new RoofBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()
                     .strength(4f).requiresCorrectToolForDrops()));
 
-     */
 
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);
