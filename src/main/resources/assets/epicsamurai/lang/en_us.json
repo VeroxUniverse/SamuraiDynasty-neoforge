@@ -164,6 +164,14 @@
   "item.epicsamurai.draco_samurai_chestplate": "Draco Arcanus Chesplate",
   "item.epicsamurai.draco_samurai_leggings": "Draco Arcanus Leggings",
   "item.epicsamurai.draco_samurai_boots": "Draco Arcanus Boots",
+  "item.epicsamurai.tanegashima": "Tanegashima",
+  "item.epicsamurai.odachi": "Odachi",
+  "item.epicsamurai.kamayari": "Kamayari",
+  "item.epicsamurai.tonbukiri": "Tonbukiri",
+  "item.epicsamurai.odachi_netherite": "Netherite Odachi",
+  "item.epicsamurai.kamayari_netherite": "Netherite Kamayari",
+  "item.epicsamurai.tonbukiri_netherite": "Netherite Tonbukiri",
+  "item.epicsamurai.bullet": "Bullet",
 
   "entity.epicsamurai.oni": "Oni",
   "entity.epicsamurai.akaname": "Akaname",
@@ -235,6 +243,11 @@
   "info.epicsamurai.mask.ability_3": "§7Immune to §bSlowness§7.",
 
 
-  "enchantment.epicsamurai.returning_blade.desc": "The Kunai does not lose durability when used."
+  "enchantment.epicsamurai.returning_blade.desc": "The Kunai does not lose durability when used.",
+
+  "sound.epicsamurai.gun_hit": "Gun Hit",
+  "sound.epicsamurai.gun_shoot": "Gun Shot",
+  "sound.epicsamurai.gun_reload": "Gun Reloading",
+  "sound.epicsamurai.gun_reload_drop": "Gun Reloaded"
 
 }

@@ -10,6 +10,7 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.compat.ArsNouveauCompat;
+import net.veroxuniverse.epicsamurai.curios.model.OniMaskModel;
 import net.veroxuniverse.epicsamurai.particle.BlueFlame;
 import net.veroxuniverse.epicsamurai.registry.ParticlesInit;
 
@@ -46,8 +47,13 @@ public class EpicSamuraiClientMod {
     }
 
     @SubscribeEvent
-    public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
+    public static void registerRenderers(final EntityRenderersEvent event) {
 
+    }
+
+    @SubscribeEvent
+    public static void registerLayerRenderers(final EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(OniMaskModel.LAYER_LOCATION, OniMaskModel::createBodyLayer);
     }
 
 

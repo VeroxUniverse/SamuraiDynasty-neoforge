@@ -1,0 +1,29 @@
+{
+  "gun_reload": {
+    "subtitle": "sounds.epicsamurai.gun_reload",
+    "sounds": [
+      "epicsamurai:gun_reload1",
+      "epicsamurai:gun_reload2"
+    ]
+  },
+  "gun_hit": {
+    "subtitle": "sounds.epicsamurai.gun_hit",
+    "sounds": [
+      "epicsamurai:gun_hit"
+    ]
+  },
+  "gun_reload_drop": {
+    "subtitle": "sounds.epicsamurai.gun_reload_drop",
+    "sounds": [
+      "epicsamurai:gun_reload_drop"
+    ]
+  },
+  "gun_shoot": {
+    "subtitle": "sounds.epicsamurai.gun_shoot",
+    "sounds": [
+      "epicsamurai:gun_shoot1",
+      "epicsamurai:gun_shoot2",
+      "epicsamurai:gun_shoot3"
+    ]
+  }
+}

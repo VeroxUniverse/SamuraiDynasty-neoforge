@@ -221,7 +221,7 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
         armor.put(ArmorItem.Type.BOOTS, 6);
         armor.put(ArmorItem.Type.LEGGINGS, 8);
         armor.put(ArmorItem.Type.CHESTPLATE, 10);
-        armor.put(ArmorItem.Type.HELMET, 16);
+        armor.put(ArmorItem.Type.HELMET, 6);
     }), 15, SoundEvents.ARMOR_EQUIP_IRON, 3.0F, 0.1F,
             () -> {
                 if (ModList.get().isLoaded("forbidden_arcanus")) {

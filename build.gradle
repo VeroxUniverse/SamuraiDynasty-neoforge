@@ -14,6 +14,12 @@ base {
     archivesName = mod_id
 }
 
+mixin {
+    add(sourceSets.main, "epicsamurai.refmap.json")
+
+    config("epicsamurai.mixins.json")
+}
+
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
@@ -94,9 +100,11 @@ dependencies {
     implementation("com.github.llamalad7.mixinextras:mixinextras-forge:${mixinextras_version}")
     implementation fg.deobf("mod.azure.azurelib:azurelib-neo-${minecraft_version}:${azurelib_version}")
 
+    compileOnly(fg.deobf("top.theillusivec4.curios:curios-forge:${curio_version}:api"))
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curio_version}")
+
     // Ars Nouveau
 
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curio_version}")
     compileOnly fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
     runtimeOnly fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
 
@@ -165,16 +173,16 @@ dependencies {
 
     // Better Combat
 
-    //runtimeOnly fg.deobf("curse.maven:better-combat-by-daedelus-639842:${bettercombat_version}-forge")
-    //runtimeOnly fg.deobf("curse.maven:cloth-config-348521:${cloth_version}-forge")
-    //runtimeOnly fg.deobf("curse.maven:playeranimator-658587:${playeranimator_version}-forge")
+    runtimeOnly fg.deobf("curse.maven:better-combat-by-daedelus-639842:${bettercombat_version}-forge")
+    runtimeOnly fg.deobf("curse.maven:cloth-config-348521:${cloth_version}-forge")
+    runtimeOnly fg.deobf("curse.maven:playeranimator-658587:${playeranimator_version}-forge")
 
     // Epic Fight
 
     //runtimeOnly fg.deobf("curse.maven:epic-fight-mod-405076:${epicfight_version}")
 
 
-    annotationProcessor 'org.spongepowered:mixin:0.8.4:processor'
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 tasks.withType(ProcessResources).configureEach {
@@ -183,7 +191,8 @@ tasks.withType(ProcessResources).configureEach {
             forge_version: forge_version, forge_version_range: forge_version_range,
             loader_version_range: loader_version_range,
             mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
-            mod_authors: mod_authors, mod_description: mod_description, azurelib_version_range: azurelib_version_range
+            mod_authors: mod_authors, mod_description: mod_description, azurelib_version_range: azurelib_version_range,
+            curios_version_range: curios_version_range
     ]
     inputs.properties replaceProperties
 

@@ -100,9 +100,9 @@ public class ModEntityTypes {
                             .fireImmune()
                             .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "kawauso").toString()));
 
-    public static final RegistryObject<EntityType<ShurikenEntity>> SHURIKEN =
+    public static final RegistryObject<EntityType<ThrownShurikenEntity>> SHURIKEN =
             ENTITY_TYPES.register("shuriken",
-                    () -> EntityType.Builder.<ShurikenEntity>of(ShurikenEntity::new, MobCategory.MISC)
+                    () -> EntityType.Builder.<ThrownShurikenEntity>of(ThrownShurikenEntity::new, MobCategory.MISC)
                             .sized(0.25F, 0.25F)
                             .clientTrackingRange(4)
                             .updateInterval(10)
@@ -115,6 +115,14 @@ public class ModEntityTypes {
                             .clientTrackingRange(4)
                             .updateInterval(20)
                             .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "kunai").toString()));
+
+    public static final RegistryObject<EntityType<BulletEntity>> BULLET =
+            ENTITY_TYPES.register("bullet",
+                    () -> EntityType.Builder.<BulletEntity>of(BulletEntity::new, MobCategory.MISC)
+                            .sized(0.25F, 0.25F)
+                            .clientTrackingRange(4)
+                            .updateInterval(20)
+                            .build(new ResourceLocation(EpicSamuraiMod.MOD_ID, "bullet").toString()));
 
     public static final RegistryObject<EntityType<NetheriteKunaiEntity>> KUNAI_NETHERITE =
             ENTITY_TYPES.register("kunai_netherite",

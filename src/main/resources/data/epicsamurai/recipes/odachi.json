@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "tag": "forge:ingots/steel"
+    },
+    "K": {
+      "item": "epicsamurai:katana"
+    }
+  },
+  "pattern": [
+    "  S",
+    " K ",
+    "S  "
+  ],
+  "result": {
+    "item": "epicsamurai:odachi"
+  }
+}

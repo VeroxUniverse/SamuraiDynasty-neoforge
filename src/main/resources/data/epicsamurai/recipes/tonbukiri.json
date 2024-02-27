@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "tag": "forge:ingots/steel"
+    },
+    "W": {
+      "item": "epicsamurai:katana_handle"
+    }
+  },
+  "pattern": [
+    "  S",
+    "SS ",
+    "WS "
+  ],
+  "result": {
+    "item": "epicsamurai:tonbukiri"
+  }
+}

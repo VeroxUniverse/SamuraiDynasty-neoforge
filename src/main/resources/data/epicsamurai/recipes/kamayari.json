@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "tag": "forge:ingots/steel"
+    },
+    "G": {
+      "tag": "forge:nuggets/steel"
+    },
+    "W": {
+      "item": "epicsamurai:katana_handle"
+    }
+  },
+  "pattern": [
+    " GS",
+    " SG",
+    "W  "
+  ],
+  "result": {
+    "item": "epicsamurai:kamayari"
+  }
+}

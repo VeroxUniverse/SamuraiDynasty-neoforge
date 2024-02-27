@@ -11,11 +11,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.fml.ModList;
-import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.compat_armors.aquaculture.NeptuniumSamuraiArmorRenderer;
-import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.straw_hat.MaskStrawHatArmorRenderer;
+import net.veroxuniverse.epicsamurai.client.armors.samurai_armor.compat_armors.aquaculture.NeptuniumSamuraiArmorRenderer;
 import net.veroxuniverse.epicsamurai.item.armor.lib.SamuraiArmorItem;
 import org.jetbrains.annotations.NotNull;
 

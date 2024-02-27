@@ -1,5 +1,5 @@
 package net.veroxuniverse.epicsamurai.entity.custom;
-
+/*
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -77,3 +77,5 @@ public class ShurikenEntity extends ThrowableItemProjectile {
         super.onHitBlock(pResult);
     }
 }
+
+ */

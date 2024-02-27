@@ -12,14 +12,10 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
-import net.veroxuniverse.epicsamurai.client.custom_armors.kimono.KimonoArmorRenderer;
-import net.veroxuniverse.epicsamurai.client.custom_armors.samurai_armor.kitsune_mask.KitsuneMaskArmorRenderer;
+import net.veroxuniverse.epicsamurai.client.armors.samurai_armor.kitsune_mask.KitsuneMaskArmorRenderer;
 import net.veroxuniverse.epicsamurai.item.armor.lib.SamuraiArmorItem;
 import net.veroxuniverse.epicsamurai.registry.ArmorMaterialsRegistry;
 import net.veroxuniverse.epicsamurai.registry.ItemsRegistry;
-import net.veroxuniverse.epicsamurai.utils.HelperMethods;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

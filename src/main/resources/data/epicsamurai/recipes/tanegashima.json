@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "tag": "forge:ingots/steel"
+    },
+    "G": {
+      "tag": "forge:ingots/gold"
+    },
+    "W": {
+      "item": "minecraft:spyglass"
+    },
+    "B": {
+      "tag": "minecraft:buttons"
+    }
+  },
+  "pattern": [
+    " W ",
+    "GSS",
+    "SB "
+  ],
+  "result": {
+    "item": "epicsamurai:tanegashima"
+  }
+}

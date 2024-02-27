@@ -13,8 +13,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.veroxuniverse.epicsamurai.client.custom_entities.*;
+import net.veroxuniverse.epicsamurai.client.entities.*;
+import net.veroxuniverse.epicsamurai.client.projectiles.ThrownShurikenRenderer;
 import net.veroxuniverse.epicsamurai.compat.*;
+import net.veroxuniverse.epicsamurai.curios.layers.OniMaskRenderer;
 import net.veroxuniverse.epicsamurai.datagen.loot.ModLootModifiers;
 import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
@@ -23,8 +25,10 @@ import net.veroxuniverse.epicsamurai.registry.BlocksRegistry;
 import net.veroxuniverse.epicsamurai.registry.CreativeTabRegistry;
 import net.veroxuniverse.epicsamurai.registry.ItemsRegistry;
 import net.veroxuniverse.epicsamurai.registry.ParticlesInit;
+import net.veroxuniverse.epicsamurai.sound.ESSounds;
 import org.slf4j.Logger;
 import software.bernie.geckolib.GeckoLib;
+import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
 import static com.simibubi.create.content.equipment.goggles.GogglesItem.addIsWearingPredicate;
 
@@ -33,7 +37,7 @@ import static com.simibubi.create.content.equipment.goggles.GogglesItem.addIsWea
 public class EpicSamuraiMod
 {
     public static final String MOD_ID = "epicsamurai";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public EpicSamuraiMod()
     {
@@ -53,9 +57,6 @@ public class EpicSamuraiMod
         ItemsRegistry.register(modEventBus);
         BlocksRegistry.register(modEventBus);
         ParticlesInit.register(modEventBus);
-
-
-
 
         CreativeTabRegistry.register(modEventBus);
 
@@ -82,6 +83,7 @@ public class EpicSamuraiMod
             ForbiddenCompat.register(modEventBus);
         }
 
+        ESSounds.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
@@ -124,10 +126,14 @@ public class EpicSamuraiMod
             EntityRenderers.register(ModEntityTypes.TWOTAILED.get(), TwoTailedRenderer::new);
 
             EntityRenderers.register(ModEntityTypes.KITSUNE_PROJECTILE.get(), KitsuneProjectileRenderer::new);
-            EntityRenderers.register(ModEntityTypes.SHURIKEN.get(), ThrownItemRenderer::new);
+            EntityRenderers.register(ModEntityTypes.BULLET.get(), BulletRenderer::new);
+            EntityRenderers.register(ModEntityTypes.SHURIKEN.get(), ThrownShurikenRenderer::new);
             EntityRenderers.register(ModEntityTypes.KUNAI.get(), ThrownItemRenderer::new);
             EntityRenderers.register(ModEntityTypes.KUNAI_NETHERITE.get(), ThrownItemRenderer::new);
 
+            CuriosRendererRegistry.register(ItemsRegistry.ONI_MASK.get(), OniMaskRenderer::new);
+
         }
     }
+
 }

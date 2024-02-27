@@ -1,0 +1,33 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.tanegashima.reload": {
+			"animation_length": 1,
+			"bones": {
+				"bullet": {
+					"position": {
+						"0.0": {
+							"vector": [0, -44, 0]
+						},
+						"0.1667": {
+							"vector": [6, -5, 0]
+						},
+						"0.5417": {
+							"vector": [5, 5, 2]
+						},
+						"0.7083": {
+							"vector": [0.14, 2.71, 0.86]
+						},
+						"0.8333": {
+							"vector": [0, 1, 0]
+						}
+					}
+				}
+			}
+		},
+		"animation.tanegashima.idle": {
+			"loop": true
+		}
+	},
+	"geckolib_format_version": 2
+}
