@@ -5,7 +5,6 @@ import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
 import mod.azure.azurelib.core.animation.AnimatableManager;
 import mod.azure.azurelib.core.animation.AnimationController;
 import mod.azure.azurelib.core.animation.AnimationState;
-import mod.azure.azurelib.core.animation.RawAnimation;
 import mod.azure.azurelib.core.object.PlayState;
 import mod.azure.azurelib.util.AzureLibUtil;
 import net.minecraft.world.entity.LivingEntity;
@@ -14,7 +13,6 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.veroxuniverse.epicsamurai.utils.HelperMethods;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -43,11 +41,6 @@ public class SamuraiArmorItem extends ArmorItem implements GeoItem {
     @Override
     public boolean canWalkOnPowderedSnow(ItemStack stack, LivingEntity wearer) {
         return true;
-    }
-
-    @Override
-    public void onArmorTick(ItemStack stack, Level level, Player player) {
-        HelperMethods.onMaskArmorTick(level, player, this.type == Type.HELMET);
     }
 
     @Override

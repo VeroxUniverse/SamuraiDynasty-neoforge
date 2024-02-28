@@ -16,6 +16,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.veroxuniverse.epicsamurai.client.entities.*;
 import net.veroxuniverse.epicsamurai.client.projectiles.ThrownShurikenRenderer;
 import net.veroxuniverse.epicsamurai.compat.*;
+import net.veroxuniverse.epicsamurai.curios.layers.KitsuneMaskRenderer;
 import net.veroxuniverse.epicsamurai.curios.layers.OniMaskRenderer;
 import net.veroxuniverse.epicsamurai.datagen.loot.ModLootModifiers;
 import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
@@ -124,14 +125,15 @@ public class EpicSamuraiMod
             EntityRenderers.register(ModEntityTypes.TANUKI.get(), TanukiRenderer::new);
             EntityRenderers.register(ModEntityTypes.KAWAUSO.get(), KawausoRenderer::new);
             EntityRenderers.register(ModEntityTypes.TWOTAILED.get(), TwoTailedRenderer::new);
+            EntityRenderers.register(ModEntityTypes.SHURIKEN.get(), ThrownShurikenRenderer::new);
 
             EntityRenderers.register(ModEntityTypes.KITSUNE_PROJECTILE.get(), KitsuneProjectileRenderer::new);
             EntityRenderers.register(ModEntityTypes.BULLET.get(), BulletRenderer::new);
-            EntityRenderers.register(ModEntityTypes.SHURIKEN.get(), ThrownShurikenRenderer::new);
             EntityRenderers.register(ModEntityTypes.KUNAI.get(), ThrownItemRenderer::new);
             EntityRenderers.register(ModEntityTypes.KUNAI_NETHERITE.get(), ThrownItemRenderer::new);
 
             CuriosRendererRegistry.register(ItemsRegistry.ONI_MASK.get(), OniMaskRenderer::new);
+            CuriosRendererRegistry.register(ItemsRegistry.KITSUNE_MASK.get(), KitsuneMaskRenderer::new);
 
         }
     }

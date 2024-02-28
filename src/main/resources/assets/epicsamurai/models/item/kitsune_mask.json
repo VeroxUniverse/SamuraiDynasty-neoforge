@@ -1,6 +1,18 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "epicsamurai:item/kitsune_mask"
+  "parent": "epicsamurai:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "epicsamurai:item/kitsune_mask3d"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "epicsamurai:item/kitsune_mask2d"
+    },
+    "ground": {
+      "parent": "epicsamurai:item/kitsune_mask2d"
+    },
+    "fixed": {
+      "parent": "epicsamurai:item/kitsune_mask3d"
+    }
   }
 }

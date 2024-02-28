@@ -31,6 +31,8 @@ import net.minecraft.world.phys.Vec3;
 import net.veroxuniverse.epicsamurai.entity.custom.ThrownShurikenEntity;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.joml.Quaternionf;
+import org.joml.Vector3f;
 
 import java.util.List;
 
@@ -54,7 +56,11 @@ public class ShurikenItem extends Item implements Vanishable {
         pLevel.playSound((Player)null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.TRIDENT_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (pLevel.getRandom().nextFloat() * 0.4F + 0.8F));
         if (!pLevel.isClientSide) {
             ThrownShurikenEntity shurikenEntity = new ThrownShurikenEntity(pLevel, pPlayer, itemstack);
-            shurikenEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 2.5F, 2.0F);
+            Vec3 vec31 = pPlayer.getUpVector(1.0F);
+            Quaternionf quaternionf = (new Quaternionf()).setAngleAxis((double) (((float) Math.PI / 180F)), vec31.x, vec31.y, vec31.z);
+            Vec3 vec3 = pPlayer.getViewVector(1.0F);
+            Vector3f vector3f = vec3.toVector3f().rotate(quaternionf);
+            shurikenEntity.shoot((double) vector3f.x(), (double) vector3f.y(), (double) vector3f.z(), 2.5F, 2.0F);
             if (pPlayer.getAbilities().instabuild) {
                 shurikenEntity.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
             }
