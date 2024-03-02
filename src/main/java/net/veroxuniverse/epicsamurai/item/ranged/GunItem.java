@@ -61,7 +61,7 @@ public class GunItem extends GunItemBase implements Vanishable, GeoItem {
     private boolean midLoadSoundPlayed = false;
     private static final float START_SOUND_PERCENT = 0.2F;
     private static final float MID_SOUND_PERCENT = 0.5F;
-    private static final float BULLET_POWER = 20.0F;
+    private static final float BULLET_POWER = 14.0F;
     private static final float FIREWORK_POWER = 1.6F;
 
     public GunItem(Item.Properties pProperties) {
@@ -105,7 +105,7 @@ public class GunItem extends GunItemBase implements Vanishable, GeoItem {
     }
 
     private static float getShootingPower(ItemStack pGunStack) {
-        return containsLoadedProjectile(pGunStack, Items.FIREWORK_ROCKET) ? 1.6F : 20.0F;
+        return containsLoadedProjectile(pGunStack, Items.FIREWORK_ROCKET) ? FIREWORK_POWER : BULLET_POWER;
     }
     
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving, int pTimeLeft) {

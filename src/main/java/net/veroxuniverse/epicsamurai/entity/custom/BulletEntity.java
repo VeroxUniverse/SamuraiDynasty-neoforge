@@ -176,10 +176,10 @@ public class BulletEntity  extends AbstractArrow implements GeoAnimatable {
             boolean flag = entity.hurt(damageSources().mobProjectile(this, livingentity), 0.0F);
             if (flag) {
                 assert livingentity != null;
-                this.doEnchantDamageEffects(livingentity, entity);
+                //this.doEnchantDamageEffects(livingentity, entity);
                 if (entity instanceof LivingEntity) {
-                    ((LivingEntity)entity).addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 4), MoreObjects.firstNonNull(entity1, this));
-                    ((LivingEntity)entity).addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 60, 0), MoreObjects.firstNonNull(entity1, this));
+                    ((LivingEntity)entity).addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 4), MoreObjects.firstNonNull(entity1, this));
+                    ((LivingEntity)entity).addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 20, 0), MoreObjects.firstNonNull(entity1, this));
                 }
             }
         }

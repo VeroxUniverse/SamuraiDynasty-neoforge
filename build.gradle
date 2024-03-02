@@ -103,6 +103,9 @@ dependencies {
     compileOnly(fg.deobf("top.theillusivec4.curios:curios-forge:${curio_version}:api"))
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curio_version}")
 
+    runtimeOnly fg.deobf("curse.maven:mmmmmmmmmmmm-225738:5051316")
+    runtimeOnly fg.deobf("curse.maven:selene-499980:5142376")
+
     // Ars Nouveau
 
     compileOnly fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")

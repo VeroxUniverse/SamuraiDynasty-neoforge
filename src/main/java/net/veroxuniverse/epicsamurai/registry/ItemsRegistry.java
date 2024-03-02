@@ -12,6 +12,8 @@ import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.curios.KitsuneMaskCurios;
 import net.veroxuniverse.epicsamurai.curios.OniMaskCurios;
+import net.veroxuniverse.epicsamurai.curios.OniMaskRedCurios;
+import net.veroxuniverse.epicsamurai.curios.OniMaskWhiteCurios;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.item.*;
 import net.veroxuniverse.epicsamurai.item.armor.*;
@@ -197,6 +199,13 @@ public class ItemsRegistry {
 
     public static final RegistryObject<Item> ONI_MASK = ITEMS.register("oni_mask",
             () -> new OniMaskCurios(new Item.Properties().fireResistant().stacksTo(1)));
+
+      /*
+    public static final RegistryObject<Item> ONI_MASK_WHITE = ITEMS.register("oni_mask_white",
+            () -> new OniMaskWhiteCurios(new Item.Properties().fireResistant().stacksTo(1)));
+    public static final RegistryObject<Item> ONI_MASK_RED = ITEMS.register("oni_mask_red",
+            () -> new OniMaskRedCurios(new Item.Properties().fireResistant().stacksTo(1)));
+    */
 
     public static final RegistryObject<Item> KITSUNE_MASK = ITEMS.register("kitsune_mask",
             () -> new KitsuneMaskCurios(new Item.Properties().fireResistant().stacksTo(1)));

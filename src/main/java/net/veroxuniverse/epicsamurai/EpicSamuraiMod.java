@@ -17,7 +17,9 @@ import net.veroxuniverse.epicsamurai.client.entities.*;
 import net.veroxuniverse.epicsamurai.client.projectiles.ThrownShurikenRenderer;
 import net.veroxuniverse.epicsamurai.compat.*;
 import net.veroxuniverse.epicsamurai.curios.layers.KitsuneMaskRenderer;
+import net.veroxuniverse.epicsamurai.curios.layers.OniMaskRedRenderer;
 import net.veroxuniverse.epicsamurai.curios.layers.OniMaskRenderer;
+import net.veroxuniverse.epicsamurai.curios.layers.OniMaskWhiteRenderer;
 import net.veroxuniverse.epicsamurai.datagen.loot.ModLootModifiers;
 import net.veroxuniverse.epicsamurai.enchantment.ModEnchantments;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
@@ -133,6 +135,8 @@ public class EpicSamuraiMod
             EntityRenderers.register(ModEntityTypes.KUNAI_NETHERITE.get(), ThrownItemRenderer::new);
 
             CuriosRendererRegistry.register(ItemsRegistry.ONI_MASK.get(), OniMaskRenderer::new);
+            //CuriosRendererRegistry.register(ItemsRegistry.ONI_MASK_RED.get(), OniMaskRedRenderer::new);
+            //CuriosRendererRegistry.register(ItemsRegistry.ONI_MASK_WHITE.get(), OniMaskWhiteRenderer::new);
             CuriosRendererRegistry.register(ItemsRegistry.KITSUNE_MASK.get(), KitsuneMaskRenderer::new);
 
         }

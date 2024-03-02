@@ -30,7 +30,7 @@ public class BulletItem extends Item {
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> components, @NotNull TooltipFlag flag) {
 
         components.add(Component.literal("Ammunition:").withStyle(ChatFormatting.GRAY));
-        components.add(Component.literal(" 14 Ranged Damage").withStyle(ChatFormatting.DARK_GREEN));
+        components.add(Component.literal(" 28 Ranged Damage").withStyle(ChatFormatting.DARK_GREEN));
 
         super.appendHoverText(stack, level, components, flag);
     }
