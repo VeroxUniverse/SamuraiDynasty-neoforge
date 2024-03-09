@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "epicsamurai:block/spirit_stone",
-    "side": "epicsamurai:block/spirit_stone",
-    "top": "epicsamurai:block/spirit_stone"
-  }
-}

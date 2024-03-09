@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "epicsamurai:block/mossy_spirit_stone_bricks",
-    "side": "epicsamurai:block/mossy_spirit_stone_bricks",
-    "top": "epicsamurai:block/mossy_spirit_stone_bricks"
-  }
-}

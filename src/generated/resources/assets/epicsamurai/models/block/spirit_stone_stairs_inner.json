@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "epicsamurai:block/spirit_stone",
-    "side": "epicsamurai:block/spirit_stone",
-    "top": "epicsamurai:block/spirit_stone"
-  }
-}

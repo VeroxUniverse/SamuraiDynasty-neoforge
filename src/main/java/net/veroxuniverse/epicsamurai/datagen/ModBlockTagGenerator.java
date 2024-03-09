@@ -105,10 +105,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                         BlocksRegistry.KAWAUSO_STATUE.get(),
                         BlocksRegistry.STONE_ROOF.get(),
                         BlocksRegistry.STONE_ROOF_TOP.get(),
+                        BlocksRegistry.SPIRIT_STONE_BASE.get(),
                         BlocksRegistry.STONE_ROOF_CORNER.get());
-
-        this.tag(BlockTags.NEEDS_STONE_TOOL)
-                .add(BlocksRegistry.SPIRIT_STONE_BASE.get());
 
         this.tag(BlockTags.WALLS)
                 .add(BlocksRegistry.SPIRIT_STONE_WALL.get(),
