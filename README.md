@@ -4,8 +4,8 @@
 
 Required:
 
-	[AzureLib](https://www.curseforge.com/minecraft/mc-mods/azurelib)
- 	[Curios](https://www.curseforge.com/minecraft/mc-mods/curios)
+	AzureLib >> https://www.curseforge.com/minecraft/mc-mods/azurelib
+ 	Curios >> https://www.curseforge.com/minecraft/mc-mods/curios
 
 Highly recommended:
 
