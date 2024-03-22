@@ -4,7 +4,8 @@
 
 Required:
 
-	GeckoLib >> https://www.curseforge.com/minecraft/mc-mods/geckolib
+	[AzureLib](https://www.curseforge.com/minecraft/mc-mods/azurelib)
+ 	[Curios](https://www.curseforge.com/minecraft/mc-mods/curios)
 
 Highly recommended:
 
@@ -26,3 +27,6 @@ Highly recommended:
 🎨 Special Thanks to
 
 	https://minecraft-garage.com/  for the armor models and armor item textures
+
+
+ Files under src/main/veroxuniverse/epicsamurai/resources/assets/epicsamurai/... are licensed under All Rights Reserved.
