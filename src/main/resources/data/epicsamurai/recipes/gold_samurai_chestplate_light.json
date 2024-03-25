@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "tag": "forge:ingots/steel"
+    },
+    "X": {
+      "tag": "forge:ingots/gold"
+    }
+  },
+  "pattern": [
+    "X X",
+    "XSX",
+    "XSX"
+  ],
+  "result": {
+    "item": "epicsamurai:gold_samurai_chestplate_light"
+  }
+}

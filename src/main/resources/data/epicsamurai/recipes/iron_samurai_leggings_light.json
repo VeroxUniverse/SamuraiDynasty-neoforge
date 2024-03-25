@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "tag": "forge:ingots/steel"
+    },
+    "X": {
+      "tag": "forge:ingots/iron"
+    }
+  },
+  "pattern": [
+    "XSX",
+    "X X",
+    "X X"
+  ],
+  "result": {
+    "item": "epicsamurai:iron_samurai_leggings_light"
+  }
+}

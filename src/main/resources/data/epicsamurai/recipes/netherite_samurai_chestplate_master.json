@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "tag": "epicsamurai:armors/gem_samurai_armor_chestplate_master"
+  },
+  "result": {
+    "item": "epicsamurai:netherite_samurai_chestplate_master"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
+}

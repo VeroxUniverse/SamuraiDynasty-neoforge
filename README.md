@@ -4,14 +4,15 @@
 
 Required:
 
-	GeckoLib >> https://www.curseforge.com/minecraft/mc-mods/geckolib
+	AzureLib >> https://www.curseforge.com/minecraft/mc-mods/azurelib
+ 	Curios >> https://www.curseforge.com/minecraft/mc-mods/curios
 
 Highly recommended:
 
 	using JEI or REI to see the recipes!
 	using Better Combat (by daedelus_dev)
 	using Combat Roll (by daedelus_dev)
- 
+
 
 ⭐️ Features
 
@@ -21,8 +22,11 @@ Highly recommended:
 
 	Some of the weapons can be found by exploring the structures of your world.
 
- 
+
 
 🎨 Special Thanks to
 
 	https://minecraft-garage.com/  for the armor models and armor item textures
+
+
+Files under src/main/veroxuniverse/epicsamurai/resources/assets/epicsamurai/... are licensed under All Rights Reserved.

@@ -6,13 +6,10 @@
     },
     "X": {
       "tag": "forge:gems/aquamarine"
-    },
-    "G": {
-      "tag": "forge:ingots/gold"
     }
   },
   "pattern": [
-    "XGX",
+    "XSX",
     "S S",
     "X X"
   ],

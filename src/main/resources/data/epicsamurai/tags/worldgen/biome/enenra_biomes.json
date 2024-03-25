@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:dripstone_caves",
+    "#forge:is_spooky",
+    "#forge:is_cave",
+    "#forge:is_mountain"
+  ]
+}

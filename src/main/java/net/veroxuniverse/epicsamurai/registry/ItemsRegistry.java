@@ -12,8 +12,6 @@ import net.minecraftforge.registries.RegistryObject;
 import net.veroxuniverse.epicsamurai.EpicSamuraiMod;
 import net.veroxuniverse.epicsamurai.curios.KitsuneMaskCurios;
 import net.veroxuniverse.epicsamurai.curios.OniMaskCurios;
-import net.veroxuniverse.epicsamurai.curios.OniMaskRedCurios;
-import net.veroxuniverse.epicsamurai.curios.OniMaskWhiteCurios;
 import net.veroxuniverse.epicsamurai.entity.ModEntityTypes;
 import net.veroxuniverse.epicsamurai.item.*;
 import net.veroxuniverse.epicsamurai.item.armor.*;
@@ -33,6 +31,23 @@ public class ItemsRegistry {
             () -> new IronSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_IRON, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> IRON_SAMURAI_BOOTS = ITEMS.register("iron_samurai_boots",
             () -> new IronSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_IRON, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> IRON_SAMURAI_HELMET_LIGHT = ITEMS.register("iron_samurai_helmet_light",
+            () -> new IronSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_IRON, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> IRON_SAMURAI_CHESTPLATE_LIGHT = ITEMS.register("iron_samurai_chestplate_light",
+            () -> new IronSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_IRON, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> IRON_SAMURAI_LEGGINGS_LIGHT = ITEMS.register("iron_samurai_leggings_light",
+            () -> new IronSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_IRON, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> IRON_SAMURAI_BOOTS_LIGHT = ITEMS.register("iron_samurai_boots_light",
+            () -> new IronSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_IRON, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> IRON_SAMURAI_HELMET_MASTER = ITEMS.register("iron_samurai_helmet_master",
+            () -> new IronSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_IRON_MASTER, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> IRON_SAMURAI_CHESTPLATE_MASTER = ITEMS.register("iron_samurai_chestplate_master",
+            () -> new IronSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_IRON_MASTER, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> IRON_SAMURAI_LEGGINGS_MASTER = ITEMS.register("iron_samurai_leggings_master",
+            () -> new IronSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_IRON_MASTER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> IRON_SAMURAI_BOOTS_MASTER = ITEMS.register("iron_samurai_boots_master",
+            () -> new IronSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_IRON_MASTER, ArmorItem.Type.BOOTS, new Item.Properties()));
+    
     public static final RegistryObject<Item> WHITE_SAMURAI_HELMET = ITEMS.register("white_samurai_helmet",
             () -> new WhiteSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_SILVER, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final RegistryObject<Item> WHITE_SAMURAI_CHESTPLATE = ITEMS.register("white_samurai_chestplate",
@@ -41,6 +56,22 @@ public class ItemsRegistry {
             () -> new WhiteSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_SILVER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> WHITE_SAMURAI_BOOTS = ITEMS.register("white_samurai_boots",
             () -> new WhiteSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_SILVER, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> WHITE_SAMURAI_HELMET_LIGHT = ITEMS.register("white_samurai_helmet_light",
+            () -> new WhiteSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_SILVER, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> WHITE_SAMURAI_CHESTPLATE_LIGHT = ITEMS.register("white_samurai_chestplate_light",
+            () -> new WhiteSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_SILVER, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> WHITE_SAMURAI_LEGGINGS_LIGHT = ITEMS.register("white_samurai_leggings_light",
+            () -> new WhiteSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_SILVER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> WHITE_SAMURAI_BOOTS_LIGHT = ITEMS.register("white_samurai_boots_light",
+            () -> new WhiteSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_SILVER, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> WHITE_SAMURAI_HELMET_MASTER = ITEMS.register("white_samurai_helmet_master",
+            () -> new WhiteSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_SILVER_MASTER, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> WHITE_SAMURAI_CHESTPLATE_MASTER = ITEMS.register("white_samurai_chestplate_master",
+            () -> new WhiteSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_SILVER_MASTER, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> WHITE_SAMURAI_LEGGINGS_MASTER = ITEMS.register("white_samurai_leggings_master",
+            () -> new WhiteSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_SILVER_MASTER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> WHITE_SAMURAI_BOOTS_MASTER = ITEMS.register("white_samurai_boots_master",
+            () -> new WhiteSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_SILVER_MASTER, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     public static final RegistryObject<Item> GOLD_SAMURAI_HELMET = ITEMS.register("gold_samurai_helmet",
             () -> new GoldSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_GOLD, ArmorItem.Type.HELMET, new Item.Properties()));
@@ -50,6 +81,23 @@ public class ItemsRegistry {
             () -> new GoldSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_GOLD, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> GOLD_SAMURAI_BOOTS = ITEMS.register("gold_samurai_boots",
             () -> new GoldSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_GOLD, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> GOLD_SAMURAI_HELMET_LIGHT = ITEMS.register("gold_samurai_helmet_light",
+            () -> new GoldSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_GOLD, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> GOLD_SAMURAI_CHESTPLATE_LIGHT = ITEMS.register("gold_samurai_chestplate_light",
+            () -> new GoldSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_GOLD, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> GOLD_SAMURAI_LEGGINGS_LIGHT = ITEMS.register("gold_samurai_leggings_light",
+            () -> new GoldSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_GOLD, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> GOLD_SAMURAI_BOOTS_LIGHT = ITEMS.register("gold_samurai_boots_light",
+            () -> new GoldSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_GOLD, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> GOLD_SAMURAI_HELMET_MASTER = ITEMS.register("gold_samurai_helmet_master",
+            () -> new GoldSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_GOLD_MASTER, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> GOLD_SAMURAI_CHESTPLATE_MASTER = ITEMS.register("gold_samurai_chestplate_master",
+            () -> new GoldSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_GOLD_MASTER, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> GOLD_SAMURAI_LEGGINGS_MASTER = ITEMS.register("gold_samurai_leggings_master",
+            () -> new GoldSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_GOLD_MASTER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> GOLD_SAMURAI_BOOTS_MASTER = ITEMS.register("gold_samurai_boots_master",
+            () -> new GoldSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_GOLD_MASTER, ArmorItem.Type.BOOTS, new Item.Properties()));
+
 
     public static final RegistryObject<Item> DIAMOND_SAMURAI_HELMET = ITEMS.register("diamond_samurai_helmet",
             () -> new DiamondSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_DIAMOND, ArmorItem.Type.HELMET, new Item.Properties()));
@@ -59,6 +107,22 @@ public class ItemsRegistry {
             () -> new DiamondSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_DIAMOND, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> DIAMOND_SAMURAI_BOOTS = ITEMS.register("diamond_samurai_boots",
             () -> new DiamondSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_DIAMOND, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> DIAMOND_SAMURAI_HELMET_LIGHT = ITEMS.register("diamond_samurai_helmet_light",
+            () -> new DiamondSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_DIAMOND, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> DIAMOND_SAMURAI_CHESTPLATE_LIGHT = ITEMS.register("diamond_samurai_chestplate_light",
+            () -> new DiamondSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_DIAMOND, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> DIAMOND_SAMURAI_LEGGINGS_LIGHT = ITEMS.register("diamond_samurai_leggings_light",
+            () -> new DiamondSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_DIAMOND, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> DIAMOND_SAMURAI_BOOTS_LIGHT = ITEMS.register("diamond_samurai_boots_light",
+            () -> new DiamondSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_DIAMOND, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> DIAMOND_SAMURAI_HELMET_MASTER = ITEMS.register("diamond_samurai_helmet_master",
+            () -> new DiamondSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_DIAMOND_MASTER, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> DIAMOND_SAMURAI_CHESTPLATE_MASTER = ITEMS.register("diamond_samurai_chestplate_master",
+            () -> new DiamondSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_DIAMOND_MASTER, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> DIAMOND_SAMURAI_LEGGINGS_MASTER = ITEMS.register("diamond_samurai_leggings_master",
+            () -> new DiamondSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_DIAMOND_MASTER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> DIAMOND_SAMURAI_BOOTS_MASTER = ITEMS.register("diamond_samurai_boots_master",
+            () -> new DiamondSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_DIAMOND_MASTER, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     public static final RegistryObject<Item> NETHERITE_SAMURAI_HELMET = ITEMS.register("netherite_samurai_helmet",
             () -> new NetheriteSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.HELMET, new Item.Properties().fireResistant()));
@@ -68,6 +132,22 @@ public class ItemsRegistry {
             () -> new NetheriteSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.LEGGINGS, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> NETHERITE_SAMURAI_BOOTS = ITEMS.register("netherite_samurai_boots",
             () -> new NetheriteSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.BOOTS, new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> NETHERITE_SAMURAI_HELMET_LIGHT = ITEMS.register("netherite_samurai_helmet_light",
+            () -> new NetheriteSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> NETHERITE_SAMURAI_CHESTPLATE_LIGHT = ITEMS.register("netherite_samurai_chestplate_light",
+            () -> new NetheriteSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> NETHERITE_SAMURAI_LEGGINGS_LIGHT = ITEMS.register("netherite_samurai_leggings_light",
+            () -> new NetheriteSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> NETHERITE_SAMURAI_BOOTS_LIGHT = ITEMS.register("netherite_samurai_boots_light",
+            () -> new NetheriteSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> NETHERITE_SAMURAI_HELMET_MASTER = ITEMS.register("netherite_samurai_helmet_master",
+            () -> new NetheriteSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE_MASTER, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> NETHERITE_SAMURAI_CHESTPLATE_MASTER = ITEMS.register("netherite_samurai_chestplate_master",
+            () -> new NetheriteSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE_MASTER, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> NETHERITE_SAMURAI_LEGGINGS_MASTER = ITEMS.register("netherite_samurai_leggings_master",
+            () -> new NetheriteSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE_MASTER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> NETHERITE_SAMURAI_BOOTS_MASTER = ITEMS.register("netherite_samurai_boots_master",
+            () -> new NetheriteSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE_MASTER, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     public static final RegistryObject<Item> AMETHYST_SAMURAI_HELMET = ITEMS.register("amethyst_samurai_helmet",
             () -> new AmethystSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_AMETHYST, ArmorItem.Type.HELMET, new Item.Properties().fireResistant()));
@@ -95,6 +175,22 @@ public class ItemsRegistry {
             () -> new RedSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_RUBY, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> RED_SAMURAI_BOOTS = ITEMS.register("red_samurai_boots",
             () -> new RedSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_RUBY, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> RED_SAMURAI_HELMET_LIGHT = ITEMS.register("red_samurai_helmet_light",
+            () -> new RedSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_RUBY, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> RED_SAMURAI_CHESTPLATE_LIGHT = ITEMS.register("red_samurai_chestplate_light",
+            () -> new RedSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_RUBY, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> RED_SAMURAI_LEGGINGS_LIGHT = ITEMS.register("red_samurai_leggings_light",
+            () -> new RedSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_RUBY, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> RED_SAMURAI_BOOTS_LIGHT = ITEMS.register("red_samurai_boots_light",
+            () -> new RedSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_RUBY, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> RED_SAMURAI_HELMET_MASTER = ITEMS.register("red_samurai_helmet_master",
+            () -> new RedSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_RUBY_MASTER, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> RED_SAMURAI_CHESTPLATE_MASTER = ITEMS.register("red_samurai_chestplate_master",
+            () -> new RedSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_RUBY_MASTER, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> RED_SAMURAI_LEGGINGS_MASTER = ITEMS.register("red_samurai_leggings_master",
+            () -> new RedSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_RUBY_MASTER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> RED_SAMURAI_BOOTS_MASTER = ITEMS.register("red_samurai_boots_master",
+            () -> new RedSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_RUBY_MASTER, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     public static final RegistryObject<Item> BLUE_SAMURAI_HELMET = ITEMS.register("blue_samurai_helmet",
             () -> new BlueSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_AQUA, ArmorItem.Type.HELMET, new Item.Properties()));
@@ -104,6 +200,22 @@ public class ItemsRegistry {
             () -> new BlueSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_AQUA, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> BLUE_SAMURAI_BOOTS = ITEMS.register("blue_samurai_boots",
             () -> new BlueSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_AQUA, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> BLUE_SAMURAI_HELMET_LIGHT = ITEMS.register("blue_samurai_helmet_light",
+            () -> new BlueSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_AQUA, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> BLUE_SAMURAI_CHESTPLATE_LIGHT = ITEMS.register("blue_samurai_chestplate_light",
+            () -> new BlueSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_AQUA, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> BLUE_SAMURAI_LEGGINGS_LIGHT = ITEMS.register("blue_samurai_leggings_light",
+            () -> new BlueSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_AQUA, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> BLUE_SAMURAI_BOOTS_LIGHT = ITEMS.register("blue_samurai_boots_light",
+            () -> new BlueSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_AQUA, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> BLUE_SAMURAI_HELMET_MASTER = ITEMS.register("blue_samurai_helmet_master",
+            () -> new BlueSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_AQUA_MASTER, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> BLUE_SAMURAI_CHESTPLATE_MASTER = ITEMS.register("blue_samurai_chestplate_master",
+            () -> new BlueSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_AQUA_MASTER, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> BLUE_SAMURAI_LEGGINGS_MASTER = ITEMS.register("blue_samurai_leggings_master",
+            () -> new BlueSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_AQUA_MASTER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> BLUE_SAMURAI_BOOTS_MASTER = ITEMS.register("blue_samurai_boots_master",
+            () -> new BlueSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_AQUA_MASTER, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     public static final RegistryObject<Item> GREEN_SAMURAI_HELMET = ITEMS.register("green_samurai_helmet",
             () -> new GreenSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_JADE, ArmorItem.Type.HELMET, new Item.Properties()));
@@ -113,6 +225,22 @@ public class ItemsRegistry {
             () -> new GreenSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_JADE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> GREEN_SAMURAI_BOOTS = ITEMS.register("green_samurai_boots",
             () -> new GreenSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_JADE, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> GREEN_SAMURAI_HELMET_LIGHT = ITEMS.register("green_samurai_helmet_light",
+            () -> new GreenSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_JADE, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> GREEN_SAMURAI_CHESTPLATE_LIGHT = ITEMS.register("green_samurai_chestplate_light",
+            () -> new GreenSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_JADE, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> GREEN_SAMURAI_LEGGINGS_LIGHT = ITEMS.register("green_samurai_leggings_light",
+            () -> new GreenSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_JADE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> GREEN_SAMURAI_BOOTS_LIGHT = ITEMS.register("green_samurai_boots_light",
+            () -> new GreenSamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_JADE, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> GREEN_SAMURAI_HELMET_MASTER = ITEMS.register("green_samurai_helmet_master",
+            () -> new GreenSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_JADE_MASTER, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> GREEN_SAMURAI_CHESTPLATE_MASTER = ITEMS.register("green_samurai_chestplate_master",
+            () -> new GreenSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_JADE_MASTER, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> GREEN_SAMURAI_LEGGINGS_MASTER = ITEMS.register("green_samurai_leggings_master",
+            () -> new GreenSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_JADE_MASTER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> GREEN_SAMURAI_BOOTS_MASTER = ITEMS.register("green_samurai_boots_master",
+            () -> new GreenSamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_JADE_MASTER, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     public static final RegistryObject<Item> GRAY_SAMURAI_HELMET = ITEMS.register("gray_samurai_helmet",
             () -> new GraySamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_ONYX, ArmorItem.Type.HELMET, new Item.Properties()));
@@ -122,6 +250,22 @@ public class ItemsRegistry {
             () -> new GraySamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_ONYX, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final RegistryObject<Item> GRAY_SAMURAI_BOOTS = ITEMS.register("gray_samurai_boots",
             () -> new GraySamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_ONYX, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> GRAY_SAMURAI_HELMET_LIGHT = ITEMS.register("gray_samurai_helmet_light",
+            () -> new GraySamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_ONYX, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> GRAY_SAMURAI_CHESTPLATE_LIGHT = ITEMS.register("gray_samurai_chestplate_light",
+            () -> new GraySamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_ONYX, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> GRAY_SAMURAI_LEGGINGS_LIGHT = ITEMS.register("gray_samurai_leggings_light",
+            () -> new GraySamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_ONYX, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> GRAY_SAMURAI_BOOTS_LIGHT = ITEMS.register("gray_samurai_boots_light",
+            () -> new GraySamuraiArmorLightItem(ArmorMaterialsRegistry.SAMURAI_ONYX, ArmorItem.Type.BOOTS, new Item.Properties()));
+    public static final RegistryObject<Item> GRAY_SAMURAI_HELMET_MASTER = ITEMS.register("gray_samurai_helmet_master",
+            () -> new GraySamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_ONYX_MASTER, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<Item> GRAY_SAMURAI_CHESTPLATE_MASTER = ITEMS.register("gray_samurai_chestplate_master",
+            () -> new GraySamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_ONYX_MASTER, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<Item> GRAY_SAMURAI_LEGGINGS_MASTER = ITEMS.register("gray_samurai_leggings_master",
+            () -> new GraySamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_ONYX_MASTER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<Item> GRAY_SAMURAI_BOOTS_MASTER = ITEMS.register("gray_samurai_boots_master",
+            () -> new GraySamuraiArmorMasterItem(ArmorMaterialsRegistry.SAMURAI_ONYX_MASTER, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     public static final RegistryObject<Item> STEEL_HELMET = ITEMS.register("steel_helmet",
             () -> new SteelArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.HELMET, new Item.Properties()));
@@ -219,6 +363,8 @@ public class ItemsRegistry {
 
     public static final RegistryObject<Item> KATANA = ITEMS.register("katana",
             () -> new SwordItem(ItemMaterialsRegistry.SAMURAI,1,-2.0f, new Item.Properties()));
+    public static final RegistryObject<Item> WAKIZASHI = ITEMS.register("wakizashi",
+            () -> new SwordItem(ItemMaterialsRegistry.SAMURAI,0,-1.7f, new Item.Properties()));
     public static final RegistryObject<Item> NAGINATA = ITEMS.register("naginata",
             () -> new SwordItem(ItemMaterialsRegistry.SAMURAI,1,-2.7f, new Item.Properties()));
     public static final RegistryObject<Item> NAGAMAKI = ITEMS.register("nagamaki",
@@ -250,6 +396,8 @@ public class ItemsRegistry {
 
     public static final RegistryObject<Item> KATANA_NETHERITE = ITEMS.register("katana_netherite",
             () -> new SwordItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,2,-2.0f, new Item.Properties().fireResistant()));
+    public static final RegistryObject<Item> WAKIZASHI_NETHERITE = ITEMS.register("wakizashi_netherite",
+            () -> new SwordItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,1,-1.7f, new Item.Properties().fireResistant()));
     public static final RegistryObject<Item> KATANA_ONI = ITEMS.register("katana_oni",
             () -> new OniKatanaItem(ItemMaterialsRegistry.SAMURAI_NETHERITE,2,-2.0f, new Item.Properties().rarity(Rarity.RARE).fireResistant()));
     public static final RegistryObject<Item> KATANA_KITSUNE = ITEMS.register("katana_kitsune",

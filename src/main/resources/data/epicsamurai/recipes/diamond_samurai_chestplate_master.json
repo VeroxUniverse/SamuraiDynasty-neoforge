@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "tag": "forge:ingots/steel"
+    },
+    "X": {
+      "tag": "forge:gems/diamond"
+    }
+  },
+  "pattern": [
+    "S S",
+    "XSX",
+    "XXX"
+  ],
+  "result": {
+    "item": "epicsamurai:diamond_samurai_chestplate_master"
+  }
+}

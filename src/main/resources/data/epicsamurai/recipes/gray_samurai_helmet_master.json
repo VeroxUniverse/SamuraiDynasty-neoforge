@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "tag": "forge:ingots/steel"
+    },
+    "X": {
+      "tag": "forge:gems/onyx"
+    },
+    "G": {
+      "tag": "forge:ingots/gold"
+    }
+  },
+  "pattern": [
+    " G ",
+    "XXX",
+    "S S"
+  ],
+  "result": {
+    "item": "epicsamurai:gray_samurai_helmet_master"
+  }
+}

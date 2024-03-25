@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "tag": "forge:ingots/steel"
+    },
+    "X": {
+      "tag": "forge:gems/jade"
+    },
+    "G": {
+      "tag": "forge:ingots/gold"
+    }
+  },
+  "pattern": [
+    "XGX",
+    "S S",
+    "X X"
+  ],
+  "result": {
+    "item": "epicsamurai:green_samurai_leggings_master"
+  }
+}

@@ -67,12 +67,28 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
     }), 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F,
             () -> Ingredient.of(ItemsRegistry.RUBY.get())),
 
+    SAMURAI_RUBY_MASTER("samurai_ruby_master", 33,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 2);
+        armor.put(ArmorItem.Type.LEGGINGS, 6);
+        armor.put(ArmorItem.Type.CHESTPLATE, 8);
+        armor.put(ArmorItem.Type.HELMET, 2);
+    }), 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 0.0F, 0.0F,
+            () -> Ingredient.of(ItemsRegistry.RUBY.get())),
+
     SAMURAI_ONYX("samurai_onyx", 33,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
         armor.put(ArmorItem.Type.BOOTS, 3);
         armor.put(ArmorItem.Type.LEGGINGS, 6);
         armor.put(ArmorItem.Type.CHESTPLATE, 8);
         armor.put(ArmorItem.Type.HELMET, 2);
     }), 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F,
+            () -> Ingredient.of(ItemsRegistry.ONYX.get())),
+
+    SAMURAI_ONYX_MASTER("samurai_onyx_master", 33,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 2);
+        armor.put(ArmorItem.Type.LEGGINGS, 6);
+        armor.put(ArmorItem.Type.CHESTPLATE, 8);
+        armor.put(ArmorItem.Type.HELMET, 2);
+    }), 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 0.0F, 0.0F,
             () -> Ingredient.of(ItemsRegistry.ONYX.get())),
 
     SAMURAI_AQUA("samurai_aqua", 33,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
@@ -83,12 +99,28 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
     }), 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F,
             () -> Ingredient.of(ItemsRegistry.AQUAMARINE.get())),
 
+    SAMURAI_AQUA_MASTER("samurai_aqua_master", 33,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 2);
+        armor.put(ArmorItem.Type.LEGGINGS, 6);
+        armor.put(ArmorItem.Type.CHESTPLATE, 8);
+        armor.put(ArmorItem.Type.HELMET, 2);
+    }), 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 0.0F, 0.0F,
+            () -> Ingredient.of(ItemsRegistry.AQUAMARINE.get())),
+
     SAMURAI_JADE("samurai_jade", 33,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
         armor.put(ArmorItem.Type.BOOTS, 3);
         armor.put(ArmorItem.Type.LEGGINGS, 6);
         armor.put(ArmorItem.Type.CHESTPLATE, 8);
         armor.put(ArmorItem.Type.HELMET, 2);
     }), 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F,
+            () -> Ingredient.of(ItemsRegistry.JADE.get())),
+
+    SAMURAI_JADE_MASTER("samurai_jade_master", 33,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 2);
+        armor.put(ArmorItem.Type.LEGGINGS, 6);
+        armor.put(ArmorItem.Type.CHESTPLATE, 8);
+        armor.put(ArmorItem.Type.HELMET, 2);
+    }), 20, SoundEvents.ARMOR_EQUIP_DIAMOND, 0.0F, 0.0F,
             () -> Ingredient.of(ItemsRegistry.JADE.get())),
 
     SAMURAI_DIAMOND("samurai_diamond", 33,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
@@ -99,12 +131,28 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
     }), 12, SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0F, 0.0F,
             () -> Ingredient.of(Items.DIAMOND)),
 
+    SAMURAI_DIAMOND_MASTER("samurai_diamond_master", 33,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 2);
+        armor.put(ArmorItem.Type.LEGGINGS, 6);
+        armor.put(ArmorItem.Type.CHESTPLATE, 8);
+        armor.put(ArmorItem.Type.HELMET, 2);
+    }), 12, SoundEvents.ARMOR_EQUIP_DIAMOND, 0.0F, 0.0F,
+            () -> Ingredient.of(Items.DIAMOND)),
+
     SAMURAI_SILVER("samurai_silver", 20,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
         armor.put(ArmorItem.Type.BOOTS, 2);
         armor.put(ArmorItem.Type.LEGGINGS, 5);
         armor.put(ArmorItem.Type.CHESTPLATE, 6);
         armor.put(ArmorItem.Type.HELMET, 2);
     }), 12, SoundEvents.ARMOR_EQUIP_IRON, 0.5F, 0.0F,
+            () -> Ingredient.of(ItemsRegistry.SILVER_INGOT.get())),
+
+    SAMURAI_SILVER_MASTER("samurai_silver_master", 20,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 2);
+        armor.put(ArmorItem.Type.LEGGINGS, 5);
+        armor.put(ArmorItem.Type.CHESTPLATE, 6);
+        armor.put(ArmorItem.Type.HELMET, 2);
+    }), 12, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F,
             () -> Ingredient.of(ItemsRegistry.SILVER_INGOT.get())),
 
     SAMURAI_BRASS("samurai_brass", 33,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
@@ -122,6 +170,14 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
         armor.put(ArmorItem.Type.CHESTPLATE, 8);
         armor.put(ArmorItem.Type.HELMET, 3);
     }), 25, SoundEvents.ARMOR_EQUIP_NETHERITE, 3.0F, 0.1F,
+            () -> Ingredient.of(Items.NETHERITE_INGOT)),
+
+    SAMURAI_NETHERITE_MASTER("samurai_netherite_master", 45,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 3);
+        armor.put(ArmorItem.Type.LEGGINGS, 6);
+        armor.put(ArmorItem.Type.CHESTPLATE, 8);
+        armor.put(ArmorItem.Type.HELMET, 3);
+    }), 25, SoundEvents.ARMOR_EQUIP_NETHERITE, 2.0F, 0.1F,
             () -> Ingredient.of(Items.NETHERITE_INGOT)),
 
 
@@ -179,12 +235,28 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
     }), 25, SoundEvents.ARMOR_EQUIP_GOLD, 0.5F, 0.0F,
             () -> Ingredient.of(Items.GOLD_INGOT)),
 
+    SAMURAI_GOLD_MASTER("samurai_gold_master", 15,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 2);
+        armor.put(ArmorItem.Type.LEGGINGS, 4);
+        armor.put(ArmorItem.Type.CHESTPLATE, 5);
+        armor.put(ArmorItem.Type.HELMET, 2);
+    }), 25, SoundEvents.ARMOR_EQUIP_GOLD, 0.0F, 0.0F,
+            () -> Ingredient.of(Items.GOLD_INGOT)),
+
     SAMURAI_IRON("samurai_iron", 20,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
         armor.put(ArmorItem.Type.BOOTS, 2);
         armor.put(ArmorItem.Type.LEGGINGS, 5);
         armor.put(ArmorItem.Type.CHESTPLATE, 6);
         armor.put(ArmorItem.Type.HELMET, 2);
     }), 12, SoundEvents.ARMOR_EQUIP_IRON, 0.5F, 0.0F,
+            () -> Ingredient.of(Items.IRON_INGOT)),
+
+    SAMURAI_IRON_MASTER("samurai_iron_master", 20,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {
+        armor.put(ArmorItem.Type.BOOTS, 2);
+        armor.put(ArmorItem.Type.LEGGINGS, 5);
+        armor.put(ArmorItem.Type.CHESTPLATE, 6);
+        armor.put(ArmorItem.Type.HELMET, 2);
+    }), 12, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F,
             () -> Ingredient.of(Items.IRON_INGOT)),
 
     SAMURAI_STEEL("samurai_steel", 20,Util.make(new EnumMap<>(ArmorItem.Type.class), (armor) -> {

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "tag": "epicsamurai:armors/gem_samurai_armor_leggings_light"
+  },
+  "result": {
+    "item": "epicsamurai:netherite_samurai_leggings_light"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
+}

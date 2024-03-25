@@ -1,10 +1,10 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "#minecraft:is_overworld",
+  "biomes": "#epicsamurai:enenra_biomes",
   "spawners":{
     "type": "epicsamurai:enenra",
-    "weight": 2,
+    "weight": 5,
     "minCount": 1,
-    "maxCount": 3
+    "maxCount": 5
   }
 }

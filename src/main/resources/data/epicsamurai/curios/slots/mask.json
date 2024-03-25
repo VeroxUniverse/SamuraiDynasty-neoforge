@@ -1,0 +1,9 @@
+{
+  "order": 5,
+  "size": 1,
+  "icon": "epicsamurai:slot/mask",
+  "add_cosmetic": false,
+  "operation": "SET",
+  "render_toggle": true,
+  "drop_rule": "DEFAULT"
+}

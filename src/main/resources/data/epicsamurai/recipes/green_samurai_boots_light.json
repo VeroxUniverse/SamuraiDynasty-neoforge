@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "tag": "forge:ingots/steel"
+    },
+    "X": {
+      "tag": "forge:gems/jade"
+    }
+  },
+  "pattern": [
+    "XSX",
+    "S S"
+  ],
+  "result": {
+    "item": "epicsamurai:green_samurai_boots_light"
+  }
+}

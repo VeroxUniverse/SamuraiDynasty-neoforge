@@ -1,12 +1,9 @@
 {
   "type": "forge:add_spawns",
-  "biomes": [
-    "minecraft:cherry_grove",
-    "minecraft:flower_forest"
-  ],
+  "biomes": "#epicsamurai:twotailed_biomes",
   "spawners":{
     "type": "epicsamurai:twotailed",
-    "weight": 3,
+    "weight": 10,
     "minCount": 1,
     "maxCount": 3
   }

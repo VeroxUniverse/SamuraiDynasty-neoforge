@@ -6,13 +6,10 @@
     },
     "X": {
       "tag": "forge:ingots/silver"
-    },
-    "G": {
-      "tag": "forge:ingots/gold"
     }
   },
   "pattern": [
-    "XGX",
+    "XSX",
     "S S",
     "X X"
   ],
