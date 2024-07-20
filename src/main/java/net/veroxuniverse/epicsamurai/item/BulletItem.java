@@ -26,6 +26,7 @@ public class BulletItem extends Item {
         return new BulletEntity(worldIn, shooter, damage){};
     }
 
+
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> components, @NotNull TooltipFlag flag) {
 
