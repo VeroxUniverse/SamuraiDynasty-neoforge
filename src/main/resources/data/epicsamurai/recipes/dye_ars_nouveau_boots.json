@@ -15,11 +15,11 @@
             "tag": "forge:dyes"
           },
           {
-            "item": "epicsamurai:mage_samurai_boots"
+            "item": "samurai_dynasty:mage_samurai_boots"
           }
         ],
         "result": {
-          "item": "epicsamurai:mage_samurai_boots"
+          "item": "samurai_dynasty:mage_samurai_boots"
         }
       }
     }

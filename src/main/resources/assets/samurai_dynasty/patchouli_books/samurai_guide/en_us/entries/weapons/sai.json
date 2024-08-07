@@ -1,0 +1,16 @@
+{
+  "name": "Sai",
+  "icon": "samurai_dynasty:sai",
+  "category": "samurai_dynasty:weapons",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Sai is a melee weapon with more attack speed."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "samurai_dynasty:sai"
+    }
+  ]
+}

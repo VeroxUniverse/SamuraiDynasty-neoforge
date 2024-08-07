@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "epicsamurai:block/mossy_spirit_stone_bricks"
+      "model": "samurai_dynasty:block/mossy_spirit_stone_bricks"
     }
   }
 }

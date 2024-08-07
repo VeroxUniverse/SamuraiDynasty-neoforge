@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "epicsamurai:silver_block"
+      "item": "samurai_dynasty:silver_block"
     }
   ],
   "result": {
     "count": 9,
-    "item": "epicsamurai:silver_ingot"
+    "item": "samurai_dynasty:silver_ingot"
   }
 }

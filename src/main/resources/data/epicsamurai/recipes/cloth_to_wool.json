@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "X": {
-      "item": "epicsamurai:cloth"
+      "item": "samurai_dynasty:cloth"
     }
   },
   "pattern": [

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_post",
   "textures": {
-    "wall": "epicsamurai:block/mossy_spirit_stone_bricks"
+    "wall": "samurai_dynasty:block/mossy_spirit_stone_bricks"
   }
 }

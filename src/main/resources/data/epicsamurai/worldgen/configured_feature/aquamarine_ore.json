@@ -6,7 +6,7 @@
     "targets": [
       {
         "state": {
-          "Name": "epicsamurai:aquamarine_ore"
+          "Name": "samurai_dynasty:aquamarine_ore"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",
@@ -15,7 +15,7 @@
       },
       {
         "state": {
-          "Name": "epicsamurai:deepslate_aquamarine_ore"
+          "Name": "samurai_dynasty:deepslate_aquamarine_ore"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",

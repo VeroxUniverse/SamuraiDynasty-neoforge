@@ -1,0 +1,12 @@
+{
+  "name": "Samurai Armor",
+  "icon": "samurai_dynasty:red_samurai_helmet",
+  "category": "samurai_dynasty:samurai_armor",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(thing)Work in Progress... pls use JEI for the Recipes!"
+    }
+  ]
+}

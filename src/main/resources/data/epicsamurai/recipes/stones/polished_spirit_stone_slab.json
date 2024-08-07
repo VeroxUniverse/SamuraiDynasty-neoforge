@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "epicsamurai:polished_spirit_stone"
+      "item": "samurai_dynasty:polished_spirit_stone"
     }
   },
   "pattern": [
@@ -11,7 +11,7 @@
   ],
   "result": {
     "count": 6,
-    "item": "epicsamurai:polished_spirit_stone_slab"
+    "item": "samurai_dynasty:polished_spirit_stone_slab"
   },
   "show_notification": true
 }

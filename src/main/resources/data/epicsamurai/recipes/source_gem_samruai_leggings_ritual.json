@@ -12,7 +12,7 @@
         "type": "ars_nouveau:enchanting_apparatus",
         "keepNbtOfReagent": true,
         "output": {
-          "item": "epicsamurai:mage_samurai_leggings"
+          "item": "samurai_dynasty:mage_samurai_leggings"
         },
         "pedestalItems": [
           {
@@ -30,7 +30,7 @@
         ],
         "reagent": [
           {
-            "tag": "epicsamurai:armors/gem_samurai_armor_leggings"
+            "tag": "samurai_dynasty:armors/gem_samurai_armor_leggings"
           }
         ],
         "sourceCost": 2500

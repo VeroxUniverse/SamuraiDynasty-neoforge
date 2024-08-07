@@ -1,0 +1,17 @@
+{
+  "name": "Ranged Weapons",
+  "icon": "samurai_dynasty:shuriken",
+  "category": "samurai_dynasty:weapons",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "You can use ranged weapons to attack your target from stealth. There are two ranged weapons you can craft, the Shuriken and the Kunai. You can throw them by right-clicking them. The Kunai uses durability for each throw."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "samurai_dynasty:shuriken",
+      "recipe2": "samurai_dynasty:kunai"
+    }
+  ]
+}

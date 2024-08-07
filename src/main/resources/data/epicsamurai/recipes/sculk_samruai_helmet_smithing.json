@@ -14,10 +14,10 @@
           "item": "deeperdarker:reinforced_echo_shard"
         },
         "base": {
-          "item": "epicsamurai:netherite_samurai_helmet"
+          "item": "samurai_dynasty:netherite_samurai_helmet"
         },
         "result": {
-          "item": "epicsamurai:sculk_samurai_helmet"
+          "item": "samurai_dynasty:sculk_samurai_helmet"
         },
         "template": {
           "item": "deeperdarker:warden_upgrade_smithing_template"

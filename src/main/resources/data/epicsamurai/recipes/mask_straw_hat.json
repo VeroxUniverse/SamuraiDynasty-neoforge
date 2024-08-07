@@ -3,13 +3,13 @@
   "category": "equipment",
   "ingredients": [
     {
-      "item": "epicsamurai:straw_hat"
+      "item": "samurai_dynasty:straw_hat"
     },
     {
-      "item": "epicsamurai:oni_mask"
+      "item": "samurai_dynasty:oni_mask"
     }
   ],
   "result": {
-    "item": "epicsamurai:mask_straw_hat"
+    "item": "samurai_dynasty:mask_straw_hat"
   }
 }

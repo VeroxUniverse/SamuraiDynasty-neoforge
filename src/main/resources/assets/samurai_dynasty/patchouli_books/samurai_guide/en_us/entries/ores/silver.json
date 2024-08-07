@@ -1,0 +1,17 @@
+{
+  "name": "Silver",
+  "icon": "samurai_dynasty:silver_ingot",
+  "category": "samurai_dynasty:ores",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "samurai_dynasty:silver_ingot",
+      "text": "Silver can be found in the Overworld from $(thing)Y: $(item)-64 $()to $(thing)Y: $(item)30$(). It can be mined via an $(thing)Iron Pickaxe$()."
+    },
+    {
+      "type": "patchouli:smelting",
+      "recipe": "samurai_dynasty:ssilver_ingot_from_smelting_raw_silver",
+      "text": "$(item)Raw Silver$() can be smelted in the $(thing)Furnace$()."
+    }
+  ]
+}

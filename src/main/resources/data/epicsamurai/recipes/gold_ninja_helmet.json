@@ -5,7 +5,7 @@
       "tag": "forge:ingots/gold"
     },
     "S": {
-      "item": "epicsamurai:cloth"
+      "item": "samurai_dynasty:cloth"
     }
   },
   "pattern": [
@@ -13,6 +13,6 @@
     "S S"
   ],
   "result": {
-    "item": "epicsamurai:gold_ninja_helmet"
+    "item": "samurai_dynasty:gold_ninja_helmet"
   }
 }

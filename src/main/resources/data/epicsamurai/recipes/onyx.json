@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "epicsamurai:onyx_block"
+      "item": "samurai_dynasty:onyx_block"
     }
   ],
   "result": {
     "count": 9,
-    "item": "epicsamurai:onyx"
+    "item": "samurai_dynasty:onyx"
   }
 }

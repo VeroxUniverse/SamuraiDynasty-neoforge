@@ -1,13 +1,13 @@
 {
   "variants": {
     "type=bottom": {
-      "model": "epicsamurai:block/mossy_spirit_stone_brick_slab"
+      "model": "samurai_dynasty:block/mossy_spirit_stone_brick_slab"
     },
     "type=double": {
-      "model": "epicsamurai:block/mossy_spirit_stone_bricks"
+      "model": "samurai_dynasty:block/mossy_spirit_stone_bricks"
     },
     "type=top": {
-      "model": "epicsamurai:block/mossy_spirit_stone_brick_slab_top"
+      "model": "samurai_dynasty:block/mossy_spirit_stone_brick_slab_top"
     }
   }
 }

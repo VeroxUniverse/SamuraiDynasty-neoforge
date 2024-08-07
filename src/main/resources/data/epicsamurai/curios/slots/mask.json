@@ -1,7 +1,7 @@
 {
   "order": 5,
   "size": 1,
-  "icon": "epicsamurai:slot/mask",
+  "icon": "samurai_dynasty:slot/mask",
   "add_cosmetic": false,
   "operation": "SET",
   "render_toggle": true,

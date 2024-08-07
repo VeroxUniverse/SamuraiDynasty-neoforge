@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "S": {
-      "item": "epicsamurai:spirit_stone_base"
+      "item": "samurai_dynasty:spirit_stone_base"
     }
   },
   "pattern": [
@@ -11,6 +11,6 @@
   ],
   "result": {
     "count": 4,
-    "item": "epicsamurai:spirit_stone"
+    "item": "samurai_dynasty:spirit_stone"
   }
 }

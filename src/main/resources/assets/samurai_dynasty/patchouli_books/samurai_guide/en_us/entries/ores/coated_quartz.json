@@ -1,0 +1,16 @@
+{
+  "name": "Quartz Ingot",
+  "icon": "samurai_dynasty:quartz_ingot",
+  "category": "samurai_dynasty:ores",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "samurai_dynasty:quartz_ingot",
+      "text": "You can Upgrade Steel.$(br)$(item)Steel$() can be combined with $(thing)Quartz$() in the $(item)Smithing Table$()."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "samurai_dynasty:quartz_ingot_smithing"
+    }
+  ]
+}

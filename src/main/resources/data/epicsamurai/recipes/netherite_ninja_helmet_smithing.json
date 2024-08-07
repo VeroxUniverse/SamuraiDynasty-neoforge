@@ -4,10 +4,10 @@
     "item": "minecraft:netherite_ingot"
   },
   "base": {
-    "item": "epicsamurai:diamond_ninja_helmet"
+    "item": "samurai_dynasty:diamond_ninja_helmet"
   },
   "result": {
-    "item": "epicsamurai:netherite_ninja_helmet"
+    "item": "samurai_dynasty:netherite_ninja_helmet"
   },
   "template": {
     "item": "minecraft:netherite_upgrade_smithing_template"

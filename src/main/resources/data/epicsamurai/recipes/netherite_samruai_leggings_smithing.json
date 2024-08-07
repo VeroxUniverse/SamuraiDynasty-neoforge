@@ -4,10 +4,10 @@
     "item": "minecraft:netherite_ingot"
   },
   "base": {
-    "tag": "epicsamurai:armors/gem_samurai_armor_leggings"
+    "tag": "samurai_dynasty:armors/gem_samurai_armor_leggings"
   },
   "result": {
-    "item": "epicsamurai:netherite_samurai_leggings"
+    "item": "samurai_dynasty:netherite_samurai_leggings"
   },
   "template": {
     "item": "minecraft:netherite_upgrade_smithing_template"

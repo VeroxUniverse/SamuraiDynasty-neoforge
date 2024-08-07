@@ -2,7 +2,7 @@
   "type": "minecraft:stonecutting",
   "count": 1,
   "ingredient": {
-    "item": "epicsamurai:spirit_stone_base"
+    "item": "samurai_dynasty:spirit_stone_base"
   },
-  "result": "epicsamurai:spirit_stone"
+  "result": "samurai_dynasty:spirit_stone"
 }

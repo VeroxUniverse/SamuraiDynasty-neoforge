@@ -1,0 +1,16 @@
+{
+  "name": "Katana",
+  "icon": "samurai_dynasty:katana",
+  "category": "samurai_dynasty:weapons",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Katana is the main weapon of the Samurai."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "samurai_dynasty:katana"
+    }
+  ]
+}

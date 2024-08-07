@@ -13,18 +13,18 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "epicsamurai:tanuki_statue",
+              "block": "samurai_dynasty:tanuki_statue",
               "condition": "minecraft:block_state_property",
               "properties": {
                 "half": "lower"
               }
             }
           ],
-          "name": "epicsamurai:tanuki_statue"
+          "name": "samurai_dynasty:tanuki_statue"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "epicsamurai:blocks/tanuki_statue"
+  "random_sequence": "samurai_dynasty:blocks/tanuki_statue"
 }

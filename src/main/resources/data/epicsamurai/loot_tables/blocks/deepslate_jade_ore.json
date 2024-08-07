@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "epicsamurai:deepslate_jade_ore"
+              "name": "samurai_dynasty:deepslate_jade_ore"
             },
             {
               "type": "minecraft:item",
@@ -38,7 +38,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "epicsamurai:jade"
+              "name": "samurai_dynasty:jade"
             }
           ]
         }

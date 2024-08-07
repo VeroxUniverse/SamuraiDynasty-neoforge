@@ -1,0 +1,12 @@
+{
+  "name": "Jade",
+  "icon": "samurai_dynasty:jade",
+  "category": "samurai_dynasty:ores",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "samurai_dynasty:jade",
+      "text": "The Jade can be found in the Overworld from $(thing)Y: $(item)-64 $()to $(thing)Y: $(item)30$(). It can be mined via an $(thing)Iron Pickaxe$()."
+    }
+  ]
+}

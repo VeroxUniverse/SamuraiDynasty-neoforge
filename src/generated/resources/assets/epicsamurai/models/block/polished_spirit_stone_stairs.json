@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "bottom": "epicsamurai:block/polished_spirit_stone",
-    "side": "epicsamurai:block/polished_spirit_stone",
-    "top": "epicsamurai:block/polished_spirit_stone"
+    "bottom": "samurai_dynasty:block/polished_spirit_stone",
+    "side": "samurai_dynasty:block/polished_spirit_stone",
+    "top": "samurai_dynasty:block/polished_spirit_stone"
   }
 }

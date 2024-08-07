@@ -17,7 +17,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "epicsamurai:kitsune_tail"
+          "name": "samurai_dynasty:kitsune_tail"
         }
       ],
       "rolls": 1.0
@@ -38,7 +38,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "epicsamurai:kitsune_hide"
+          "name": "samurai_dynasty:kitsune_hide"
         }
       ],
       "rolls": 1.0

@@ -6,7 +6,7 @@
     "targets": [
       {
         "state": {
-          "Name": "epicsamurai:jade_ore"
+          "Name": "samurai_dynasty:jade_ore"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",
@@ -15,7 +15,7 @@
       },
       {
         "state": {
-          "Name": "epicsamurai:deepslate_jade_ore"
+          "Name": "samurai_dynasty:deepslate_jade_ore"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",

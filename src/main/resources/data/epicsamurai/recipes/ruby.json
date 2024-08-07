@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "epicsamurai:ruby_block"
+      "item": "samurai_dynasty:ruby_block"
     }
   ],
   "result": {
     "count": 9,
-    "item": "epicsamurai:ruby"
+    "item": "samurai_dynasty:ruby"
   }
 }

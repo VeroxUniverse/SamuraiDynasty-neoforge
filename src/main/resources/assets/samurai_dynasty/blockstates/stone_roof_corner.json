@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "samurai_dynasty:block/stone_roof_corner",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "samurai_dynasty:block/stone_roof_corner"
+    },
+    "facing=south": {
+      "model": "samurai_dynasty:block/stone_roof_corner",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "samurai_dynasty:block/stone_roof_corner",
+      "y": 270
+    }
+  }
+}

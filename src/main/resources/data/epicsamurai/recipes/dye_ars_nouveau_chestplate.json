@@ -15,11 +15,11 @@
             "tag": "forge:dyes"
           },
           {
-            "item": "epicsamurai:mage_samurai_chestplate"
+            "item": "samurai_dynasty:mage_samurai_chestplate"
           }
         ],
         "result": {
-          "item": "epicsamurai:mage_samurai_chestplate"
+          "item": "samurai_dynasty:mage_samurai_chestplate"
         }
       }
     }

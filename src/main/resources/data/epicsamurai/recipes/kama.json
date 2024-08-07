@@ -8,7 +8,7 @@
       "tag": "forge:nuggets/steel"
     },
     "W": {
-      "item": "epicsamurai:knive_handle"
+      "item": "samurai_dynasty:knive_handle"
     }
   },
   "pattern": [
@@ -16,6 +16,6 @@
     "W "
   ],
   "result": {
-    "item": "epicsamurai:kama"
+    "item": "samurai_dynasty:kama"
   }
 }

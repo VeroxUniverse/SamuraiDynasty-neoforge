@@ -1,0 +1,21 @@
+{
+  "name": "Weapon Handles",
+  "icon": "samurai_dynasty:katana_handle",
+  "category": "samurai_dynasty:weapons",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The weapons need a special handle as an ingredient."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "samurai_dynasty:katana_handle",
+      "recipe2": "samurai_dynasty:knive_handle"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "samurai_dynasty:spear_handle"
+    }
+  ]
+}

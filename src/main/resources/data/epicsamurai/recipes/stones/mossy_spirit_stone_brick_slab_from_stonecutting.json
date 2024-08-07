@@ -2,7 +2,7 @@
   "type": "minecraft:stonecutting",
   "count": 2,
   "ingredient": {
-    "item": "epicsamurai:mossy_spirit_stone_bricks"
+    "item": "samurai_dynasty:mossy_spirit_stone_bricks"
   },
-  "result": "epicsamurai:mossy_spirit_stone_brick_slab"
+  "result": "samurai_dynasty:mossy_spirit_stone_brick_slab"
 }

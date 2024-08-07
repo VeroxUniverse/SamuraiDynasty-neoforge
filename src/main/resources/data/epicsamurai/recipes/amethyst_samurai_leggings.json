@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "X": {
-      "item": "epicsamurai:amethyst_ingot"
+      "item": "samurai_dynasty:amethyst_ingot"
     },
     "G": {
       "tag": "forge:ingots/netherite"
@@ -14,6 +14,6 @@
     "X X"
   ],
   "result": {
-    "item": "epicsamurai:amethyst_samurai_leggings"
+    "item": "samurai_dynasty:amethyst_samurai_leggings"
   }
 }

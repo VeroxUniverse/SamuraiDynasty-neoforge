@@ -4,10 +4,10 @@
     "item": "minecraft:netherite_ingot"
   },
   "base": {
-    "item": "epicsamurai:naginata"
+    "item": "samurai_dynasty:naginata"
   },
   "result": {
-    "item": "epicsamurai:naginata_netherite"
+    "item": "samurai_dynasty:naginata_netherite"
   },
   "template": {
     "item": "minecraft:netherite_upgrade_smithing_template"

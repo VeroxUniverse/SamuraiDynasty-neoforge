@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "epicsamurai:jade_block"
+      "item": "samurai_dynasty:jade_block"
     }
   ],
   "result": {
     "count": 9,
-    "item": "epicsamurai:jade"
+    "item": "samurai_dynasty:jade"
   }
 }

@@ -34,7 +34,7 @@
 [15Dec2023 15:01:54.637] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.2+13
 [15Dec2023 15:01:54.928] [modloading-worker-0/INFO] [net.neoforged.neoforge.common.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 20.2.86, for MC 1.20.2 with MCP 20231019.002635
 [15Dec2023 15:01:54.979] [modloading-worker-0/INFO] [azurelib/FileWatching]: Registered azurelib config for auto-sync function
-[15Dec2023 15:01:55.233] [Render thread/ERROR] [net.neoforged.fml.javafmlmod.FMLModContainer/]: Exception caught during firing event: Trying to access unbound value: ResourceKey[minecraft:entity_type / epicsamurai:akaname]
+[15Dec2023 15:01:55.233] [Render thread/ERROR] [net.neoforged.fml.javafmlmod.FMLModContainer/]: Exception caught during firing event: Trying to access unbound value: ResourceKey[minecraft:entity_type / samurai_dynasty:akaname]
 	Index: 3
 	Listeners:
 		0: net.neoforged.neoforge.registries.DeferredRegister$$Lambda$5198/0x00000217bdc24d50@a3e0ff4
@@ -43,10 +43,10 @@
 		3: net.neoforged.neoforge.registries.DeferredRegister$$Lambda$5198/0x00000217bdc24d50@5a05d194
 		4: net.neoforged.neoforge.registries.DeferredRegister$$Lambda$5198/0x00000217bdc24d50@54792b0d
 		5: net.neoforged.neoforge.registries.DeferredRegister$$Lambda$5198/0x00000217bdc24d50@433305e2
-java.lang.NullPointerException: Trying to access unbound value: ResourceKey[minecraft:entity_type / epicsamurai:akaname]
+java.lang.NullPointerException: Trying to access unbound value: ResourceKey[minecraft:entity_type / samurai_dynasty:akaname]
 	at TRANSFORMER/neoforge@20.2.86/net.neoforged.neoforge.registries.DeferredHolder.value(DeferredHolder.java:102)
 	at TRANSFORMER/neoforge@20.2.86/net.neoforged.neoforge.registries.DeferredHolder.get(DeferredHolder.java:116)
-	at TRANSFORMER/epicsamurai@0.0.33-1.20.2-neo/net.veroxuniverse.epicsamurai.registry.ItemsRegistry.lambda$static$97(ItemsRegistry.java:263)
+	at TRANSFORMER/samurai_dynasty@0.0.33-1.20.2-neo/net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry.lambda$static$97(ItemsRegistry.java:263)
 	at TRANSFORMER/neoforge@20.2.86/net.neoforged.neoforge.registries.DeferredRegister.lambda$register$0(DeferredRegister.java:184)
 	at TRANSFORMER/neoforge@20.2.86/net.neoforged.neoforge.registries.DeferredRegister.lambda$register$1(DeferredRegister.java:203)
 	at TRANSFORMER/neoforge@20.2.86/net.neoforged.neoforge.registries.DeferredRegister.lambda$addEntries$2(DeferredRegister.java:344)
@@ -92,11 +92,11 @@ java.lang.NullPointerException: Trying to access unbound value: ResourceKey[mine
 	at MC-BOOTSTRAP/cpw.mods.modlauncher@10.0.9/cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23)
 	at cpw.mods.bootstraplauncher@1.1.2/cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141)
 
-[15Dec2023 15:01:55.235] [Render thread/ERROR] [net.neoforged.fml.ModContainer/LOADING]: Caught exception during event net.neoforged.neoforge.registries.RegisterEvent@70cf7d1e dispatch for modid epicsamurai
-java.lang.NullPointerException: Trying to access unbound value: ResourceKey[minecraft:entity_type / epicsamurai:akaname]
+[15Dec2023 15:01:55.235] [Render thread/ERROR] [net.neoforged.fml.ModContainer/LOADING]: Caught exception during event net.neoforged.neoforge.registries.RegisterEvent@70cf7d1e dispatch for modid samurai_dynasty
+java.lang.NullPointerException: Trying to access unbound value: ResourceKey[minecraft:entity_type / samurai_dynasty:akaname]
 	at net.neoforged.neoforge.registries.DeferredHolder.value(DeferredHolder.java:102) ~[neoforge-20.2.86.jar:?]
 	at net.neoforged.neoforge.registries.DeferredHolder.get(DeferredHolder.java:116) ~[neoforge-20.2.86.jar:?]
-	at net.veroxuniverse.epicsamurai.registry.ItemsRegistry.lambda$static$97(ItemsRegistry.java:263) ~[main/:?]
+	at net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry.lambda$static$97(ItemsRegistry.java:263) ~[main/:?]
 	at net.neoforged.neoforge.registries.DeferredRegister.lambda$register$0(DeferredRegister.java:184) ~[neoforge-20.2.86.jar:?]
 	at net.neoforged.neoforge.registries.DeferredRegister.lambda$register$1(DeferredRegister.java:203) ~[neoforge-20.2.86.jar:?]
 	at net.neoforged.neoforge.registries.DeferredRegister.lambda$addEntries$2(DeferredRegister.java:344) ~[neoforge-20.2.86.jar:?]
@@ -173,8 +173,8 @@ java.lang.RuntimeException: null
 	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.9.jar:?]
 	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.9.jar:?]
 	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?]
-	Suppressed: net.neoforged.fml.ModLoadingException: Epic Samurai (epicsamurai) encountered an error during the common_setup event phase
-§7java.lang.NullPointerException: Trying to access unbound value: ResourceKey[minecraft:entity_type / epicsamurai:akaname]
+	Suppressed: net.neoforged.fml.ModLoadingException: Epic Samurai (samurai_dynasty) encountered an error during the common_setup event phase
+ï¿½7java.lang.NullPointerException: Trying to access unbound value: ResourceKey[minecraft:entity_type / samurai_dynasty:akaname]
 		at net.neoforged.fml.ModContainer.acceptEvent(ModContainer.java:215) ~[core-1.0.16.jar:1.0]
 		at net.neoforged.fml.ModLoader.lambda$postEventWithWrapInModOrder$32(ModLoader.java:359) ~[core-1.0.16.jar:1.0]
 		at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?]
@@ -211,10 +211,10 @@ java.lang.RuntimeException: null
 		at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.9.jar:?]
 		at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.9.jar:?]
 		at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?]
-	Caused by: java.lang.NullPointerException: Trying to access unbound value: ResourceKey[minecraft:entity_type / epicsamurai:akaname]
+	Caused by: java.lang.NullPointerException: Trying to access unbound value: ResourceKey[minecraft:entity_type / samurai_dynasty:akaname]
 		at net.neoforged.neoforge.registries.DeferredHolder.value(DeferredHolder.java:102) ~[neoforge-20.2.86.jar:?]
 		at net.neoforged.neoforge.registries.DeferredHolder.get(DeferredHolder.java:116) ~[neoforge-20.2.86.jar:?]
-		at net.veroxuniverse.epicsamurai.registry.ItemsRegistry.lambda$static$97(ItemsRegistry.java:263) ~[main/:?]
+		at net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry.lambda$static$97(ItemsRegistry.java:263) ~[main/:?]
 		at net.neoforged.neoforge.registries.DeferredRegister.lambda$register$0(DeferredRegister.java:184) ~[neoforge-20.2.86.jar:?]
 		at net.neoforged.neoforge.registries.DeferredRegister.lambda$register$1(DeferredRegister.java:203) ~[neoforge-20.2.86.jar:?]
 		at net.neoforged.neoforge.registries.DeferredRegister.lambda$addEntries$2(DeferredRegister.java:344) ~[neoforge-20.2.86.jar:?]
@@ -226,17 +226,17 @@ java.lang.RuntimeException: null
 		at net.neoforged.fml.ModContainer.acceptEvent(ModContainer.java:211) ~[core-1.0.16.jar:1.0]
 		... 35 more
 [15Dec2023 15:01:55.441] [Render thread/ERROR] [net.neoforged.neoforge.registries.GameData/]: Rolling back to VANILLA state
-[15Dec2023 15:01:55.519] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:akaname has no attributes
-[15Dec2023 15:01:55.520] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:kitsune has no attributes
-[15Dec2023 15:01:55.520] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:enenra has no attributes
-[15Dec2023 15:01:55.520] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:oni has no attributes
-[15Dec2023 15:01:55.521] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:onibi has no attributes
-[15Dec2023 15:01:55.521] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:jorogumo has no attributes
-[15Dec2023 15:01:55.521] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:raijin has no attributes
-[15Dec2023 15:01:55.521] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:fujin has no attributes
-[15Dec2023 15:01:55.521] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:komainu has no attributes
-[15Dec2023 15:01:55.521] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:tanuki has no attributes
-[15Dec2023 15:01:55.522] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:twotailed has no attributes
-[15Dec2023 15:01:55.522] [Render thread/ERROR] [net.minecraft.Util/]: Entity epicsamurai:kawauso has no attributes
+[15Dec2023 15:01:55.519] [Render thread/ERROR] [net.minecraft.Util/]: Entity samurai_dynasty:akaname has no attributes
+[15Dec2023 15:01:55.520] [Render thread/ERROR] [net.minecraft.Util/]: Entity samurai_dynasty:kitsune has no attributes
+[15Dec2023 15:01:55.520] [Render thread/ERROR] [net.minecraft.Util/]: Entity samurai_dynasty:enenra has no attributes
+[15Dec2023 15:01:55.520] [Render thread/ERROR] [net.minecraft.Util/]: Entity samurai_dynasty:oni has no attributes
+[15Dec2023 15:01:55.521] [Render thread/ERROR] [net.minecraft.Util/]: Entity samurai_dynasty:onibi has no attributes
+[15Dec2023 15:01:55.521] [Render thread/ERROR] [net.minecraft.Util/]: Entity samurai_dynasty:jorogumo has no attributes
+[15Dec2023 15:01:55.521] [Render thread/ERROR] [net.minecraft.Util/]: Entity samurai_dynasty:raijin has no attributes
+[15Dec2023 15:01:55.521] [Render thread/ERROR] [net.minecraft.Util/]: Entity samurai_dynasty:fujin has no attributes
+[15Dec2023 15:01:55.521] [Render thread/ERROR] [net.minecraft.Util/]: Entity samurai_dynasty:komainu has no attributes
+[15Dec2023 15:01:55.521] [Render thread/ERROR] [net.minecraft.Util/]: Entity samurai_dynasty:tanuki has no attributes
+[15Dec2023 15:01:55.522] [Render thread/ERROR] [net.minecraft.Util/]: Entity samurai_dynasty:twotailed has no attributes
+[15Dec2023 15:01:55.522] [Render thread/ERROR] [net.minecraft.Util/]: Entity samurai_dynasty:kawauso has no attributes
 [15Dec2023 15:01:55.959] [Render thread/FATAL] [net.neoforged.neoforge.common.NeoForgeMod/]: Preparing crash report with UUID 66d85465-39d5-4d1e-9544-fc7a7d330990
 [15Dec2023 15:01:55.975] [Render thread/FATAL] [net.neoforged.neoforge.common.NeoForgeMod/]: Preparing crash report with UUID a69f4e70-a214-4652-be7d-5e041d0100e2

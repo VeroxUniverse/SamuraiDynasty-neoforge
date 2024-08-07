@@ -4,10 +4,10 @@
     "item": "minecraft:netherite_ingot"
   },
   "base": {
-    "item": "epicsamurai:kamayari"
+    "item": "samurai_dynasty:kamayari"
   },
   "result": {
-    "item": "epicsamurai:kamayari_netherite"
+    "item": "samurai_dynasty:kamayari_netherite"
   },
   "template": {
     "item": "minecraft:netherite_upgrade_smithing_template"

@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "X": {
-      "item": "epicsamurai:kitsune_hide"
+      "item": "samurai_dynasty:kitsune_hide"
     },
     "S": {
       "tag": "forge:ingots/steel"
@@ -13,6 +13,6 @@
     "SSS"
   ],
   "result": {
-    "item": "epicsamurai:kitsune_mask"
+    "item": "samurai_dynasty:kitsune_mask"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "type": "epicsamurai:add_item",
+  "type": "samurai_dynasty:add_item",
   "conditions": [
     {
       "chance": 0.75,
@@ -10,5 +10,5 @@
       "loot_table_id": "minecraft:chests/ruined_portal"
     }
   ],
-  "item": "epicsamurai:spirit_upgrade_smithing_template"
+  "item": "samurai_dynasty:spirit_upgrade_smithing_template"
 }

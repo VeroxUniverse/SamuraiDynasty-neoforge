@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "X": {
-      "item": "epicsamurai:oni_horn"
+      "item": "samurai_dynasty:oni_horn"
     },
     "S": {
       "tag": "forge:ingots/steel"
@@ -13,6 +13,6 @@
     "SSS"
   ],
   "result": {
-    "item": "epicsamurai:oni_mask"
+    "item": "samurai_dynasty:oni_mask"
   }
 }

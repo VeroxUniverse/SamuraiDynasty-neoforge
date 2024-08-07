@@ -7,7 +7,7 @@
     "tag": "forge:ingots/steel"
   },
   "result": {
-    "item": "epicsamurai:amethyst_ingot"
+    "item": "samurai_dynasty:amethyst_ingot"
   },
   "template": {
     "tag": "forge:gems/amethyst"

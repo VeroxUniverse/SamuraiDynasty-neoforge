@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "epicsamurai:aquamarine_ore"
+              "name": "samurai_dynasty:aquamarine_ore"
             },
             {
               "type": "minecraft:item",
@@ -38,7 +38,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "epicsamurai:aquamarine"
+              "name": "samurai_dynasty:aquamarine"
             }
           ]
         }

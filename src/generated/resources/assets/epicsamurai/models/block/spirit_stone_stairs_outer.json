@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "bottom": "epicsamurai:block/spirit_stone",
-    "side": "epicsamurai:block/spirit_stone",
-    "top": "epicsamurai:block/spirit_stone"
+    "bottom": "samurai_dynasty:block/spirit_stone",
+    "side": "samurai_dynasty:block/spirit_stone",
+    "top": "samurai_dynasty:block/spirit_stone"
   }
 }

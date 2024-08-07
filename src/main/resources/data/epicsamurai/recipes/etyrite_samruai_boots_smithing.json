@@ -14,10 +14,10 @@
           "item": "eldritch_end:etyr_ingot"
         },
         "base": {
-          "item": "epicsamurai:netherite_samurai_boots"
+          "item": "samurai_dynasty:netherite_samurai_boots"
         },
         "result": {
-          "item": "epicsamurai:etyrite_samurai_boots"
+          "item": "samurai_dynasty:etyrite_samurai_boots"
         },
         "template": {
           "item": "eldritch_end:etyr_upgrade_pattern"

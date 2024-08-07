@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "epicsamurai:spirit_stone_slab"
+          "name": "samurai_dynasty:spirit_stone_slab"
         }
       ],
       "rolls": 1.0

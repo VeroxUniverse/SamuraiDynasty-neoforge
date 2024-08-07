@@ -1,11 +1,11 @@
 {
-  "name": "epicsamurai:torii/start_pool",
+  "name": "samurai_dynasty:torii/start_pool",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "epicsamurai:torii",
+        "location": "samurai_dynasty:torii",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

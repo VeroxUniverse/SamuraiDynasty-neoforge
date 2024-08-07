@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.veroxuniverse.samurai_dynasty.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "samurai_dynasty.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+    "WeaponRenderingMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

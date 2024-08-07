@@ -1,7 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "epicsamurai:item/battlemage/mage_samurai_leggings_tint",
-    "layer1": "epicsamurai:item/battlemage/mage_samurai_leggings_gold"
-  }
-}

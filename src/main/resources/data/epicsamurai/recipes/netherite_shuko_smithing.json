@@ -4,10 +4,10 @@
     "item": "minecraft:netherite_ingot"
   },
   "base": {
-    "item": "epicsamurai:shuko"
+    "item": "samurai_dynasty:shuko"
   },
   "result": {
-    "item": "epicsamurai:shuko_netherite"
+    "item": "samurai_dynasty:shuko_netherite"
   },
   "template": {
     "item": "minecraft:netherite_upgrade_smithing_template"

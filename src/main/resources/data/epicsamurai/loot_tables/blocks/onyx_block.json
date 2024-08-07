@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "epicsamurai:onyx_block"
+          "name": "samurai_dynasty:onyx_block"
         }
       ],
       "rolls": 1.0

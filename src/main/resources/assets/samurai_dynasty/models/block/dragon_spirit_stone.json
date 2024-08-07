@@ -1,0 +1,12 @@
+{
+  "parent": "samurai_dynasty:block/cube_bottom_top_sides",
+  "textures": {
+    "bottom": "samurai_dynasty:block/dragon_spirit_stone_bottom",
+    "top": "samurai_dynasty:block/dragon_spirit_stone_top",
+    "front": "samurai_dynasty:block/dragon_spirit_stone_front",
+    "back": "samurai_dynasty:block/dragon_spirit_stone_back",
+    "left": "samurai_dynasty:block/dragon_spirit_stone_left",
+    "right": "samurai_dynasty:block/dragon_spirit_stone_right",
+    "particle": "samurai_dynasty:block/spirit_stone"
+  }
+}

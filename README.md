@@ -29,4 +29,4 @@ Highly recommended:
 	https://minecraft-garage.com/  for the armor models and armor item textures
 
 
-Files under src/main/veroxuniverse/epicsamurai/resources/assets/epicsamurai/... are licensed under All Rights Reserved.
+Files under src/main/veroxuniverse/samurai_dynasty/resources/assets/samurai_dynasty/... are licensed under All Rights Reserved.

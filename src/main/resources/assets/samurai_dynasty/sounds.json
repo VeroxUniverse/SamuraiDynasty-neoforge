@@ -1,0 +1,29 @@
+{
+  "gun_reload": {
+    "subtitle": "sounds.samurai_dynasty.gun_reload",
+    "sounds": [
+      "samurai_dynasty:gun_reload1",
+      "samurai_dynasty:gun_reload2"
+    ]
+  },
+  "gun_hit": {
+    "subtitle": "sounds.samurai_dynasty.gun_hit",
+    "sounds": [
+      "samurai_dynasty:gun_hit"
+    ]
+  },
+  "gun_reload_drop": {
+    "subtitle": "sounds.samurai_dynasty.gun_reload_drop",
+    "sounds": [
+      "samurai_dynasty:gun_reload_drop"
+    ]
+  },
+  "gun_shoot": {
+    "subtitle": "sounds.samurai_dynasty.gun_shoot",
+    "sounds": [
+      "samurai_dynasty:gun_shoot1",
+      "samurai_dynasty:gun_shoot2",
+      "samurai_dynasty:gun_shoot3"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Akaname",
+  "icon": "samurai_dynasty:akaname_spawn_egg",
+  "category": "samurai_dynasty:creatures",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": " $(thing)Health:$() 20     $(br) $(thing)Attack Damage:$() 3     $(br) $(thing)Behavior:$() Aggressive     $(br) $(thing)Spawn:$() $(l)Nether() $(br) $(thing)Description:$() $(br)Wanders around the nether to scare the humans. It will attack with his long tongue to slow his enemy. It can only be hurt by a special enchantment called $(item)Demon Slayer$()."
+    },
+    {
+      "type": "patchouli:image",
+      "title": "Enenra",
+      "images": [
+        "samurai_dynasty:textures/patchouli_images/akaname_square.png"
+      ],
+      "border": "true",
+      "text": "$(l)Drops:$() $(#00baff)(WIP)"
+    }
+  ]
+}

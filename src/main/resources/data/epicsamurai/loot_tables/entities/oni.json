@@ -17,7 +17,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "epicsamurai:oni_horn"
+          "name": "samurai_dynasty:oni_horn"
         }
       ],
       "rolls": 1.0
@@ -38,7 +38,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "epicsamurai:ruby"
+          "name": "samurai_dynasty:ruby"
         }
       ],
       "rolls": 1.0

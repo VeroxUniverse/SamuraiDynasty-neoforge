@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_wall_side_tall",
   "textures": {
-    "wall": "epicsamurai:block/polished_spirit_stone"
+    "wall": "samurai_dynasty:block/polished_spirit_stone"
   }
 }

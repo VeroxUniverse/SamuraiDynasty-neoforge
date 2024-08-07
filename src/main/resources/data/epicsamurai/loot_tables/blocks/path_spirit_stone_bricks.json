@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "epicsamurai:path_spirit_stone_bricks"
+          "name": "samurai_dynasty:path_spirit_stone_bricks"
         }
       ],
       "rolls": 1.0

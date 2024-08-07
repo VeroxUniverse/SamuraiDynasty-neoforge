@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "epicsamurai:stone_roof_corner"
+          "name": "samurai_dynasty:stone_roof_corner"
         }
       ],
       "rolls": 1.0

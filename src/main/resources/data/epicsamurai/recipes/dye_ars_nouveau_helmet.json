@@ -15,11 +15,11 @@
             "tag": "forge:dyes"
           },
           {
-            "item": "epicsamurai:mage_samurai_helmet"
+            "item": "samurai_dynasty:mage_samurai_helmet"
           }
         ],
         "result": {
-          "item": "epicsamurai:mage_samurai_helmet"
+          "item": "samurai_dynasty:mage_samurai_helmet"
         }
       }
     }

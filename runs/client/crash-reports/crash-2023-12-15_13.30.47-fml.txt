@@ -43,10 +43,10 @@ A detailed walkthrough of the error, its code path and all known details is as f
 Thread: Render thread
 Stacktrace:
 	at net.neoforged.neoforge.logging.CrashReportExtender.lambda$dumpModLoadingCrashReport$7(CrashReportExtender.java:57) ~[neoforge-20.2.86.jar%23191%23198!/:?] {re:classloading}
--- MOD epicsamurai --
+-- MOD samurai_dynasty --
 Details:
 	Mod File: /C:/Users/StauP/IdeaProjects/EpicSamurai-forge/build/resources/main/
-	Failure message: Mod epicsamurai requires forge 20.2 or above
+	Failure message: Mod samurai_dynasty requires forge 20.2 or above
 		Currently, forge is not installed
 	Mod Version: 0.0.33-1.20.2-neo
 	Mod Issue URL: NOT PROVIDED

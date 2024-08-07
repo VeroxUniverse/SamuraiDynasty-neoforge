@@ -1,8 +1,8 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "#epicsamurai:twotailed_biomes",
+  "biomes": "#samurai_dynasty:twotailed_biomes",
   "spawners":{
-    "type": "epicsamurai:twotailed",
+    "type": "samurai_dynasty:twotailed",
     "weight": 10,
     "minCount": 1,
     "maxCount": 3

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "epicsamurai:block/spirit_stone"
+      "model": "samurai_dynasty:block/spirit_stone"
     }
   }
 }

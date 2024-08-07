@@ -1,0 +1,16 @@
+{
+  "name": "Kunai",
+  "icon": "samurai_dynasty:kunai",
+  "category": "samurai_dynasty:weapons",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Kunai is melee and ranged weapon with more attack speed."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "samurai_dynasty:kunai"
+    }
+  ]
+}

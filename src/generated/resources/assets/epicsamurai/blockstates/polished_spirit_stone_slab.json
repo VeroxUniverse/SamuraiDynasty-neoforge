@@ -1,13 +1,13 @@
 {
   "variants": {
     "type=bottom": {
-      "model": "epicsamurai:block/polished_spirit_stone_slab"
+      "model": "samurai_dynasty:block/polished_spirit_stone_slab"
     },
     "type=double": {
-      "model": "epicsamurai:block/polished_spirit_stone"
+      "model": "samurai_dynasty:block/polished_spirit_stone"
     },
     "type=top": {
-      "model": "epicsamurai:block/polished_spirit_stone_slab_top"
+      "model": "samurai_dynasty:block/polished_spirit_stone_slab_top"
     }
   }
 }

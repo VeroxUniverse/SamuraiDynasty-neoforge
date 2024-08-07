@@ -1,12 +1,12 @@
 {
   "type": "minecraft:jigsaw",
-  "start_pool": "epicsamurai:shrine/start_pool",
+  "start_pool": "samurai_dynasty:shrine/start_pool",
   // This is how many pieces away from the starting piece a piece of the structure can spawn
   // Think of it like the length of the branch of the structure
   "size": 7,
   // Maximum distance away from center that pieces can spawn. Cannot be greater than 128
   "max_distance_from_center": 114,
-  "biomes": "#epicsamurai:has_structure/structures",
+  "biomes": "#samurai_dynasty:has_structure/structures",
   "adapt_noise": true,
   "step": "surface_structures",
   "start_height": {
@@ -20,13 +20,13 @@
       "bounding_box": "piece",
       "spawns": [
         {
-          "type": "epicsamurai:komainu",
+          "type": "samurai_dynasty:komainu",
           "weight": 1,
           "minCount": 1,
           "maxCount": 4
         },
         {
-          "type": "epicsamurai:kitsune",
+          "type": "samurai_dynasty:kitsune",
           "weight": 1,
           "minCount": 1,
           "maxCount": 1

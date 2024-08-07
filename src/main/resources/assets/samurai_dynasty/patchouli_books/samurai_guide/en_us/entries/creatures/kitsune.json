@@ -1,0 +1,19 @@
+{
+  "name": "Kitsune",
+  "icon": "samurai_dynasty:kitsune_spawn_egg",
+  "category": "samurai_dynasty:creatures",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": " $(thing)Health:$() 100     $(br) $(thing)Attack Damage:$() 8     $(br) $(thing)Behavior:$() Aggressive     $(br) $(thing)Spawn:$() $(l)Overworld$() $(br) $(thing)Description:$() $(br)Wanders around the overworld to scare the humans. If a human gets too close to it, it will fire a projectile called $(item)will-o'-the-wisp$(). It can only be hurt by a special enchantment called $(item)Demon Slayer$()."
+    },
+    {
+      "type": "patchouli:image",
+      "images": [
+        "samurai_dynasty:textures/patchouli_images/kitsune_square.png"
+      ],
+      "border": "true",
+      "text": "$(l)Drops:$() $(#00baff)(WIP)"
+    }
+  ]
+}

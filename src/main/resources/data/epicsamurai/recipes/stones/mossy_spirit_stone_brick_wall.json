@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "epicsamurai:mossy_spirit_stone_bricks"
+      "item": "samurai_dynasty:mossy_spirit_stone_bricks"
     }
   },
   "pattern": [
@@ -12,7 +12,7 @@
   ],
   "result": {
     "count": 6,
-    "item": "epicsamurai:mossy_spirit_stone_brick_wall"
+    "item": "samurai_dynasty:mossy_spirit_stone_brick_wall"
   },
   "show_notification": true
 }

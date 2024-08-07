@@ -12,7 +12,7 @@
         "type": "ars_nouveau:enchanting_apparatus",
         "keepNbtOfReagent": true,
         "output": {
-          "item": "epicsamurai:mage_samurai_boots"
+          "item": "samurai_dynasty:mage_samurai_boots"
         },
         "pedestalItems": [
           {
@@ -30,7 +30,7 @@
         ],
         "reagent": [
           {
-            "tag": "epicsamurai:armors/gem_samurai_armor_boots"
+            "tag": "samurai_dynasty:armors/gem_samurai_armor_boots"
           }
         ],
         "sourceCost": 2500

@@ -4,10 +4,10 @@
     "item": "minecraft:netherite_ingot"
   },
   "base": {
-    "item": "epicsamurai:tetsubo"
+    "item": "samurai_dynasty:tetsubo"
   },
   "result": {
-    "item": "epicsamurai:tetsubo_netherite"
+    "item": "samurai_dynasty:tetsubo_netherite"
   },
   "template": {
     "item": "minecraft:netherite_upgrade_smithing_template"

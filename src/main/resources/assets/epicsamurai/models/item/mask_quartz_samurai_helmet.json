@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "epicsamurai:item/quartz_samurai_helmet_mask"
-  }
-}

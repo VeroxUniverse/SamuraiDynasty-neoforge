@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "epicsamurai:polished_spirit_stone_stairs"
+          "name": "samurai_dynasty:polished_spirit_stone_stairs"
         }
       ],
       "rolls": 1.0

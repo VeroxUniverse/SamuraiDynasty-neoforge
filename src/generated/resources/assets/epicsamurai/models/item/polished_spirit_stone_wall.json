@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/wall_inventory",
   "textures": {
-    "wall": "epicsamurai:block/polished_spirit_stone"
+    "wall": "samurai_dynasty:block/polished_spirit_stone"
   }
 }

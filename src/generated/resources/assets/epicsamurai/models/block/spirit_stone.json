@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "epicsamurai:block/spirit_stone"
+    "all": "samurai_dynasty:block/spirit_stone"
   }
 }

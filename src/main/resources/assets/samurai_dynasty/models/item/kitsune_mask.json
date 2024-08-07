@@ -1,0 +1,18 @@
+{
+  "parent": "samurai_dynasty:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "samurai_dynasty:item/kitsune_mask3d"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "samurai_dynasty:item/kitsune_mask2d"
+    },
+    "ground": {
+      "parent": "samurai_dynasty:item/kitsune_mask2d"
+    },
+    "fixed": {
+      "parent": "samurai_dynasty:item/kitsune_mask3d"
+    }
+  }
+}

@@ -3,7 +3,7 @@
   "cookingtime": 100,
   "experience": 0.7,
   "ingredient": {
-    "item": "epicsamurai:deepslate_silver_ore"
+    "item": "samurai_dynasty:deepslate_silver_ore"
   },
-  "result": "epicsamurai:silver_ingot"
+  "result": "samurai_dynasty:silver_ingot"
 }

@@ -1,0 +1,12 @@
+{
+  "name": "Demon Slayer WIP",
+  "icon": "minecraft:enchanted_book",
+  "category": "samurai_dynasty:enchantments",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:enchanted_book",
+      "text": "The $(item)Demon Slayer$() Enchantment can be applied on the $(thing)Enchanting Table$() at Level $(item)30$(). It is not compatible with $(item)Smite$() and $(item)Bane of Arthropods$()."
+    }
+  ]
+}

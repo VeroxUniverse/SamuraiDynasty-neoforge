@@ -1,11 +1,11 @@
 {
-  "name": "epicsamurai:shrine/start_pool",
+  "name": "samurai_dynasty:shrine/start_pool",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
-        "location": "epicsamurai:shrine",
+        "location": "samurai_dynasty:shrine",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"

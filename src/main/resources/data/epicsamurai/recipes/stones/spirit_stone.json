@@ -5,7 +5,7 @@
       "tag": "forge:stone"
     },
     "S": {
-      "item": "epicsamurai:spirit_flame"
+      "item": "samurai_dynasty:spirit_flame"
     }
   },
   "pattern": [
@@ -15,6 +15,6 @@
   ],
   "result": {
     "count": 8,
-    "item": "epicsamurai:spirit_stone"
+    "item": "samurai_dynasty:spirit_stone"
   }
 }

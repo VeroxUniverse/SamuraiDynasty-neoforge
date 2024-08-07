@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "epicsamurai:aquamarine_block"
+          "name": "samurai_dynasty:aquamarine_block"
         }
       ],
       "rolls": 1.0

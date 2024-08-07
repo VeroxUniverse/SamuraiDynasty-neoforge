@@ -5,7 +5,7 @@
       "tag": "forge:ingots/steel"
     },
     "K": {
-      "item": "epicsamurai:katana"
+      "item": "samurai_dynasty:katana"
     }
   },
   "pattern": [
@@ -14,6 +14,6 @@
     "S  "
   ],
   "result": {
-    "item": "epicsamurai:odachi"
+    "item": "samurai_dynasty:odachi"
   }
 }

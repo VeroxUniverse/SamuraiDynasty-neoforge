@@ -14,10 +14,10 @@
           "item": "eldritch_end:etyr_ingot"
         },
         "base": {
-          "item": "epicsamurai:netherite_samurai_helmet"
+          "item": "samurai_dynasty:netherite_samurai_helmet"
         },
         "result": {
-          "item": "epicsamurai:etyrite_samurai_helmet"
+          "item": "samurai_dynasty:etyrite_samurai_helmet"
         },
         "template": {
           "item": "eldritch_end:etyr_upgrade_pattern"

@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "epicsamurai:spirit_stone"
+      "item": "samurai_dynasty:spirit_stone"
     }
   },
   "pattern": [
@@ -13,7 +13,7 @@
   ],
   "result": {
     "count": 4,
-    "item": "epicsamurai:spirit_stone_stairs"
+    "item": "samurai_dynasty:spirit_stone_stairs"
   },
   "show_notification": true
 }

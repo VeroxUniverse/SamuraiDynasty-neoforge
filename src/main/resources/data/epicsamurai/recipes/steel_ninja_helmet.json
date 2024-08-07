@@ -5,7 +5,7 @@
       "tag": "forge:ingots/steel"
     },
     "S": {
-      "item": "epicsamurai:cloth"
+      "item": "samurai_dynasty:cloth"
     }
   },
   "pattern": [
@@ -13,6 +13,6 @@
     "S S"
   ],
   "result": {
-    "item": "epicsamurai:steel_ninja_helmet"
+    "item": "samurai_dynasty:steel_ninja_helmet"
   }
 }

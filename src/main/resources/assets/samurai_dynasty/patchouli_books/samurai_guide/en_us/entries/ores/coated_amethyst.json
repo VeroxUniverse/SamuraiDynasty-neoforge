@@ -1,0 +1,16 @@
+{
+  "name": "Amethyst Ingot",
+  "icon": "samurai_dynasty:amethyst_ingot",
+  "category": "samurai_dynasty:ores",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "samurai_dynasty:amethyst_ingot",
+      "text": "You can Upgrade Steel.$(br)$(item)Steel$() can be combined with $(thing)Amethyst$() in the $(item)Smithing Table$()."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "samurai_dynasty:amethyst_ingot_smithing"
+    }
+  ]
+}

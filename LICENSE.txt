@@ -164,4 +164,4 @@ apply, that proxy's public statement of acceptance of any version is
 permanent authorization for you to choose that version for the
 Library.
 
-Files under src/main/veroxuniverse/epicsamurai/resources/assets/epicsamurai/... are licensed under All Rights Reserved.
+Files under src/main/veroxuniverse/samurai_dynasty/resources/assets/samurai_dynasty/... are licensed under All Rights Reserved.

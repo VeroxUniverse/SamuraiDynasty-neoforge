@@ -1,0 +1,17 @@
+{
+  "name": "Steel",
+  "icon": "samurai_dynasty:steel_ingot",
+  "category": "samurai_dynasty:ores",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "samurai_dynasty:steel_ingot",
+      "text": "You need to smelt $(thing)Iron Ingots$() to get some $(item)Steel$()."
+    },
+    {
+      "type": "patchouli:smelting",
+      "recipe": "samurai_dynasty:steel_ingot_from_blasting_iron_ingot",
+      "text": "$(item)Steel$() can be smelted in the $(thing)Blast Furnace$()."
+    }
+  ]
+}

@@ -13,18 +13,18 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "epicsamurai:kawauso_statue",
+              "block": "samurai_dynasty:kawauso_statue",
               "condition": "minecraft:block_state_property",
               "properties": {
                 "half": "lower"
               }
             }
           ],
-          "name": "epicsamurai:kawauso_statue"
+          "name": "samurai_dynasty:kawauso_statue"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "epicsamurai:blocks/kawauso_statue"
+  "random_sequence": "samurai_dynasty:blocks/kawauso_statue"
 }

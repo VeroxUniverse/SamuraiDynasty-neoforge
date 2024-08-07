@@ -3,13 +3,13 @@
   "category": "equipment",
   "ingredients": [
     {
-      "item": "epicsamurai:netherite_samurai_helmet"
+      "item": "samurai_dynasty:netherite_samurai_helmet"
     },
     {
-      "item": "epicsamurai:oni_mask"
+      "item": "samurai_dynasty:oni_mask"
     }
   ],
   "result": {
-    "item": "epicsamurai:mask_netherite_samurai_helmet"
+    "item": "samurai_dynasty:mask_netherite_samurai_helmet"
   }
 }

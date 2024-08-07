@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "epicsamurai:deepslate_ruby_ore"
+              "name": "samurai_dynasty:deepslate_ruby_ore"
             },
             {
               "type": "minecraft:item",
@@ -38,7 +38,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "epicsamurai:ruby"
+              "name": "samurai_dynasty:ruby"
             }
           ]
         }

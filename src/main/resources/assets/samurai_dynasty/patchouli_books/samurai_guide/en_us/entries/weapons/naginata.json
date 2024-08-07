@@ -1,0 +1,16 @@
+{
+  "name": "Naginata",
+  "icon": "samurai_dynasty:naginata",
+  "category": "samurai_dynasty:weapons",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Naginata is a melee weapon with more range. It acts like a spear."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "samurai_dynasty:naginata"
+    }
+  ]
+}

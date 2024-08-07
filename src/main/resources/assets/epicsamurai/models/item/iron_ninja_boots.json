@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "epicsamurai:item/iron_ninja_boots"
-  }
-}

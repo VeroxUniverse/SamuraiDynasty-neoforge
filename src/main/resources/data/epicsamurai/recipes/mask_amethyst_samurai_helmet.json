@@ -3,13 +3,13 @@
   "category": "equipment",
   "ingredients": [
     {
-      "item": "epicsamurai:amethyst_samurai_helmet"
+      "item": "samurai_dynasty:amethyst_samurai_helmet"
     },
     {
-      "item": "epicsamurai:oni_mask"
+      "item": "samurai_dynasty:oni_mask"
     }
   ],
   "result": {
-    "item": "epicsamurai:mask_amethyst_samurai_helmet"
+    "item": "samurai_dynasty:mask_amethyst_samurai_helmet"
   }
 }

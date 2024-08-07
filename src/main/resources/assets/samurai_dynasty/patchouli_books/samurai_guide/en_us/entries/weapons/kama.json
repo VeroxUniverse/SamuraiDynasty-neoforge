@@ -1,0 +1,16 @@
+{
+  "name": "Kama",
+  "icon": "samurai_dynasty:kama",
+  "category": "samurai_dynasty:weapons",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "The Kama is a sickle like melee weapon with more attack speed."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "samurai_dynasty:kama"
+    }
+  ]
+}
