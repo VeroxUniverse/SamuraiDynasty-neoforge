@@ -115,6 +115,14 @@ public class ModEntityTypes {
                             .updateInterval(20)
                             .build(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "kunai").toString()));
 
+    public static final RegistryObject<EntityType<BulletEntity>> BULLET =
+            ENTITY_TYPES.register("bullet",
+                    () -> EntityType.Builder.<BulletEntity>of(BulletEntity::new, MobCategory.MISC)
+                            .sized(0.25F, 0.25F)
+                            .clientTrackingRange(4)
+                            .updateInterval(20)
+                            .build(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "bullet").toString()));
+
     public static final RegistryObject<EntityType<NetheriteKunaiEntity>> KUNAI_NETHERITE =
             ENTITY_TYPES.register("kunai_netherite",
                     () -> EntityType.Builder.<NetheriteKunaiEntity>of(NetheriteKunaiEntity::new, MobCategory.MISC)

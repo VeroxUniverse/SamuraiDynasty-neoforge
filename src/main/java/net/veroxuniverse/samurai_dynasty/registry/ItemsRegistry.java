@@ -15,6 +15,7 @@ import net.veroxuniverse.samurai_dynasty.curios.OniMaskCurios;
 import net.veroxuniverse.samurai_dynasty.entity.ModEntityTypes;
 import net.veroxuniverse.samurai_dynasty.item.*;
 import net.veroxuniverse.samurai_dynasty.item.armor.*;
+import net.veroxuniverse.samurai_dynasty.item.ranged.GunItem;
 
 @SuppressWarnings("unused")
 public class ItemsRegistry {
@@ -378,6 +379,10 @@ public class ItemsRegistry {
             () -> new TonbukiriItem(ItemMaterialsRegistry.SAMURAI,1,-2.7f, new Item.Properties()));
     public static final RegistryObject<Item> KAMAYARI = ITEMS.register("kamayari",
             () -> new KamayariItem(ItemMaterialsRegistry.SAMURAI,1,-2.6f, new Item.Properties()));
+    public static final RegistryObject<Item> TANEGASHIMA = ITEMS.register("tanegashima",
+            () -> new GunItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> BULLET = ITEMS.register("bullet",
+            () -> new BulletItem(new Item.Properties()));
     public static final RegistryObject<Item> KUNAI = ITEMS.register("kunai",
             () -> new KunaiItem(ItemMaterialsRegistry.SAMURAI,-2,-2.0f, new Item.Properties()));
     public static final RegistryObject<Item> KAMA = ITEMS.register("kama",

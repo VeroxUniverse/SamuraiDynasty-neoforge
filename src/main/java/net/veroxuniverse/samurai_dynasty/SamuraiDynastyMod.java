@@ -17,7 +17,9 @@ import net.veroxuniverse.samurai_dynasty.client.entities.*;
 import net.veroxuniverse.samurai_dynasty.client.projectiles.ThrownShurikenRenderer;
 import net.veroxuniverse.samurai_dynasty.compat.*;
 import net.veroxuniverse.samurai_dynasty.curios.layers.KitsuneMaskRenderer;
+import net.veroxuniverse.samurai_dynasty.curios.layers.OniMaskRedRenderer;
 import net.veroxuniverse.samurai_dynasty.curios.layers.OniMaskRenderer;
+import net.veroxuniverse.samurai_dynasty.curios.layers.OniMaskWhiteRenderer;
 import net.veroxuniverse.samurai_dynasty.datagen.loot.ModLootModifiers;
 import net.veroxuniverse.samurai_dynasty.enchantment.ModEnchantments;
 import net.veroxuniverse.samurai_dynasty.entity.ModEntityTypes;
@@ -128,6 +130,7 @@ public class SamuraiDynastyMod
             EntityRenderers.register(ModEntityTypes.SHURIKEN.get(), ThrownShurikenRenderer::new);
 
             EntityRenderers.register(ModEntityTypes.KITSUNE_PROJECTILE.get(), KitsuneProjectileRenderer::new);
+            EntityRenderers.register(ModEntityTypes.BULLET.get(), BulletRenderer::new);
             EntityRenderers.register(ModEntityTypes.KUNAI.get(), ThrownItemRenderer::new);
             EntityRenderers.register(ModEntityTypes.KUNAI_NETHERITE.get(), ThrownItemRenderer::new);
 
