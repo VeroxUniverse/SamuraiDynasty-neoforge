@@ -11,6 +11,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -32,6 +33,8 @@ public class ThrownShurikenEntity extends AbstractArrow implements GeoEntity {
     private static final EntityDataAccessor<Boolean> ID_FOIL = SynchedEntityData.defineId(ThrownShurikenEntity.class, EntityDataSerializers.BOOLEAN);
     private @NotNull ItemStack shurikenItem = new ItemStack(ItemsRegistry.SHURIKEN.get());
     private boolean dealtDamage;
+    private float playerYaw;
+    private float playerPitch;
 
     private float SHURIKEN_DAMAGE = 6;
 
@@ -43,6 +46,7 @@ public class ThrownShurikenEntity extends AbstractArrow implements GeoEntity {
         super(ModEntityTypes.SHURIKEN.get(), pShooter, pLevel);
         this.shurikenItem = pStack.copy();
         this.entityData.set(ID_FOIL, pStack.hasFoil());
+        this.setOwner(pShooter);
     }
 
     protected void defineSynchedData() {
@@ -55,6 +59,14 @@ public class ThrownShurikenEntity extends AbstractArrow implements GeoEntity {
             this.dealtDamage = true;
         }
         super.tick();
+
+        double dx = this.getDeltaMovement().x();
+        double dy = this.getDeltaMovement().y();
+        double dz = this.getDeltaMovement().z();
+
+        float horizontalDistance = Mth.sqrt((float) (dx * dx + dz * dz));
+        this.setYRot((float) (Mth.atan2(dx, dz) * (180F / Math.PI)));
+        this.setXRot((float) (Mth.atan2(dy, horizontalDistance) * (180F / Math.PI)));
     }
 
 
@@ -114,6 +126,14 @@ public class ThrownShurikenEntity extends AbstractArrow implements GeoEntity {
 
     }
 
+    @Override
+    public void shootFromRotation(Entity pShooter, float pX, float pY, float pZ, float pVelocity, float pInaccuracy) {
+        super.shootFromRotation(pShooter, pX, pY, pZ, pVelocity, pInaccuracy);
+
+        this.playerYaw = pShooter.getYHeadRot();
+        this.playerPitch = pShooter.getXRot();
+    }
+
     public boolean shouldRender(double pX, double pY, double pZ) {
         return true;
     }
@@ -131,4 +151,5 @@ public class ThrownShurikenEntity extends AbstractArrow implements GeoEntity {
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
     }
+
 }
