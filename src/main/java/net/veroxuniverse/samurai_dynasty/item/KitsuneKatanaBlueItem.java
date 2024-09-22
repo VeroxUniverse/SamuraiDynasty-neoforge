@@ -58,7 +58,7 @@ public class KitsuneKatanaBlueItem extends SwordItem {
     public boolean onLeftClickEntity(ItemStack stack, Player player, Entity entity) {
         if(entity instanceof LivingEntity livingEntity) {
             livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 200, 1), player);
-            livingEntity.setSecondsOnFire(10);
+            livingEntity.igniteForSeconds(10);
         }
 
         return super.onLeftClickEntity(stack, player, entity);

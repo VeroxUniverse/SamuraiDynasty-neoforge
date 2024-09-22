@@ -103,16 +103,16 @@ public class ItemsRegistry {
             () -> new SwordItem(ItemMaterialsRegistry.STEEL, new Item.Properties().
                     attributes(SwordItem.createAttributes(ItemMaterialsRegistry.STEEL,-2,-1.5f))));
     public static final DeferredItem<Item> TETSUBO = ITEMS.register("tetsubo",
-            () -> new SwordItem(ItemMaterialsRegistry.STEEL, new Item.Properties().
+            () -> new TetsuboItem(ItemMaterialsRegistry.STEEL, new Item.Properties().
                     attributes(SwordItem.createAttributes(ItemMaterialsRegistry.STEEL,6,-3.4f))));
     public static final DeferredItem<Item> ODACHI = ITEMS.register("odachi",
-            () -> new SwordItem(ItemMaterialsRegistry.STEEL, new Item.Properties().
+            () -> new OdachiItem(ItemMaterialsRegistry.STEEL, new Item.Properties().
                     attributes(SwordItem.createAttributes(ItemMaterialsRegistry.STEEL,2,-2.4f))));
     public static final DeferredItem<Item> TONBUKIRI = ITEMS.register("tonbukiri",
-            () -> new SwordItem(ItemMaterialsRegistry.STEEL, new Item.Properties().
+            () -> new TonbukiriItem(ItemMaterialsRegistry.STEEL, new Item.Properties().
                     attributes(SwordItem.createAttributes(ItemMaterialsRegistry.STEEL,1,-2.7f))));
     public static final DeferredItem<Item> KAMAYARI = ITEMS.register("kamayari",
-            () -> new SwordItem(ItemMaterialsRegistry.STEEL, new Item.Properties().
+            () -> new KamayariItem(ItemMaterialsRegistry.STEEL, new Item.Properties().
                     attributes(SwordItem.createAttributes(ItemMaterialsRegistry.STEEL,1,-2.6f))));
     public static final DeferredItem<Item> KUNAI = ITEMS.register("kunai",
             () -> new KunaiItem(ItemMaterialsRegistry.STEEL, new Item.Properties().
@@ -134,20 +134,20 @@ public class ItemsRegistry {
             () -> new SwordItem(ItemMaterialsRegistry.NETHERITE, new Item.Properties()
                     .attributes(SwordItem.createAttributes(ItemMaterialsRegistry.NETHERITE, 1, -1.7f)).fireResistant()));
     public static final DeferredItem<Item> KATANA_ONI = ITEMS.register("katana_oni",
-            () -> new OniKatanaItem(ItemMaterialsRegistry.NETHERITE,2,-2.0f,
-                    new Item.Properties().rarity(Rarity.RARE).fireResistant()));
+            () -> new OniKatanaItem(ItemMaterialsRegistry.NETHERITE, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ItemMaterialsRegistry.NETHERITE,2,-2.0f)).rarity(Rarity.RARE).fireResistant()));
     public static final DeferredItem<Item> KATANA_KITSUNE = ITEMS.register("katana_kitsune",
-            () -> new KitsuneKatanaItem(ItemMaterialsRegistry.NETHERITE,2,-2.0f,
-                    new Item.Properties().rarity(Rarity.RARE).fireResistant()));
+            () -> new KitsuneKatanaItem(ItemMaterialsRegistry.NETHERITE, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ItemMaterialsRegistry.NETHERITE,2,-2.0f)).rarity(Rarity.RARE).fireResistant()));
     public static final DeferredItem<Item> KATANA_KITSUNE_BLUE = ITEMS.register("katana_kitsune_blue",
-            () -> new KitsuneKatanaBlueItem(ItemMaterialsRegistry.NETHERITE,2,-2.0f,
-                    new Item.Properties().rarity(Rarity.RARE).fireResistant()));
+            () -> new KitsuneKatanaBlueItem(ItemMaterialsRegistry.NETHERITE, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ItemMaterialsRegistry.NETHERITE,2,-2.0f)).rarity(Rarity.RARE).fireResistant()));
     public static final DeferredItem<Item> KATANA_AKANAME = ITEMS.register("katana_akaname",
-            () -> new AkanameKatanaItem(ItemMaterialsRegistry.NETHERITE,2,-2.0f,
-                    new Item.Properties().rarity(Rarity.RARE).fireResistant()));
+            () -> new AkanameKatanaItem(ItemMaterialsRegistry.NETHERITE, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ItemMaterialsRegistry.NETHERITE,2,-2.0f)).rarity(Rarity.RARE).fireResistant()));
     public static final DeferredItem<Item> KATANA_JOROGUMO = ITEMS.register("katana_jorogumo",
-            () -> new JorogumoKatanaItem(ItemMaterialsRegistry.NETHERITE,2,-2.0f,
-                    new Item.Properties().rarity(Rarity.RARE).fireResistant()));
+            () -> new JorogumoKatanaItem(ItemMaterialsRegistry.NETHERITE, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ItemMaterialsRegistry.NETHERITE,2,-2.0f)).rarity(Rarity.RARE).fireResistant()));
 
     public static final DeferredItem<Item> NAGINATA_NETHERITE = ITEMS.register("naginata_netherite",
             () -> new SwordItem(ItemMaterialsRegistry.NETHERITE, new Item.Properties()
@@ -159,15 +159,20 @@ public class ItemsRegistry {
             () -> new SwordItem(ItemMaterialsRegistry.NETHERITE, new Item.Properties()
                     .attributes(SwordItem.createAttributes(ItemMaterialsRegistry.NETHERITE, -1, -1.5f)).fireResistant()));
     public static final DeferredItem<Item> TETSUBO_NETHERITE = ITEMS.register("tetsubo_netherite",
-            () -> new TetsuboNetheriteItem(ItemMaterialsRegistry.NETHERITE,8,-3.4f, new Item.Properties().fireResistant()));
+            () -> new TetsuboNetheriteItem(ItemMaterialsRegistry.NETHERITE, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ItemMaterialsRegistry.NETHERITE, 8,-3.4f)).fireResistant()));
     public static final DeferredItem<Item> ODACHI_NETHERITE = ITEMS.register("odachi_netherite",
-            () -> new OdachiNetheriteItem(ItemMaterialsRegistry.NETHERITE,3,-2.4f, new Item.Properties()));
+            () -> new OdachiNetheriteItem(ItemMaterialsRegistry.NETHERITE, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ItemMaterialsRegistry.NETHERITE,3,-2.4f)).fireResistant()));
     public static final DeferredItem<Item> TONBUKIRI_NETHERITE = ITEMS.register("tonbukiri_netherite",
-            () -> new TonbukiriNetheriteItem(ItemMaterialsRegistry.NETHERITE,2,-2.7f, new Item.Properties()));
+            () -> new TonbukiriNetheriteItem(ItemMaterialsRegistry.NETHERITE, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ItemMaterialsRegistry.NETHERITE,2,-2.7f)).fireResistant()));
     public static final DeferredItem<Item> KAMAYARI_NETHERITE = ITEMS.register("kamayari_netherite",
-            () -> new KamayariNetheriteItem(ItemMaterialsRegistry.NETHERITE,2,-2.6f, new Item.Properties()));
+            () -> new KamayariNetheriteItem(ItemMaterialsRegistry.NETHERITE, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ItemMaterialsRegistry.NETHERITE, 2,-2.6f)).fireResistant()));
     public static final DeferredItem<Item> KUNAI_NETHERITE = ITEMS.register("kunai_netherite",
-            () -> new NetheriteKunaiItem(ItemMaterialsRegistry.NETHERITE,-1,-2.0f, new Item.Properties().fireResistant()));
+            () -> new NetheriteKunaiItem(ItemMaterialsRegistry.NETHERITE, new Item.Properties()
+                    .attributes(SwordItem.createAttributes(ItemMaterialsRegistry.NETHERITE, -1,-2.0f)).fireResistant()));
     public static final DeferredItem<Item> KAMA_NETHERITE = ITEMS.register("kama_netherite",
             () -> new SwordItem(ItemMaterialsRegistry.NETHERITE, new Item.Properties()
                     .attributes(SwordItem.createAttributes(ItemMaterialsRegistry.NETHERITE, -1, -1.5f)).fireResistant()));

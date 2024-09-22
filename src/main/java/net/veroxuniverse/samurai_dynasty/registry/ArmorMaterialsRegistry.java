@@ -1,12 +1,9 @@
 package net.veroxuniverse.samurai_dynasty.registry;
 
-import com.google.common.base.Suppliers;
-
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
@@ -15,11 +12,9 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.EnumMap;
 import java.util.List;
-import java.util.function.Supplier;
 
 public class ArmorMaterialsRegistry{
     public static final DeferredRegister<ArmorMaterial> ARMOR_MATERIALS =
