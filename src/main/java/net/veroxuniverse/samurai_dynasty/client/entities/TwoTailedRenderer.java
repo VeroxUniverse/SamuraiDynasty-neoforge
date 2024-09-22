@@ -2,7 +2,7 @@ package net.veroxuniverse.samurai_dynasty.client.entities;
 
 import com.google.common.collect.Maps;
 import com.mojang.blaze3d.vertex.PoseStack;
-import mod.azure.azurelib.renderer.GeoEntityRenderer;
+import mod.azure.azurelib.common.api.client.renderer.GeoEntityRenderer;
 import net.minecraft.Util;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -18,9 +18,9 @@ public class TwoTailedRenderer extends GeoEntityRenderer<TwoTailedFox> {
     private static final Map<TwoTailedVariant, ResourceLocation> LOCATION_BY_VARIANT =
             Util.make(Maps.newEnumMap(TwoTailedVariant.class), map -> {
                 map.put(TwoTailedVariant.DEFAULT,
-                        new ResourceLocation(SamuraiDynastyMod.MOD_ID, "textures/entity/kitsune_small.png"));
+                        ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "textures/entity/kitsune_small.png"));
                 map.put(TwoTailedVariant.BLUE,
-                        new ResourceLocation(SamuraiDynastyMod.MOD_ID, "textures/entity/kitsune_small_blue.png"));
+                        ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "textures/entity/kitsune_small_blue.png"));
             });
 
     public TwoTailedRenderer(EntityRendererProvider.Context renderManager) {

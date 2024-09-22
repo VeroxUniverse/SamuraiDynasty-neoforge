@@ -12,12 +12,13 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 import net.veroxuniverse.samurai_dynasty.curios.model.OniMaskModel;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.client.ICurioRenderer;
 
 public class OniMaskWhiteRenderer implements ICurioRenderer {
-    private static final ResourceLocation ONI_MASK_LOCATION = new ResourceLocation("samurai_dynasty:textures/armor/oni_mask_white.png");
+    private static final ResourceLocation ONI_MASK_LOCATION = ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID,"samurai_dynasty:textures/armor/oni_mask_white.png");
     private final OniMaskModel oniMaskModel;
 
     public OniMaskWhiteRenderer() {
@@ -34,7 +35,7 @@ public class OniMaskWhiteRenderer implements ICurioRenderer {
         //ICurioRenderer.rotateIfSneaking(matrixStack, entity);
         this.oniMaskModel.prepareMobModel(entity, limbSwing, limbSwingAmount, partialTicks);
         this.oniMaskModel.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-        VertexConsumer vertexconsumer = ItemRenderer.getArmorFoilBuffer(renderTypeBuffer, RenderType.armorCutoutNoCull(ONI_MASK_LOCATION), false, stack.hasFoil());
+        VertexConsumer vertexconsumer = ItemRenderer.getArmorFoilBuffer(renderTypeBuffer, RenderType.armorCutoutNoCull(ONI_MASK_LOCATION), false);
         this.oniMaskModel.renderToBuffer(matrixStack, vertexconsumer, light, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
     }
 }

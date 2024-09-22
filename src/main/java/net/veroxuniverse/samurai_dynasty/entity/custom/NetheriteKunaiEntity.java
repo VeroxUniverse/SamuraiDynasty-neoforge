@@ -1,5 +1,6 @@
 package net.veroxuniverse.samurai_dynasty.entity.custom;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -11,6 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
@@ -28,13 +30,17 @@ public class NetheriteKunaiEntity extends ThrowableItemProjectile {
         super(ModEntityTypes.KUNAI_NETHERITE.get(), pShooter, pLevel);
     }
 
+    public NetheriteKunaiEntity(Level level, double x, double y, double z, ItemStack itemStack) {
+        super(ModEntityTypes.KUNAI_NETHERITE.get(), x, y, z, level);
+    }
+
 
     protected @NotNull Item getDefaultItem() {
         return ItemsRegistry.KUNAI_NETHERITE.get();
     }
 
     private ParticleOptions getParticle() {
-        ItemStack itemstack = this.getItemRaw();
+        ItemStack itemstack = this.getItem();
         return itemstack.isEmpty() ? ParticleTypes.CRIT : new ItemParticleOption(ParticleTypes.ITEM, itemstack);
     }
 
@@ -54,7 +60,7 @@ public class NetheriteKunaiEntity extends ThrowableItemProjectile {
         Entity entity = pResult.getEntity();
         if (this.getOwner() instanceof Player) {
             ItemStack itemstack = ((Player) this.getOwner()).getItemInHand(InteractionHand.MAIN_HAND);
-            int sharpnessLvl = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SHARPNESS, itemstack);
+            int sharpnessLvl = EnchantmentHelper.getItemEnchantmentLevel((Holder<Enchantment>) Enchantments.SHARPNESS, itemstack);
             if (sharpnessLvl > 0) {
                 entity.hurt(entity.damageSources().thrown(this, this.getOwner()), (float) (sharpnessLvl * 0.5D + 8));
             } else {

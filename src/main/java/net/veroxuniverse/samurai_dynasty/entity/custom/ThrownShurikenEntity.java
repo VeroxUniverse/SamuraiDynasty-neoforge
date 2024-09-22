@@ -1,11 +1,13 @@
 package net.veroxuniverse.samurai_dynasty.entity.custom;
 
-import mod.azure.azurelib.animatable.GeoEntity;
+import mod.azure.azurelib.common.api.common.animatable.GeoEntity;
+import mod.azure.azurelib.common.internal.common.util.AzureLibUtil;
 import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
 import mod.azure.azurelib.core.animation.*;
 import mod.azure.azurelib.core.object.PlayState;
-import mod.azure.azurelib.util.AzureLibUtil;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtOps;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -17,12 +19,12 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.veroxuniverse.samurai_dynasty.entity.ModEntityTypes;
-import net.veroxuniverse.samurai_dynasty.item.ESWeaponItem;
 import net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry;
 import org.jetbrains.annotations.NotNull;
 
@@ -43,15 +45,19 @@ public class ThrownShurikenEntity extends AbstractArrow implements GeoEntity {
     }
 
     public ThrownShurikenEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
-        super(ModEntityTypes.SHURIKEN.get(), pShooter, pLevel);
+        super(ModEntityTypes.SHURIKEN.get(), pShooter, pLevel, pStack, null);
         this.shurikenItem = pStack.copy();
         this.entityData.set(ID_FOIL, pStack.hasFoil());
         this.setOwner(pShooter);
     }
 
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(ID_FOIL, false);
+    public ThrownShurikenEntity(Level level, double x, double y, double z, ItemStack itemStack) {
+        super(ModEntityTypes.SHURIKEN.get(), x, y, z, level, itemStack, itemStack);
+    }
+
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        this.entityData.set(ID_FOIL, false);
     }
 
     public void tick() {
@@ -71,6 +77,11 @@ public class ThrownShurikenEntity extends AbstractArrow implements GeoEntity {
 
 
     protected ItemStack getPickupItem() {
+        return new ItemStack(ItemsRegistry.SHURIKEN.get().asItem());
+    }
+
+    @Override
+    protected ItemStack getDefaultPickupItem() {
         return new ItemStack(ItemsRegistry.SHURIKEN.get().asItem());
     }
 
@@ -107,7 +118,9 @@ public class ThrownShurikenEntity extends AbstractArrow implements GeoEntity {
     public void readAdditionalSaveData(CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
         if (pCompound.contains("Shuriken", 10)) {
-            this.shurikenItem = ItemStack.of(pCompound.getCompound("Shuriken"));
+            //this.shurikenItem = ItemStack.of(pCompound.getCompound("Shuriken"));
+            this.shurikenItem = ItemStack.CODEC.parse(NbtOps.INSTANCE, pCompound.getCompound("Shuriken")).result().orElse(ItemStack.EMPTY);
+
         }
 
         this.dealtDamage = pCompound.getBoolean("DealtDamage");
@@ -115,7 +128,9 @@ public class ThrownShurikenEntity extends AbstractArrow implements GeoEntity {
 
     public void addAdditionalSaveData(CompoundTag pCompound) {
         super.addAdditionalSaveData(pCompound);
-        pCompound.put("Shuriken", this.shurikenItem.save(new CompoundTag()));
+        CompoundTag shurikenTag = new CompoundTag();
+        this.shurikenItem.save((HolderLookup.Provider) shurikenTag);
+        pCompound.put("Shuriken", shurikenTag);
         pCompound.putBoolean("DealtDamage", this.dealtDamage);
     }
 

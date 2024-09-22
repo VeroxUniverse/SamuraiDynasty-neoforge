@@ -14,7 +14,7 @@ import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 
 public class OniMaskModel<T extends LivingEntity> extends HumanoidModel<T> {
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "oni_mask"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "oni_mask"), "main");
     public final ModelPart bipedArmorHead;
 
 	public OniMaskModel(ModelPart root) {
@@ -57,9 +57,8 @@ public class OniMaskModel<T extends LivingEntity> extends HumanoidModel<T> {
 
     }
 
-    @Override
     public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        bipedArmorHead.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+        bipedArmorHead.render(poseStack, vertexConsumer, packedLight, packedOverlay);
     }
 
     @Override

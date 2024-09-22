@@ -14,7 +14,7 @@ import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 
 public class KitsuneMaskModel<T extends LivingEntity> extends HumanoidModel<T> {
     // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "kitsune_mask"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "kitsune_mask"), "main");
     public final ModelPart bipedHead;
 
 	public KitsuneMaskModel(ModelPart root) {
@@ -55,9 +55,8 @@ public class KitsuneMaskModel<T extends LivingEntity> extends HumanoidModel<T> {
 
     }
 
-    @Override
     public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        bipedHead.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+        bipedHead.render(poseStack, vertexConsumer, packedLight, packedOverlay);
     }
 
     @Override

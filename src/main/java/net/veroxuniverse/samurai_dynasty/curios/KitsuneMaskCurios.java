@@ -35,7 +35,7 @@ public class KitsuneMaskCurios extends Item implements ICurioItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown() && stack.getItem() == ItemsRegistry.KITSUNE_MASK.get()) {
             components.add(Component.literal("§8Hold [§7Shift§8] for Summary"));
             components.add(Component.literal(""));
@@ -46,7 +46,7 @@ public class KitsuneMaskCurios extends Item implements ICurioItem {
             components.add(Component.literal("§8Hold [§7Shift§8] for Summary"));
         }
 
-        super.appendHoverText(stack, level, components, flag);
+        super.appendHoverText(stack, context, components, flag);
     }
 
     @Override

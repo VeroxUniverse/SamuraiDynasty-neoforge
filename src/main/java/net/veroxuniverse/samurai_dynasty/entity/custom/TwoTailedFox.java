@@ -1,6 +1,32 @@
 package net.veroxuniverse.samurai_dynasty.entity.custom;
 
-import mod.azure.azurelib.util.AzureLibUtil;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import mod.azure.azurelib.common.api.common.animatable.GeoEntity;
+import mod.azure.azurelib.common.internal.common.util.AzureLibUtil;
+import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
+import mod.azure.azurelib.core.animation.AnimatableManager;
+import mod.azure.azurelib.core.animation.Animation;
+import mod.azure.azurelib.core.animation.AnimationController;
+import mod.azure.azurelib.core.animation.RawAnimation;
+import mod.azure.azurelib.core.object.PlayState;
+import mod.azure.azurelib.sblforked.api.SmartBrainOwner;
+import mod.azure.azurelib.sblforked.api.core.BrainActivityGroup;
+import mod.azure.azurelib.sblforked.api.core.behaviour.FirstApplicableBehaviour;
+import mod.azure.azurelib.sblforked.api.core.behaviour.OneRandomBehaviour;
+import mod.azure.azurelib.sblforked.api.core.behaviour.custom.attack.AnimatableMeleeAttack;
+import mod.azure.azurelib.sblforked.api.core.behaviour.custom.look.LookAtTarget;
+import mod.azure.azurelib.sblforked.api.core.behaviour.custom.misc.Idle;
+import mod.azure.azurelib.sblforked.api.core.behaviour.custom.move.FloatToSurfaceOfFluid;
+import mod.azure.azurelib.sblforked.api.core.behaviour.custom.move.MoveToWalkTarget;
+import mod.azure.azurelib.sblforked.api.core.behaviour.custom.path.SetRandomWalkTarget;
+import mod.azure.azurelib.sblforked.api.core.behaviour.custom.path.SetWalkTargetToAttackTarget;
+import mod.azure.azurelib.sblforked.api.core.behaviour.custom.target.InvalidateAttackTarget;
+import mod.azure.azurelib.sblforked.api.core.behaviour.custom.target.SetPlayerLookTarget;
+import mod.azure.azurelib.sblforked.api.core.behaviour.custom.target.SetRandomLookTarget;
+import mod.azure.azurelib.sblforked.api.core.behaviour.custom.target.TargetOrRetaliate;
+import mod.azure.azurelib.sblforked.api.core.sensor.ExtendedSensor;
+import mod.azure.azurelib.sblforked.api.core.sensor.vanilla.HurtBySensor;
+import mod.azure.azurelib.sblforked.api.core.sensor.vanilla.NearbyLivingEntitySensor;
 import net.minecraft.Util;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -16,34 +42,22 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.goal.target.NonTameRandomTargetGoal;
-import net.minecraft.world.entity.ai.goal.target.OwnerHurtByTargetGoal;
-import net.minecraft.world.entity.ai.goal.target.OwnerHurtTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraftforge.event.ForgeEventFactory;
+import net.neoforged.neoforge.event.EventHooks;
 import net.veroxuniverse.samurai_dynasty.entity.ModEntityTypes;
-import net.veroxuniverse.samurai_dynasty.entity.custom.goals.TwoTailedAttackGoal;
 import net.veroxuniverse.samurai_dynasty.entity.variant.TwoTailedVariant;
 import org.jetbrains.annotations.Nullable;
-import mod.azure.azurelib.animatable.GeoEntity;
-import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
-import mod.azure.azurelib.core.animation.AnimatableManager;
-import mod.azure.azurelib.core.animation.Animation;
-import mod.azure.azurelib.core.animation.AnimationController;
-import mod.azure.azurelib.core.animation.RawAnimation;
-import mod.azure.azurelib.core.object.PlayState;
 
+import java.util.List;
 import java.util.function.Predicate;
 
-public class TwoTailedFox extends TamableAnimal implements GeoEntity {
+public class TwoTailedFox extends TamableAnimal implements GeoEntity, SmartBrainOwner<TwoTailedFox> {
 
     public static final Predicate<LivingEntity> ATTACK_SELECTOR = (livingEntity) -> {
         EntityType<?> entitytype = livingEntity.getType();
@@ -65,7 +79,7 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity {
 
     public TwoTailedFox(EntityType<? extends TamableAnimal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
-        this.setTame(false);
+        this.setTame(false, false);
     }
 
 
@@ -78,6 +92,7 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity {
     }
 
 
+    /*
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
@@ -87,7 +102,7 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity {
         this.goalSelector.addGoal(2, new TwoTailedAttackGoal(this, 1.2D, true));
         this.goalSelector.addGoal(3, new BreedGoal(this, 1.0D));
         this.goalSelector.addGoal(4, new TemptGoal(this, 1.2D, Ingredient.of(Items.BLAZE_POWDER), true));
-        this.goalSelector.addGoal(5, new FollowOwnerGoal(this, 1.2F, 8.0F, 2.0F, false));
+        this.goalSelector.addGoal(5, new FollowOwnerGoal(this, 1.2F, 8.0F, 2.0F));
         this.goalSelector.addGoal(5, new FollowParentGoal(this, 1.2F));
 
         this.goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1.0D));
@@ -99,6 +114,7 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity {
         this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
         this.targetSelector.addGoal(3, new NonTameRandomTargetGoal<>(this, Animal.class, false, ATTACK_SELECTOR));
     }
+     */
 
     /*
 
@@ -114,10 +130,10 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity {
 
 
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(DATA_ID_TYPE_VARIANT, 0);
-        this.entityData.define(ATTACKING, false);
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        this.entityData.set(DATA_ID_TYPE_VARIANT, 0);
+        this.entityData.set(ATTACKING, false);
     }
 
     public void setAttacking(boolean attacking) {
@@ -143,11 +159,10 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity {
     }
 
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason,
-                                        @Nullable SpawnGroupData pSpawnData, @Nullable CompoundTag pDataTag) {
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
         TwoTailedVariant variant = Util.getRandom(TwoTailedVariant.values(), this.random);
         this.setVariant(variant);
-        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
+        return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
     }
 
     @Override
@@ -179,7 +194,7 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity {
                     itemstack.shrink(1);
                 }
 
-                if (!ForgeEventFactory.onAnimalTame(this, pPlayer)) {
+                if (!EventHooks.onAnimalTame(this, pPlayer)) {
                     super.tame(pPlayer);
                     this.navigation.recomputePath();
                     this.setTarget(null);
@@ -272,5 +287,52 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity {
     public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
         return ModEntityTypes.TWOTAILED.get().create(pLevel);
     }
+
+    @Override
+    public List<ExtendedSensor<TwoTailedFox>> getSensors() {
+        return ObjectArrayList.of(
+                new NearbyLivingEntitySensor<TwoTailedFox>()
+                        .setPredicate((target, entity) -> target instanceof Player),
+                new HurtBySensor<>()
+        );
+    }
+
+
+    @Override
+    public BrainActivityGroup<TwoTailedFox> getCoreTasks() {
+        return BrainActivityGroup.coreTasks(
+                new FloatToSurfaceOfFluid<>(),
+                new LookAtTarget<>(),
+                new MoveToWalkTarget<>());
+    }
+
+    @Override
+    public BrainActivityGroup<TwoTailedFox> getIdleTasks() {
+        return BrainActivityGroup.idleTasks(
+                new FirstApplicableBehaviour<TwoTailedFox>(
+                        new TargetOrRetaliate<>(),
+                        new SetPlayerLookTarget<>(),
+                        new SetRandomLookTarget<>()),
+                new OneRandomBehaviour<>(
+                        new SetRandomWalkTarget<>(),
+                        new Idle<>().runFor(entity -> entity.getRandom().nextInt(30, 60))));
+    }
+
+    @Override
+    public BrainActivityGroup<TwoTailedFox> getFightTasks() {
+        return BrainActivityGroup.fightTasks(
+                new InvalidateAttackTarget<>()
+                        .invalidateIf((target, entity) -> !target.isAlive() || !entity.hasLineOfSight(target)),
+                new SetWalkTargetToAttackTarget<>()
+                        .speedMod((mob, livingEntity) -> 1.2f),
+                new AnimatableMeleeAttack<>(5)
+                        .whenStarting(mob -> {
+                            //this.triggerAnim("attackController", "attack");
+                            //CrystalChronicles.LOGGER.info("Try Attack");
+                            this.playSound(SoundEvents.FOX_BITE, 2.0F, 0.3F);
+                        })
+        );
+    }
+
 }
 

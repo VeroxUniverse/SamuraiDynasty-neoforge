@@ -9,9 +9,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
 import net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry;
-import org.jetbrains.annotations.Nullable;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
@@ -35,7 +33,7 @@ public class OniMaskRedCurios extends Item implements ICurioItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown() && stack.getItem() == ItemsRegistry.ONI_MASK.get()) {
             components.add(Component.literal("§8Hold [§7Shift§8] for Summary"));
             components.add(Component.literal(""));
@@ -46,7 +44,7 @@ public class OniMaskRedCurios extends Item implements ICurioItem {
             components.add(Component.literal("§8Hold [§7Shift§8] for Summary"));
         }
 
-        super.appendHoverText(stack, level, components, flag);
+        super.appendHoverText(stack, context, components, flag);
     }
 
     @Override

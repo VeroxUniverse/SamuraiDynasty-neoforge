@@ -1,12 +1,14 @@
 package net.veroxuniverse.samurai_dynasty.entity;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.world.entity.projectile.ThrownTrident;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 import net.veroxuniverse.samurai_dynasty.entity.custom.*;
@@ -14,126 +16,130 @@ import net.veroxuniverse.samurai_dynasty.entity.custom.*;
 public class ModEntityTypes {
 
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
-            DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, SamuraiDynastyMod.MOD_ID);
+            DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, SamuraiDynastyMod.MOD_ID);
 
-    public static final RegistryObject<EntityType<AkanameEntity>> AKANAME =
-            ENTITY_TYPES.register("akaname",
-                    () -> EntityType.Builder.of(AkanameEntity::new, MobCategory.MONSTER)
+    static <T extends Entity> DeferredHolder<EntityType<?>, EntityType<T>> registerEntity(String name, EntityType.Builder<T> builder) {
+        return ENTITY_TYPES.register(name, () -> builder.build(SamuraiDynastyMod.MOD_ID + ":" + name));
+    }
+
+    public static final DeferredHolder<EntityType<?>, EntityType<AkanameEntity>> AKANAME = registerEntity(
+            "akaname",
+                    EntityType.Builder.<AkanameEntity>of(AkanameEntity::new, MobCategory.MONSTER)
                             .sized(0.8f, 1.8f)
-                            .build(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "akaname").toString()));
+                            .setShouldReceiveVelocityUpdates(true));
 
-    public static final RegistryObject<EntityType<KitsuneEntity>> KITSUNE =
-            ENTITY_TYPES.register("kitsune",
-                    () -> EntityType.Builder.of(KitsuneEntity::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<KitsuneEntity>> KITSUNE = registerEntity(
+            "kitsune",
+                    EntityType.Builder.of(KitsuneEntity::new, MobCategory.MONSTER)
                             .sized(1.3964844F, 1.6f)
                             .fireImmune()
-                            .build(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "kitsune").toString()));
+                            .setShouldReceiveVelocityUpdates(true));
 
 
-    public static final RegistryObject<EntityType<EnenraEntity>> ENENRA =
-            ENTITY_TYPES.register("enenra",
-                    () -> EntityType.Builder.of(EnenraEntity::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<EnenraEntity>> ENENRA = registerEntity(
+            "enenra",
+                    EntityType.Builder.of(EnenraEntity::new, MobCategory.MONSTER)
                             .sized(0.8f, 1.8f)
-                            .build(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "enenra").toString()));
+                            .setShouldReceiveVelocityUpdates(true));
 
-    public static final RegistryObject<EntityType<OniEntity>> ONI =
-            ENTITY_TYPES.register("oni",
-                    () -> EntityType.Builder.of(OniEntity::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<OniEntity>> ONI = registerEntity(
+            "oni",
+                    EntityType.Builder.of(OniEntity::new, MobCategory.MONSTER)
                             .sized(1.8f, 2.6f)
                             .fireImmune()
-                            .build(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "oni").toString()));
+                            .setShouldReceiveVelocityUpdates(true));
 
-    public static final RegistryObject<EntityType<OnibiEntity>> ONIBI =
-            ENTITY_TYPES.register("onibi",
-                    () -> EntityType.Builder.of(OnibiEntity::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<OnibiEntity>> ONIBI = registerEntity(
+            "onibi",
+                    EntityType.Builder.of(OnibiEntity::new, MobCategory.MONSTER)
                             .sized(0.2f, 0.8f)
                             .fireImmune()
-                            .build(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "onibi").toString()));
+                            .setShouldReceiveVelocityUpdates(true));
 
-    public static final RegistryObject<EntityType<JorogumoEntity>> JOROGUMO =
-            ENTITY_TYPES.register("jorogumo",
-                    () -> EntityType.Builder.of(JorogumoEntity::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<JorogumoEntity>> JOROGUMO = registerEntity(
+            "jorogumo",
+                   EntityType.Builder.of(JorogumoEntity::new, MobCategory.MONSTER)
                             .sized(1.8f, 2.0f)
                             .fireImmune()
-                            .build(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "jorogumo").toString()));
+                           .setShouldReceiveVelocityUpdates(true));
 
-    public static final RegistryObject<EntityType<RaijinEntity>> RAIJIN =
-            ENTITY_TYPES.register("raijin",
-                    () -> EntityType.Builder.of(RaijinEntity::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<RaijinEntity>> RAIJIN = registerEntity(
+            "raijin",
+                    EntityType.Builder.of(RaijinEntity::new, MobCategory.MONSTER)
                             .sized(1.8f, 2.0f)
                             .fireImmune()
-                            .build(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "raijin").toString()));
+                            .setShouldReceiveVelocityUpdates(true));
 
-    public static final RegistryObject<EntityType<FujinEntity>> FUJIN =
-            ENTITY_TYPES.register("fujin",
-                    () -> EntityType.Builder.of(FujinEntity::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<FujinEntity>> FUJIN = registerEntity(
+            "fujin",
+                    EntityType.Builder.of(FujinEntity::new, MobCategory.MONSTER)
                             .sized(1.8f, 2.0f)
                             .fireImmune()
-                            .build(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "fujin").toString()));
+                            .setShouldReceiveVelocityUpdates(true));
 
-    public static final RegistryObject<EntityType<KomainuEntity>> KOMAINU =
-            ENTITY_TYPES.register("komainu",
-                    () -> EntityType.Builder.of(KomainuEntity::new, MobCategory.CREATURE)
+    public static final DeferredHolder<EntityType<?>, EntityType<KomainuEntity>> KOMAINU = registerEntity(
+           "komainu",
+                   EntityType.Builder.of(KomainuEntity::new, MobCategory.CREATURE)
+                           .sized(1.0f, 0.8f)
+                           .fireImmune()
+                           .setShouldReceiveVelocityUpdates(true));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<TanukiEntity>> TANUKI = registerEntity(
+            "tanuki",
+                    EntityType.Builder.of(TanukiEntity::new, MobCategory.CREATURE)
                             .sized(1.0f, 0.8f)
                             .fireImmune()
-                            .build(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "komainu").toString()));
+                            .setShouldReceiveVelocityUpdates(true));
 
-    public static final RegistryObject<EntityType<TanukiEntity>> TANUKI =
-            ENTITY_TYPES.register("tanuki",
-                    () -> EntityType.Builder.of(TanukiEntity::new, MobCategory.CREATURE)
+    public static final DeferredHolder<EntityType<?>, EntityType<TwoTailedFox>> TWOTAILED = registerEntity(
+            "twotailed",
+                    EntityType.Builder.of(TwoTailedFox::new, MobCategory.CREATURE)
                             .sized(1.0f, 0.8f)
                             .fireImmune()
-                            .build(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "tanuki").toString()));
+                            .setShouldReceiveVelocityUpdates(true));
 
-    public static final RegistryObject<EntityType<TwoTailedFox>> TWOTAILED =
-            ENTITY_TYPES.register("twotailed",
-                    () -> EntityType.Builder.of(TwoTailedFox::new, MobCategory.CREATURE)
+    public static final DeferredHolder<EntityType<?>, EntityType<KawausoEntity>> KAWAUSO = registerEntity(
+            "kawauso",
+                    EntityType.Builder.of(KawausoEntity::new, MobCategory.CREATURE)
                             .sized(1.0f, 0.8f)
                             .fireImmune()
-                            .build(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "twotailed").toString()));
+                            .setShouldReceiveVelocityUpdates(true));
 
-    public static final RegistryObject<EntityType<KawausoEntity>> KAWAUSO =
-            ENTITY_TYPES.register("kawauso",
-                    () -> EntityType.Builder.of(KawausoEntity::new, MobCategory.CREATURE)
-                            .sized(1.0f, 0.8f)
-                            .fireImmune()
-                            .build(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "kawauso").toString()));
-
-    public static final RegistryObject<EntityType<ThrownShurikenEntity>> SHURIKEN =
-            ENTITY_TYPES.register("shuriken",
-                    () -> EntityType.Builder.<ThrownShurikenEntity>of(ThrownShurikenEntity::new, MobCategory.MISC)
+    /*
+    public static final DeferredHolder<EntityType<?>, EntityType<ThrownShurikenEntity>> SHURIKEN = registerEntity(
+            "shuriken",
+                    EntityType.Builder.<ThrownShurikenEntity>of(ThrownShurikenEntity::new, MobCategory.MISC)
                             .sized(0.25F, 0.25F)
                             .clientTrackingRange(4)
                             .updateInterval(10)
-                            .build(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "shuriken").toString()));
+                            .setShouldReceiveVelocityUpdates(true));
+     */
 
-    public static final RegistryObject<EntityType<KunaiEntity>> KUNAI =
-            ENTITY_TYPES.register("kunai",
-                    () -> EntityType.Builder.<KunaiEntity>of(KunaiEntity::new, MobCategory.MISC)
+    public static final DeferredHolder<EntityType<?>, EntityType<ThrownShurikenEntity>> SHURIKEN = registerEntity(
+            "shuriken",
+                    EntityType.Builder.<ThrownShurikenEntity>of(ThrownShurikenEntity::new, MobCategory.MISC)
+                            .sized(0.5F, 0.5F)
+                            .eyeHeight(0.13F)
+                            .clientTrackingRange(4)
+                            .updateInterval(20));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<KunaiEntity>> KUNAI = registerEntity(
+            "kunai",
+                    EntityType.Builder.<KunaiEntity>of(KunaiEntity::new, MobCategory.MISC)
                             .sized(0.25F, 0.25F)
                             .clientTrackingRange(4)
                             .updateInterval(20)
-                            .build(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "kunai").toString()));
+                            .setShouldReceiveVelocityUpdates(true));
 
-    public static final RegistryObject<EntityType<NetheriteKunaiEntity>> KUNAI_NETHERITE =
-            ENTITY_TYPES.register("kunai_netherite",
-                    () -> EntityType.Builder.<NetheriteKunaiEntity>of(NetheriteKunaiEntity::new, MobCategory.MISC)
+    public static final DeferredHolder<EntityType<?>, EntityType<NetheriteKunaiEntity>> KUNAI_NETHERITE = registerEntity(
+            "kunai_netherite",
+                    EntityType.Builder.<NetheriteKunaiEntity>of(NetheriteKunaiEntity::new, MobCategory.MISC)
                             .sized(0.25F, 0.25F)
                             .clientTrackingRange(4)
                             .updateInterval(20)
-                            .build(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "kunai").toString()));
-
-
-    public static final RegistryObject<EntityType<KitsuneProjectileEntity>> KITSUNE_PROJECTILE =
-            ENTITY_TYPES.register("kitsune_projectile",
-                    () -> EntityType.Builder.<KitsuneProjectileEntity>of(KitsuneProjectileEntity::new, MobCategory.MISC)
-                            .sized(0.25F, 0.25F)
-                            .clientTrackingRange(4)
-                            .updateInterval(20)
-                            .build(new ResourceLocation(SamuraiDynastyMod.MOD_ID, "kitsune_projectile").toString()));
+                            .setShouldReceiveVelocityUpdates(true));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
-
 }

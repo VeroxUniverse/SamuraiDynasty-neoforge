@@ -1,13 +1,13 @@
 package net.veroxuniverse.samurai_dynasty.entity.custom;
 
-import mod.azure.azurelib.animatable.GeoEntity;
+import mod.azure.azurelib.common.api.common.animatable.GeoEntity;
+import mod.azure.azurelib.common.internal.common.util.AzureLibUtil;
 import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
 import mod.azure.azurelib.core.animation.AnimatableManager;
 import mod.azure.azurelib.core.animation.Animation;
 import mod.azure.azurelib.core.animation.AnimationController;
 import mod.azure.azurelib.core.animation.RawAnimation;
 import mod.azure.azurelib.core.object.PlayState;
-import mod.azure.azurelib.util.AzureLibUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvent;
@@ -32,9 +32,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
-import net.veroxuniverse.samurai_dynasty.registry.ParticlesInit;
+import net.veroxuniverse.samurai_dynasty.registry.ModParticleTypes;
 import org.jetbrains.annotations.NotNull;
 
 public class OnibiEntity extends Monster implements GeoEntity {
@@ -56,10 +56,10 @@ public class OnibiEntity extends Monster implements GeoEntity {
     public OnibiEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.moveControl = new FlyingMoveControl(this, 10, false);
-        this.setPathfindingMalus(BlockPathTypes.WATER, -1.0F);
-        this.setPathfindingMalus(BlockPathTypes.LAVA, 8.0F);
-        this.setPathfindingMalus(BlockPathTypes.DANGER_FIRE, 0.0F);
-        this.setPathfindingMalus(BlockPathTypes.DAMAGE_FIRE, 0.0F);
+        this.setPathfindingMalus(PathType.WATER, -1.0F);
+        this.setPathfindingMalus(PathType.LAVA, 8.0F);
+        this.setPathfindingMalus(PathType.DANGER_FIRE, 0.0F);
+        this.setPathfindingMalus(PathType.DAMAGE_FIRE, 0.0F);
         this.xpReward = 10;
     }
 
@@ -131,7 +131,7 @@ public class OnibiEntity extends Monster implements GeoEntity {
             return false;
         } else {
             if (pEntity instanceof LivingEntity) {
-                pEntity.setSecondsOnFire(20);
+                pEntity.igniteForSeconds(20);
             }
             return true;
         }
@@ -186,7 +186,7 @@ public class OnibiEntity extends Monster implements GeoEntity {
     public void aiStep() {
         if (this.level().isClientSide) {
             for(int i = 0; i < 2; ++i) {
-                this.level().addParticle(ParticlesInit.BLUE_FLAME.get(), this.getRandomX(0.25D), this.getRandomY(), this.getRandomZ(0.25D), 0.0D, 0.0D, 0.0D);
+                this.level().addParticle(ModParticleTypes.BLUE_FLAME, this.getRandomX(0.25D), this.getRandomY(), this.getRandomZ(0.25D), 0.0D, 0.0D, 0.0D);
             }
         }
 

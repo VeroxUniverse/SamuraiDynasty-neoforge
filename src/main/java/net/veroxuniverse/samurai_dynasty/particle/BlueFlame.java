@@ -3,13 +3,13 @@ package net.veroxuniverse.samurai_dynasty.particle;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
 public class BlueFlame extends TextureSheetParticle {
-    protected BlueFlame(ClientLevel level, double xCoord, double yCoord, double zCoord,
-                        SpriteSet spriteSet, double xd, double yd, double zd) {
+    public BlueFlame(ClientLevel level, double xCoord, double yCoord, double zCoord,
+                     SpriteSet spriteSet, double xd, double yd, double zd) {
         super(level, xCoord, yCoord, zCoord, xd, yd, zd);
 
         this.friction = 0.8F;

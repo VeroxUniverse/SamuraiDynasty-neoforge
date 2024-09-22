@@ -1,47 +1,38 @@
 package net.veroxuniverse.samurai_dynasty.item.armor;
 
-import mod.azure.azurelib.animatable.GeoItem;
-import mod.azure.azurelib.animatable.client.RenderProvider;
+import mod.azure.azurelib.common.internal.client.RenderProvider;
 import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.core.Holder;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
-import net.veroxuniverse.samurai_dynasty.client.armors.kimono.KimonoArmorRenderer;
+import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.steel.SteelSamuraiArmorRenderer;
 import net.veroxuniverse.samurai_dynasty.item.armor.lib.SamuraiArmorItem;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 public class KimonoArmorItem extends SamuraiArmorItem {
 
-    private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
+    public KimonoArmorItem(Holder<ArmorMaterial> holder, Type type, Properties properties) {
+        super(holder, type, properties);
+    }
 
     // Creates the render
     @Override
-    public void createRenderer(Consumer<Object> consumer) {
+    public void createRenderer(Consumer<RenderProvider> consumer) {
         consumer.accept(new RenderProvider() {
-            private KimonoArmorRenderer renderer;
+            private SteelSamuraiArmorRenderer renderer;
 
             @Override
             public @NotNull HumanoidModel<LivingEntity> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<LivingEntity> original) {
                 if (renderer == null)
-                    renderer = new KimonoArmorRenderer();
-
+                    return new SteelSamuraiArmorRenderer();
                 renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
-                return renderer;
+                return this.renderer;
             }
         });
-    }
-
-    @Override
-    public Supplier<Object> getRenderProvider() {
-        return renderProvider;
-    }
-
-    public KimonoArmorItem(ArmorMaterial material, Type type, Properties properties) {
-        super(material, type, properties);
     }
 
 }

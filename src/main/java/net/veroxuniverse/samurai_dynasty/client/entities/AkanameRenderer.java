@@ -1,7 +1,7 @@
 package net.veroxuniverse.samurai_dynasty.client.entities;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import mod.azure.azurelib.renderer.GeoEntityRenderer;
+import mod.azure.azurelib.common.api.client.renderer.GeoEntityRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -16,7 +16,7 @@ public class AkanameRenderer extends GeoEntityRenderer<AkanameEntity> {
 
     @Override
     public ResourceLocation getTextureLocation(AkanameEntity instance) {
-        return new ResourceLocation(SamuraiDynastyMod.MOD_ID, "textures/entity/akaname.png");
+        return ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "textures/entity/akaname.png");
     }
 
     @Override

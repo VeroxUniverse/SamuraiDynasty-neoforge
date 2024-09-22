@@ -1,6 +1,6 @@
 package net.veroxuniverse.samurai_dynasty.client.armors.steel_armor;
 
-import mod.azure.azurelib.renderer.GeoArmorRenderer;
+import mod.azure.azurelib.common.api.client.renderer.GeoArmorRenderer;
 import net.veroxuniverse.samurai_dynasty.item.armor.SteelArmorItem;
 
 public class SteelArmorRenderer extends GeoArmorRenderer<SteelArmorItem> {

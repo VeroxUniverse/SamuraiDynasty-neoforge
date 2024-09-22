@@ -1,7 +1,7 @@
 package net.veroxuniverse.samurai_dynasty.client.entities;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import mod.azure.azurelib.renderer.GeoEntityRenderer;
+import mod.azure.azurelib.common.api.client.renderer.GeoEntityRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -17,7 +17,7 @@ public class OnibiRenderer extends GeoEntityRenderer<OnibiEntity> {
 
     @Override
     public ResourceLocation getTextureLocation(OnibiEntity instance) {
-        return new ResourceLocation(SamuraiDynastyMod.MOD_ID, "textures/entity/spirit.png");
+        return ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "textures/entity/spirit.png");
     }
 
     @Override

@@ -1,5 +1,6 @@
 package net.veroxuniverse.samurai_dynasty.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -17,9 +18,16 @@ public class DragonBlock extends HorizontalDirectionalBlock {
 
     public static final VoxelShape SHAPE_BASE = Block.box(0D, 0D, 0D, 16.0D, 16.0D, 16.0D);
 
+    public static final MapCodec<DragonBlock> CODEC = simpleCodec(DragonBlock::new);
+
     public DragonBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
+    }
+
+    @Override
+    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
+        return CODEC;
     }
 
 

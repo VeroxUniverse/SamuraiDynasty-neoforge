@@ -1,8 +1,7 @@
 package net.veroxuniverse.samurai_dynasty.item.armor;
 
-import mod.azure.azurelib.animatable.GeoItem;
-import mod.azure.azurelib.animatable.client.RenderProvider;
 import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.core.Holder;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorMaterial;
@@ -12,34 +11,26 @@ import net.veroxuniverse.samurai_dynasty.item.armor.lib.SamuraiArmorItem;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 public class SteelNinjaArmorItem extends SamuraiArmorItem {
-    public SteelNinjaArmorItem(ArmorMaterial material, Type type, Properties properties) {
-        super(material, type, properties);
+    public SteelNinjaArmorItem(Holder<ArmorMaterial> holder, Type type, Properties properties) {
+        super(holder, type, properties);
     }
-    private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
 
     // Creates the render
     @Override
-    public void createRenderer(Consumer<Object> consumer) {
-        consumer.accept(new RenderProvider() {
+    public void createRenderer(Consumer<mod.azure.azurelib.common.internal.client.RenderProvider> consumer) {
+        consumer.accept(new mod.azure.azurelib.common.internal.client.RenderProvider() {
             private SteelNinjaArmorRenderer renderer;
 
             @Override
             public @NotNull HumanoidModel<LivingEntity> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<LivingEntity> original) {
                 if (renderer == null)
-                    renderer = new SteelNinjaArmorRenderer();
-
+                    return new SteelNinjaArmorRenderer();
                 renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
-                return renderer;
+                return this.renderer;
             }
         });
-    }
-
-    @Override
-    public Supplier<Object> getRenderProvider() {
-        return renderProvider;
     }
 
 }
