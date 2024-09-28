@@ -21,50 +21,14 @@ import java.util.function.ToIntFunction;
 public class BlocksRegistry {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(SamuraiDynastyMod.MOD_ID);
 
-    public static final DeferredBlock<Block> RUBY_ORE = registerBlock("ruby_ore",
-            () -> new DropExperienceBlock(UniformInt.of(3, 7) ,BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE)
-                    .strength(4f).requiresCorrectToolForDrops()));
-    public static final DeferredBlock<Block> DEEPSLATE_RUBY_ORE = registerBlock("deepslate_ruby_ore",
-            () -> new DropExperienceBlock(UniformInt.of(3, 7) ,BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE)
-                    .strength(4f).requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> JADE_ORE = registerBlock("jade_ore",
             () -> new DropExperienceBlock(UniformInt.of(3, 7) ,BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE)
                     .strength(4f).requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> DEEPSLATE_JADE_ORE = registerBlock("deepslate_jade_ore",
-            () -> new DropExperienceBlock(UniformInt.of(3, 7) ,BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE)
-                    .strength(4f).requiresCorrectToolForDrops()));
-    public static final DeferredBlock<Block> AQUAMARINE_ORE = registerBlock("aquamarine_ore",
-            () -> new DropExperienceBlock(UniformInt.of(3, 7) ,BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE)
-                    .strength(4f).requiresCorrectToolForDrops()));
-    public static final DeferredBlock<Block> DEEPSLATE_AQUAMARINE_ORE = registerBlock("deepslate_aquamarine_ore",
-            () -> new DropExperienceBlock(UniformInt.of(3, 7) ,BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE)
-                    .strength(4f).requiresCorrectToolForDrops()));
-    public static final DeferredBlock<Block> ONYX_ORE = registerBlock("onyx_ore",
-            () -> new DropExperienceBlock(UniformInt.of(3, 7) ,BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE)
-                    .strength(4f).requiresCorrectToolForDrops()));
-    public static final DeferredBlock<Block> DEEPSLATE_ONYX_ORE = registerBlock("deepslate_onyx_ore",
-            () -> new DropExperienceBlock(UniformInt.of(3, 7) ,BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE)
-                    .strength(4f).requiresCorrectToolForDrops()));
-    public static final DeferredBlock<Block> SILVER_ORE = registerBlock("silver_ore",
-            () -> new DropExperienceBlock(UniformInt.of(3, 7) ,BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE)
-                    .strength(4f).requiresCorrectToolForDrops()));
-    public static final DeferredBlock<Block> DEEPSLATE_SILVER_ORE = registerBlock("deepslate_silver_ore",
-            () -> new DropExperienceBlock(UniformInt.of(3, 7) ,BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_ORE)
+            () -> new DropExperienceBlock(UniformInt.of(3, 7) ,BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE_DIAMOND_ORE)
                     .strength(4f).requiresCorrectToolForDrops()));
 
-    public static final DeferredBlock<Block> RUBY_BLOCK = registerBlock("ruby_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK)
-                    .strength(4f).requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> JADE_BLOCK = registerBlock("jade_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK)
-                    .strength(4f).requiresCorrectToolForDrops()));
-    public static final DeferredBlock<Block> AQUAMARINE_BLOCK = registerBlock("aquamarine_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK)
-                    .strength(4f).requiresCorrectToolForDrops()));
-    public static final DeferredBlock<Block> ONYX_BLOCK = registerBlock("onyx_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK)
-                    .strength(4f).requiresCorrectToolForDrops()));
-    public static final DeferredBlock<Block> SILVER_BLOCK = registerBlock("silver_block",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK)
                     .strength(4f).requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> STEEL_BLOCK = registerBlock("steel_block",

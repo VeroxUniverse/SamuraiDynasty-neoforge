@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "tag": "c:ingots/steel"
+    },
+    "G": {
+      "tag": "c:ingots/gold"
+    },
+    "W": {
+      "item": "samurai_dynasty:spear_handle"
+    }
+  },
+  "pattern": [
+    "  S",
+    "GS ",
+    "WG "
+  ],
+  "result": {
+    "id": "samurai_dynasty:naginata"
+  }
+}

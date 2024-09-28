@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#samurai_dynasty:jorogumo_biomes",
+  "spawners":{
+    "type": "samurai_dynasty:jorogumo",
+    "weight": 20,
+    "minCount": 1,
+    "maxCount": 2
+  }
+}

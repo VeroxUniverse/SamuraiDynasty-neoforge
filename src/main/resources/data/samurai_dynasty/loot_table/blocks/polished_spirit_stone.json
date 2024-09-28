@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "samurai_dynasty:polished_spirit_stone"
+        }
+      ]
+    }
+  ]
+}

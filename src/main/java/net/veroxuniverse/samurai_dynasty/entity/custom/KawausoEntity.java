@@ -14,10 +14,12 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -38,16 +40,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.event.EventHooks;
 import net.veroxuniverse.samurai_dynasty.entity.ModEntityTypes;
+import net.veroxuniverse.samurai_dynasty.entity.goals.NightVisionGoal;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class KawausoEntity extends TamableAnimal implements GeoEntity {
-
-    private static final EntityDataAccessor<Integer> VISION =
-            SynchedEntityData.defineId(KawausoEntity.class, EntityDataSerializers.INT);
-
-    private int visionTimer; // = 6000;
-    private final int coolDownTimeVision = 6000;
 
     private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
 
@@ -71,79 +68,26 @@ public class KawausoEntity extends TamableAnimal implements GeoEntity {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(0, new SitWhenOrderedToGoal(this));
-        //this.goalSelector.addGoal(1, new LeapAtTargetGoal(this, 0.4F));
-        //this.goalSelector.addGoal(1, new BreedGoal(this, 1.0D));
-        this.goalSelector.addGoal(2, new TemptGoal(this, 1.2D, Ingredient.of(Items.POTION), true));
+        this.goalSelector.addGoal(1, new SitWhenOrderedToGoal(this));
+        this.goalSelector.addGoal(2, new TemptGoal(this, 1.2D, this::isMeatOrFishItem, true));
         this.goalSelector.addGoal(3, new FollowOwnerGoal(this, 1.2F, 8.0F, 2.0F));
-        this.goalSelector.addGoal(3, new FollowParentGoal(this, 1.2F));
-
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(7, new NightVisionGoal(this, 5.0, 400, 0));
     }
 
-
-
-    @Override
-    protected void defineSynchedData(SynchedEntityData.Builder builder) {
-        super.defineSynchedData(builder);
-        this.entityData.set(VISION, 6000);
-    }
-
-    @Override
-    public void readAdditionalSaveData(@NotNull CompoundTag pCompound) {
-        super.readAdditionalSaveData(pCompound);
-        this.entityData.set(VISION, pCompound.getInt("HealCooldown"));
-    }
-
-    @Override
-    public void addAdditionalSaveData(@NotNull CompoundTag pCompound) {
-        super.addAdditionalSaveData(pCompound);
-        pCompound.putInt("HealCooldown", this.getVisionCooldown());
-    }
-
-    public void setVisionCooldown(int healing) {
-        this.entityData.set(VISION, healing);
-    }
-
-    public int getVisionCooldown() {
-        return this.entityData.get(VISION);
-    }
-
-    @Override
-    public void tick(){
-        if (getVisionCooldown() > coolDownTimeVision + 1) {
-            setVisionCooldown(coolDownTimeVision + 1);
-        }
-
-        if (getVisionCooldown() <= coolDownTimeVision) {
-            visionTimer = getVisionCooldown();
-            visionTimer++;
-            setVisionCooldown(visionTimer);
-        }
-
-        if (getVisionCooldown() == coolDownTimeVision) {
-
-            Player pOwner = (Player) this.getOwner();
-
-            if (this.getOwner() != null) {
-                this.playSound(SoundEvents.ENCHANTMENT_TABLE_USE, 100, 2);
-                if(pOwner instanceof ServerPlayer player) {
-                    player.displayClientMessage(Component.literal("\u00A7a\u00A7lNight Vision\u00A77 is ready!"), true);
-                }
-            }
-        }
-        super.tick();
+    private boolean isMeatOrFishItem(ItemStack itemStack) {
+        return itemStack.is(ItemTags.FISHES) || itemStack.is(ItemTags.create(ResourceLocation.fromNamespaceAndPath("minecraft", "meat")));
     }
 
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
         Item item = itemstack.getItem();
 
-        Item itemForTaming = Items.POTION;
 
-        if(item == itemForTaming && !isTame()) {
+
+        if (!isTame() && (itemstack.is(ItemTags.FISHES) || itemstack.is(ItemTags.MEAT))) {
             if(this.level().isClientSide()) {
                 return InteractionResult.CONSUME;
             } else {
@@ -164,6 +108,21 @@ public class KawausoEntity extends TamableAnimal implements GeoEntity {
             }
         }
 
+        if (isTame() && (itemstack.is(ItemTags.FISHES) || itemstack.is(ItemTags.MEAT))) {
+            if (this.getHealth() < this.getMaxHealth()) {
+                if (!this.level().isClientSide()) {
+                    this.heal(8.0F);
+                    if (!pPlayer.getAbilities().instabuild) {
+                        itemstack.shrink(1);
+                    }
+                    this.level().playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.GENERIC_EAT, this.getSoundSource(), 1.0F, 1.0F);
+                }
+                return InteractionResult.SUCCESS;
+            } else {
+                return InteractionResult.PASS;
+            }
+        }
+
         if(isTame() && pHand == InteractionHand.MAIN_HAND && !pPlayer.isShiftKeyDown() && !isFood(itemstack)) {
 
             // TOGGLES SITTING FOR OUR ENTITY
@@ -172,30 +131,6 @@ public class KawausoEntity extends TamableAnimal implements GeoEntity {
 
             return InteractionResult.SUCCESS;
         }
-
-        if(isTame() && pHand == InteractionHand.MAIN_HAND && pPlayer.isShiftKeyDown() && !isFood(itemstack)) {
-
-            if (getVisionCooldown() >= coolDownTimeVision) {
-                setVisionCooldown(0);
-                visionTimer = 0;
-                pPlayer.playSound(SoundEvents.AMETHYST_BLOCK_PLACE, 100, 1);
-                if( pPlayer instanceof ServerPlayer player) {
-                    player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 3600, 0, false, false, false));
-                    player.displayClientMessage(Component.literal("\u00A7e" + (coolDownTimeVision / 20) + " \u00A77seconds left!"), true);
-                }
-            } else {
-                pPlayer.playSound(SoundEvents.VILLAGER_NO, 100, 1.6f);
-                if( pPlayer instanceof ServerPlayer player) {
-                    player.displayClientMessage(Component.literal("\u00A7e" + ((coolDownTimeVision - visionTimer) / 20) + " \u00A77seconds left!"), true);
-                }
-
-
-            }
-
-            return InteractionResult.SUCCESS;
-
-        }
-
 
         return super.mobInteract(pPlayer, pHand);
     }

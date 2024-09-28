@@ -127,19 +127,13 @@ dependencies {
     compileOnly "mezz.jei:jei-1.21-neoforge-api:${jei_version}"
     runtimeOnly "mezz.jei:jei-1.21-neoforge:${jei_version}"
 
-    // Patchouli
-
-    // CAELUES
-    compileOnly "com.illusivesoulworks.caelus:caelus-neoforge:${caelus_version}:api"
-    localRuntime "com.illusivesoulworks.caelus:caelus-neoforge:${caelus_version}"
-
     // Curios
     implementation "curse.maven:adorned-1036809:5546365"
 
     // Better Combat
     runtimeOnly "maven.modrinth:better-combat:2.0.2+1.21.1-neoforge"
-    implementation "curse.maven:cloth-config-348521:5623420"
-    runtimeOnly "dev.kosmx.player-anim:player-animation-lib-forge:${player_animator_version}"
+    runtimeOnly "curse.maven:cloth-config-348521:5623420"
+    runtimeOnly "curse.maven:playeranimator-658587:5698755"
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
@@ -157,7 +151,8 @@ tasks.withType(ProcessResources).configureEach {
             mod_version            : mod_version,
             mod_authors            : mod_authors,
             mod_description        : mod_description,
-            azurelib_version_range  : azurelib_version_range
+            azurelib_version_range  : azurelib_version_range,
+            curios_version_range : curios_version_range
     ]
     inputs.properties replaceProperties
 

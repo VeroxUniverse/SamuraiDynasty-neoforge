@@ -7,7 +7,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
-import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.steel.SteelSamuraiArmorRenderer;
+import net.veroxuniverse.samurai_dynasty.client.armors.kimono.KimonoArmorRenderer;
 import net.veroxuniverse.samurai_dynasty.item.armor.lib.SamuraiArmorItem;
 import org.jetbrains.annotations.NotNull;
 
@@ -23,12 +23,12 @@ public class KimonoArmorItem extends SamuraiArmorItem {
     @Override
     public void createRenderer(Consumer<RenderProvider> consumer) {
         consumer.accept(new RenderProvider() {
-            private SteelSamuraiArmorRenderer renderer;
+            private KimonoArmorRenderer renderer;
 
             @Override
             public @NotNull HumanoidModel<LivingEntity> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<LivingEntity> original) {
                 if (renderer == null)
-                    return new SteelSamuraiArmorRenderer();
+                    return new KimonoArmorRenderer();
                 renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
                 return this.renderer;
             }

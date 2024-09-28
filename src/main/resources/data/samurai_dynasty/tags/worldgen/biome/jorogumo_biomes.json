@@ -1,11 +1,8 @@
 {
-  "replace": false,
   "values": [
     "minecraft:jungle",
     "minecraft:sparse_jungle",
     "minecraft:bamboo_jungle",
-    "#forge:is_spooky",
-    "#forge:is_lush",
-    "#forge:is_wet/overworld"
+    "#c:is_dense_vegetation"
   ]
 }

@@ -3,7 +3,6 @@ package net.veroxuniverse.samurai_dynasty.item;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Holder;
 import net.minecraft.core.Position;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
@@ -16,13 +15,11 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.veroxuniverse.samurai_dynasty.datagen.enchantment.ModEnchantments;
 import net.veroxuniverse.samurai_dynasty.entity.custom.NetheriteKunaiEntity;
+import net.veroxuniverse.samurai_dynasty.utils.ModTags;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -51,12 +48,7 @@ public class NetheriteKunaiItem extends SwordItem implements ProjectileItem {
 
         pPlayer.awardStat(Stats.ITEM_USED.get(this));
         if (!pPlayer.getAbilities().instabuild) {
-            if (EnchantmentHelper.getItemEnchantmentLevel((Holder<Enchantment>) ModEnchantments.RETURNING_BLADE, itemstack) > 0) {
-                itemstack.hurtAndBreak(0, pPlayer, (EquipmentSlot.MAINHAND));
-                //itemstack.shrink(1);
-            } else {
-                itemstack.hurtAndBreak(156, pPlayer, (EquipmentSlot.MAINHAND));
-            }
+            itemstack.hurtAndBreak(5, pPlayer, EquipmentSlot.MAINHAND);
         }
 
         return InteractionResultHolder.sidedSuccess(itemstack, pLevel.isClientSide());
@@ -65,10 +57,8 @@ public class NetheriteKunaiItem extends SwordItem implements ProjectileItem {
     @Override
     public void appendHoverText(@NotNull ItemStack stack, Item.TooltipContext context, @NotNull List<Component> components, @NotNull TooltipFlag flag) {
 
-        int sharpnessLvl = EnchantmentHelper.getItemEnchantmentLevel((Holder<Enchantment>) Enchantments.SHARPNESS, stack);
-
         components.add(Component.literal("Throwable Item:").withStyle(ChatFormatting.GRAY));
-        components.add(Component.literal(" " + (sharpnessLvl * 0.5 + 8) + " Ranged Damage").withStyle(ChatFormatting.DARK_GREEN));
+        components.add(Component.literal(" " + 8 + " Ranged Damage").withStyle(ChatFormatting.DARK_GREEN));
 
         super.appendHoverText(stack, context, components, flag);
     }

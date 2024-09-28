@@ -1,17 +1,16 @@
 package net.veroxuniverse.samurai_dynasty.entity;
 
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
-import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 import net.veroxuniverse.samurai_dynasty.entity.custom.*;
+
+import java.util.function.Supplier;
 
 public class ModEntityTypes {
 
@@ -22,11 +21,20 @@ public class ModEntityTypes {
         return ENTITY_TYPES.register(name, () -> builder.build(SamuraiDynastyMod.MOD_ID + ":" + name));
     }
 
+    public static final Supplier<EntityType<AkanameEntity>> AKANAME = ENTITY_TYPES
+            .register("akaname", () -> EntityType.Builder.of(AkanameEntity::new, MobCategory.MONSTER)
+                    .sized(0.8f, 1.8f)
+                    .build("akaname"));
+
+    /*
     public static final DeferredHolder<EntityType<?>, EntityType<AkanameEntity>> AKANAME = registerEntity(
             "akaname",
                     EntityType.Builder.<AkanameEntity>of(AkanameEntity::new, MobCategory.MONSTER)
                             .sized(0.8f, 1.8f)
+                            .setTrackingRange(20)
                             .setShouldReceiveVelocityUpdates(true));
+
+     */
 
     public static final DeferredHolder<EntityType<?>, EntityType<KitsuneEntity>> KITSUNE = registerEntity(
             "kitsune",
@@ -121,6 +129,7 @@ public class ModEntityTypes {
                             .sized(0.5F, 0.5F)
                             .eyeHeight(0.13F)
                             .clientTrackingRange(4)
+                            .setShouldReceiveVelocityUpdates(true)
                             .updateInterval(20));
 
     public static final DeferredHolder<EntityType<?>, EntityType<KunaiEntity>> KUNAI = registerEntity(

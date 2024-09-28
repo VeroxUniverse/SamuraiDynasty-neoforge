@@ -10,6 +10,7 @@ import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 import net.veroxuniverse.samurai_dynasty.curios.model.KitsuneMaskModel;
 import net.veroxuniverse.samurai_dynasty.curios.model.OniMaskModel;
 import net.veroxuniverse.samurai_dynasty.particle.BlueFlame;
+import net.veroxuniverse.samurai_dynasty.particle.ModParticles;
 import net.veroxuniverse.samurai_dynasty.registry.ModParticleTypes;
 
 @EventBusSubscriber(modid = SamuraiDynastyMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -17,13 +18,7 @@ public class SamuraiDynastyClientMod {
     @SubscribeEvent
     public static void registerParticleFactories(final RegisterParticleProvidersEvent event)
     {
-        Minecraft.getInstance().particleEngine.register(ModParticleTypes.BLUE_FLAME, BlueFlame.Provider::new);
-    }
-
-
-    @SubscribeEvent
-    public static void registerRenderers(final EntityRenderersEvent event) {
-
+        Minecraft.getInstance().particleEngine.register(ModParticles.BLUE_FLAME.get(), BlueFlame.Provider::new);
     }
 
     @SubscribeEvent

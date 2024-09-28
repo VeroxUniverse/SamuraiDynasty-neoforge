@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#samurai_dynasty:enenra_biomes",
+  "spawners":{
+    "type": "samurai_dynasty:enenra",
+    "weight": 5,
+    "minCount": 1,
+    "maxCount": 5
+  }
+}

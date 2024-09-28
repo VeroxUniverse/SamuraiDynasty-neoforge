@@ -1,9 +1,8 @@
 {
-  "replace": false,
   "values": [
     "minecraft:cherry_grove",
-    "#forge:is_spooky",
-    "#forge:is_lush",
-    "#forge:is_coniferous"
+    "minecraft:flower_forest",
+    "#c:is_flower_forest",
+    "#c:is_floral"
   ]
 }

@@ -59,13 +59,7 @@ public class NetheriteKunaiEntity extends ThrowableItemProjectile {
         super.onHitEntity(pResult);
         Entity entity = pResult.getEntity();
         if (this.getOwner() instanceof Player) {
-            ItemStack itemstack = ((Player) this.getOwner()).getItemInHand(InteractionHand.MAIN_HAND);
-            int sharpnessLvl = EnchantmentHelper.getItemEnchantmentLevel((Holder<Enchantment>) Enchantments.SHARPNESS, itemstack);
-            if (sharpnessLvl > 0) {
-                entity.hurt(entity.damageSources().thrown(this, this.getOwner()), (float) (sharpnessLvl * 0.5D + 8));
-            } else {
-                entity.hurt(entity.damageSources().thrown(this, this.getOwner()),  8);
-            }
+            entity.hurt(entity.damageSources().thrown(this, this.getOwner()),  8);
         }
     }
 

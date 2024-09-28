@@ -18,7 +18,7 @@ import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.client.ICurioRenderer;
 
 public class KitsuneMaskRenderer implements ICurioRenderer {
-    private static final ResourceLocation KITSUNE_MASK_LOCATION = ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID,"samurai_dynasty:textures/armor/kitsune_mask.png");
+    private static final ResourceLocation KITSUNE_MASK_LOCATION = ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID,"textures/armor/kitsune_mask.png");
     private final KitsuneMaskModel kitsuneMaskModel;
 
     public KitsuneMaskRenderer() {

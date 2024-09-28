@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#samurai_dynasty:twotailed_biomes",
+  "spawners":{
+    "type": "samurai_dynasty:twotailed",
+    "weight": 10,
+    "minCount": 1,
+    "maxCount": 3
+  }
+}

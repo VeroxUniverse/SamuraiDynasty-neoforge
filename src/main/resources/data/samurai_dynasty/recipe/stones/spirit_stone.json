@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "tag": "minecraft:stone"
+    },
+    "S": {
+      "item": "samurai_dynasty:spirit_flame"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "XSX",
+    "XXX"
+  ],
+  "result": {
+    "count": 8,
+    "id": "samurai_dynasty:spirit_stone"
+  }
+}

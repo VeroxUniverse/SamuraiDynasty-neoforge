@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "tag": "c:ingots/steel"
+    },
+    "G": {
+      "tag": "c:ingots/gold"
+    },
+    "W": {
+      "item": "samurai_dynasty:katana_handle"
+    }
+  },
+  "pattern": [
+    " SS",
+    "GSS",
+    "WG "
+  ],
+  "result": {
+    "id": "samurai_dynasty:tetsubo"
+  }
+}

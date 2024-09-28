@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "tag": "c:feathers"
+    },
+    "S": {
+      "tag": "c:ingots/steel"
+    }
+  },
+  "pattern": [
+    " X ",
+    "SSS",
+    "S S"
+  ],
+  "result": {
+    "id": "samurai_dynasty:steel_helmet"
+  }
+}

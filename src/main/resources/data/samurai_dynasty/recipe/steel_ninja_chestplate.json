@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "tag": "c:ingots/steel"
+    },
+    "S": {
+      "item": "samurai_dynasty:cloth"
+    }
+  },
+  "pattern": [
+    "X X",
+    "SXS",
+    "XXX"
+  ],
+  "result": {
+    "id": "samurai_dynasty:steel_ninja_chestplate"
+  }
+}

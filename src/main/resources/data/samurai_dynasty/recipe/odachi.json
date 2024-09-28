@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "tag": "c:ingots/steel"
+    },
+    "K": {
+      "item": "samurai_dynasty:katana"
+    }
+  },
+  "pattern": [
+    "  S",
+    " K ",
+    "S  "
+  ],
+  "result": {
+    "id": "samurai_dynasty:odachi"
+  }
+}

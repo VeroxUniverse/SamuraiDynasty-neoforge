@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "samurai_dynasty:oni_horn"
+  },
+  "base": {
+    "item": "samurai_dynasty:katana_netherite"
+  },
+  "result": {
+    "id": "samurai_dynasty:katana_oni"
+  },
+  "template": {
+    "item": "samurai_dynasty:spirit_upgrade_smithing_template"
+  }
+}

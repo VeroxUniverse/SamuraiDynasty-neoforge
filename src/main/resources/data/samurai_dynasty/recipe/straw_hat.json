@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "W": {
+      "item": "minecraft:wheat"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "pattern": [
+    " W ",
+    "WWW",
+    "L L"
+  ],
+  "result": {
+    "id": "samurai_dynasty:straw_hat"
+  }
+}

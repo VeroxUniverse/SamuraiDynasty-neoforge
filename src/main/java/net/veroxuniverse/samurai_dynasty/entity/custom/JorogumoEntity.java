@@ -126,23 +126,25 @@ public class JorogumoEntity extends Monster implements GeoEntity {
     }
 
     static class JorogumoTargetGoal<T extends LivingEntity> extends NearestAttackableTargetGoal<T> {
-        public JorogumoTargetGoal(JorogumoEntity jorogumo, Class<T> tClass) {
-            super(jorogumo, tClass, true);
+        public JorogumoTargetGoal(JorogumoEntity pJorogumoEntity, Class<T> pEntityTypeToTarget) {
+            super(pJorogumoEntity, pEntityTypeToTarget, true);
         }
 
+        @Override
         public boolean canUse() {
             float f = this.mob.getLightLevelDependentMagicValue();
             return f >= 0.5F ? false : super.canUse();
         }
     }
 
-    protected PathNavigation createNavigation(Level level) {
-        return new WallClimberNavigation(this, level);
+    protected PathNavigation createNavigation(Level pLevel) {
+        return new WallClimberNavigation(this, pLevel);
     }
 
+    @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
-        this.entityData.set(DATA_FLAGS_ID, (byte)0);
+        builder.define(DATA_FLAGS_ID, (byte)0);
     }
 
     public void tick() {
@@ -153,8 +155,9 @@ public class JorogumoEntity extends Monster implements GeoEntity {
 
     }
 
+    @Override
     public boolean onClimbable() {
-        return this.isClimbingAt();
+        return this.isClimbing();
     }
 
     public void makeStuckInBlock(BlockState state, Vec3 vec3) {
@@ -169,13 +172,13 @@ public class JorogumoEntity extends Monster implements GeoEntity {
         return pPotioneffect.is(MobEffects.POISON) ? false : super.canBeAffected(pPotioneffect);
     }
 
-    public boolean isClimbingAt() {
+    public boolean isClimbing() {
         return (this.entityData.get(DATA_FLAGS_ID) & 1) != 0;
     }
 
-    public void setClimbing(boolean b) {
+    public void setClimbing(boolean pClimbing) {
         byte b0 = this.entityData.get(DATA_FLAGS_ID);
-        if (b) {
+        if (pClimbing) {
             b0 = (byte)(b0 | 1);
         } else {
             b0 = (byte)(b0 & -2);

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "tag": "c:nuggets/gold"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "pattern": [
+    " X ",
+    "LSX",
+    "XL "
+  ],
+  "result": {
+    "id": "samurai_dynasty:katana_handle"
+  }
+}

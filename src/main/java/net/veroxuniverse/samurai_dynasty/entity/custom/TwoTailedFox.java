@@ -42,11 +42,16 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.NonTameRandomTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.OwnerHurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.OwnerHurtTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.neoforged.neoforge.event.EventHooks;
@@ -57,7 +62,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class TwoTailedFox extends TamableAnimal implements GeoEntity, SmartBrainOwner<TwoTailedFox> {
+public class TwoTailedFox extends TamableAnimal implements GeoEntity {
 
     public static final Predicate<LivingEntity> ATTACK_SELECTOR = (livingEntity) -> {
         EntityType<?> entitytype = livingEntity.getType();
@@ -92,14 +97,14 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity, SmartBrain
     }
 
 
-    /*
+
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(0, new SitWhenOrderedToGoal(this));
         //this.goalSelector.addGoal(1, new LeapAtTargetGoal(this, 0.4F));
         this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Player.class, 16.0F, 1.6D, 1.4D));
-        this.goalSelector.addGoal(2, new TwoTailedAttackGoal(this, 1.2D, true));
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, true));
         this.goalSelector.addGoal(3, new BreedGoal(this, 1.0D));
         this.goalSelector.addGoal(4, new TemptGoal(this, 1.2D, Ingredient.of(Items.BLAZE_POWDER), true));
         this.goalSelector.addGoal(5, new FollowOwnerGoal(this, 1.2F, 8.0F, 2.0F));
@@ -114,7 +119,7 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity, SmartBrain
         this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
         this.targetSelector.addGoal(3, new NonTameRandomTargetGoal<>(this, Animal.class, false, ATTACK_SELECTOR));
     }
-     */
+
 
     /*
 
@@ -132,8 +137,8 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity, SmartBrain
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
-        this.entityData.set(DATA_ID_TYPE_VARIANT, 0);
-        this.entityData.set(ATTACKING, false);
+        builder.define(DATA_ID_TYPE_VARIANT, 0);
+        builder.define(ATTACKING, false);
     }
 
     public void setAttacking(boolean attacking) {
@@ -288,51 +293,6 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity, SmartBrain
         return ModEntityTypes.TWOTAILED.get().create(pLevel);
     }
 
-    @Override
-    public List<ExtendedSensor<TwoTailedFox>> getSensors() {
-        return ObjectArrayList.of(
-                new NearbyLivingEntitySensor<TwoTailedFox>()
-                        .setPredicate((target, entity) -> target instanceof Player),
-                new HurtBySensor<>()
-        );
-    }
-
-
-    @Override
-    public BrainActivityGroup<TwoTailedFox> getCoreTasks() {
-        return BrainActivityGroup.coreTasks(
-                new FloatToSurfaceOfFluid<>(),
-                new LookAtTarget<>(),
-                new MoveToWalkTarget<>());
-    }
-
-    @Override
-    public BrainActivityGroup<TwoTailedFox> getIdleTasks() {
-        return BrainActivityGroup.idleTasks(
-                new FirstApplicableBehaviour<TwoTailedFox>(
-                        new TargetOrRetaliate<>(),
-                        new SetPlayerLookTarget<>(),
-                        new SetRandomLookTarget<>()),
-                new OneRandomBehaviour<>(
-                        new SetRandomWalkTarget<>(),
-                        new Idle<>().runFor(entity -> entity.getRandom().nextInt(30, 60))));
-    }
-
-    @Override
-    public BrainActivityGroup<TwoTailedFox> getFightTasks() {
-        return BrainActivityGroup.fightTasks(
-                new InvalidateAttackTarget<>()
-                        .invalidateIf((target, entity) -> !target.isAlive() || !entity.hasLineOfSight(target)),
-                new SetWalkTargetToAttackTarget<>()
-                        .speedMod((mob, livingEntity) -> 1.2f),
-                new AnimatableMeleeAttack<>(5)
-                        .whenStarting(mob -> {
-                            //this.triggerAnim("attackController", "attack");
-                            //CrystalChronicles.LOGGER.info("Try Attack");
-                            this.playSound(SoundEvents.FOX_BITE, 2.0F, 0.3F);
-                        })
-        );
-    }
 
 }
 

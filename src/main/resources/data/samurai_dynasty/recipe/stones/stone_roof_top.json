@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "samurai_dynasty:spirit_stone"
+  },
+  "result": {
+    "id": "samurai_dynasty:stone_roof_top"
+  }
+}

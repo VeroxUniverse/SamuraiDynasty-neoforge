@@ -11,25 +11,15 @@ import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 public class CreativeTabRegistry {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, SamuraiDynastyMod.MOD_ID);
 
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SD_TAB_BLOCKS = CREATIVE_MODE_TABS.register("sd_tab_blocks", () -> CreativeModeTab.builder()
-            .title(Component.translatable("itemGroup.blocks." + SamuraiDynastyMod.MOD_ID))
-            .icon(() -> BlocksRegistry.DRAGON_SPIRIT_STONE.get().asItem().getDefaultInstance())
-            .displayItems((parameters, output) -> {
-                output.accept(BlocksRegistry.DRAGON_SPIRIT_STONE.get());
-            }).build());
-
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SD_TAB_ITEMS = CREATIVE_MODE_TABS.register("sd_tab_items", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.items." + SamuraiDynastyMod.MOD_ID))
-            .icon(() -> ItemsRegistry.RUBY.get().getDefaultInstance())
-            .displayItems((parameters, output) -> {
-                output.accept(ItemsRegistry.RUBY.get());
-            }).build());
-
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SD_TAB_ARMORY = CREATIVE_MODE_TABS.register("sd_tab_armory", () -> CreativeModeTab.builder()
-            .title(Component.translatable("itemGroup.armory." + SamuraiDynastyMod.MOD_ID))
             .icon(() -> ItemsRegistry.STEEL_SAMURAI_HELMET.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-                output.accept(ItemsRegistry.NETHERITE_SAMURAI_HELMET.get());
+
+                ItemsRegistry.ITEMS.getEntries().forEach(item -> {
+                    output.accept(item.get());
+
+                });
             }).build());
 
     public static void register(net.neoforged.bus.api.IEventBus eventBus) {

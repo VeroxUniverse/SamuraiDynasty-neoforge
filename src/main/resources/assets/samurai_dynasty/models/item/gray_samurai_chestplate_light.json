@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "samurai_dynasty:item/gray_samurai_chestplate_light"
-  }
-}

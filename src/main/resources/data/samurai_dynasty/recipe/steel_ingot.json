@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "samurai_dynasty:steel_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "samurai_dynasty:steel_ingot"
+  }
+}

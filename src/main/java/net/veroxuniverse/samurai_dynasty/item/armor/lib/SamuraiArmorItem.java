@@ -53,4 +53,5 @@ public class SamuraiArmorItem extends ArmorItem implements GeoItem {
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
     }
+    
 }

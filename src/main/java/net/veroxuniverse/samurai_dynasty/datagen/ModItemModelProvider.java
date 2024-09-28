@@ -19,9 +19,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        //wallItem(BlocksRegistry.SPIRIT_STONE_WALL, BlocksRegistry.SPIRIT_STONE);
-        //wallItem(BlocksRegistry.POLISHED_SPIRIT_STONE_WALL, BlocksRegistry.POLISHED_SPIRIT_STONE);
-        //wallItem(BlocksRegistry.MOSSY_SPIRIT_STONE_BRICK_WALL, BlocksRegistry.MOSSY_SPIRIT_STONE_BRICKS);
+        wallItem(BlocksRegistry.SPIRIT_STONE_WALL, BlocksRegistry.SPIRIT_STONE);
+        wallItem(BlocksRegistry.POLISHED_SPIRIT_STONE_WALL, BlocksRegistry.POLISHED_SPIRIT_STONE);
+        wallItem(BlocksRegistry.MOSSY_SPIRIT_STONE_BRICK_WALL, BlocksRegistry.MOSSY_SPIRIT_STONE_BRICKS);
     }
 
     public void flowerItem(DeferredBlock<Block> block) {
@@ -39,6 +39,12 @@ public class ModItemModelProvider extends ItemModelProvider {
     public void fenceItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock) {
         this.withExistingParent(block.getId().getPath(), mcLoc("block/fence_inventory"))
                 .texture("texture",  ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID,
+                        "block/" + baseBlock.getId().getPath()));
+    }
+
+    public void wallItem(DeferredBlock<Block> block, DeferredBlock<Block> baseBlock) {
+        this.withExistingParent(block.getId().getPath(), mcLoc("block/wall_inventory"))
+                .texture("wall",  ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID,
                         "block/" + baseBlock.getId().getPath()));
     }
 }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "tag": "c:ingots/steel"
+    },
+    "W": {
+      "item": "samurai_dynasty:katana_handle"
+    }
+  },
+  "pattern": [
+    "  S",
+    "SS ",
+    "WS "
+  ],
+  "result": {
+    "id": "samurai_dynasty:tonbukiri"
+  }
+}

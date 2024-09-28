@@ -1,25 +1,28 @@
 package net.veroxuniverse.samurai_dynasty.item.armor;
 
-import mod.azure.azurelib.common.api.common.animatable.GeoItem;
 import mod.azure.azurelib.common.internal.client.RenderProvider;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.core.Holder;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.steel.SteelSamuraiArmorRenderer;
 import net.veroxuniverse.samurai_dynasty.item.armor.lib.SamuraiArmorItem;
 import net.veroxuniverse.samurai_dynasty.registry.ArmorMaterialsRegistry;
 import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nullable;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 public class SteelSamuraiArmorItem extends SamuraiArmorItem {
 
-    public SteelSamuraiArmorItem(Holder<ArmorMaterial> holder, Type type, Properties properties) {
+    private final DyeColor color;
+
+    public SteelSamuraiArmorItem(Holder<ArmorMaterial> holder, Type type, Properties properties, DyeColor color) {
         super(holder, type, properties);
+        this.color = color;
     }
 
     // Creates the render
@@ -41,6 +44,11 @@ public class SteelSamuraiArmorItem extends SamuraiArmorItem {
     @Override
     public boolean makesPiglinsNeutral(ItemStack stack, LivingEntity wearer) {
         return this.material == ArmorMaterialsRegistry.SAMURAI_STEEL;
+    }
+
+    @Nullable
+    public DyeColor getColor() {
+        return this.color;
     }
 
 }

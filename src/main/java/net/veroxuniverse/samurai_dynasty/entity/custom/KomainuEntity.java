@@ -43,11 +43,15 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.OwnerHurtByTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.OwnerHurtTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -58,7 +62,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class KomainuEntity extends TamableAnimal implements GeoEntity, SmartBrainOwner<KomainuEntity> {
+public class KomainuEntity extends TamableAnimal implements GeoEntity {
 
     private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT =
             SynchedEntityData.defineId(KomainuEntity.class, EntityDataSerializers.INT);
@@ -88,13 +92,13 @@ public class KomainuEntity extends TamableAnimal implements GeoEntity, SmartBrai
     }
 
 
-    /*
+
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(0, new SitWhenOrderedToGoal(this));
         //this.goalSelector.addGoal(1, new LeapAtTargetGoal(this, 0.4F));
-        this.goalSelector.addGoal(2, new KomainuAttackGoal(this, 1.2D, true));
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, true));
         this.goalSelector.addGoal(3, new BreedGoal(this, 1.0D));
         this.goalSelector.addGoal(4, new TemptGoal(this, 1.2D, Ingredient.of(Items.COOKED_BEEF), true));
         this.goalSelector.addGoal(5, new FollowOwnerGoal(this, 1.2F, 8.0F, 2.0F));
@@ -108,7 +112,7 @@ public class KomainuEntity extends TamableAnimal implements GeoEntity, SmartBrai
         this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
     }
-     */
+
 
     /*
 
@@ -126,8 +130,8 @@ public class KomainuEntity extends TamableAnimal implements GeoEntity, SmartBrai
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
-        this.entityData.set(DATA_ID_TYPE_VARIANT, 0);
-        this.entityData.set(ATTACKING, false);
+        builder.define(DATA_ID_TYPE_VARIANT, 0);
+        builder.define(ATTACKING, false);
     }
 
     public void setAttacking(boolean attacking) {
@@ -286,49 +290,4 @@ public class KomainuEntity extends TamableAnimal implements GeoEntity, SmartBrai
         return ModEntityTypes.KOMAINU.get().create(pLevel);
     }
 
-    @Override
-    public List<ExtendedSensor<KomainuEntity>> getSensors() {
-        return ObjectArrayList.of(
-                new NearbyLivingEntitySensor<KomainuEntity>()
-                        .setPredicate((target, entity) -> target instanceof Player),
-                new HurtBySensor<>()
-        );
-    }
-
-
-    @Override
-    public BrainActivityGroup<KomainuEntity> getCoreTasks() {
-        return BrainActivityGroup.coreTasks(
-                new FloatToSurfaceOfFluid<>(),
-                new LookAtTarget<>(),
-                new MoveToWalkTarget<>());
-    }
-
-    @Override
-    public BrainActivityGroup<KomainuEntity> getIdleTasks() {
-        return BrainActivityGroup.idleTasks(
-                new FirstApplicableBehaviour<KomainuEntity>(
-                        new TargetOrRetaliate<>(),
-                        new SetPlayerLookTarget<>(),
-                        new SetRandomLookTarget<>()),
-                new OneRandomBehaviour<>(
-                        new SetRandomWalkTarget<>(),
-                        new Idle<>().runFor(entity -> entity.getRandom().nextInt(30, 60))));
-    }
-
-    @Override
-    public BrainActivityGroup<KomainuEntity> getFightTasks() {
-        return BrainActivityGroup.fightTasks(
-                new InvalidateAttackTarget<>()
-                        .invalidateIf((target, entity) -> !target.isAlive() || !entity.hasLineOfSight(target)),
-                new SetWalkTargetToAttackTarget<>()
-                        .speedMod((mob, livingEntity) -> 1.2f),
-                new AnimatableMeleeAttack<>(5)
-                        .whenStarting(mob -> {
-                            //this.triggerAnim("attackController", "attack");
-                            //CrystalChronicles.LOGGER.info("Try Attack");
-                            this.playSound(SoundEvents.FOX_BITE, 2.0F, 0.3F);
-                        })
-        );
-    }
 }

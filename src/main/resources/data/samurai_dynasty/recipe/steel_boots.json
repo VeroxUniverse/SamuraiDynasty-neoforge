@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "minecraft:leather"
+    },
+    "S": {
+      "tag": "c:ingots/steel"
+    }
+  },
+  "pattern": [
+    "S S",
+    "SXS"
+  ],
+  "result": {
+    "id": "samurai_dynasty:steel_boots"
+  }
+}
