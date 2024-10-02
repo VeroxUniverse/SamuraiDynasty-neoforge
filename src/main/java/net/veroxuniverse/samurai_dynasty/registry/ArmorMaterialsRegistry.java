@@ -51,7 +51,7 @@ public class ArmorMaterialsRegistry{
                         armor.put(ArmorItem.Type.HELMET, 2);
                     }), 12, SoundEvents.ARMOR_EQUIP_IRON, () -> Ingredient.of(ItemsRegistry.STEEL_INGOT.get()),
                     List.of(
-                            new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "samurai_steel"), "", true),
+                            new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "samurai_steel")),
                             new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "samurai_steel"), "_overlay", true)),
                     0.5F, 0.0F));
 

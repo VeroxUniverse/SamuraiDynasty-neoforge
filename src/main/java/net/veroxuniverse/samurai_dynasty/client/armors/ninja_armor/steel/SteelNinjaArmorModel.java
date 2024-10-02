@@ -13,7 +13,7 @@ public class SteelNinjaArmorModel extends GeoModel<SteelNinjaArmorItem> {
 
     @Override
     public ResourceLocation getTextureResource(SteelNinjaArmorItem object) {
-        return ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "textures/armor/ninja_steel_armor_textures.png");
+        return ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "textures/models/armor/ninja_steel.png");
     }
 
     @Override

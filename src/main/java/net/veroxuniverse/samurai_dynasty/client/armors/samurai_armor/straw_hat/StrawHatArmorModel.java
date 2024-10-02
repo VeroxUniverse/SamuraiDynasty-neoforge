@@ -13,7 +13,7 @@ public class StrawHatArmorModel extends GeoModel<StrawHatArmorItem> {
 
     @Override
     public ResourceLocation getTextureResource(StrawHatArmorItem object) {
-        return ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "textures/armor/straw_hat_armor_textures.png");
+        return ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "textures/models/armor/straw_hat.png");
     }
 
     @Override

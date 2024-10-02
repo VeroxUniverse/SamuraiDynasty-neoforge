@@ -13,7 +13,7 @@ public class KimonoArmorModel extends GeoModel<KimonoArmorItem> {
 
     @Override
     public ResourceLocation getTextureResource(KimonoArmorItem object) {
-        return ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "textures/armor/kimono_textures.png");
+        return ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "textures/models/armor/kimono.png");
     }
 
     @Override

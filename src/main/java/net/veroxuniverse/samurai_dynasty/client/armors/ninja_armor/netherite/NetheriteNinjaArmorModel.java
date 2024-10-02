@@ -13,7 +13,7 @@ public class NetheriteNinjaArmorModel extends GeoModel<NetheriteNinjaArmorItem> 
 
     @Override
     public ResourceLocation getTextureResource(NetheriteNinjaArmorItem object) {
-        return ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "textures/armor/ninja_netherite_armor_textures.png");
+        return ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "textures/models/armor/ninja_netherite.png");
     }
 
     @Override
