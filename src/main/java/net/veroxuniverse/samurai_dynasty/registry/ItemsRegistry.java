@@ -1,6 +1,5 @@
 package net.veroxuniverse.samurai_dynasty.registry;
 
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
@@ -30,13 +29,13 @@ public class ItemsRegistry {
             () -> new NetheriteSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.BOOTS, new Item.Properties().fireResistant()));
 
     public static final DeferredHolder<Item, SteelSamuraiArmorItem> STEEL_SAMURAI_HELMET = ITEMS.register("steel_samurai_helmet",
-            () -> new SteelSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.HELMET, new Item.Properties(), DyeColor.RED));
+            () -> new SteelSamuraiArmorItem(DyeColor.RED, ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.HELMET, new Item.Properties()));
     public static final DeferredHolder<Item, SteelSamuraiArmorItem> STEEL_SAMURAI_CHESTPLATE = ITEMS.register("steel_samurai_chestplate",
-            () -> new SteelSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties(), DyeColor.RED));
+            () -> new SteelSamuraiArmorItem(DyeColor.RED, ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
     public static final DeferredHolder<Item, SteelSamuraiArmorItem> STEEL_SAMURAI_LEGGINGS = ITEMS.register("steel_samurai_leggings",
-            () -> new SteelSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.LEGGINGS, new Item.Properties(), DyeColor.RED));
+            () -> new SteelSamuraiArmorItem(DyeColor.RED, ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
     public static final DeferredHolder<Item, SteelSamuraiArmorItem> STEEL_SAMURAI_BOOTS = ITEMS.register("steel_samurai_boots",
-            () -> new SteelSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.BOOTS, new Item.Properties(), DyeColor.RED));
+            () -> new SteelSamuraiArmorItem(DyeColor.RED, ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     public static final DeferredHolder<Item, SteelArmorItem> STEEL_HELMET = ITEMS.register("steel_helmet",
             () -> new SteelArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.HELMET, new Item.Properties()));
@@ -253,5 +252,9 @@ public class ItemsRegistry {
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
+    }
+
+    public static Item.Properties getItemProperties() {
+        return new Item.Properties();
     }
 }

@@ -1,20 +1,15 @@
 package net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.steel;
 
 import mod.azure.azurelib.common.api.client.renderer.DyeableGeoArmorRenderer;
+import mod.azure.azurelib.common.api.client.renderer.GeoArmorRenderer;
 import mod.azure.azurelib.common.internal.common.cache.object.GeoBone;
 import mod.azure.azurelib.core.object.Color;
-import net.minecraft.core.Holder;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.Item;
 import net.veroxuniverse.samurai_dynasty.item.armor.SteelSamuraiArmorItem;
-import net.veroxuniverse.samurai_dynasty.registry.ArmorMaterialsRegistry;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 public class SteelSamuraiArmorRenderer extends DyeableGeoArmorRenderer<SteelSamuraiArmorItem> {
@@ -41,6 +36,13 @@ public class SteelSamuraiArmorRenderer extends DyeableGeoArmorRenderer<SteelSamu
 
         return dyeableBones.contains(bone.getName());
     }
+
+    @Override
+    protected @NotNull Color getColorForBone(GeoBone bone) {
+        return Color.RED;
+    }
+
+    /*
 
     private final Holder<ArmorMaterial> armorMaterialHolder = ArmorMaterialsRegistry.SAMURAI_STEEL;
     private final Item.Properties properties = new Item.Properties();
@@ -70,5 +72,7 @@ public class SteelSamuraiArmorRenderer extends DyeableGeoArmorRenderer<SteelSamu
         }
         return Color.ofOpaque(0xFF0000);
     }
+
+     */
 
 }

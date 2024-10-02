@@ -12,15 +12,15 @@ import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.steel.Steel
 import net.veroxuniverse.samurai_dynasty.item.armor.lib.SamuraiArmorItem;
 import net.veroxuniverse.samurai_dynasty.registry.ArmorMaterialsRegistry;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nullable;
 import java.util.function.Consumer;
 
 public class SteelSamuraiArmorItem extends SamuraiArmorItem {
 
     private final DyeColor color;
 
-    public SteelSamuraiArmorItem(Holder<ArmorMaterial> holder, Type type, Properties properties, DyeColor color) {
+    public SteelSamuraiArmorItem(DyeColor color,Holder<ArmorMaterial> holder, Type type, Properties properties) {
         super(holder, type, properties);
         this.color = color;
     }
@@ -40,6 +40,7 @@ public class SteelSamuraiArmorItem extends SamuraiArmorItem {
             }
         });
     }
+
 
     @Override
     public boolean makesPiglinsNeutral(ItemStack stack, LivingEntity wearer) {

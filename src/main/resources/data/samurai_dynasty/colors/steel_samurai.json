@@ -1,0 +1,29 @@
+{
+  "default": {
+    "red": 255,
+    "green": 255,
+    "blue": 255
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "color": "red"
+      },
+      "color": {
+        "red": 255,
+        "green": 0,
+        "blue": 0
+      }
+    },
+    {
+      "predicate": {
+        "color": "blue"
+      },
+      "color": {
+        "red": 0,
+        "green": 0,
+        "blue": 255
+      }
+    }
+  ]
+}

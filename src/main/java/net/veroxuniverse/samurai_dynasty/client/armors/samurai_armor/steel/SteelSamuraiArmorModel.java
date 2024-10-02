@@ -12,7 +12,8 @@ public class SteelSamuraiArmorModel extends GeoModel<SteelSamuraiArmorItem> {
 
     @Override
     public ResourceLocation getTextureResource(SteelSamuraiArmorItem object) {
-        return ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "textures/armor/steel_samurai_armor_textures.png");
+        return null;
+        //return ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "textures/armor/steel_samurai_armor_textures.png");
     }
 
     @Override
