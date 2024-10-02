@@ -34,7 +34,7 @@ public class SamuraiDynastyClientMod {
     public static void itemColors(final RegisterColorHandlersEvent.Item event)
     {
         event.register(
-                (stack, color) -> color > 0 ? -1 : (0xFFFF0000 | getColor(stack)),
+                (stack, color) -> color > 0 ? -1 : (0xFFAB1A2D | getColor(stack)),
                 ItemsRegistry.STEEL_SAMURAI_HELMET.get(),
                 ItemsRegistry.STEEL_SAMURAI_CHESTPLATE.get(),
                 ItemsRegistry.STEEL_SAMURAI_LEGGINGS.get(),
@@ -43,8 +43,8 @@ public class SamuraiDynastyClientMod {
 
     private static int getColor(ItemStack stack)
     {
-        var colorData = stack.get(DataComponents.DYED_COLOR);
-        return colorData != null ? colorData.rgb() : -1;
+        var color = stack.get(DataComponents.DYED_COLOR);
+        return color != null ? color.rgb() : 0xFFAB1A2D;
     }
 
 

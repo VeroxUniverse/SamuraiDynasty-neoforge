@@ -6,7 +6,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.DyedItemColor;
 import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.steel.SteelSamuraiArmorRenderer;
@@ -49,7 +48,7 @@ public class SteelSamuraiArmorItem extends SamuraiArmorItem {
     //DyedItemColor.getOrDefault(itemstack)
 
     public int getColor() {
-        return DyedItemColor.getOrDefault(itemStack, 0xFFFF0000);
+        return DyedItemColor.getOrDefault(itemStack, 0xFFAB1A2D);
     }
 
 }

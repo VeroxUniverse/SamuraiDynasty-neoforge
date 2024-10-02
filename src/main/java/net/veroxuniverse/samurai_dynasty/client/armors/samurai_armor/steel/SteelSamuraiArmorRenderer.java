@@ -47,7 +47,7 @@ public class SteelSamuraiArmorRenderer extends DyeableGeoArmorRenderer<SteelSamu
 
     @Override
     protected @NotNull Color getColorForBone(GeoBone bone) {
-        int color = DyedItemColor.getOrDefault(itemStack, 0xFFFF0000);
+        int color = DyedItemColor.getOrDefault(itemStack, 0xFFAB1A2D);
         return new Color(color);
     }
 
