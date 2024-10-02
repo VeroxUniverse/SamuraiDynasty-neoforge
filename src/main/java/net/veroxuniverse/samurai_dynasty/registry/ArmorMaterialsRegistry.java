@@ -52,7 +52,7 @@ public class ArmorMaterialsRegistry{
                     }), 12, SoundEvents.ARMOR_EQUIP_IRON, () -> Ingredient.of(ItemsRegistry.STEEL_INGOT.get()),
                     List.of(
                             new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "samurai_steel")),
-                            new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "samurai_steel"), "_overlay", true)),
+                            new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "samurai_steel"), "_dyeable", true)),
                     0.5F, 0.0F));
 
     public static final Holder<ArmorMaterial> SAMURAI_NETHERITE =

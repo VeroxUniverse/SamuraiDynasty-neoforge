@@ -32,14 +32,14 @@ public class SteelSamuraiArmorRenderer extends DyeableGeoArmorRenderer<SteelSamu
     @Override
     protected boolean isBoneDyeable(GeoBone bone) {
         List<String> dyeableBones = Arrays.asList(
-                "armorHead",
-                "armorBody",
-                "armorLeftLeg",
-                "armorRightLeg",
-                "armorLeftBoot",
-                "armorRightBoot",
-                "armorLeftArm",
-                "armorRightArm"
+                "coloredHead",
+                "coloredBody",
+                "coloredLeftLeg",
+                "coloredRightLeg",
+                "coloredLeftBoot",
+                "coloredRightBoot",
+                "coloredLeftArm",
+                "coloredRightArm"
         );
 
         return dyeableBones.contains(bone.getName());
