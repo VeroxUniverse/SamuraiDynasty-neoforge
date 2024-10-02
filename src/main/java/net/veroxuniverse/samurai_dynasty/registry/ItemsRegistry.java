@@ -19,56 +19,55 @@ public class ItemsRegistry {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(SamuraiDynastyMod.MOD_ID);
 
     public static final DeferredHolder<Item, NetheriteSamuraiArmorItem> NETHERITE_SAMURAI_HELMET = ITEMS.register("netherite_samurai_helmet",
-            () -> new NetheriteSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.HELMET, new Item.Properties().stacksTo(1).fireResistant()));
-
+            () -> new NetheriteSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.HELMET, new Item.Properties().stacksTo(1).fireResistant().stacksTo(1)));
     public static final DeferredHolder<Item, NetheriteSamuraiArmorItem> NETHERITE_SAMURAI_CHESTPLATE = ITEMS.register("netherite_samurai_chestplate",
-            () -> new NetheriteSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.CHESTPLATE, new Item.Properties().fireResistant()));
+            () -> new NetheriteSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.CHESTPLATE, new Item.Properties().fireResistant().stacksTo(1)));
     public static final DeferredHolder<Item, NetheriteSamuraiArmorItem> NETHERITE_SAMURAI_LEGGINGS = ITEMS.register("netherite_samurai_leggings",
-            () -> new NetheriteSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.LEGGINGS, new Item.Properties().fireResistant()));
+            () -> new NetheriteSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.LEGGINGS, new Item.Properties().fireResistant().stacksTo(1)));
     public static final DeferredHolder<Item, NetheriteSamuraiArmorItem> NETHERITE_SAMURAI_BOOTS = ITEMS.register("netherite_samurai_boots",
-            () -> new NetheriteSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.BOOTS, new Item.Properties().fireResistant()));
+            () -> new NetheriteSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.BOOTS, new Item.Properties().fireResistant().stacksTo(1)));
 
     public static final DeferredHolder<Item, SteelSamuraiArmorItem> STEEL_SAMURAI_HELMET = ITEMS.register("steel_samurai_helmet",
-            () -> new SteelSamuraiArmorItem(DyeColor.RED, ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new SteelSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.HELMET, new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, SteelSamuraiArmorItem> STEEL_SAMURAI_CHESTPLATE = ITEMS.register("steel_samurai_chestplate",
-            () -> new SteelSamuraiArmorItem(DyeColor.RED, ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new SteelSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, SteelSamuraiArmorItem> STEEL_SAMURAI_LEGGINGS = ITEMS.register("steel_samurai_leggings",
-            () -> new SteelSamuraiArmorItem(DyeColor.RED, ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new SteelSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.LEGGINGS, new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, SteelSamuraiArmorItem> STEEL_SAMURAI_BOOTS = ITEMS.register("steel_samurai_boots",
-            () -> new SteelSamuraiArmorItem(DyeColor.RED, ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new SteelSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.BOOTS, new Item.Properties().stacksTo(1)));
 
     public static final DeferredHolder<Item, SteelArmorItem> STEEL_HELMET = ITEMS.register("steel_helmet",
-            () -> new SteelArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new SteelArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.HELMET, new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, SteelArmorItem> STEEL_CHESTPLATE = ITEMS.register("steel_chestplate",
-            () -> new SteelArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new SteelArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, SteelArmorItem> STEEL_LEGGINGS = ITEMS.register("steel_leggings",
-            () -> new SteelArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new SteelArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.LEGGINGS, new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, SteelArmorItem> STEEL_BOOTS = ITEMS.register("steel_boots",
-            () -> new SteelArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new SteelArmorItem(ArmorMaterialsRegistry.SAMURAI_STEEL, ArmorItem.Type.BOOTS, new Item.Properties().stacksTo(1)));
     
     public static final DeferredHolder<Item, SteelNinjaArmorItem> STEEL_NINJA_HELMET = ITEMS.register("steel_ninja_helmet",
-            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.NINJA_STEEL, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.NINJA_STEEL, ArmorItem.Type.HELMET, new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, SteelNinjaArmorItem>  STEEL_NINJA_CHESTPLATE = ITEMS.register("steel_ninja_chestplate",
-            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.NINJA_STEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.NINJA_STEEL, ArmorItem.Type.CHESTPLATE, new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, SteelNinjaArmorItem>  STEEL_NINJA_BOOTS = ITEMS.register("steel_ninja_boots",
-            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.NINJA_STEEL, ArmorItem.Type.BOOTS, new Item.Properties()));
+            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.NINJA_STEEL, ArmorItem.Type.BOOTS, new Item.Properties().stacksTo(1)));
 
     public static final DeferredHolder<Item, NetheriteNinjaArmorItem> NETHERITE_NINJA_HELMET = ITEMS.register("netherite_ninja_helmet",
-            () -> new NetheriteNinjaArmorItem(ArmorMaterialsRegistry.NINJA_NETHERITE, ArmorItem.Type.HELMET, new Item.Properties().fireResistant()));
+            () -> new NetheriteNinjaArmorItem(ArmorMaterialsRegistry.NINJA_NETHERITE, ArmorItem.Type.HELMET, new Item.Properties().fireResistant().stacksTo(1)));
     public static final DeferredHolder<Item, NetheriteNinjaArmorItem> NETHERITE_NINJA_CHESTPLATE = ITEMS.register("netherite_ninja_chestplate",
-            () -> new NetheriteNinjaArmorItem(ArmorMaterialsRegistry.NINJA_NETHERITE, ArmorItem.Type.CHESTPLATE, new Item.Properties().fireResistant()));
+            () -> new NetheriteNinjaArmorItem(ArmorMaterialsRegistry.NINJA_NETHERITE, ArmorItem.Type.CHESTPLATE, new Item.Properties().fireResistant().stacksTo(1)));
     public static final DeferredHolder<Item, NetheriteNinjaArmorItem> NETHERITE_NINJA_BOOTS = ITEMS.register("netherite_ninja_boots",
-            () -> new NetheriteNinjaArmorItem(ArmorMaterialsRegistry.NINJA_NETHERITE, ArmorItem.Type.BOOTS, new Item.Properties().fireResistant()));
+            () -> new NetheriteNinjaArmorItem(ArmorMaterialsRegistry.NINJA_NETHERITE, ArmorItem.Type.BOOTS, new Item.Properties().fireResistant().stacksTo(1)));
 
     public static final DeferredHolder<Item, SteelNinjaArmorItem> NINJA_LEGGINGS = ITEMS.register("ninja_leggings",
-            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.CLOTH, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            () -> new SteelNinjaArmorItem(ArmorMaterialsRegistry.CLOTH, ArmorItem.Type.LEGGINGS, new Item.Properties().stacksTo(1)));
 
 
     public static final DeferredHolder<Item, KimonoArmorItem> KIMONO = ITEMS.register("kimono",
-            () -> new KimonoArmorItem(ArmorMaterialsRegistry.CLOTH, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            () -> new KimonoArmorItem(ArmorMaterialsRegistry.CLOTH, ArmorItem.Type.CHESTPLATE, new Item.Properties().stacksTo(1)));
 
     public static final DeferredHolder<Item, StrawHatArmorItem> STRAW_HAT = ITEMS.register("straw_hat",
-            () -> new StrawHatArmorItem(ArmorMaterialsRegistry.STRAW, ArmorItem.Type.HELMET, new Item.Properties()));
+            () -> new StrawHatArmorItem(ArmorMaterialsRegistry.STRAW, ArmorItem.Type.HELMET, new Item.Properties().stacksTo(1)));
 
     public static final DeferredItem<Item> ONI_MASK = ITEMS.register("oni_mask",
             () -> new OniMaskCurios(new Item.Properties().fireResistant().stacksTo(1)));

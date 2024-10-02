@@ -3,30 +3,25 @@ package net.veroxuniverse.samurai_dynasty.item.armor;
 import mod.azure.azurelib.common.internal.client.RenderProvider;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.core.Holder;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.minecraft.world.item.component.DyedItemColor;
 import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.steel.SteelSamuraiArmorRenderer;
 import net.veroxuniverse.samurai_dynasty.item.armor.lib.SamuraiArmorItem;
 import net.veroxuniverse.samurai_dynasty.registry.ArmorMaterialsRegistry;
-import net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
 public class SteelSamuraiArmorItem extends SamuraiArmorItem {
 
-    private final DyeColor color;
+    public ItemStack itemStack;
 
-    public SteelSamuraiArmorItem(DyeColor color,Holder<ArmorMaterial> holder, Type type, Properties properties) {
+    public SteelSamuraiArmorItem(Holder<ArmorMaterial> holder, Type type, Properties properties) {
         super(holder, type, properties);
-        this.color = color;
     }
 
     // Creates the render
@@ -53,9 +48,8 @@ public class SteelSamuraiArmorItem extends SamuraiArmorItem {
 
     //DyedItemColor.getOrDefault(itemstack)
 
-    @Nullable
-    public DyeColor getColor() {
-        return this.color;
+    public int getColor() {
+        return DyedItemColor.getOrDefault(itemStack, 0xFFFF0000);
     }
 
 }

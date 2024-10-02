@@ -15,7 +15,6 @@ import net.veroxuniverse.samurai_dynasty.curios.model.OniMaskModel;
 import net.veroxuniverse.samurai_dynasty.particle.BlueFlame;
 import net.veroxuniverse.samurai_dynasty.particle.ModParticles;
 import net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry;
-import net.veroxuniverse.samurai_dynasty.registry.ModParticleTypes;
 
 @EventBusSubscriber(modid = SamuraiDynastyMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class SamuraiDynastyClientMod {
@@ -35,7 +34,7 @@ public class SamuraiDynastyClientMod {
     public static void itemColors(final RegisterColorHandlersEvent.Item event)
     {
         event.register(
-                (stack, color) -> color > 0 ? -1 : (0xFF000000 | getColor(stack)),
+                (stack, color) -> color > 0 ? -1 : (0xFFFF0000 | getColor(stack)),
                 ItemsRegistry.STEEL_SAMURAI_HELMET.get(),
                 ItemsRegistry.STEEL_SAMURAI_CHESTPLATE.get(),
                 ItemsRegistry.STEEL_SAMURAI_LEGGINGS.get(),

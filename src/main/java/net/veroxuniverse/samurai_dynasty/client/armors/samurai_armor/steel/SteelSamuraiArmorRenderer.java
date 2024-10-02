@@ -9,8 +9,8 @@ import net.minecraft.world.item.component.DyedItemColor;
 import net.veroxuniverse.samurai_dynasty.item.armor.SteelSamuraiArmorItem;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Arrays;
+import java.util.List;
 
 public class SteelSamuraiArmorRenderer extends DyeableGeoArmorRenderer<SteelSamuraiArmorItem> {
 
@@ -31,15 +31,16 @@ public class SteelSamuraiArmorRenderer extends DyeableGeoArmorRenderer<SteelSamu
 
     @Override
     protected boolean isBoneDyeable(GeoBone bone) {
-        Set<String> dyeableBones = new HashSet<>();
-        dyeableBones.add("armorHead");
-        dyeableBones.add("armorBody");
-        dyeableBones.add("armorLeftLeg");
-        dyeableBones.add("armorRightLeg");
-        dyeableBones.add("armorLeftBoot");
-        dyeableBones.add("armorRightBoot");
-        dyeableBones.add("armorLeftArm");
-        dyeableBones.add("armorRightArm");
+        List<String> dyeableBones = Arrays.asList(
+                "armorHead",
+                "armorBody",
+                "armorLeftLeg",
+                "armorRightLeg",
+                "armorLeftBoot",
+                "armorRightBoot",
+                "armorLeftArm",
+                "armorRightArm"
+        );
 
         return dyeableBones.contains(bone.getName());
     }
