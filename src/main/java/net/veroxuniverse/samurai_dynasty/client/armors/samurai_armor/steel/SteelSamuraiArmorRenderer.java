@@ -1,54 +1,29 @@
 package net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.steel;
 
-import mod.azure.azurelib.common.api.client.renderer.DyeableGeoArmorRenderer;
-import mod.azure.azurelib.common.internal.common.cache.object.GeoBone;
+import mod.azure.azurelib.common.api.client.renderer.GeoArmorRenderer;
 import mod.azure.azurelib.core.object.Color;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.component.DyedItemColor;
+import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
+import net.veroxuniverse.samurai_dynasty.client.armors.ColorGeoLayer;
 import net.veroxuniverse.samurai_dynasty.item.armor.SteelSamuraiArmorItem;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
-import java.util.List;
-
-public class SteelSamuraiArmorRenderer extends DyeableGeoArmorRenderer<SteelSamuraiArmorItem> {
-
-    private ItemStack itemStack;
+public class SteelSamuraiArmorRenderer extends GeoArmorRenderer<SteelSamuraiArmorItem> {
 
     public SteelSamuraiArmorRenderer() {
         super(new SteelSamuraiArmorModel());
-    }
-
-    public void setItemStack(ItemStack itemStack) {
-        this.itemStack = itemStack;
-    }
-
-    @Override
-    public void setupAnim(Entity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-
+        ColorGeoLayer<SteelSamuraiArmorItem> colorLayer = new ColorGeoLayer<>(this, ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "textures/models/armor/steel_samurai_overlay.png"));
+        this.addRenderLayer(colorLayer);
     }
 
     @Override
-    protected boolean isBoneDyeable(GeoBone bone) {
-        List<String> dyeableBones = Arrays.asList(
-                "coloredHead",
-                "coloredBody",
-                "coloredLeftLeg",
-                "coloredRightLeg",
-                "coloredLeftBoot",
-                "coloredRightBoot",
-                "coloredLeftArm",
-                "coloredRightArm"
-        );
-
-        return dyeableBones.contains(bone.getName());
-    }
-
-    @Override
-    protected @NotNull Color getColorForBone(GeoBone bone) {
-        int color = DyedItemColor.getOrDefault(itemStack, 0xFFAB1A2D);
-        return new Color(color);
+    public Color getRenderColor(SteelSamuraiArmorItem animatable, float partialTick, int packedLight) {
+        if (this.currentStack.is(ItemTags.DYEABLE)) {
+            int colorValue = DyedItemColor.getOrDefault(this.currentStack, 0xFFAB1A2D);
+            return Color.ofOpaque(colorValue);
+        }
+        return Color.ofOpaque(0xFFAB1A2D);
     }
 
 }
