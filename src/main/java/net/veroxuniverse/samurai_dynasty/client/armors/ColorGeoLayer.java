@@ -20,7 +20,6 @@ public class ColorGeoLayer<T extends GeoAnimatable> extends GeoRenderLayer<T> {
         this.textureLocation = textureLocation;
     }
 
-
     protected RenderType getRenderType(T animatable) {
         RenderType renderType = RenderType.armorCutoutNoCull(textureLocation);
         return renderType;
@@ -61,6 +60,5 @@ public class ColorGeoLayer<T extends GeoAnimatable> extends GeoRenderLayer<T> {
                 color.getAlphaFloat()
         );
     }
-
 
 }

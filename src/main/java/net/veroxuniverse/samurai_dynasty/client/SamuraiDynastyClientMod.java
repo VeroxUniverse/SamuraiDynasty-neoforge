@@ -1,7 +1,10 @@
 package net.veroxuniverse.samurai_dynasty.client;
 
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -46,7 +49,6 @@ public class SamuraiDynastyClientMod {
         var color = stack.get(DataComponents.DYED_COLOR);
         return color != null ? color.rgb() : 0xFFAB1A2D;
     }
-
 
 }
 

@@ -1,7 +1,9 @@
 package net.veroxuniverse.samurai_dynasty;
 
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.logging.LogUtils;
 import mod.azure.azurelib.common.internal.common.AzureLib;
+import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
@@ -37,6 +39,7 @@ public class SamuraiDynastyMod
 
     public SamuraiDynastyMod(IEventBus modEventBus, ModContainer modContainer)
     {
+
         modEventBus.addListener(this::commonSetup);
         //MixinExtrasBootstrap.init();
 
@@ -66,8 +69,10 @@ public class SamuraiDynastyMod
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @EventBusSubscriber(modid = MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
+
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+
             LOGGER.info("HELLO FROM CLIENT SETUP");
             EntityRenderers.register(ModEntityTypes.AKANAME.get(), AkanameRenderer::new);
             EntityRenderers.register(ModEntityTypes.ENENRA.get(), EnenraRenderer::new);
