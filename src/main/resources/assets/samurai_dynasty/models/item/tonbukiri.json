@@ -7,113 +7,111 @@
   ],
   "display": {
     "thirdperson_righthand": {
-      "rotation": [
-        0,
-        90,
-        0
-      ],
       "translation": [
-        0,
-        -5.25,
+        -0.5,
+        -19.25,
         1.5
       ],
       "scale": [
-        0.7,
-        0.7,
-        0.7
+        0.75,
+        0.75,
+        0.75
       ]
     },
     "thirdperson_lefthand": {
-      "rotation": [
-        0,
-        90,
-        0
-      ],
       "translation": [
-        0,
-        -5.25,
+        -0.5,
+        -19.25,
         1.5
       ],
       "scale": [
-        0.7,
-        0.7,
-        0.7
+        0.75,
+        0.75,
+        0.75
       ]
     },
     "firstperson_righthand": {
       "rotation": [
-        -25,
-        106,
+        -11,
+        15,
         0
       ],
       "translation": [
-        8.5,
-        -13,
+        4.5,
+        -25,
         0
       ],
       "scale": [
-        0.7,
-        0.7,
-        0.7
+        0.75,
+        0.75,
+        0.75
       ]
     },
     "firstperson_lefthand": {
       "rotation": [
-        -25,
-        106,
+        -11,
+        15,
         0
       ],
       "translation": [
-        8.5,
-        -13,
+        4.5,
+        -25,
         0
       ],
       "scale": [
-        0.7,
-        0.7,
-        0.7
+        0.75,
+        0.75,
+        0.75
       ]
     },
     "ground": {
       "translation": [
         0,
-        3.5,
+        1.75,
         0
       ],
       "scale": [
-        0.5,
-        0.5,
-        0.5
+        0.4,
+        0.4,
+        0.4
       ]
     },
     "gui": {
       "rotation": [
-        -21,
-        -21,
-        -49
+        -53,
+        -43,
+        -74
       ],
       "translation": [
-        -3.75,
-        -4,
+        -7.5,
+        -7.75,
         0
       ],
       "scale": [
-        0.25,
-        0.25,
-        0.25
+        0.3,
+        0.3,
+        0.3
       ]
     },
     "fixed": {
       "rotation": [
         0,
-        0,
-        180
+        90,
+        0
       ],
       "translation": [
         0,
-        13.75,
+        -12.5,
         0
+      ],
+      "scale": [
+        0.35,
+        0.35,
+        0.35
       ]
     }
+  },
+  "textures": {
+    "particle": "item/tonbokiri"
   }
 }

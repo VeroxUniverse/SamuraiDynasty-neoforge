@@ -2,15 +2,12 @@ package net.veroxuniverse.samurai_dynasty.datagen;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
-import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 import net.veroxuniverse.samurai_dynasty.registry.BlocksRegistry;
+import net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry;
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, net.neoforged.neoforge.common.data.ExistingFileHelper existingFileHelper) {
@@ -22,6 +19,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         wallItem(BlocksRegistry.SPIRIT_STONE_WALL, BlocksRegistry.SPIRIT_STONE);
         wallItem(BlocksRegistry.POLISHED_SPIRIT_STONE_WALL, BlocksRegistry.POLISHED_SPIRIT_STONE);
         wallItem(BlocksRegistry.MOSSY_SPIRIT_STONE_BRICK_WALL, BlocksRegistry.MOSSY_SPIRIT_STONE_BRICKS);
+        basicItem(ItemsRegistry.LIGHT_SAMURAI_BOOTS.get());
+        basicItem(ItemsRegistry.LIGHT_SAMURAI_CHESTPLATE.get());
+        basicItem(ItemsRegistry.LIGHT_SAMURAI_LEGGINGS.get());
+        basicItem(ItemsRegistry.LIGHT_SAMURAI_HELMET.get());
+        basicItem(ItemsRegistry.MASTER_SAMURAI_BOOTS.get());
+        basicItem(ItemsRegistry.MASTER_SAMURAI_CHESTPLATE.get());
+        basicItem(ItemsRegistry.MASTER_SAMURAI_LEGGINGS.get());
+        basicItem(ItemsRegistry.MASTER_SAMURAI_HELMET.get());
     }
 
     public void flowerItem(DeferredBlock<Block> block) {

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {"item": "samurai_dynasty:steel_samurai_helmet"},
+    {"item": "minecraft:black_dye"}
+  ],
+  "result": {
+    "id": "samurai_dynasty:steel_samurai_helmet",
+    "components": {
+      "minecraft:base_color": "black"
+    }
+  }
+}

@@ -18,7 +18,7 @@ import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.client.ICurioRenderer;
 
 public class OniMaskRenderer implements ICurioRenderer {
-    private static final ResourceLocation ONI_MASK_LOCATION = ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID,"textures/armor/oni_mask.png");
+    private static final ResourceLocation ONI_MASK_LOCATION = ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID,"textures/models/armor/oni_mask.png");
     private final OniMaskModel oniMaskModel;
 
     public OniMaskRenderer() {

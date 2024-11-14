@@ -22,11 +22,13 @@ import net.veroxuniverse.samurai_dynasty.client.projectiles.ThrownShurikenRender
 import net.veroxuniverse.samurai_dynasty.curios.layers.KitsuneMaskRenderer;
 import net.veroxuniverse.samurai_dynasty.curios.layers.OniMaskRenderer;
 import net.veroxuniverse.samurai_dynasty.entity.ModEntityTypes;
+import net.veroxuniverse.samurai_dynasty.item.YumiBow;
 import net.veroxuniverse.samurai_dynasty.particle.ModParticles;
 import net.veroxuniverse.samurai_dynasty.registry.ArmorMaterialsRegistry;
 import net.veroxuniverse.samurai_dynasty.registry.BlocksRegistry;
 import net.veroxuniverse.samurai_dynasty.registry.CreativeTabRegistry;
 import net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry;
+import net.veroxuniverse.samurai_dynasty.utils.ModItemProperties;
 import org.slf4j.Logger;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
@@ -74,6 +76,7 @@ public class SamuraiDynastyMod
         public static void onClientSetup(FMLClientSetupEvent event) {
 
             LOGGER.info("HELLO FROM CLIENT SETUP");
+
             EntityRenderers.register(ModEntityTypes.AKANAME.get(), AkanameRenderer::new);
             EntityRenderers.register(ModEntityTypes.ENENRA.get(), EnenraRenderer::new);
             EntityRenderers.register(ModEntityTypes.ONI.get(), OniRenderer::new);
@@ -95,6 +98,8 @@ public class SamuraiDynastyMod
             //CuriosRendererRegistry.register(ItemsRegistry.ONI_MASK_RED.get(), OniMaskRedRenderer::new);
             //CuriosRendererRegistry.register(ItemsRegistry.ONI_MASK_WHITE.get(), OniMaskWhiteRenderer::new);
             CuriosRendererRegistry.register(ItemsRegistry.KITSUNE_MASK.get(), KitsuneMaskRenderer::new);
+
+            ModItemProperties.addCustomItemProperties();
 
         }
     }

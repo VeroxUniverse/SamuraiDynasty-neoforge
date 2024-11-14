@@ -1,0 +1,40 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.kabutowari",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "bb_main",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [0, 4.20937, 0.95774], "size": [0, 2, 2], "inflate": 0.001, "pivot": [-1, 4.3, 2], "rotation": [-65, 0, 0], "uv": [20, 15]}
+					]
+				},
+				{
+					"name": "whoole",
+					"pivot": [0, -1, 0],
+					"cubes": [
+						{"origin": [-1, 2, -1], "size": [2, 7, 2], "pivot": [0, -1, 0], "rotation": [0, -45, 0], "uv": [0, 0]},
+						{"origin": [-0.5, 10, -1], "size": [1, 3, 2], "uv": [8, 10]},
+						{"origin": [-0.5, 11.55, 0.6], "size": [1, 2, 1], "inflate": -0.01, "pivot": [0, 12.55, 1.1], "rotation": [-43.5, 0, 0], "uv": [14, 13]},
+						{"origin": [-0.5, 12.95, 1.175], "size": [1, 2, 1], "pivot": [0, 13.95, 1.675], "rotation": [-1.25, 0, 0], "uv": [8, 15]},
+						{"origin": [-0.5, 13, -1], "size": [1, 5, 1], "uv": [0, 12]},
+						{"origin": [-0.5, 17.975, -0.95], "size": [1, 5, 1], "pivot": [0, 20.475, -0.45], "rotation": [-1.25, 0, 0], "uv": [4, 12]},
+						{"origin": [-0.5, 22.875, -0.725], "size": [1, 2, 1], "pivot": [0, 25.375, -0.225], "rotation": [-4.25, 0, 0], "uv": [14, 10]},
+						{"origin": [-1, 5.1, -1], "size": [2, 4, 2], "inflate": 0.1, "pivot": [0, 0.1, 0], "rotation": [0, -45, 0], "uv": [8, 0]},
+						{"origin": [-1, 0, -1], "size": [2, 2, 2], "inflate": 0.1, "pivot": [0, -1, 0], "rotation": [0, -45, 0], "uv": [8, 6]},
+						{"origin": [-1, 9, -1], "size": [2, 1, 2], "pivot": [0, 8, 0], "rotation": [0, -45, 0], "uv": [0, 9]}
+					]
+				}
+			]
+		}
+	]
+}

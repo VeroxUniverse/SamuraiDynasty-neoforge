@@ -2,69 +2,74 @@
   "credit": "Made with Blockbench",
   "parent": "builtin/entity",
   "texture_size": [
-    64,
-    64
+    32,
+    32
   ],
   "display": {
     "thirdperson_righthand": {
-      "rotation": [
-        91.5,
-        0,
-        0
-      ],
       "translation": [
         0,
-        1.5,
-        0
+        -8.25,
+        1.5
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.75,
+        0.75,
+        0.75
       ]
     },
     "thirdperson_lefthand": {
-      "rotation": [
-        90,
-        0,
-        0
-      ],
       "translation": [
         0,
-        1.5,
-        0
+        -8.25,
+        1.5
       ],
       "scale": [
-        0.6,
-        0.6,
-        0.6
+        0.75,
+        0.75,
+        0.75
       ]
     },
     "firstperson_righthand": {
       "rotation": [
-        87.8,
-        -38.44,
-        -16.84
+        -13,
+        3,
+        1
       ],
       "translation": [
-        -1.75,
-        0,
-        -6.5
+        4.25,
+        -11,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
       ]
     },
     "firstperson_lefthand": {
       "rotation": [
-        92.58,
-        -30.27,
-        -12.64
+        -13,
+        3,
+        1
       ],
       "translation": [
-        0,
-        0,
-        -8.75
+        4.25,
+        -11,
+        0
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
       ]
     },
     "ground": {
+      "translation": [
+        0,
+        1.75,
+        0
+      ],
       "scale": [
         0.4,
         0.4,
@@ -73,32 +78,40 @@
     },
     "gui": {
       "rotation": [
-        125,
+        -53,
         -43,
-        125.59
+        -74
       ],
       "translation": [
-        -2.5,
-        -4,
+        -7.5,
+        -7.75,
         0
       ],
       "scale": [
-        0.3,
-        0.3,
-        0.3
+        0.4,
+        0.4,
+        0.4
       ]
     },
     "fixed": {
       "rotation": [
+        0,
         90,
-        180,
-        90
+        0
       ],
       "translation": [
-        -0.75,
-        10.5,
+        0,
+        -11,
         0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
       ]
     }
+  },
+  "textures": {
+    "particle": "item/odachi"
   }
 }

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {"item": "samurai_dynasty:netherite_samurai_helmet"},
+    {"item": "minecraft:gray_dye"}
+  ],
+  "result": {
+    "id": "samurai_dynasty:netherite_samurai_helmet",
+    "components": {
+      "minecraft:base_color": "gray"
+    }
+  }
+}

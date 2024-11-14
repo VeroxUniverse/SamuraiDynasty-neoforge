@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "samurai_dynasty:item/light_samurai_chestplate"
+  }
+}

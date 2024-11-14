@@ -66,6 +66,30 @@ public class ArmorMaterialsRegistry{
                     List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "samurai_netherite"))),
                     3.0F, 0.1F));
 
+    public static final Holder<ArmorMaterial> SAMURAI_RONIN =
+            ARMOR_MATERIALS.register("samurai_ronin", () -> new ArmorMaterial(
+                    Util.make(new EnumMap<>(ArmorItem.Type.class), armor -> {
+                        armor.put(ArmorItem.Type.BOOTS, 2);
+                        armor.put(ArmorItem.Type.LEGGINGS, 5);
+                        armor.put(ArmorItem.Type.CHESTPLATE, 6);
+                        armor.put(ArmorItem.Type.HELMET, 2);
+                    }), 12, SoundEvents.ARMOR_EQUIP_IRON, () -> Ingredient.of(ItemsRegistry.STEEL_INGOT.get()),
+                    List.of(
+                            new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "samurai_steel")),
+                            new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "samurai_steel"), "_dyeable", true)),
+                    0.5F, 0.0F));
+
+    public static final Holder<ArmorMaterial> SAMURAI_GHOST =
+            ARMOR_MATERIALS.register("samurai_ghost", () -> new ArmorMaterial(
+                    Util.make(new EnumMap<>(ArmorItem.Type.class), armor -> {
+                        armor.put(ArmorItem.Type.BOOTS, 5);
+                        armor.put(ArmorItem.Type.LEGGINGS, 8);
+                        armor.put(ArmorItem.Type.CHESTPLATE, 10);
+                        armor.put(ArmorItem.Type.HELMET, 5);
+                    }), 25, SoundEvents.ARMOR_EQUIP_NETHERITE, () -> Ingredient.of(Items.NETHERITE_INGOT),
+                    List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "samurai_netherite"))),
+                    4.0F, 0.2F));
+
     public static final Holder<ArmorMaterial> STRAW =
             ARMOR_MATERIALS.register("straw", () -> new ArmorMaterial(
                     Util.make(new EnumMap<>(ArmorItem.Type.class), armor -> {

@@ -19,8 +19,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     @Override
     protected void buildRecipes(RecipeOutput pRecipeOutput) {
 
-        SpecialRecipeBuilder.special(ArmorDyeRecipe::new).save(pRecipeOutput, "armor_dye");
-
     }
 
     protected static void oreSmelting(RecipeOutput pRecipeOutput, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,

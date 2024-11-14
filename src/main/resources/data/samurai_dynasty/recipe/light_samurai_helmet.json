@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "W": {
+      "item": "samurai_dynasty:straw_hat"
+    },
+    "L": {
+      "tag": "c:ingots/steel"
+    }
+  },
+  "pattern": [
+    " L ",
+    "LWL",
+    " L "
+  ],
+  "result": {
+    "id": "samurai_dynasty:light_samurai_helmet"
+  }
+}

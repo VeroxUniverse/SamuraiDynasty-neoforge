@@ -1,6 +1,9 @@
 package net.veroxuniverse.samurai_dynasty.item;
 
+import mod.azure.azurelib.common.api.common.animatable.GeoItem;
+import mod.azure.azurelib.common.internal.client.RenderProvider;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Position;
@@ -15,16 +18,17 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.veroxuniverse.samurai_dynasty.client.weapons.kunai.KuaniItemRenderer;
+import net.veroxuniverse.samurai_dynasty.client.weapons.masakari.MasakariItemRenderer;
 import net.veroxuniverse.samurai_dynasty.entity.custom.KunaiEntity;
-import net.veroxuniverse.samurai_dynasty.utils.ModTags;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.function.Consumer;
 
-public class KunaiItem extends SwordItem implements ProjectileItem {
+public class KunaiItem extends ESWeaponItem implements ProjectileItem, GeoItem {
     public static final float BASE_DAMAGE = 8.0F;
 
     public KunaiItem(Tier tier, Properties properties) {
@@ -82,6 +86,20 @@ public class KunaiItem extends SwordItem implements ProjectileItem {
         KunaiEntity kunaiEntity = new KunaiEntity(level, position.x(), position.y(), position.z(), itemStack.copyWithCount(1));
         return kunaiEntity;
     }
+
+    @Override
+    public void createRenderer(Consumer<RenderProvider> consumer) {
+        consumer.accept(new RenderProvider() {
+            private KuaniItemRenderer renderer = null;
+            @Override
+            public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                if (renderer == null)
+                    return new KuaniItemRenderer();
+                return this.renderer;
+            }
+        });
+    }
+
 }
 
 

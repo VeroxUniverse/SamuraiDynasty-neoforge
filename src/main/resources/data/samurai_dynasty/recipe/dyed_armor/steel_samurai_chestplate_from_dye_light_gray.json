@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {"item": "samurai_dynasty:steel_samurai_chestplate"},
+    {"item": "minecraft:light_gray_dye"}
+  ],
+  "result": {
+    "id": "samurai_dynasty:steel_samurai_chestplate",
+    "components": {
+      "minecraft:base_color": "light_gray"
+    }
+  }
+}

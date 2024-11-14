@@ -1,0 +1,20 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.yumi.idle": {
+			"loop": true,
+			"bones": {
+				"bone": {
+					"scale": {
+						"vector": [0, 0, 0],
+						"easing": "linear"
+					}
+				}
+			}
+		},
+		"animation.yumi.pulling": {
+			"loop": true
+		}
+	},
+	"geckolib_format_version": 2
+}

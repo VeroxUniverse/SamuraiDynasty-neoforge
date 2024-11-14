@@ -1,5 +1,6 @@
 package net.veroxuniverse.samurai_dynasty.item.armor.lib;
 
+import com.mojang.serialization.MapCodec;
 import mod.azure.azurelib.common.api.common.animatable.GeoItem;
 import mod.azure.azurelib.common.internal.client.RenderProvider;
 import mod.azure.azurelib.common.internal.common.util.AzureLibUtil;
@@ -13,6 +14,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
+import net.veroxuniverse.samurai_dynasty.item.armor.SteelSamuraiArmorItem;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -43,7 +45,6 @@ public class SamuraiArmorItem extends ArmorItem implements GeoItem {
         return true;
     }
 
-
     @Override
     public void createRenderer(Consumer<RenderProvider> consumer) {
 
@@ -53,5 +54,6 @@ public class SamuraiArmorItem extends ArmorItem implements GeoItem {
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
     }
+
     
 }

@@ -1,6 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "samurai_dynasty:item/netherite_samurai_helmet"
+    "layer0": "samurai_dynasty:item/steel_samurai_helmet",
+    "layer1": "samurai_dynasty:item/netherite_samurai_helmet_overlay"
   }
 }

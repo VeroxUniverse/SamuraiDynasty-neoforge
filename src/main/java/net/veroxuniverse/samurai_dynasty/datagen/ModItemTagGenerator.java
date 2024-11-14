@@ -24,10 +24,5 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
-        this.tag(ItemTags.DYEABLE)
-                .add(ItemsRegistry.STEEL_SAMURAI_HELMET.get(),
-                        ItemsRegistry.STEEL_SAMURAI_CHESTPLATE.get(),
-                        ItemsRegistry.STEEL_SAMURAI_LEGGINGS.get(),
-                        ItemsRegistry.STEEL_SAMURAI_BOOTS.get());
     }
 }

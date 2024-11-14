@@ -5,6 +5,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -15,6 +16,8 @@ import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 import net.veroxuniverse.samurai_dynasty.curios.model.KitsuneMaskModel;
 import net.veroxuniverse.samurai_dynasty.curios.model.OniMaskModel;
+import net.veroxuniverse.samurai_dynasty.item.armor.NetheriteSamuraiArmorItem;
+import net.veroxuniverse.samurai_dynasty.item.armor.SteelSamuraiArmorItem;
 import net.veroxuniverse.samurai_dynasty.particle.BlueFlame;
 import net.veroxuniverse.samurai_dynasty.particle.ModParticles;
 import net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry;
@@ -37,17 +40,18 @@ public class SamuraiDynastyClientMod {
     public static void itemColors(final RegisterColorHandlersEvent.Item event)
     {
         event.register(
-                (stack, color) -> color > 0 ? -1 : (0xFFAB1A2D | getColor(stack)),
+                (stack, color) -> color > 0 ? -1 : SteelSamuraiArmorItem.getColor(stack),
                 ItemsRegistry.STEEL_SAMURAI_HELMET.get(),
                 ItemsRegistry.STEEL_SAMURAI_CHESTPLATE.get(),
                 ItemsRegistry.STEEL_SAMURAI_LEGGINGS.get(),
                 ItemsRegistry.STEEL_SAMURAI_BOOTS.get());
-    }
 
-    private static int getColor(ItemStack stack)
-    {
-        var color = stack.get(DataComponents.DYED_COLOR);
-        return color != null ? color.rgb() : 0xFFAB1A2D;
+        event.register(
+                (stack, color) -> color > 0 ? -1 : NetheriteSamuraiArmorItem.getColor(stack),
+                ItemsRegistry.NETHERITE_SAMURAI_HELMET.get(),
+                ItemsRegistry.NETHERITE_SAMURAI_CHESTPLATE.get(),
+                ItemsRegistry.NETHERITE_SAMURAI_LEGGINGS.get(),
+                ItemsRegistry.NETHERITE_SAMURAI_BOOTS.get());
     }
 
 }
