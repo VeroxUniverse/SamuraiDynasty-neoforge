@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "X": {
-      "tag": "minecraft:stone"
+      "item": "minecraft:stone"
     },
     "S": {
       "item": "samurai_dynasty:spirit_flame"

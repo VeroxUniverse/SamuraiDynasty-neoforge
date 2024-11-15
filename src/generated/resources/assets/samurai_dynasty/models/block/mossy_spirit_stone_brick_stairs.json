@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "samurai_dynasty:block/mossy_spirit_stone_bricks",
+    "side": "samurai_dynasty:block/mossy_spirit_stone_bricks",
+    "top": "samurai_dynasty:block/mossy_spirit_stone_bricks"
+  }
+}

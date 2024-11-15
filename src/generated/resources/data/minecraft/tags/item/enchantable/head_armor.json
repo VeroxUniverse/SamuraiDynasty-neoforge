@@ -1,12 +1,12 @@
 {
   "values": [
+    "samurai_dynasty:steel_helmet",
     "samurai_dynasty:steel_samurai_helmet",
     "samurai_dynasty:netherite_samurai_helmet",
-    "samurai_dynasty:steel_helmet",
+    "samurai_dynasty:light_samurai_helmet",
+    "samurai_dynasty:master_samurai_helmet",
     "samurai_dynasty:steel_ninja_helmet",
     "samurai_dynasty:netherite_ninja_helmet",
-    "samurai_dynasty:straw_hat",
-    "samurai_dynasty:oni_mask",
-    "samurai_dynasty:kitsune_mask"
+    "samurai_dynasty:straw_hat"
   ]
 }

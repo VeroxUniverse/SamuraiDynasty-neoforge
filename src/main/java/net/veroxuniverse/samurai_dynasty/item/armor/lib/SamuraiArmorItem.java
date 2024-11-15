@@ -47,7 +47,11 @@ public class SamuraiArmorItem extends ArmorItem implements GeoItem {
 
     @Override
     public void createRenderer(Consumer<RenderProvider> consumer) {
+    }
 
+    @Override
+    public int getEnchantmentValue() {
+        return this.material.value().enchantmentValue();
     }
 
     @Override

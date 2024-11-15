@@ -86,7 +86,7 @@ public class ArmorMaterialsRegistry{
                         armor.put(ArmorItem.Type.LEGGINGS, 8);
                         armor.put(ArmorItem.Type.CHESTPLATE, 10);
                         armor.put(ArmorItem.Type.HELMET, 5);
-                    }), 25, SoundEvents.ARMOR_EQUIP_NETHERITE, () -> Ingredient.of(Items.NETHERITE_INGOT),
+                    }), 35, SoundEvents.ARMOR_EQUIP_NETHERITE, () -> Ingredient.of(Items.NETHERITE_INGOT),
                     List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "samurai_netherite"))),
                     4.0F, 0.2F));
 

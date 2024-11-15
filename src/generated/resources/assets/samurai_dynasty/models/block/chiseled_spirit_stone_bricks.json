@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "samurai_dynasty:block/chiseled_spirit_stone_bricks"
+  }
+}
