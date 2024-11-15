@@ -1,0 +1,14 @@
+{
+  "type": "samurai_dynasty:mod_loot_modifier",
+  "conditions": [
+    {
+      "chance": 0.5,
+      "condition": "minecraft:random_chance"
+    },
+    {
+      "condition": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:chests/nether_bridge"
+    }
+  ],
+  "item": "samurai_dynasty:spirit_upgrade_smithing_template"
+}

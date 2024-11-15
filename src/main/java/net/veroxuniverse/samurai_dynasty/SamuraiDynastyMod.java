@@ -21,6 +21,7 @@ import net.veroxuniverse.samurai_dynasty.client.entities.*;
 import net.veroxuniverse.samurai_dynasty.client.projectiles.ThrownShurikenRenderer;
 import net.veroxuniverse.samurai_dynasty.curios.layers.KitsuneMaskRenderer;
 import net.veroxuniverse.samurai_dynasty.curios.layers.OniMaskRenderer;
+import net.veroxuniverse.samurai_dynasty.datagen.loot.ModLootCodec;
 import net.veroxuniverse.samurai_dynasty.entity.ModEntityTypes;
 import net.veroxuniverse.samurai_dynasty.item.YumiBow;
 import net.veroxuniverse.samurai_dynasty.particle.ModParticles;
@@ -51,6 +52,7 @@ public class SamuraiDynastyMod
         ModEntityTypes.register(modEventBus);
         ArmorMaterialsRegistry.register(modEventBus);
         ModParticles.register(modEventBus);
+        ModLootCodec.register(modEventBus);
 
         CreativeTabRegistry.register(modEventBus);
 

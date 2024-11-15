@@ -1,0 +1,14 @@
+{
+  "entries": [
+    "samurai_dynasty:spirit_template_from_jungle_temple",
+    "samurai_dynasty:spirit_template_from_simple_dungeon",
+    "samurai_dynasty:spirit_template_from_ruined_portal",
+    "samurai_dynasty:spirit_template_from_desert_pyramid",
+    "samurai_dynasty:spirit_template_from_nether_bastion4",
+    "samurai_dynasty:spirit_template_from_nether_bastion3",
+    "samurai_dynasty:spirit_template_from_nether_bastion2",
+    "samurai_dynasty:spirit_template_from_nether_fortress",
+    "samurai_dynasty:spirit_template_from_nether_bastion1"
+  ],
+  "replace": false
+}

@@ -3,8 +3,6 @@ package net.veroxuniverse.samurai_dynasty.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.EnchantmentTagsProvider;
-import net.minecraft.data.tags.ItemTagsProvider;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
@@ -28,7 +26,7 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new ModItemTagGenerator(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
 
         generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
-        generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper));
-        //generator.addProvider(event.includeServer(), new ModArmorRecipeProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new ModLootModifierProvider(packOutput, lookupProvider));
+
     }
 }

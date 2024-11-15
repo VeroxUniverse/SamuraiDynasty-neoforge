@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "samurai_dynasty:block/path_spirit_stone_bricks"
-  }
-}
