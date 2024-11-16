@@ -1,14 +1,5 @@
 {
   "values": [
-    "#neoforge:gems/amethyst",
-    "#neoforge:gems/diamond",
-    "#neoforge:gems/emerald",
-    "#neoforge:gems/lapis",
-    "#neoforge:gems/prismarine",
-    "#neoforge:gems/quartz",
-    "#neoforge:gems/ruby",
-    "#neoforge:gems/jade",
-    "#neoforge:gems/onyx",
-    "#neoforge:gems/aquamarine"
+    "#c:gems/jade"
   ]
 }

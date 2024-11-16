@@ -1,5 +1,5 @@
 {
-  "parent": "samurai_dynasty:item/handheld",
+  "parent": "item/generated",
   "loader": "neoforge:separate_transforms",
   "base": {
     "parent": "samurai_dynasty:item/oni_mask3d"
