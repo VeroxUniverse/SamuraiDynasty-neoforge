@@ -3,6 +3,7 @@ package net.veroxuniverse.samurai_dynasty.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
@@ -18,6 +19,10 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
+
+        this.tag(BlockTags.MINEABLE_WITH_AXE)
+                .add(BlocksRegistry.RED_MAPLE_PLANKS.get());
+
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(BlocksRegistry.SPIRIT_STONE.get(),
                         BlocksRegistry.JADE_ORE.get(),
