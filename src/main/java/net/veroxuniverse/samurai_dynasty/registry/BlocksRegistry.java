@@ -1,8 +1,12 @@
 package net.veroxuniverse.samurai_dynasty.registry;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -11,9 +15,8 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
-import net.veroxuniverse.samurai_dynasty.block.DragonBlock;
-import net.veroxuniverse.samurai_dynasty.block.RoofBlock;
-import net.veroxuniverse.samurai_dynasty.block.StatueBlock;
+import net.veroxuniverse.samurai_dynasty.block.*;
+import net.veroxuniverse.samurai_dynasty.worldgen.ModTreeGrowers;
 
 import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
@@ -121,9 +124,105 @@ public class BlocksRegistry {
             () -> new RoofBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion()
                     .strength(4f).requiresCorrectToolForDrops()));
 
+
+    public static final DeferredBlock<Block> RED_MAPLE_LOG = registerBlock("red_maple_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)));
+    public static final DeferredBlock<Block> STRIPPED_RED_MAPLE_LOG = registerBlock("stripped_red_maple_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG)));
+
     public static final DeferredBlock<Block> RED_MAPLE_PLANKS = registerBlock("red_maple_planks",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)
-                    .strength(4f).requiresCorrectToolForDrops()));
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 20;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 5;
+                }
+            });
+
+    public static final DeferredBlock<Block> RED_MAPLE_LEAVES = registerBlock("red_maple_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 60;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 30;
+                }
+            });
+
+    public static final DeferredBlock<Block> RED_MAPLE_SAPLING = registerBlock("red_maple_sapling",
+            () -> new SaplingBlock(ModTreeGrowers.RED_MAPLE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+
+    public static final DeferredBlock<Block> SPIDER_LILLY = registerBlock("spider_lilly",
+            () -> new FlowerBlock(MobEffects.POISON, 2, BlockBehaviour.Properties.ofFullCopy(Blocks.ALLIUM)));
+    public static final DeferredBlock<Block> POTTED_SPIDER_LILLY = registerBlockWithoutItem("potted_spider_lilly",
+            () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), SPIDER_LILLY, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
+
+
+    public static final DeferredBlock<Block> SPIRIT_WOOD_LOG = registerBlock("spirit_wood_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)));
+    public static final DeferredBlock<Block> STRIPPED_SPIRIT_WOOD_LOG = registerBlock("stripped_spirit_wood_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG)));
+    public static final DeferredBlock<Block> SPIRIT_WOOD = registerBlock("spirit_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WOOD)));
+    public static final DeferredBlock<Block> STRIPPED_SPIRIT_WOOD = registerBlock("stripped_spirit_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_WOOD)));
+
+    public static final DeferredBlock<Block> SPIRIT_WOOD_PLANKS = registerBlock("spirit_wood_planks",
+            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 20;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 5;
+                }
+            });
+
+    public static final DeferredBlock<Block> SPIRIT_WOOD_LEAVES = registerBlock("spirit_wood_leaves",
+            () -> new SpiritWoodLeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 60;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 30;
+                }
+            });
+    public static final DeferredBlock<Block> SPIRIT_WOOD_ROOTS = registerBlock("spirit_wood_roots",
+            () -> new ModHorzontalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.VINE).noOcclusion().noCollission()));
+    public static final DeferredBlock<Block> SPIRIT_WOOD_BRANCH = registerBlock("spirit_wood_branch",
+            () -> new ModHorzontalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.VINE).noOcclusion().noCollission()));
 
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

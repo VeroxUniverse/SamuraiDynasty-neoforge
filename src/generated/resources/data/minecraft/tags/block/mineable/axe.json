@@ -1,5 +1,14 @@
 {
   "values": [
-    "samurai_dynasty:red_maple_planks"
+    "samurai_dynasty:stripped_red_maple_log",
+    "samurai_dynasty:red_maple_log",
+    "samurai_dynasty:red_maple_planks",
+    "samurai_dynasty:stripped_spirit_wood_log",
+    "samurai_dynasty:spirit_wood_log",
+    "samurai_dynasty:stripped_spirit_wood",
+    "samurai_dynasty:spirit_wood",
+    "samurai_dynasty:spirit_wood_branch",
+    "samurai_dynasty:spirit_wood_roots",
+    "samurai_dynasty:spirit_wood_planks"
   ]
 }

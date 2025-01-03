@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "samurai_dynasty:block/spirit_wood_log",
+    "side": "samurai_dynasty:block/spirit_wood_log"
+  }
+}

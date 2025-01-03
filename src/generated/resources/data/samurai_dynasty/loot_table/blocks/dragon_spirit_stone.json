@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "samurai_dynasty:dragon_spirit_stone"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "samurai_dynasty:blocks/dragon_spirit_stone"
+}

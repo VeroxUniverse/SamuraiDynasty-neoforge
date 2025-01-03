@@ -20,6 +20,7 @@ import net.veroxuniverse.samurai_dynasty.item.armor.NetheriteSamuraiArmorItem;
 import net.veroxuniverse.samurai_dynasty.item.armor.SteelSamuraiArmorItem;
 import net.veroxuniverse.samurai_dynasty.particle.BlueFlame;
 import net.veroxuniverse.samurai_dynasty.particle.ModParticles;
+import net.veroxuniverse.samurai_dynasty.particle.SpiritWoodLeaves;
 import net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry;
 
 @EventBusSubscriber(modid = SamuraiDynastyMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -28,6 +29,7 @@ public class SamuraiDynastyClientMod {
     public static void registerParticleFactories(final RegisterParticleProvidersEvent event)
     {
         Minecraft.getInstance().particleEngine.register(ModParticles.BLUE_FLAME.get(), BlueFlame.Provider::new);
+        Minecraft.getInstance().particleEngine.register(ModParticles.SPIRIT_WOOD_LEAVES.get(), SpiritWoodLeaves.Provider::new);
     }
 
     @SubscribeEvent

@@ -1,12 +1,12 @@
 package net.veroxuniverse.samurai_dynasty;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.logging.LogUtils;
 import mod.azure.azurelib.common.internal.common.AzureLib;
-import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -23,14 +23,17 @@ import net.veroxuniverse.samurai_dynasty.curios.layers.KitsuneMaskRenderer;
 import net.veroxuniverse.samurai_dynasty.curios.layers.OniMaskRenderer;
 import net.veroxuniverse.samurai_dynasty.datagen.loot.ModLootCodec;
 import net.veroxuniverse.samurai_dynasty.entity.ModEntityTypes;
-import net.veroxuniverse.samurai_dynasty.item.YumiBow;
 import net.veroxuniverse.samurai_dynasty.particle.ModParticles;
 import net.veroxuniverse.samurai_dynasty.registry.ArmorMaterialsRegistry;
 import net.veroxuniverse.samurai_dynasty.registry.BlocksRegistry;
 import net.veroxuniverse.samurai_dynasty.registry.CreativeTabRegistry;
 import net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry;
 import net.veroxuniverse.samurai_dynasty.utils.ModItemProperties;
+import net.veroxuniverse.samurai_dynasty.worldgen.biomes.MapleForestRegion;
+import net.veroxuniverse.samurai_dynasty.worldgen.biomes.ModSurfaceRuleData;
 import org.slf4j.Logger;
+import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 
 
@@ -60,7 +63,19 @@ public class SamuraiDynastyMod
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+
         LOGGER.info("HELLO FROM COMMON SETUP");
+
+        event.enqueueWork(() -> {
+
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(BlocksRegistry.SPIDER_LILLY.getId(), BlocksRegistry.POTTED_SPIDER_LILLY);
+
+            Regions.register(new MapleForestRegion(ResourceLocation.fromNamespaceAndPath(MOD_ID,"maple_forest"),2));
+
+            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRuleData.makeRules());
+
+        });
+
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

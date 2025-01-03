@@ -15,6 +15,9 @@ public class ModParticles {
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> BLUE_FLAME = PARTICLE_TYPES.register("blue_flame",
             () -> new SimpleParticleType(true));
 
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> SPIRIT_WOOD_LEAVES = PARTICLE_TYPES.register("spirit_wood_leaves",
+            () -> new SimpleParticleType(true));
+
 
 
     public static void register(IEventBus eventBus) {

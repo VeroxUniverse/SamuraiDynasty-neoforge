@@ -78,3 +78,15 @@ mandatory=true
 versionRange="${curios_version_range}"
 ordering="NONE"
 side="BOTH"
+[[dependencies."${mod_id}"]]
+modId = "ohthetreesyoullgrow"
+type = "required"
+versionRange = "${ohthetreesyoullgrow_version_range}"
+ordering = "AFTER"
+side = "BOTH"
+[[dependencies."${mod_id}"]]
+modId = "terrablender"
+type = "required"
+versionRange = "${terrablender_version_range}"
+ordering = "AFTER"
+side = "BOTH"

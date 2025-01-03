@@ -3,6 +3,7 @@ package net.veroxuniverse.samurai_dynasty.datagen;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
@@ -27,6 +28,16 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ItemsRegistry.MASTER_SAMURAI_CHESTPLATE.get());
         basicItem(ItemsRegistry.MASTER_SAMURAI_LEGGINGS.get());
         basicItem(ItemsRegistry.MASTER_SAMURAI_HELMET.get());
+
+        saplingItem(BlocksRegistry.RED_MAPLE_SAPLING);
+        //saplingItem(BlocksRegistry.SPIRIT_WOOD_SAPLING);
+        saplingItem(BlocksRegistry.SPIDER_LILLY);
+    }
+
+    private ItemModelBuilder saplingItem(DeferredBlock<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                ResourceLocation.parse("item/generated")).texture("layer0",
+                ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID,"block/" + item.getId().getPath()));
     }
 
     public void flowerItem(DeferredBlock<Block> block) {

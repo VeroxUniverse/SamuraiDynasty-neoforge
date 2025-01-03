@@ -21,7 +21,16 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider pProvider) {
 
         this.tag(BlockTags.MINEABLE_WITH_AXE)
-                .add(BlocksRegistry.RED_MAPLE_PLANKS.get());
+                .add(BlocksRegistry.STRIPPED_RED_MAPLE_LOG.get())
+                .add(BlocksRegistry.RED_MAPLE_LOG.get())
+                .add(BlocksRegistry.RED_MAPLE_PLANKS.get())
+                .add(BlocksRegistry.STRIPPED_SPIRIT_WOOD_LOG.get())
+                .add(BlocksRegistry.SPIRIT_WOOD_LOG.get())
+                .add(BlocksRegistry.STRIPPED_SPIRIT_WOOD.get())
+                .add(BlocksRegistry.SPIRIT_WOOD.get())
+                .add(BlocksRegistry.SPIRIT_WOOD_BRANCH.get())
+                .add(BlocksRegistry.SPIRIT_WOOD_ROOTS.get())
+                .add(BlocksRegistry.SPIRIT_WOOD_PLANKS.get());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(BlocksRegistry.SPIRIT_STONE.get(),
@@ -91,6 +100,15 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(BlocksRegistry.SPIRIT_STONE_WALL.get(),
                         BlocksRegistry.MOSSY_SPIRIT_STONE_BRICK_WALL.get(),
                         BlocksRegistry.POLISHED_SPIRIT_STONE_WALL.get());
+
+        this.tag(BlockTags.LOGS_THAT_BURN)
+                .add(BlocksRegistry.SPIRIT_WOOD_LOG.get())
+                .add(BlocksRegistry.STRIPPED_SPIRIT_WOOD_LOG.get())
+                .add(BlocksRegistry.SPIRIT_WOOD.get())
+                .add(BlocksRegistry.STRIPPED_SPIRIT_WOOD.get())
+                .add(BlocksRegistry.RED_MAPLE_LOG.get())
+                .add(BlocksRegistry.STRIPPED_RED_MAPLE_LOG.get());
+
 
     }
 

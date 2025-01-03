@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "samurai_dynasty:block/spirit_wood_branch",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "samurai_dynasty:block/spirit_wood_branch"
+    },
+    "facing=south": {
+      "model": "samurai_dynasty:block/spirit_wood_branch",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "samurai_dynasty:block/spirit_wood_branch",
+      "y": 270
+    }
+  }
+}
