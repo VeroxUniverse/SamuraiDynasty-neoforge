@@ -125,15 +125,20 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ItemsRegistry.KABUTOWARI_NETHERITE.get());
 
         tag(ItemTags.LOGS_THAT_BURN)
+                .add(BlocksRegistry.SPIRIT_BLOSSOM_LOG.get().asItem())
+                .add(BlocksRegistry.STRIPPED_SPIRIT_BLOSSOM_LOG.get().asItem())
+                .add(BlocksRegistry.SPIRIT_BLOSSOM_WOOD.get().asItem())
+                .add(BlocksRegistry.STRIPPED_SPIRIT_BLOSSOM_WOOD.get().asItem())
                 .add(BlocksRegistry.SPIRIT_WOOD_LOG.get().asItem())
                 .add(BlocksRegistry.STRIPPED_SPIRIT_WOOD_LOG.get().asItem())
                 .add(BlocksRegistry.SPIRIT_WOOD.get().asItem())
-                .add(BlocksRegistry.STRIPPED_SPIRIT_WOOD.get().asItem())
-                .add(BlocksRegistry.RED_MAPLE_LOG.get().asItem())
-                .add(BlocksRegistry.STRIPPED_RED_MAPLE_LOG.get().asItem());
+                .add(BlocksRegistry.STRIPPED_SPIRIT_WOOD.get().asItem());
 
         tag(ItemTags.PLANKS)
-                .add(BlocksRegistry.SPIRIT_WOOD_PLANKS.get().asItem())
-                .add(BlocksRegistry.RED_MAPLE_PLANKS.get().asItem());
+                .add(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get().asItem())
+                .add(BlocksRegistry.SPIRIT_WOOD_PLANKS.get().asItem());
+
+        tag(ItemTags.DIRT)
+                .add(BlocksRegistry.SPIRIT_MOSS_BLOCK.get().asItem());
     }
 }

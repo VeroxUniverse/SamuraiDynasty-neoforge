@@ -8,7 +8,7 @@ import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 
 public class ModBiomes {
 
-    public static final ResourceKey<Biome> MAPLE_FOREST = register("maple_forest");
+    public static final ResourceKey<Biome> SPIRIT_WOOD_FOREST = register("spirit_wood_forest");
 
     private static ResourceKey<Biome> register(String name){
         return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, name));

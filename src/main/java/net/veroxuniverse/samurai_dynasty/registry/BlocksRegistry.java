@@ -11,6 +11,8 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -125,12 +127,16 @@ public class BlocksRegistry {
                     .strength(4f).requiresCorrectToolForDrops()));
 
 
-    public static final DeferredBlock<Block> RED_MAPLE_LOG = registerBlock("red_maple_log",
+    public static final DeferredBlock<Block> SPIRIT_BLOSSOM_LOG = registerBlock("spirit_blossom_log",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)));
-    public static final DeferredBlock<Block> STRIPPED_RED_MAPLE_LOG = registerBlock("stripped_red_maple_log",
+    public static final DeferredBlock<Block> STRIPPED_SPIRIT_BLOSSOM_LOG = registerBlock("stripped_spirit_blossom_log",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG)));
+    public static final DeferredBlock<Block> SPIRIT_BLOSSOM_WOOD = registerBlock("spirit_blossom_wood",
+            () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)));
+    public static final DeferredBlock<Block> STRIPPED_SPIRIT_BLOSSOM_WOOD = registerBlock("stripped_spirit_blossom_wood",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STRIPPED_OAK_LOG)));
 
-    public static final DeferredBlock<Block> RED_MAPLE_PLANKS = registerBlock("red_maple_planks",
+    public static final DeferredBlock<Block> SPIRIT_BLOSSOM_PLANKS = registerBlock("spirit_blossom_planks",
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS)) {
                 @Override
                 public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
@@ -148,8 +154,8 @@ public class BlocksRegistry {
                 }
             });
 
-    public static final DeferredBlock<Block> RED_MAPLE_LEAVES = registerBlock("red_maple_leaves",
-            () -> new LeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)) {
+    public static final DeferredBlock<Block> SPIRIT_BLOSSOM_LEAVES = registerBlock("spirit_blossom_leaves",
+            () -> new SpiritBlossomLeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)) {
                 @Override
                 public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return true;
@@ -166,14 +172,27 @@ public class BlocksRegistry {
                 }
             });
 
-    public static final DeferredBlock<Block> RED_MAPLE_SAPLING = registerBlock("red_maple_sapling",
-            () -> new SaplingBlock(ModTreeGrowers.RED_MAPLE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+    public static final DeferredBlock<Block> SPIRIT_BLOSSOM_SAPLING = registerBlock("spirit_blossom_sapling",
+            () -> new SaplingBlock(ModTreeGrowers.SPIRIT_WOOD_TREE_GROWER, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+
+    public static final DeferredBlock<Block> SPIRIT_BLOSSOM_ROOTS = registerBlock("spirit_blossom_roots",
+            () -> new ModHorzontalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.VINE).noOcclusion().noCollission()));
+    public static final DeferredBlock<Block> SPIRIT_BLOSSOM_BRANCH = registerBlock("spirit_blossom_branch",
+            () -> new ModHorzontalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.VINE).noOcclusion().noCollission()));
+
+
+    public static final DeferredBlock<Block> SPIRIT_MOSS_BLOCK = registerBlock("spirit_moss_block",
+            () -> new MossBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_BLOCK)
+                    .strength(4f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> SPIDER_LILLY = registerBlock("spider_lilly",
             () -> new FlowerBlock(MobEffects.POISON, 2, BlockBehaviour.Properties.ofFullCopy(Blocks.ALLIUM)));
     public static final DeferredBlock<Block> POTTED_SPIDER_LILLY = registerBlockWithoutItem("potted_spider_lilly",
             () -> new FlowerPotBlock(() -> ((FlowerPotBlock) Blocks.FLOWER_POT), SPIDER_LILLY, BlockBehaviour.Properties.ofFullCopy(Blocks.POTTED_ALLIUM)));
 
+    public static final DeferredBlock<Block> SPIRIT_PETALS = registerBlock("spirit_petals",
+            () -> new CarpetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_CARPET)
+                    .strength(4f).requiresCorrectToolForDrops().noOcclusion()));
 
     public static final DeferredBlock<Block> SPIRIT_WOOD_LOG = registerBlock("spirit_wood_log",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)));
@@ -219,6 +238,10 @@ public class BlocksRegistry {
                     return 30;
                 }
             });
+
+    public static final DeferredBlock<Block> SPIRIT_WOOD_SAPLING = registerBlock("spirit_wood_sapling",
+            () -> new SaplingBlock(ModTreeGrowers.SPIRIT_WOOD_TREE_GROWER, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+
     public static final DeferredBlock<Block> SPIRIT_WOOD_ROOTS = registerBlock("spirit_wood_roots",
             () -> new ModHorzontalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.VINE).noOcclusion().noCollission()));
     public static final DeferredBlock<Block> SPIRIT_WOOD_BRANCH = registerBlock("spirit_wood_branch",

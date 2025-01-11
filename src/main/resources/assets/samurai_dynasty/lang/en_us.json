@@ -90,8 +90,8 @@
   "item.samurai_dynasty.kabutowari": "Kabutowari",
   "item.samurai_dynasty.kabutowari_netherite": "Netherite Kabutowari",
   "item.samurai_dynasty.yumi": "Yumi Bow",
-  "item.samurai_dynasty.spider_lilly": "Red Spider Lilly",
-  "item.samurai_dynasty.red_maple_sapling": "Red Maple Sapling",
+  "item.samurai_dynasty.spider_lilly": "Spider Lilly",
+  "item.samurai_dynasty.spirit_wood_sapling": "Spirit Wood Sapling",
 
   "entity.samurai_dynasty.oni": "Oni",
   "entity.samurai_dynasty.akaname": "Akaname",
@@ -134,13 +134,15 @@
   "block.samurai_dynasty.stone_roof_top": "Stone Roof Top",
   "block.samurai_dynasty.stone_roof_corner": "Stone Roof Corner",
   "block.samurai_dynasty.spirit_stone_base": "Spirit Stone",
-  "block.samurai_dynasty.red_maple_planks": "Red Maple Planks",
-  "block.samurai_dynasty.red_maple_log": "Red Maple Log",
-  "block.samurai_dynasty.stripped_red_maple_log": "Stripped Red Maple Log",
-  "block.samurai_dynasty.red_maple_leaves": "Red Maple Leaves",
-  "block.samurai_dynasty.red_maple_sapling": "Red Maple Sapling",
-  "block.samurai_dynasty.spider_lilly": "Red Spider Lilly",
-  "block.samurai_dynasty.potted_spider_lilly": "Red Spider Lilly",
+  "block.samurai_dynasty.spirit_wood_planks": "Spirit Wood Planks",
+  "block.samurai_dynasty.spirit_wood_log": "Spirit Wood Log",
+  "block.samurai_dynasty.stripped_spirit_wood_log": "Stripped Spirit Wood Log",
+  "block.samurai_dynasty.spirit_wood": "Spirit Wood",
+  "block.samurai_dynasty.stripped_spirit_wood": "Stripped Spirit Wood",
+  "block.samurai_dynasty.spirit_wood_leaves": "Spirit Wood Leaves",
+  "block.samurai_dynasty.spirit_wood_sapling": "Spirit Wood Sapling",
+  "block.samurai_dynasty.spider_lilly": "Spider Lilly",
+  "block.samurai_dynasty.potted_spider_lilly": "Spider Lilly",
 
   "itemGroup.items.samurai_dynasty": "Samurai Dynasty",
 
@@ -149,6 +151,8 @@
   "info.samurai_dynasty.mask.ability_1": "§7Applies §bFire Resistance§7.",
   "info.samurai_dynasty.mask.ability_2": "§7Immune to §bBlindness§7.",
   "info.samurai_dynasty.mask.ability_3": "§7Immune to §bSlowness§7.",
+
+  "biome.samurai_dynasty.spirit_wood_forest": "Spirit Wood Forest",
 
   "curios.identifier.mask": "Mask"
 

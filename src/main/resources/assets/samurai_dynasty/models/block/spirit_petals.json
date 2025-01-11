@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/carpet",
+  "render_type": "cutout",
+  "textures": {
+    "wool": "samurai_dynasty:block/spirit_petals"
+  }
+}

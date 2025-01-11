@@ -85,8 +85,6 @@ public class KawausoEntity extends TamableAnimal implements GeoEntity {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
         Item item = itemstack.getItem();
 
-
-
         if (!isTame() && (itemstack.is(ItemTags.FISHES) || itemstack.is(ItemTags.MEAT))) {
             if(this.level().isClientSide()) {
                 return InteractionResult.CONSUME;
@@ -95,13 +93,16 @@ public class KawausoEntity extends TamableAnimal implements GeoEntity {
                     itemstack.shrink(1);
                 }
 
-                if (!EventHooks.onAnimalTame(this, pPlayer)) {
-                    super.tame(pPlayer);
-                    this.navigation.recomputePath();
-                    this.setTarget(null);
-                    this.level().broadcastEntityEvent(this, (byte)7);
-                    setOrderedToSit(true);
-                    this.setInSittingPose(true);
+                if (this.random.nextInt(3) == 0) {
+                    if (!EventHooks.onAnimalTame(this, pPlayer)) {
+                        super.tame(pPlayer);
+                        this.navigation.recomputePath();
+                        this.setTarget(null);
+                        this.level().broadcastEntityEvent(this, (byte)7);
+                        setOrderedToSit(true);
+                        this.setInSittingPose(true);
+                    }
+
                 }
 
                 return InteractionResult.SUCCESS;

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "samurai_dynasty:block/stripped_spirit_blossom_log_top",
+    "side": "samurai_dynasty:block/stripped_spirit_blossom_log"
+  }
+}

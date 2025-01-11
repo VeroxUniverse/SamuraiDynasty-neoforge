@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column_horizontal",
-  "textures": {
-    "end": "samurai_dynasty:block/red_maple_log_top",
-    "side": "samurai_dynasty:block/red_maple_log"
-  }
-}

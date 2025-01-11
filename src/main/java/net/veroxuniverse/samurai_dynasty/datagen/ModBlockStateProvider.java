@@ -50,30 +50,36 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(BlocksRegistry.POLISHED_SPIRIT_STONE_STAIRS);
         blockItem(BlocksRegistry.POLISHED_SPIRIT_STONE_SLAB);
 
-        blockWithItem(BlocksRegistry.RED_MAPLE_PLANKS);
-        logBlock(((RotatedPillarBlock) BlocksRegistry.RED_MAPLE_LOG.get()));
-        logBlock(((RotatedPillarBlock) BlocksRegistry.STRIPPED_RED_MAPLE_LOG.get()));
-
-        blockItem(BlocksRegistry.RED_MAPLE_LOG);
-        blockItem(BlocksRegistry.STRIPPED_RED_MAPLE_LOG);
-
-        leavesBlock(BlocksRegistry.RED_MAPLE_LEAVES);
-        saplingBlock(BlocksRegistry.RED_MAPLE_SAPLING);
-
         blockWithItem(BlocksRegistry.SPIRIT_WOOD_PLANKS);
         logBlock(((RotatedPillarBlock) BlocksRegistry.SPIRIT_WOOD_LOG.get()));
         logBlock(((RotatedPillarBlock) BlocksRegistry.STRIPPED_SPIRIT_WOOD_LOG.get()));
         axisBlock(((RotatedPillarBlock) BlocksRegistry.SPIRIT_WOOD.get()), blockTexture(BlocksRegistry.SPIRIT_WOOD_LOG.get()), blockTexture(BlocksRegistry.SPIRIT_WOOD_LOG.get()));
         axisBlock(((RotatedPillarBlock) BlocksRegistry.STRIPPED_SPIRIT_WOOD.get()), blockTexture(BlocksRegistry.STRIPPED_SPIRIT_WOOD_LOG.get()), blockTexture(BlocksRegistry.STRIPPED_SPIRIT_WOOD_LOG.get()));
 
-
         blockItem(BlocksRegistry.SPIRIT_WOOD_LOG);
         blockItem(BlocksRegistry.STRIPPED_SPIRIT_WOOD_LOG);
         blockItem(BlocksRegistry.SPIRIT_WOOD);
         blockItem(BlocksRegistry.STRIPPED_SPIRIT_WOOD);
 
+        blockWithItem(BlocksRegistry.SPIRIT_MOSS_BLOCK);
+
         leavesBlock(BlocksRegistry.SPIRIT_WOOD_LEAVES);
-        //saplingBlock(BlocksRegistry.SPIRIT_WOOD_SAPLING);
+        saplingBlock(BlocksRegistry.SPIRIT_WOOD_SAPLING);
+
+
+        blockWithItem(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS);
+        logBlock(((RotatedPillarBlock) BlocksRegistry.SPIRIT_BLOSSOM_LOG.get()));
+        logBlock(((RotatedPillarBlock) BlocksRegistry.STRIPPED_SPIRIT_BLOSSOM_LOG.get()));
+        axisBlock(((RotatedPillarBlock) BlocksRegistry.SPIRIT_BLOSSOM_WOOD.get()), blockTexture(BlocksRegistry.SPIRIT_BLOSSOM_LOG.get()), blockTexture(BlocksRegistry.SPIRIT_BLOSSOM_LOG.get()));
+        axisBlock(((RotatedPillarBlock) BlocksRegistry.STRIPPED_SPIRIT_BLOSSOM_WOOD.get()), blockTexture(BlocksRegistry.STRIPPED_SPIRIT_BLOSSOM_LOG.get()), blockTexture(BlocksRegistry.STRIPPED_SPIRIT_BLOSSOM_LOG.get()));
+
+        blockItem(BlocksRegistry.SPIRIT_BLOSSOM_LOG);
+        blockItem(BlocksRegistry.STRIPPED_SPIRIT_BLOSSOM_LOG);
+        blockItem(BlocksRegistry.SPIRIT_BLOSSOM_WOOD);
+        blockItem(BlocksRegistry.STRIPPED_SPIRIT_BLOSSOM_WOOD);
+
+        leavesBlock(BlocksRegistry.SPIRIT_BLOSSOM_LEAVES);
+        saplingBlock(BlocksRegistry.SPIRIT_BLOSSOM_SAPLING);
 
         simpleBlock(BlocksRegistry.SPIDER_LILLY.get(),
                 models().cross(blockTexture(BlocksRegistry.SPIDER_LILLY.get()).getPath(), blockTexture(BlocksRegistry.SPIDER_LILLY.get())).renderType("cutout"));

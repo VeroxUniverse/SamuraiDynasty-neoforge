@@ -29,8 +29,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ItemsRegistry.MASTER_SAMURAI_LEGGINGS.get());
         basicItem(ItemsRegistry.MASTER_SAMURAI_HELMET.get());
 
-        saplingItem(BlocksRegistry.RED_MAPLE_SAPLING);
-        //saplingItem(BlocksRegistry.SPIRIT_WOOD_SAPLING);
+        saplingItem(BlocksRegistry.SPIRIT_WOOD_SAPLING);
+        saplingItem(BlocksRegistry.SPIRIT_BLOSSOM_SAPLING);
         saplingItem(BlocksRegistry.SPIDER_LILLY);
     }
 

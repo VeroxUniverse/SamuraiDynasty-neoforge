@@ -62,15 +62,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 block -> createOreDrop(BlocksRegistry.JADE_ORE.get(), ItemsRegistry.JADE.get()));
         this.add(BlocksRegistry.DEEPSLATE_JADE_ORE.get(),
                 block -> createOreDrop(BlocksRegistry.DEEPSLATE_JADE_ORE.get(), ItemsRegistry.JADE.get()));
-        
-        this.dropSelf(BlocksRegistry.RED_MAPLE_LOG.get());
-        this.dropSelf(BlocksRegistry.STRIPPED_RED_MAPLE_LOG.get());
-
-        this.dropSelf(BlocksRegistry.RED_MAPLE_PLANKS.get());
-        this.dropSelf(BlocksRegistry.RED_MAPLE_SAPLING.get());
-
-        this.add(BlocksRegistry.RED_MAPLE_LEAVES.get(), block ->
-                createLeavesDrops(block, BlocksRegistry.RED_MAPLE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
         this.dropSelf(BlocksRegistry.SPIRIT_WOOD_LOG.get());
         this.dropSelf(BlocksRegistry.STRIPPED_SPIRIT_WOOD_LOG.get());
@@ -83,13 +74,31 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(BlocksRegistry.SPIRIT_WOOD_ROOTS.get());
         this.dropSelf(BlocksRegistry.SPIRIT_WOOD_BRANCH.get());
 
-        /*
+        this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_ROOTS.get());
+        this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_BRANCH.get());
+
+        this.dropSelf(BlocksRegistry.SPIRIT_PETALS.get());
 
         this.dropSelf(BlocksRegistry.SPIRIT_WOOD_SAPLING.get());
         this.add(BlocksRegistry.SPIRIT_WOOD_LEAVES.get(), block ->
                 createLeavesDrops(block, BlocksRegistry.SPIRIT_WOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
-         */
+        this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_LOG.get());
+        this.dropSelf(BlocksRegistry.STRIPPED_SPIRIT_BLOSSOM_LOG.get());
+        this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_WOOD.get());
+        this.dropSelf(BlocksRegistry.STRIPPED_SPIRIT_BLOSSOM_WOOD.get());
+
+        this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get());
+        this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_LEAVES.get());
+
+        this.dropSelf(BlocksRegistry.SPIRIT_PETALS.get());
+
+        this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_SAPLING.get());
+        this.add(BlocksRegistry.SPIRIT_BLOSSOM_LEAVES.get(), block ->
+                createLeavesDrops(block, BlocksRegistry.SPIRIT_BLOSSOM_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+
+        this.dropSelf(BlocksRegistry.SPIRIT_MOSS_BLOCK.get());
+
         
     }
 

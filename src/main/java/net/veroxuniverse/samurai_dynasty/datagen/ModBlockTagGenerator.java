@@ -21,15 +21,18 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider pProvider) {
 
         this.tag(BlockTags.MINEABLE_WITH_AXE)
-                .add(BlocksRegistry.STRIPPED_RED_MAPLE_LOG.get())
-                .add(BlocksRegistry.RED_MAPLE_LOG.get())
-                .add(BlocksRegistry.RED_MAPLE_PLANKS.get())
+                .add(BlocksRegistry.SPIRIT_BLOSSOM_LOG.get())
+                .add(BlocksRegistry.STRIPPED_SPIRIT_BLOSSOM_LOG.get())
+                .add(BlocksRegistry.SPIRIT_BLOSSOM_WOOD.get())
+                .add(BlocksRegistry.STRIPPED_SPIRIT_BLOSSOM_WOOD.get())
                 .add(BlocksRegistry.STRIPPED_SPIRIT_WOOD_LOG.get())
                 .add(BlocksRegistry.SPIRIT_WOOD_LOG.get())
                 .add(BlocksRegistry.STRIPPED_SPIRIT_WOOD.get())
                 .add(BlocksRegistry.SPIRIT_WOOD.get())
                 .add(BlocksRegistry.SPIRIT_WOOD_BRANCH.get())
                 .add(BlocksRegistry.SPIRIT_WOOD_ROOTS.get())
+                .add(BlocksRegistry.SPIRIT_BLOSSOM_BRANCH.get())
+                .add(BlocksRegistry.SPIRIT_BLOSSOM_ROOTS.get())
                 .add(BlocksRegistry.SPIRIT_WOOD_PLANKS.get());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
@@ -101,14 +104,22 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                         BlocksRegistry.MOSSY_SPIRIT_STONE_BRICK_WALL.get(),
                         BlocksRegistry.POLISHED_SPIRIT_STONE_WALL.get());
 
+        this.tag(BlockTags.DIRT)
+                .add(BlocksRegistry.SPIRIT_MOSS_BLOCK.get());
+
+        this.tag(BlockTags.LEAVES)
+                .add(BlocksRegistry.SPIRIT_WOOD_LEAVES.get())
+                .add(BlocksRegistry.SPIRIT_BLOSSOM_LEAVES.get());
+
         this.tag(BlockTags.LOGS_THAT_BURN)
+                .add(BlocksRegistry.SPIRIT_BLOSSOM_LOG.get())
+                .add(BlocksRegistry.STRIPPED_SPIRIT_BLOSSOM_LOG.get())
+                .add(BlocksRegistry.SPIRIT_BLOSSOM_WOOD.get())
+                .add(BlocksRegistry.STRIPPED_SPIRIT_BLOSSOM_WOOD.get())
                 .add(BlocksRegistry.SPIRIT_WOOD_LOG.get())
                 .add(BlocksRegistry.STRIPPED_SPIRIT_WOOD_LOG.get())
                 .add(BlocksRegistry.SPIRIT_WOOD.get())
-                .add(BlocksRegistry.STRIPPED_SPIRIT_WOOD.get())
-                .add(BlocksRegistry.RED_MAPLE_LOG.get())
-                .add(BlocksRegistry.STRIPPED_RED_MAPLE_LOG.get());
-
+                .add(BlocksRegistry.STRIPPED_SPIRIT_WOOD.get());
 
     }
 

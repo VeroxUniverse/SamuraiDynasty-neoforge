@@ -1,6 +1,5 @@
 package net.veroxuniverse.samurai_dynasty.entity.custom;
 
-import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import mod.azure.azurelib.common.api.common.animatable.GeoEntity;
 import mod.azure.azurelib.common.internal.common.util.AzureLibUtil;
 import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
@@ -9,30 +8,14 @@ import mod.azure.azurelib.core.animation.Animation;
 import mod.azure.azurelib.core.animation.AnimationController;
 import mod.azure.azurelib.core.animation.RawAnimation;
 import mod.azure.azurelib.core.object.PlayState;
-import mod.azure.azurelib.sblforked.api.SmartBrainOwner;
-import mod.azure.azurelib.sblforked.api.core.BrainActivityGroup;
-import mod.azure.azurelib.sblforked.api.core.behaviour.FirstApplicableBehaviour;
-import mod.azure.azurelib.sblforked.api.core.behaviour.OneRandomBehaviour;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.attack.AnimatableMeleeAttack;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.look.LookAtTarget;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.misc.Idle;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.move.FloatToSurfaceOfFluid;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.move.MoveToWalkTarget;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.path.SetRandomWalkTarget;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.path.SetWalkTargetToAttackTarget;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.target.InvalidateAttackTarget;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.target.SetPlayerLookTarget;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.target.SetRandomLookTarget;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.target.TargetOrRetaliate;
-import mod.azure.azurelib.sblforked.api.core.sensor.ExtendedSensor;
-import mod.azure.azurelib.sblforked.api.core.sensor.vanilla.HurtBySensor;
-import mod.azure.azurelib.sblforked.api.core.sensor.vanilla.NearbyLivingEntitySensor;
+import mod.azure.azurelib.sblforked.api.core.navigation.SmoothGroundNavigation;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.TickTask;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -40,6 +23,8 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -60,14 +45,15 @@ import net.veroxuniverse.samurai_dynasty.entity.ModEntityTypes;
 import net.veroxuniverse.samurai_dynasty.entity.variant.KomainuVariant;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
-
 public class KomainuEntity extends TamableAnimal implements GeoEntity {
 
     private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT =
             SynchedEntityData.defineId(KomainuEntity.class, EntityDataSerializers.INT);
-    private static final EntityDataAccessor<Boolean> ATTACKING =
-            SynchedEntityData.defineId(KomainuEntity.class, EntityDataSerializers.BOOLEAN);
+
+    public static final RawAnimation ATTACK = RawAnimation.begin().then("animation.komainu.attack", Animation.LoopType.PLAY_ONCE);
+    public static final RawAnimation IDLE = RawAnimation.begin().then("animation.komainu.idle", Animation.LoopType.LOOP);
+    public static final RawAnimation MOVE = RawAnimation.begin().then("animation.komainu.walk", Animation.LoopType.LOOP);
+    public static final RawAnimation SIT = RawAnimation.begin().then("animation.komainu.sit", Animation.LoopType.LOOP);
 
 
     private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
@@ -92,17 +78,16 @@ public class KomainuEntity extends TamableAnimal implements GeoEntity {
     }
 
 
-
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(0, new SitWhenOrderedToGoal(this));
         //this.goalSelector.addGoal(1, new LeapAtTargetGoal(this, 0.4F));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, true));
-        this.goalSelector.addGoal(3, new BreedGoal(this, 1.0D));
-        this.goalSelector.addGoal(4, new TemptGoal(this, 1.2D, Ingredient.of(Items.COOKED_BEEF), true));
-        this.goalSelector.addGoal(5, new FollowOwnerGoal(this, 1.2F, 8.0F, 2.0F));
-        this.goalSelector.addGoal(5, new FollowParentGoal(this, 1.2F));
+        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.2D, true));
+        this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
+        this.goalSelector.addGoal(3, new TemptGoal(this, 1.2D, Ingredient.of(Items.COOKED_BEEF), true));
+        this.goalSelector.addGoal(4, new FollowOwnerGoal(this, 1.2F, 8.0F, 2.0F));
+        this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.2F));
+        this.goalSelector.addGoal(5, new SitWhenOrderedToGoal(this));
 
         this.goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
@@ -113,33 +98,10 @@ public class KomainuEntity extends TamableAnimal implements GeoEntity {
         this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
     }
 
-
-    /*
-
-    public void setAttacking(boolean attacking) {
-        this.entityData.set(ATTACKING, attacking);
-    }
-
-    public boolean isAttacking() {
-        return this.entityData.get(ATTACKING);
-    }
-
-     */
-
-
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
         builder.define(DATA_ID_TYPE_VARIANT, 0);
-        builder.define(ATTACKING, false);
-    }
-
-    public void setAttacking(boolean attacking) {
-        this.entityData.set(ATTACKING, attacking);
-    }
-
-    public boolean isAttacking() {
-        return this.entityData.get(ATTACKING);
     }
 
     //* VARIANT *//
@@ -192,13 +154,16 @@ public class KomainuEntity extends TamableAnimal implements GeoEntity {
                     itemstack.shrink(1);
                 }
 
-                if (!EventHooks.onAnimalTame(this, pPlayer)) {
-                    super.tame(pPlayer);
-                    this.navigation.recomputePath();
-                    this.setTarget(null);
-                    this.level().broadcastEntityEvent(this, (byte)7);
-                    setOrderedToSit(true);
-                    this.setInSittingPose(true);
+                if (this.random.nextInt(3) == 0) {
+                    if (!EventHooks.onAnimalTame(this, pPlayer)) {
+                        super.tame(pPlayer);
+                        this.navigation.recomputePath();
+                        this.setTarget(null);
+                        this.level().broadcastEntityEvent(this, (byte)7);
+                        setOrderedToSit(true);
+                        this.setInSittingPose(true);
+                    }
+
                 }
 
                 return InteractionResult.SUCCESS;
@@ -210,6 +175,7 @@ public class KomainuEntity extends TamableAnimal implements GeoEntity {
             // TOGGLES SITTING FOR OUR ENTITY
             setOrderedToSit(!isOrderedToSit());
             setInSittingPose(!isOrderedToSit());
+            this.setTarget(null);
 
             return InteractionResult.SUCCESS;
         }
@@ -221,33 +187,33 @@ public class KomainuEntity extends TamableAnimal implements GeoEntity {
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "move_controller", 5, state -> {
-            if (state.isMoving() && !this.isAttacking()){
-                state.setAnimation(RawAnimation.begin().then("animation.komainu.walk", Animation.LoopType.LOOP));
+        controllers.add(new AnimationController<>(this, "move_controller", 3, state -> {
+            if (isInSittingPose()) {
+                state.getController().setAnimation(SIT);
                 return PlayState.CONTINUE;
-            } else if (!state.isMoving() && !this.isAttacking() && !this.isInSittingPose())  {
-                state.setAnimation(RawAnimation.begin().then("animation.komainu.idle", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
-            }
-            state.getController().forceAnimationReset();
-            return PlayState.STOP;
-        }));
-        controllers.add(new AnimationController<>(this, "attack_controller", 5, state -> {
-            if (this.isAttacking()) {
-                state.setAnimation(RawAnimation.begin().then("animation.komainu.attack", Animation.LoopType.PLAY_ONCE));
+            } else if (state.isMoving() && !this.swinging) {
+                state.getController().setAnimation(MOVE);
                 return PlayState.CONTINUE;
             }
-            state.getController().forceAnimationReset();
-            return PlayState.STOP;
-        }));
-        controllers.add(new AnimationController<>(this, "sit_controller", 5, state -> {
-            if (this.isInSittingPose() && this.isTame()) {
-                state.setAnimation(RawAnimation.begin().then("animation.komainu.sit", Animation.LoopType.LOOP));
+            state.getController().setAnimation(IDLE);
+            return PlayState.CONTINUE;
+        })).add(new AnimationController<>(this, "attack_controller", 3, state -> {
+            if (swinging) {
+                state.getController().setAnimation(ATTACK);
                 return PlayState.CONTINUE;
             }
-            state.getController().forceAnimationReset();
             return PlayState.STOP;
-        }));
+        }).triggerableAnim("attack", ATTACK));
+    }
+
+    @Override
+    public boolean doHurtTarget(Entity entity) {
+        this.swinging = true;
+        this.triggerAnim("attack_controller", "attack");
+        if (!level().isClientSide) {
+            level().getServer().tell(new TickTask(20, () -> this.swinging = false));
+        }
+        return super.doHurtTarget(entity);
     }
 
     //* BREEDING *//
@@ -258,11 +224,6 @@ public class KomainuEntity extends TamableAnimal implements GeoEntity {
     }
 
     //*  *//
-
-    @Override
-    public int getCurrentSwingDuration() {
-        return 14;
-    }
 
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
         this.playSound(SoundEvents.WOLF_STEP, 0.15F, 1.0F);

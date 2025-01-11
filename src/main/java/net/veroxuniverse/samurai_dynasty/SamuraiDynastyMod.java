@@ -29,8 +29,11 @@ import net.veroxuniverse.samurai_dynasty.registry.BlocksRegistry;
 import net.veroxuniverse.samurai_dynasty.registry.CreativeTabRegistry;
 import net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry;
 import net.veroxuniverse.samurai_dynasty.utils.ModItemProperties;
-import net.veroxuniverse.samurai_dynasty.worldgen.biomes.MapleForestRegion;
+import net.veroxuniverse.samurai_dynasty.worldgen.biomes.SpiritWoodForestRegion;
 import net.veroxuniverse.samurai_dynasty.worldgen.biomes.ModSurfaceRuleData;
+import net.veroxuniverse.samurai_dynasty.worldgen.features.ModTreeConfiguredFeatures;
+import net.veroxuniverse.samurai_dynasty.worldgen.features.ModTreePlacedFeatures;
+import net.veroxuniverse.samurai_dynasty.worldgen.features.decorators.ModDecoratorTypes;
 import org.slf4j.Logger;
 import terrablender.api.Regions;
 import terrablender.api.SurfaceRuleManager;
@@ -56,6 +59,9 @@ public class SamuraiDynastyMod
         ArmorMaterialsRegistry.register(modEventBus);
         ModParticles.register(modEventBus);
         ModLootCodec.register(modEventBus);
+        ModTreeConfiguredFeatures.register();
+        ModTreePlacedFeatures.register();
+        ModDecoratorTypes.register(modEventBus);
 
         CreativeTabRegistry.register(modEventBus);
 
@@ -70,7 +76,7 @@ public class SamuraiDynastyMod
 
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(BlocksRegistry.SPIDER_LILLY.getId(), BlocksRegistry.POTTED_SPIDER_LILLY);
 
-            Regions.register(new MapleForestRegion(ResourceLocation.fromNamespaceAndPath(MOD_ID,"maple_forest"),2));
+            Regions.register(new SpiritWoodForestRegion(ResourceLocation.fromNamespaceAndPath(MOD_ID,"maple_forest"),2));
 
             SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRuleData.makeRules());
 
