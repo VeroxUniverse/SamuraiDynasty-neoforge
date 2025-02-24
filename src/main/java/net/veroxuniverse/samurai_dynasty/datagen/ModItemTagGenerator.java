@@ -140,5 +140,36 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
         tag(ItemTags.DIRT)
                 .add(BlocksRegistry.SPIRIT_MOSS_BLOCK.get().asItem());
+
+        tag(ItemTags.DURABILITY_ENCHANTABLE)
+                .add(ItemsRegistry.STEEL_HELMET.get())
+                .add(ItemsRegistry.STEEL_SAMURAI_HELMET.get())
+                .add(ItemsRegistry.NETHERITE_SAMURAI_HELMET.get())
+                .add(ItemsRegistry.LIGHT_SAMURAI_HELMET.get())
+                .add(ItemsRegistry.MASTER_SAMURAI_HELMET.get())
+                .add(ItemsRegistry.STEEL_NINJA_HELMET.get())
+                .add(ItemsRegistry.NETHERITE_NINJA_HELMET.get())
+                .add(ItemsRegistry.STRAW_HAT.get())
+                .add(ItemsRegistry.STEEL_CHESTPLATE.get())
+                .add(ItemsRegistry.STEEL_SAMURAI_CHESTPLATE.get())
+                .add(ItemsRegistry.NETHERITE_SAMURAI_CHESTPLATE.get())
+                .add(ItemsRegistry.LIGHT_SAMURAI_CHESTPLATE.get())
+                .add(ItemsRegistry.MASTER_SAMURAI_CHESTPLATE.get())
+                .add(ItemsRegistry.STEEL_NINJA_CHESTPLATE.get())
+                .add(ItemsRegistry.NETHERITE_NINJA_CHESTPLATE.get())
+                .add(ItemsRegistry.KIMONO.get())
+                .add(ItemsRegistry.STEEL_LEGGINGS.get())
+                .add(ItemsRegistry.STEEL_SAMURAI_LEGGINGS.get())
+                .add(ItemsRegistry.NETHERITE_SAMURAI_LEGGINGS.get())
+                .add(ItemsRegistry.LIGHT_SAMURAI_LEGGINGS.get())
+                .add(ItemsRegistry.MASTER_SAMURAI_LEGGINGS.get())
+                .add(ItemsRegistry.NINJA_LEGGINGS.get())
+                .add(ItemsRegistry.STEEL_BOOTS.get())
+                .add(ItemsRegistry.STEEL_SAMURAI_BOOTS.get())
+                .add(ItemsRegistry.NETHERITE_SAMURAI_BOOTS.get())
+                .add(ItemsRegistry.LIGHT_SAMURAI_BOOTS.get())
+                .add(ItemsRegistry.MASTER_SAMURAI_BOOTS.get())
+                .add(ItemsRegistry.STEEL_NINJA_BOOTS.get())
+                .add(ItemsRegistry.NETHERITE_NINJA_BOOTS.get());
     }
 }

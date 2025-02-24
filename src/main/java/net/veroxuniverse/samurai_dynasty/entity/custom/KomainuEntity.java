@@ -199,8 +199,7 @@ public class KomainuEntity extends TamableAnimal implements GeoEntity {
             return PlayState.CONTINUE;
         })).add(new AnimationController<>(this, "attack_controller", 3, state -> {
             if (swinging) {
-                state.getController().setAnimation(ATTACK);
-                return PlayState.CONTINUE;
+                return state.setAndContinue(ATTACK);
             }
             return PlayState.STOP;
         }).triggerableAnim("attack", ATTACK));
@@ -208,10 +207,11 @@ public class KomainuEntity extends TamableAnimal implements GeoEntity {
 
     @Override
     public boolean doHurtTarget(Entity entity) {
-        this.swinging = true;
-        this.triggerAnim("attack_controller", "attack");
         if (!level().isClientSide) {
-            level().getServer().tell(new TickTask(20, () -> this.swinging = false));
+            this.swinging = true;
+            this.triggerAnim("attack_controller", "attack");
+            int animationDuration = 20;
+            level().getServer().tell(new TickTask(animationDuration, () -> this.swinging = false));
         }
         return super.doHurtTarget(entity);
     }

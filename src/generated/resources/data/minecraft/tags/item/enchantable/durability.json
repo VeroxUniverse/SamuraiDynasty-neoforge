@@ -1,0 +1,33 @@
+{
+  "values": [
+    "samurai_dynasty:steel_helmet",
+    "samurai_dynasty:steel_samurai_helmet",
+    "samurai_dynasty:netherite_samurai_helmet",
+    "samurai_dynasty:light_samurai_helmet",
+    "samurai_dynasty:master_samurai_helmet",
+    "samurai_dynasty:steel_ninja_helmet",
+    "samurai_dynasty:netherite_ninja_helmet",
+    "samurai_dynasty:straw_hat",
+    "samurai_dynasty:steel_chestplate",
+    "samurai_dynasty:steel_samurai_chestplate",
+    "samurai_dynasty:netherite_samurai_chestplate",
+    "samurai_dynasty:light_samurai_chestplate",
+    "samurai_dynasty:master_samurai_chestplate",
+    "samurai_dynasty:steel_ninja_chestplate",
+    "samurai_dynasty:netherite_ninja_chestplate",
+    "samurai_dynasty:kimono",
+    "samurai_dynasty:steel_leggings",
+    "samurai_dynasty:steel_samurai_leggings",
+    "samurai_dynasty:netherite_samurai_leggings",
+    "samurai_dynasty:light_samurai_leggings",
+    "samurai_dynasty:master_samurai_leggings",
+    "samurai_dynasty:ninja_leggings",
+    "samurai_dynasty:steel_boots",
+    "samurai_dynasty:steel_samurai_boots",
+    "samurai_dynasty:netherite_samurai_boots",
+    "samurai_dynasty:light_samurai_boots",
+    "samurai_dynasty:master_samurai_boots",
+    "samurai_dynasty:steel_ninja_boots",
+    "samurai_dynasty:netherite_ninja_boots"
+  ]
+}
