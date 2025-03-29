@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.ItemRenderer;
@@ -15,8 +16,9 @@ import net.minecraft.world.item.ItemStack;
 import net.veroxuniverse.samurai_dynasty.curios.model.KitsuneMaskModel;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.client.ICurioRenderer;
+import top.theillusivec4.curios.api.client.ICurioRenderer.HumanoidRender;
 
-public class KitsuneMaskRenderer implements ICurioRenderer {
+public class KitsuneMaskRenderer implements HumanoidRender {
     private static final ResourceLocation KITSUNE_MASK_LOCATION = new ResourceLocation("samurai_dynasty:textures/armor/kitsune_mask.png");
     private final KitsuneMaskModel kitsuneMaskModel;
 
@@ -28,7 +30,7 @@ public class KitsuneMaskRenderer implements ICurioRenderer {
     public <T extends LivingEntity, M extends EntityModel<T>> void render(ItemStack stack, SlotContext slotContext, PoseStack matrixStack, RenderLayerParent<T, M> renderLayerParent, MultiBufferSource renderTypeBuffer, int light, float limbSwing,
                                                                           float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
 
-        matrixStack.translate(0,0.02,0);
+        matrixStack.translate(0,0,0);
         LivingEntity entity = slotContext.entity();
         ICurioRenderer.followHeadRotations(entity, this.kitsuneMaskModel.bipedHead);
         //ICurioRenderer.rotateIfSneaking(matrixStack, entity);
@@ -36,5 +38,15 @@ public class KitsuneMaskRenderer implements ICurioRenderer {
         this.kitsuneMaskModel.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
         VertexConsumer vertexconsumer = ItemRenderer.getArmorFoilBuffer(renderTypeBuffer, RenderType.armorCutoutNoCull(KITSUNE_MASK_LOCATION), false, stack.hasFoil());
         this.kitsuneMaskModel.renderToBuffer(matrixStack, vertexconsumer, light, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+    }
+
+    @Override
+    public HumanoidModel<LivingEntity> getModel(ItemStack arg0, SlotContext arg1) {
+        return this.kitsuneMaskModel;
+    }
+
+    @Override
+    public ResourceLocation getModelTexture(ItemStack arg0, SlotContext arg1) {
+        return KITSUNE_MASK_LOCATION;
     }
 }

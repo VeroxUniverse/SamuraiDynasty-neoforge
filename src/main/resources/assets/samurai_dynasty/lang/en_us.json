@@ -324,6 +324,13 @@
   "sound.samurai_dynasty.gun_reload": "Gun Reloading",
   "sound.samurai_dynasty.gun_reload_drop": "Gun Reloaded",
 
-  "curios.identifier.mask": "Mask"
+  "curios.identifier.mask": "Mask",
+  "curios.samurai_dynasty.summary": "§8Hold [§7Shift§8] for Summary",
+  "curios.samurai_dynasty.nightvision": "§7Applies §bNight Vision§7.",
+  "curios.samurai_dynasty.fireres": "§7Applies §bFire Resistance§7.",
+  "curios.samurai_dynasty.immune_blindness": "§7Immune to §bBlindness§7.",
+  "curios.samurai_dynasty.immune_wither": "§7Immune to §bWither§7.",
+  "curios.samurai_dynasty.immune_slowness": "§7Immune to §bSlowness§7."
+
 
 }

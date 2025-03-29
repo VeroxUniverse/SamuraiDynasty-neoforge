@@ -45,13 +45,13 @@ public class OniMaskCurios extends Item implements ICurioItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         if(Screen.hasShiftDown() && stack.getItem() == ItemsRegistry.ONI_MASK.get()) {
-            components.add(Component.literal("§8Hold [§7Shift§8] for Summary"));
+            components.add(Component.translatable("curios.samurai_dynasty.summary"));
             components.add(Component.literal(""));
-            components.add(Component.literal("§7Applies §bNight Vision§7.").withStyle(ChatFormatting.GRAY));
-            components.add(Component.literal("§7Immune to §bBlindness§7.").withStyle(ChatFormatting.GRAY));
-            components.add(Component.literal("§7Immune to §bWither§7.").withStyle(ChatFormatting.GRAY));
+            components.add(Component.translatable( "curios.samurai_dynasty.nightvision").withStyle(ChatFormatting.GRAY));
+            components.add(Component.translatable("curios.samurai_dynasty.immune_blindness").withStyle(ChatFormatting.GRAY));
+            components.add(Component.translatable("curios.samurai_dynasty.immune_wither").withStyle(ChatFormatting.GRAY));
         } else if (stack.getItem() == ItemsRegistry.ONI_MASK.get()) {
-            components.add(Component.literal("§8Hold [§7Shift§8] for Summary"));
+            components.add(Component.translatable("curios.samurai_dynasty.summary"));
         }
 
         super.appendHoverText(stack, level, components, flag);
