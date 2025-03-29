@@ -1,0 +1,8 @@
+// 1.21.1	2025-03-15T18:05:11.885349	Block Tags
+c6f04893e9880512e44360a03923e4017374095e data/minecraft/tags/block/dirt.json
+f53f19430ed2c7bbff122ae3b87c2387e56ecaa4 data/minecraft/tags/block/leaves.json
+0a08885b9b27526cb1ef07ad7bc71a37ea457911 data/minecraft/tags/block/logs_that_burn.json
+21f0f7c30a85ee542b35c56a2603a33321303074 data/minecraft/tags/block/mineable/axe.json
+61238e523498ac434b1dae3f16202767e5e499bc data/minecraft/tags/block/mineable/pickaxe.json
+2a4e7e62629900e1a8da2981f182a2f4cbaf8ca9 data/minecraft/tags/block/needs_iron_tool.json
+25bf941eddd951636a461b725c6e5a1d664ae9e3 data/minecraft/tags/block/walls.json

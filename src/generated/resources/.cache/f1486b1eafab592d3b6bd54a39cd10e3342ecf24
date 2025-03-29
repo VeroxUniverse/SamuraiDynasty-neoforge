@@ -1,4 +1,4 @@
-// 1.21.1	2024-11-07T05:22:54.582704	Item Models: samurai_dynasty
+// 1.21.1	2025-03-15T18:05:11.8888549	Item Models: samurai_dynasty
 d63a68e6f301cc4c250c391a1a0d1ca380f7ce9b assets/samurai_dynasty/models/item/light_samurai_boots.json
 c1318f9ed355808b2f20ee93ef8a081633f06537 assets/samurai_dynasty/models/item/light_samurai_chestplate.json
 f1ee5992ec3f058d5faf32353db696d58968be6c assets/samurai_dynasty/models/item/light_samurai_helmet.json
@@ -9,4 +9,7 @@ f1ee5992ec3f058d5faf32353db696d58968be6c assets/samurai_dynasty/models/item/ligh
 f4fa09cbd9c7403e833ad08e33d45ec089448c6c assets/samurai_dynasty/models/item/master_samurai_leggings.json
 79843b8efdffbfb400edb244de9f59aff56e8f54 assets/samurai_dynasty/models/item/mossy_spirit_stone_brick_wall.json
 abe15a1c5266c71678b83bca31501c90054aef08 assets/samurai_dynasty/models/item/polished_spirit_stone_wall.json
+1fa798690dc8d556e3fb9dc1835fe384c82830c9 assets/samurai_dynasty/models/item/spider_lilly.json
+b51e74dec4c7bb600883446ee4dd5e3021329c2d assets/samurai_dynasty/models/item/spirit_blossom_sapling.json
 c8ace982083b3a29e75d5e0466e23585a7910b7d assets/samurai_dynasty/models/item/spirit_stone_wall.json
+5b9a6f70f0bf0b0095684dcf830ef1248672ffd0 assets/samurai_dynasty/models/item/spirit_wood_sapling.json
