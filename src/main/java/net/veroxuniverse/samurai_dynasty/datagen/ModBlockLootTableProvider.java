@@ -30,8 +30,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(BlocksRegistry.CHISELED_SPIRIT_STONE_BRICKS.get());
         this.dropSelf(BlocksRegistry.DRAGON_SPIRIT_STONE.get());
         this.dropSelf(BlocksRegistry.JADE_BLOCK.get());
-        this.dropSelf(BlocksRegistry.KAWAUSO_STATUE.get());
-        this.dropSelf(BlocksRegistry.KOMAINU_STATUE.get());
         this.dropSelf(BlocksRegistry.MOSAIC_SPIRIT_STONE_BRICKS.get());
         this.dropSelf(BlocksRegistry.MOSSY_SPIRIT_STONE_BRICK_SLAB.get());
         this.dropSelf(BlocksRegistry.MOSSY_SPIRIT_STONE_BRICK_STAIRS.get());
@@ -52,8 +50,14 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(BlocksRegistry.STONE_ROOF.get());
         this.dropSelf(BlocksRegistry.STONE_ROOF_CORNER.get());
         this.dropSelf(BlocksRegistry.STONE_ROOF_TOP.get());
-        this.dropSelf(BlocksRegistry.TANUKI_STATUE.get());
         this.dropSelf(BlocksRegistry.MOSSY_SPIRIT_STONE_BRICKS.get());
+
+        this.add(BlocksRegistry.TANUKI_STATUE.get(),
+                block -> createDoorTable(BlocksRegistry.TANUKI_STATUE.get()));
+        this.add(BlocksRegistry.KOMAINU_STATUE.get(),
+                block -> createDoorTable(BlocksRegistry.KOMAINU_STATUE.get()));
+        this.add(BlocksRegistry.KAWAUSO_STATUE.get(),
+                block -> createDoorTable(BlocksRegistry.KAWAUSO_STATUE.get()));
 
         this.dropSelf(BlocksRegistry.SPIDER_LILLY.get());
         this.add(BlocksRegistry.POTTED_SPIDER_LILLY.get(), createPotFlowerItemTable(BlocksRegistry.SPIDER_LILLY));
