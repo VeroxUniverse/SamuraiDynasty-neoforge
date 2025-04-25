@@ -1,5 +1,16 @@
 {
   "variants": {
-    "": { "model":  "samurai_dynasty:block/steel_block"}
+    "axis=x": {
+      "model": "samurai_dynasty:block/steel_block_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "samurai_dynasty:block/steel_block"
+    },
+    "axis=z": {
+      "model": "samurai_dynasty:block/steel_block_horizontal",
+      "x": 90
+    }
   }
 }

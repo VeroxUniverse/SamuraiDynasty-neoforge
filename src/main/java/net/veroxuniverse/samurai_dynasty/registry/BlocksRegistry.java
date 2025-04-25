@@ -1,7 +1,10 @@
 package net.veroxuniverse.samurai_dynasty.registry;
 
+import net.minecraft.client.particle.Particle;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
@@ -10,7 +13,9 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
@@ -37,7 +42,7 @@ public class BlocksRegistry {
             () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK)
                     .strength(4f).requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> STEEL_BLOCK = registerBlock("steel_block",
-            () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK)
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK)
                     .strength(4f).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> SPIRIT_STONE_BASE = registerBlock("spirit_stone_base",
@@ -126,6 +131,24 @@ public class BlocksRegistry {
             () -> new RoofBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).noOcclusion()
                     .strength(4f).requiresCorrectToolForDrops()));
 
+    public static final DeferredBlock<Block> SPIRIT_LAMP = registerBlock("spirit_lamp",
+            () -> new LampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).lightLevel(p_152607_ -> 14)));
+
+    public static final DeferredBlock<Block> STONE_LAMP = registerBlock("stone_lamp",
+            () -> new LampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).lightLevel(p_152607_ -> 14)));
+
+    public static final DeferredBlock<Block> ANDESITE_LAMP = registerBlock("andesite_lamp",
+            () -> new LampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).lightLevel(p_152607_ -> 14)));
+
+    public static final DeferredBlock<Block> DIORITE_LAMP = registerBlock("diorite_lamp",
+            () -> new LampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).lightLevel(p_152607_ -> 14)));
+
+    public static final DeferredBlock<Block> GRANITE_LAMP = registerBlock("granite_lamp",
+            () -> new LampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).lightLevel(p_152607_ -> 14)));
+
+    public static final DeferredBlock<Block> DEEPSLATE_LAMP = registerBlock("deepslate_lamp",
+            () -> new LampBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).lightLevel(p_152607_ -> 14)));
+
 
     public static final DeferredBlock<Block> SPIRIT_BLOSSOM_LOG = registerBlock("spirit_blossom_log",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)));
@@ -153,6 +176,24 @@ public class BlocksRegistry {
                     return 5;
                 }
             });
+
+    public static final DeferredBlock<Block> SPIRIT_BLOSSOM_STAIRS = registerBlock("spirit_blossom_stairs",
+            () -> new StairBlock(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get().defaultBlockState(),
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_STAIRS).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> SPIRIT_BLOSSOM_SLAB = registerBlock("spirit_blossom_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> SPIRIT_BLOSSOM_FENCE = registerBlock("spirit_blossom_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> SPIRIT_BLOSSOM_FENCE_GATE = registerBlock("spirit_blossom_fence_gate",
+            () -> new FenceGateBlock(WoodType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE_GATE).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> SPIRIT_BLOSSOM_BUTTON = registerBlock("spirit_blossom_button",
+            () -> new ButtonBlock(BlockSetType.OAK, 10, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noCollission()));
+    public static final DeferredBlock<Block> SPIRIT_BLOSSOM_PRESSURE_PLATE = registerBlock("spirit_blossom_pressure_plate",
+            () -> new PressurePlateBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> SPIRIT_BLOSSOM_DOOR = registerBlock("spirit_blossom_door",
+            () -> new DoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> SPIRIT_BLOSSOM_TRAPDOOR = registerBlock("spirit_blossom_trapdoor",
+            () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_TRAPDOOR).requiresCorrectToolForDrops()));
 
     public static final DeferredBlock<Block> SPIRIT_BLOSSOM_LEAVES = registerBlock("spirit_blossom_leaves",
             () -> new SpiritBlossomLeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)) {
@@ -183,7 +224,7 @@ public class BlocksRegistry {
 
     public static final DeferredBlock<Block> SPIRIT_MOSS_BLOCK = registerBlock("spirit_moss_block",
             () -> new MossBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_BLOCK)
-                    .strength(4f).requiresCorrectToolForDrops()));
+                    .strength(0.2f)));
 
     public static final DeferredBlock<Block> SPIDER_LILLY = registerBlock("spider_lilly",
             () -> new FlowerBlock(MobEffects.POISON, 2, BlockBehaviour.Properties.ofFullCopy(Blocks.ALLIUM)));
@@ -192,7 +233,7 @@ public class BlocksRegistry {
 
     public static final DeferredBlock<Block> SPIRIT_PETALS = registerBlock("spirit_petals",
             () -> new CarpetBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.MOSS_CARPET)
-                    .strength(4f).requiresCorrectToolForDrops().noOcclusion()));
+                    .strength(4f).noOcclusion().instabreak()));
 
     public static final DeferredBlock<Block> SPIRIT_WOOD_LOG = registerBlock("spirit_wood_log",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LOG)));
@@ -221,6 +262,24 @@ public class BlocksRegistry {
                 }
             });
 
+    public static final DeferredBlock<Block> SPIRIT_WOOD_STAIRS = registerBlock("spirit_wood_stairs",
+            () -> new StairBlock(BlocksRegistry.SPIRIT_WOOD_PLANKS.get().defaultBlockState(),
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_STAIRS).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> SPIRIT_WOOD_SLAB = registerBlock("spirit_wood_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> SPIRIT_WOOD_FENCE = registerBlock("spirit_wood_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> SPIRIT_WOOD_FENCE_GATE = registerBlock("spirit_wood_fence_gate",
+            () -> new FenceGateBlock(WoodType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE_GATE).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> SPIRIT_WOOD_BUTTON = registerBlock("spirit_wood_button",
+            () -> new ButtonBlock(BlockSetType.OAK, 10, BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().noCollission()));
+    public static final DeferredBlock<Block> SPIRIT_WOOD_PRESSURE_PLATE = registerBlock("spirit_wood_pressure_plate",
+            () -> new PressurePlateBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> SPIRIT_WOOD_DOOR = registerBlock("spirit_wood_door",
+            () -> new DoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_DOOR).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> SPIRIT_WOOD_TRAPDOOR = registerBlock("spirit_wood_trapdoor",
+            () -> new TrapDoorBlock(BlockSetType.OAK, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_TRAPDOOR).requiresCorrectToolForDrops()));
+
     public static final DeferredBlock<Block> SPIRIT_WOOD_LEAVES = registerBlock("spirit_wood_leaves",
             () -> new SpiritWoodLeavesBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_LEAVES)) {
                 @Override
@@ -246,7 +305,6 @@ public class BlocksRegistry {
             () -> new ModHorzontalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.VINE).noOcclusion().noCollission()));
     public static final DeferredBlock<Block> SPIRIT_WOOD_BRANCH = registerBlock("spirit_wood_branch",
             () -> new ModHorzontalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.VINE).noOcclusion().noCollission()));
-
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

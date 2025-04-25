@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "samurai_dynasty:block/spirit_wood_pressure_plate"
+    },
+    "powered=true": {
+      "model": "samurai_dynasty:block/spirit_wood_pressure_plate_down"
+    }
+  }
+}

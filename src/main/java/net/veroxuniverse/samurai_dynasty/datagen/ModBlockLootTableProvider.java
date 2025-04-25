@@ -6,6 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
@@ -75,12 +76,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(BlocksRegistry.SPIRIT_WOOD_PLANKS.get());
         this.dropSelf(BlocksRegistry.SPIRIT_WOOD_LEAVES.get());
 
-        this.dropSelf(BlocksRegistry.SPIRIT_WOOD_ROOTS.get());
-        this.dropSelf(BlocksRegistry.SPIRIT_WOOD_BRANCH.get());
-
-        this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_ROOTS.get());
-        this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_BRANCH.get());
-
         this.dropSelf(BlocksRegistry.SPIRIT_PETALS.get());
 
         this.dropSelf(BlocksRegistry.SPIRIT_WOOD_SAPLING.get());
@@ -102,6 +97,40 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 createLeavesDrops(block, BlocksRegistry.SPIRIT_BLOSSOM_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
         this.dropSelf(BlocksRegistry.SPIRIT_MOSS_BLOCK.get());
+
+        this.dropSelf(BlocksRegistry.SPIRIT_LAMP.get());
+        this.dropSelf(BlocksRegistry.ANDESITE_LAMP.get());
+        this.dropSelf(BlocksRegistry.DIORITE_LAMP.get());
+        this.dropSelf(BlocksRegistry.GRANITE_LAMP.get());
+        this.dropSelf(BlocksRegistry.STONE_LAMP.get());
+        this.dropSelf(BlocksRegistry.DEEPSLATE_LAMP.get());
+
+        this.dropOther(BlocksRegistry.SPIRIT_BLOSSOM_ROOTS.get(), Items.STICK);
+        this.dropOther(BlocksRegistry.SPIRIT_BLOSSOM_BRANCH.get(), Items.STICK);
+        this.dropOther(BlocksRegistry.SPIRIT_WOOD_ROOTS.get(), Items.STICK);
+        this.dropOther(BlocksRegistry.SPIRIT_WOOD_BRANCH.get(), Items.STICK);
+
+        this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_STAIRS.get());
+        this.add(BlocksRegistry.SPIRIT_BLOSSOM_SLAB.get(),
+                block -> createSlabItemTable(BlocksRegistry.SPIRIT_BLOSSOM_SLAB.get()));
+        this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_FENCE.get());
+        this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_FENCE_GATE.get());
+        this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_BUTTON.get());
+        this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_PRESSURE_PLATE.get());
+        this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_TRAPDOOR.get());
+        this.add(BlocksRegistry.SPIRIT_BLOSSOM_DOOR.get(),
+                block -> createDoorTable(BlocksRegistry.SPIRIT_BLOSSOM_DOOR.get()));
+
+        this.dropSelf(BlocksRegistry.SPIRIT_WOOD_STAIRS.get());
+        this.add(BlocksRegistry.SPIRIT_WOOD_SLAB.get(),
+                block -> createSlabItemTable(BlocksRegistry.SPIRIT_WOOD_SLAB.get()));
+        this.dropSelf(BlocksRegistry.SPIRIT_WOOD_FENCE.get());
+        this.dropSelf(BlocksRegistry.SPIRIT_WOOD_FENCE_GATE.get());
+        this.dropSelf(BlocksRegistry.SPIRIT_WOOD_BUTTON.get());
+        this.dropSelf(BlocksRegistry.SPIRIT_WOOD_PRESSURE_PLATE.get());
+        this.dropSelf(BlocksRegistry.SPIRIT_WOOD_TRAPDOOR.get());
+        this.add(BlocksRegistry.SPIRIT_WOOD_DOOR.get(),
+                block -> createDoorTable(BlocksRegistry.SPIRIT_WOOD_DOOR.get()));
 
         
     }

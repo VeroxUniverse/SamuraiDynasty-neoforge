@@ -29,7 +29,7 @@ public class OniMaskRenderer implements ICurioRenderer {
     public <T extends LivingEntity, M extends EntityModel<T>> void render(ItemStack stack, SlotContext slotContext, PoseStack matrixStack, RenderLayerParent<T, M> renderLayerParent, MultiBufferSource renderTypeBuffer, int light, float limbSwing,
                                                                           float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
 
-        matrixStack.translate(0,0.05,0);
+        matrixStack.translate(0,0,0);
         LivingEntity entity = slotContext.entity();
         ICurioRenderer.followHeadRotations(entity, this.oniMaskModel.bipedArmorHead);
         //ICurioRenderer.rotateIfSneaking(matrixStack, entity);

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "samurai_dynasty:block/spirit_wood_slab"
+    },
+    "type=double": {
+      "model": "samurai_dynasty:block/spirit_wood_planks"
+    },
+    "type=top": {
+      "model": "samurai_dynasty:block/spirit_wood_slab_top"
+    }
+  }
+}

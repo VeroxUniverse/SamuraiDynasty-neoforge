@@ -1,6 +1,7 @@
 {
-  "parent": "block/cube_all",
+  "parent": "minecraft:block/cube_column",
   "textures": {
-    "all": "samurai_dynasty:block/steel_block"
+    "end": "samurai_dynasty:block/steel_block_top",
+    "side": "samurai_dynasty:block/steel_block_side"
   }
 }

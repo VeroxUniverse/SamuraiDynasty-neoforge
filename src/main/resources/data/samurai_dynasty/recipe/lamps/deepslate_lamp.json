@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:polished_deepslatee_slab"
+    },
+    "B": {
+      "item": "minecraft:polished_deepslate"
+    },
+    "T": {
+      "item": "minecraft:torch"
+    }
+  },
+  "pattern": [
+    "S",
+    "T",
+    "B"
+  ],
+  "result": {
+    "id": "samurai_dynasty:deepslate_lamp"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "spirit_blossom_stairs",
+  "key": {
+    "#": {
+      "item": "samurai_dynasty:spirit_blossom_planks"
+    }
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "id": "samurai_dynasty:spirit_blossom_stairs"
+  }
+}

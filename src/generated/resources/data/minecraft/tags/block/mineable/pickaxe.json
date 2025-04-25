@@ -29,6 +29,12 @@
     "samurai_dynasty:kawauso_statue",
     "samurai_dynasty:stone_roof",
     "samurai_dynasty:stone_roof_top",
-    "samurai_dynasty:stone_roof_corner"
+    "samurai_dynasty:stone_roof_corner",
+    "samurai_dynasty:deepslate_lamp",
+    "samurai_dynasty:diorite_lamp",
+    "samurai_dynasty:stone_lamp",
+    "samurai_dynasty:granite_lamp",
+    "samurai_dynasty:andesite_lamp",
+    "samurai_dynasty:spirit_lamp"
   ]
 }

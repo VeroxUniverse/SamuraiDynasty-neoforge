@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "support_type=normal": { "model": "samurai_dynasty:block/stone_lamp" },
+    "support_type=wall":   { "model": "samurai_dynasty:block/stone_lamp_wall" },
+    "support_type=hanging":{ "model": "samurai_dynasty:block/stone_lamp_hanging" }
+  }
+}

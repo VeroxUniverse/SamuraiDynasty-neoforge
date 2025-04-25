@@ -1,0 +1,7 @@
+{
+	"parent": "samurai_dynasty:block/lamp",
+	"textures": {
+		"0": "samurai_dynasty:block/spirit_lamp_states",
+		"particle": "samurai_dynasty:block/spirit_lamp_states"
+	}
+}

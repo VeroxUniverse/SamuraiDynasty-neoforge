@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_fence_gate_open",
+  "textures": {
+    "texture": "samurai_dynasty:block/spirit_wood_planks"
+  }
+}

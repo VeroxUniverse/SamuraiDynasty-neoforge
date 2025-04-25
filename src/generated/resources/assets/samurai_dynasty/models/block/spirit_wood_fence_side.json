@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_side",
+  "textures": {
+    "texture": "samurai_dynasty:block/spirit_wood_planks"
+  }
+}

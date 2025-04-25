@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:polished_diorite_slab"
+    },
+    "B": {
+      "item": "minecraft:polished_diorite"
+    },
+    "T": {
+      "item": "minecraft:torch"
+    }
+  },
+  "pattern": [
+    "S",
+    "T",
+    "B"
+  ],
+  "result": {
+    "id": "samurai_dynasty:diorite_lamp"
+  }
+}

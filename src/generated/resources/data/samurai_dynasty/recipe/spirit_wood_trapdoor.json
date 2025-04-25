@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "spirit_wood_trapdoor",
+  "key": {
+    "#": {
+      "item": "samurai_dynasty:spirit_wood_planks"
+    }
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "result": {
+    "count": 2,
+    "id": "samurai_dynasty:spirit_wood_trapdoor"
+  }
+}

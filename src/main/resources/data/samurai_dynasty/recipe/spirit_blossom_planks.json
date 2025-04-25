@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "samurai_dynasty:spirit_blossom_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "samurai_dynasty:spirit_blossom_planks"
+  }
+}

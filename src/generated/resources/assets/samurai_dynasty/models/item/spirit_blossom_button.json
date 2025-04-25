@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_inventory",
+  "textures": {
+    "texture": "samurai_dynasty:block/spirit_blossom_planks"
+  }
+}

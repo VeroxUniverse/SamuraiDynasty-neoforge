@@ -29,6 +29,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ItemsRegistry.MASTER_SAMURAI_LEGGINGS.get());
         basicItem(ItemsRegistry.MASTER_SAMURAI_HELMET.get());
 
+        buttonItem(BlocksRegistry.SPIRIT_BLOSSOM_BUTTON, BlocksRegistry.SPIRIT_BLOSSOM_PLANKS);
+        fenceItem(BlocksRegistry.SPIRIT_BLOSSOM_FENCE, BlocksRegistry.SPIRIT_BLOSSOM_PLANKS);
+        basicItem(BlocksRegistry.SPIRIT_BLOSSOM_DOOR.asItem());
+
+        buttonItem(BlocksRegistry.SPIRIT_WOOD_BUTTON, BlocksRegistry.SPIRIT_WOOD_PLANKS);
+        fenceItem(BlocksRegistry.SPIRIT_WOOD_FENCE, BlocksRegistry.SPIRIT_WOOD_PLANKS);
+        basicItem(BlocksRegistry.SPIRIT_WOOD_DOOR.asItem());
+
         saplingItem(BlocksRegistry.SPIRIT_WOOD_SAPLING);
         saplingItem(BlocksRegistry.SPIRIT_BLOSSOM_SAPLING);
         saplingItem(BlocksRegistry.SPIDER_LILLY);

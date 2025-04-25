@@ -7,6 +7,7 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
+import net.veroxuniverse.samurai_dynasty.registry.BlocksRegistry;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -18,6 +19,37 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(RecipeOutput pRecipeOutput) {
+
+        slab(pRecipeOutput, RecipeCategory.BUILDING_BLOCKS, BlocksRegistry.SPIRIT_BLOSSOM_SLAB.get(), BlocksRegistry.SPIRIT_BLOSSOM_PLANKS);
+        stairBuilder(BlocksRegistry.SPIRIT_BLOSSOM_STAIRS.get(), Ingredient.of(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get())).group("spirit_blossom_stairs")
+                .unlockedBy("has_spirit_blossom_planks", has(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get())).save(pRecipeOutput);
+        doorBuilder(BlocksRegistry.SPIRIT_BLOSSOM_DOOR.get(), Ingredient.of(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get())).group("spirit_blossom_door")
+                .unlockedBy("has_spirit_blossom_planks", has(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get())).save(pRecipeOutput);
+        trapdoorBuilder(BlocksRegistry.SPIRIT_BLOSSOM_TRAPDOOR.get(), Ingredient.of(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get())).group("spirit_blossom_trapdoor")
+                .unlockedBy("has_spirit_blossom_planks", has(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get())).save(pRecipeOutput);
+        pressurePlate(pRecipeOutput, BlocksRegistry.SPIRIT_BLOSSOM_PRESSURE_PLATE.get(), BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get());
+        buttonBuilder(BlocksRegistry.SPIRIT_BLOSSOM_BUTTON.get(), Ingredient.of(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get())).group("spirit_blossom_button")
+                .unlockedBy("has_spirit_blossom_planks", has(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get())).save(pRecipeOutput);
+        fenceBuilder(BlocksRegistry.SPIRIT_BLOSSOM_FENCE.get(), Ingredient.of(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get())).group("spirit_blossom_fence")
+                .unlockedBy("has_spirit_blossom_planks", has(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get())).save(pRecipeOutput);
+        fenceGateBuilder(BlocksRegistry.SPIRIT_BLOSSOM_FENCE_GATE.get(), Ingredient.of(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get())).group("spirit_blossom_fence_gate")
+                .unlockedBy("has_spirit_blossom_planks", has(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get())).save(pRecipeOutput);
+
+
+        slab(pRecipeOutput, RecipeCategory.BUILDING_BLOCKS, BlocksRegistry.SPIRIT_WOOD_SLAB.get(), BlocksRegistry.SPIRIT_WOOD_PLANKS);
+        stairBuilder(BlocksRegistry.SPIRIT_WOOD_STAIRS.get(), Ingredient.of(BlocksRegistry.SPIRIT_WOOD_PLANKS.get())).group("spirit_wood_stairs")
+                .unlockedBy("has_spirit_wood_planks", has(BlocksRegistry.SPIRIT_WOOD_PLANKS.get())).save(pRecipeOutput);
+        doorBuilder(BlocksRegistry.SPIRIT_WOOD_DOOR.get(), Ingredient.of(BlocksRegistry.SPIRIT_WOOD_PLANKS.get())).group("spirit_wood_door")
+                .unlockedBy("has_spirit_wood_planks", has(BlocksRegistry.SPIRIT_WOOD_PLANKS.get())).save(pRecipeOutput);
+        trapdoorBuilder(BlocksRegistry.SPIRIT_WOOD_TRAPDOOR.get(), Ingredient.of(BlocksRegistry.SPIRIT_WOOD_PLANKS.get())).group("spirit_wood_trapdoor")
+                .unlockedBy("has_spirit_wood_planks", has(BlocksRegistry.SPIRIT_WOOD_PLANKS.get())).save(pRecipeOutput);
+        pressurePlate(pRecipeOutput, BlocksRegistry.SPIRIT_WOOD_PRESSURE_PLATE.get(), BlocksRegistry.SPIRIT_WOOD_PLANKS.get());
+        buttonBuilder(BlocksRegistry.SPIRIT_WOOD_BUTTON.get(), Ingredient.of(BlocksRegistry.SPIRIT_WOOD_PLANKS.get())).group("spirit_wood_button")
+                .unlockedBy("has_spirit_wood_planks", has(BlocksRegistry.SPIRIT_WOOD_PLANKS.get())).save(pRecipeOutput);
+        fenceBuilder(BlocksRegistry.SPIRIT_WOOD_FENCE.get(), Ingredient.of(BlocksRegistry.SPIRIT_WOOD_PLANKS.get())).group("spirit_wood_fence")
+                .unlockedBy("has_spirit_wood_planks", has(BlocksRegistry.SPIRIT_WOOD_PLANKS.get())).save(pRecipeOutput);
+        fenceGateBuilder(BlocksRegistry.SPIRIT_WOOD_FENCE_GATE.get(), Ingredient.of(BlocksRegistry.SPIRIT_WOOD_PLANKS.get())).group("spirit_wood_fence_gate")
+                .unlockedBy("has_spirit_wood_planks", has(BlocksRegistry.SPIRIT_WOOD_PLANKS.get())).save(pRecipeOutput);
 
     }
 

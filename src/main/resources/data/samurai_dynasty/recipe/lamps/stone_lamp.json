@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "minecraft:stone_slab"
+    },
+    "B": {
+      "item": "minecraft:stone"
+    },
+    "T": {
+      "item": "minecraft:torch"
+    }
+  },
+  "pattern": [
+    "S",
+    "T",
+    "B"
+  ],
+  "result": {
+    "id": "samurai_dynasty:stone_lamp"
+  }
+}

@@ -17,6 +17,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        blockWithItem(BlocksRegistry.SPIRIT_STONE_BASE);
         blockWithItem(BlocksRegistry.SPIRIT_STONE);
         stairsBlock((StairBlock) BlocksRegistry.SPIRIT_STONE_STAIRS.get(), blockTexture(BlocksRegistry.SPIRIT_STONE.get()));
         slabBlock(((SlabBlock) BlocksRegistry.SPIRIT_STONE_SLAB.get()), blockTexture(BlocksRegistry.SPIRIT_STONE.get()), blockTexture(BlocksRegistry.SPIRIT_STONE.get()));
@@ -85,6 +86,37 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 models().cross(blockTexture(BlocksRegistry.SPIDER_LILLY.get()).getPath(), blockTexture(BlocksRegistry.SPIDER_LILLY.get())).renderType("cutout"));
         simpleBlock(BlocksRegistry.POTTED_SPIDER_LILLY.get(), models().singleTexture("potted_spider_lilly", ResourceLocation.parse("flower_pot_cross"), "plant",
                 blockTexture(BlocksRegistry.SPIDER_LILLY.get())).renderType("cutout"));
+
+        stairsBlock(((StairBlock) BlocksRegistry.SPIRIT_BLOSSOM_STAIRS.get()), blockTexture(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get()));
+        slabBlock(((SlabBlock) BlocksRegistry.SPIRIT_BLOSSOM_SLAB.get()), blockTexture(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get()), blockTexture(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get()));
+        pressurePlateBlock(((PressurePlateBlock) BlocksRegistry.SPIRIT_BLOSSOM_PRESSURE_PLATE.get()), blockTexture(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get()));
+        buttonBlock(((ButtonBlock) BlocksRegistry.SPIRIT_BLOSSOM_BUTTON.get()), blockTexture(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get()));
+        fenceBlock(((FenceBlock) BlocksRegistry.SPIRIT_BLOSSOM_FENCE.get()), blockTexture(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get()));
+        fenceGateBlock(((FenceGateBlock) BlocksRegistry.SPIRIT_BLOSSOM_FENCE_GATE.get()), blockTexture(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get()));
+        doorBlockWithRenderType(((DoorBlock) BlocksRegistry.SPIRIT_BLOSSOM_DOOR.get()), modLoc("block/spirit_blossom_door_bottom"), modLoc("block/spirit_blossom_door_top"), "cutout");
+        trapdoorBlockWithRenderType(((TrapDoorBlock) BlocksRegistry.SPIRIT_BLOSSOM_TRAPDOOR.get()), modLoc("block/spirit_blossom_trapdoor"), true, "cutout");
+
+        blockItem(BlocksRegistry.SPIRIT_BLOSSOM_STAIRS);
+        blockItem(BlocksRegistry.SPIRIT_BLOSSOM_SLAB);
+        blockItem(BlocksRegistry.SPIRIT_BLOSSOM_PRESSURE_PLATE);
+        blockItem(BlocksRegistry.SPIRIT_BLOSSOM_FENCE_GATE);
+        blockItem(BlocksRegistry.SPIRIT_BLOSSOM_TRAPDOOR, "_bottom");
+
+        stairsBlock(((StairBlock) BlocksRegistry.SPIRIT_WOOD_STAIRS.get()), blockTexture(BlocksRegistry.SPIRIT_WOOD_PLANKS.get()));
+        slabBlock(((SlabBlock) BlocksRegistry.SPIRIT_WOOD_SLAB.get()), blockTexture(BlocksRegistry.SPIRIT_WOOD_PLANKS.get()), blockTexture(BlocksRegistry.SPIRIT_WOOD_PLANKS.get()));
+        pressurePlateBlock(((PressurePlateBlock) BlocksRegistry.SPIRIT_WOOD_PRESSURE_PLATE.get()), blockTexture(BlocksRegistry.SPIRIT_WOOD_PLANKS.get()));
+        buttonBlock(((ButtonBlock) BlocksRegistry.SPIRIT_WOOD_BUTTON.get()), blockTexture(BlocksRegistry.SPIRIT_WOOD_PLANKS.get()));
+        fenceBlock(((FenceBlock) BlocksRegistry.SPIRIT_WOOD_FENCE.get()), blockTexture(BlocksRegistry.SPIRIT_WOOD_PLANKS.get()));
+        fenceGateBlock(((FenceGateBlock) BlocksRegistry.SPIRIT_WOOD_FENCE_GATE.get()), blockTexture(BlocksRegistry.SPIRIT_WOOD_PLANKS.get()));
+        doorBlockWithRenderType(((DoorBlock) BlocksRegistry.SPIRIT_WOOD_DOOR.get()), modLoc("block/spirit_wood_door_bottom"), modLoc("block/spirit_wood_door_top"), "cutout");
+        trapdoorBlockWithRenderType(((TrapDoorBlock) BlocksRegistry.SPIRIT_WOOD_TRAPDOOR.get()), modLoc("block/spirit_wood_trapdoor"), true, "cutout");
+
+        blockItem(BlocksRegistry.SPIRIT_WOOD_STAIRS);
+        blockItem(BlocksRegistry.SPIRIT_WOOD_SLAB);
+        blockItem(BlocksRegistry.SPIRIT_WOOD_PRESSURE_PLATE);
+        blockItem(BlocksRegistry.SPIRIT_WOOD_FENCE_GATE);
+        blockItem(BlocksRegistry.SPIRIT_WOOD_TRAPDOOR, "_bottom");
+        
     }
 
 

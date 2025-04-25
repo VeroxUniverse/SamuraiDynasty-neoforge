@@ -12,6 +12,23 @@
     "samurai_dynasty:spirit_wood_roots",
     "samurai_dynasty:spirit_blossom_branch",
     "samurai_dynasty:spirit_blossom_roots",
-    "samurai_dynasty:spirit_wood_planks"
+    "samurai_dynasty:spirit_blossom_planks",
+    "samurai_dynasty:spirit_wood_planks",
+    "samurai_dynasty:spirit_wood_fence",
+    "samurai_dynasty:spirit_blossom_fence",
+    "samurai_dynasty:spirit_wood_fence_gate",
+    "samurai_dynasty:spirit_blossom_fence_gate",
+    "samurai_dynasty:spirit_wood_door",
+    "samurai_dynasty:spirit_blossom_door",
+    "samurai_dynasty:spirit_wood_trapdoor",
+    "samurai_dynasty:spirit_blossom_trapdoor",
+    "samurai_dynasty:spirit_wood_slab",
+    "samurai_dynasty:spirit_blossom_slab",
+    "samurai_dynasty:spirit_wood_stairs",
+    "samurai_dynasty:spirit_blossom_stairs",
+    "samurai_dynasty:spirit_wood_button",
+    "samurai_dynasty:spirit_blossom_button",
+    "samurai_dynasty:spirit_wood_pressure_plate",
+    "samurai_dynasty:spirit_blossom_pressure_plate"
   ]
 }

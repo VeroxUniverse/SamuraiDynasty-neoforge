@@ -14,6 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
@@ -30,6 +31,7 @@ import net.veroxuniverse.samurai_dynasty.worldgen.features.decorators.LeavesAwar
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -52,12 +54,15 @@ public class ModTreeConfiguredFeatures {
                 UniformInt.of(5, 6),
                 BlockStateProvider.simple(BlocksRegistry.SPIRIT_WOOD.get()),
                 BlockStateProvider.simple(BlocksRegistry.SPIRIT_WOOD_LEAVES.get()),
-                BlocksRegistry.SPIRIT_WOOD.get(), BlocksRegistry.SPIRIT_WOOD_LEAVES.get(), BlockTags.DIRT,
+                Set.of(BlocksRegistry.SPIRIT_WOOD.get()),
+                Set.of(BlocksRegistry.SPIRIT_WOOD_LEAVES.get()),
+                BlockPredicate.matchesTag(BlockTags.DIRT),
+                BlockPredicate.replaceable(),
                 3,
-                ImmutableList.of(MOSS_BLOCK)
+                ImmutableList.of(MOSS_BLOCK),
+                Set.of(BlocksRegistry.SPIRIT_WOOD_BRANCH.get(), BlocksRegistry.SPIRIT_WOOD_ROOTS.get())
         );
     });
-
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPIRIT_WOOD_TREE2 = createConfiguredFeature("spirit_wood_tree2", TYGFeatures.TREE_FROM_NBT_V1, configuredFeatureBootstapContext -> {
         return new TreeFromStructureNBTConfig(
                 createLocation("features/trees/spirit_wood_tree/spirit_wood_tree_trunk2"),
@@ -65,9 +70,13 @@ public class ModTreeConfiguredFeatures {
                 UniformInt.of(5, 6),
                 BlockStateProvider.simple(BlocksRegistry.SPIRIT_WOOD.get()),
                 BlockStateProvider.simple(BlocksRegistry.SPIRIT_WOOD_LEAVES.get()),
-                BlocksRegistry.SPIRIT_WOOD.get(), BlocksRegistry.SPIRIT_WOOD_LEAVES.get(), BlockTags.DIRT,
+                Set.of(BlocksRegistry.SPIRIT_WOOD.get()),
+                Set.of(BlocksRegistry.SPIRIT_WOOD_LEAVES.get()),
+                BlockPredicate.matchesTag(BlockTags.DIRT),
+                BlockPredicate.replaceable(),
                 3,
-                ImmutableList.of(MOSS_BLOCK)
+                ImmutableList.of(MOSS_BLOCK),
+                Set.of(BlocksRegistry.SPIRIT_WOOD_BRANCH.get(), BlocksRegistry.SPIRIT_WOOD_ROOTS.get())
         );
     });
 
@@ -78,9 +87,13 @@ public class ModTreeConfiguredFeatures {
                 UniformInt.of(5, 10),
                 BlockStateProvider.simple(BlocksRegistry.SPIRIT_WOOD.get()),
                 BlockStateProvider.simple(BlocksRegistry.SPIRIT_WOOD_LEAVES.get()),
-                BlocksRegistry.SPIRIT_WOOD.get(), BlocksRegistry.SPIRIT_WOOD_LEAVES.get(), BlockTags.DIRT,
+                Set.of(BlocksRegistry.SPIRIT_WOOD.get()),
+                Set.of(BlocksRegistry.SPIRIT_WOOD_LEAVES.get()),
+                BlockPredicate.matchesTag(BlockTags.DIRT),
+                BlockPredicate.replaceable(),
                 3,
-                ImmutableList.of(MOSS_BLOCK)
+                ImmutableList.of(MOSS_BLOCK),
+                Set.of(BlocksRegistry.SPIRIT_WOOD_BRANCH.get(), BlocksRegistry.SPIRIT_WOOD_ROOTS.get())
         );
     });
 
