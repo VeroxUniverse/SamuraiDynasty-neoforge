@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.jorogumo.idle": {
+		"idle": {
 			"loop": true,
 			"animation_length": 1.52,
 			"bones": {
@@ -228,7 +228,7 @@
 				}
 			}
 		},
-		"animation.jorogumo.move": {
+		"walk": {
 			"loop": true,
 			"animation_length": 0.6,
 			"bones": {
@@ -509,7 +509,7 @@
 				}
 			}
 		},
-		"animation.jorogumo.attack": {
+		"attack": {
 			"animation_length": 0.8,
 			"bones": {
 				"spider_thing": {

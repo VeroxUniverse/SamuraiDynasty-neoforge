@@ -1,13 +1,6 @@
 package net.veroxuniverse.samurai_dynasty.entity.custom;
 
-import mod.azure.azurelib.animatable.GeoEntity;
-import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
-import mod.azure.azurelib.core.animation.AnimatableManager;
-import mod.azure.azurelib.core.animation.Animation;
-import mod.azure.azurelib.core.animation.AnimationController;
-import mod.azure.azurelib.core.animation.RawAnimation;
-import mod.azure.azurelib.core.object.PlayState;
-import mod.azure.azurelib.util.AzureLibUtil;
+import mod.azure.azurelib.util.MoveAnalysis;
 import net.minecraft.Util;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -28,27 +21,28 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.veroxuniverse.samurai_dynasty.client.entities.KitsuneDispatcher;
 import net.veroxuniverse.samurai_dynasty.entity.custom.goals.KitsuneAttackGoal;
 import net.veroxuniverse.samurai_dynasty.entity.variant.KitsuneVariant;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import static net.minecraft.world.entity.monster.hoglin.HoglinBase.throwTarget;
-public class KitsuneEntity extends Monster implements GeoEntity {
+public class KitsuneEntity extends Monster {
+
+    public final KitsuneDispatcher dispatcher;
+
+    public final MoveAnalysis moveAnalysis;
 
     private static final EntityDataAccessor<Integer> DATA_ID_TYPE_VARIANT =
             SynchedEntityData.defineId(KitsuneEntity.class, EntityDataSerializers.INT);
 
-    private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
-
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return cache;
-    }
     public KitsuneEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.setPathfindingMalus(BlockPathTypes.POWDER_SNOW, -1.0F);
         this.setPathfindingMalus(BlockPathTypes.DANGER_POWDER_SNOW, -1.0F);
+        this.dispatcher = new KitsuneDispatcher(this);
+        this.moveAnalysis = new MoveAnalysis(this);
     }
 
     public static AttributeSupplier setAttributes() {return Monster.createMobAttributes()
@@ -63,8 +57,9 @@ public class KitsuneEntity extends Monster implements GeoEntity {
     protected void registerGoals() {
 
         this.goalSelector.addGoal(1, new FloatGoal(this));
-
-        this.goalSelector.addGoal(2, new KitsuneAttackGoal(this, 1.2D, true));
+        this.goalSelector.addGoal(2, new KitsuneAttackGoal(this, 1.0D, true,
+                () -> this.dispatcher.attack(),
+                () -> this.dispatcher.attack() ));
         //this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, true)); Not needed > KitsuneAttackGoal
         //this.goalSelector.addGoal(3, new MoveTowardsTargetGoal(this, 1.2D, 25.0F)); Not needed > KitsuneAttackGoal
 
@@ -77,6 +72,23 @@ public class KitsuneEntity extends Monster implements GeoEntity {
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, false));
         //this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, true)); Villager Attack
 
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        moveAnalysis.update();
+
+        if (this.level().isClientSide) {
+            var isMovingOnGround = moveAnalysis.isMovingHorizontally() && onGround();
+            Runnable animationRunner;
+            if (isMovingOnGround) {
+                animationRunner = dispatcher::walk;
+            } else {
+                animationRunner = dispatcher::idle;
+            }
+            animationRunner.run();
+        }
     }
 
     @Override
@@ -120,29 +132,6 @@ public class KitsuneEntity extends Monster implements GeoEntity {
     @Override
     public int getCurrentSwingDuration() {
         return 18;
-    }
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "move_controller", 5, state -> {
-            if (state.isMoving() && !this.swinging){
-                state.setAnimation(RawAnimation.begin().then("animation.kitsune.walk", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
-            } else if (!state.isMoving() && !this.swinging) {
-                state.setAnimation(RawAnimation.begin().then("animation.kitsune.idle", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
-            }
-            return PlayState.STOP;
-        }));
-        controllers.add(new AnimationController<>(this, "attack_controller", 5, state -> {
-            if (this.swinging) {
-                state.setAnimation(RawAnimation.begin().then("animation.kitsune.attack", Animation.LoopType.PLAY_ONCE));
-                return PlayState.CONTINUE;
-            }
-            state.getController().forceAnimationReset();
-            return PlayState.STOP;
-        }));
-
     }
 
     static boolean hurtAndThrowTarget(LivingEntity pKitsune, LivingEntity pTarget) {

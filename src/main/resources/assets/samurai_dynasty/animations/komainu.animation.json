@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.komainu.idle": {
+		"idle": {
 			"loop": true,
 			"animation_length": 1.64,
 			"bones": {
@@ -211,7 +211,7 @@
 				}
 			}
 		},
-		"animation.komainu.walk": {
+		"walk": {
 			"loop": true,
 			"animation_length": 0.96,
 			"bones": {
@@ -454,7 +454,7 @@
 				}
 			}
 		},
-		"animation.komainu.attack": {
+		"attack": {
 			"animation_length": 0.72,
 			"bones": {
 				"komianu": {
@@ -796,7 +796,7 @@
 				}
 			}
 		},
-		"animation.komainu.sit": {
+		"sit": {
 			"loop": true,
 			"animation_length": 1.64,
 			"bones": {

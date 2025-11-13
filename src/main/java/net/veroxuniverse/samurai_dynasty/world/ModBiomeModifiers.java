@@ -62,8 +62,7 @@ public class ModBiomeModifiers {
                 List.of(new MobSpawnSettings.SpawnerData(ModEntityTypes.TWOTAILED.get(), 20, 2, 4))));
     }
 
-
     private static ResourceKey<BiomeModifier> registerKey(String name) {
-        return ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(SamuraiDynastyMod.MOD_ID, name));
+        return ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, name));
     }
 }

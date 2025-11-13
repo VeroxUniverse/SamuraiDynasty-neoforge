@@ -1,13 +1,6 @@
 package net.veroxuniverse.samurai_dynasty.entity.custom;
 
-import mod.azure.azurelib.animatable.GeoEntity;
-import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
-import mod.azure.azurelib.core.animation.AnimatableManager;
-import mod.azure.azurelib.core.animation.Animation;
-import mod.azure.azurelib.core.animation.AnimationController;
-import mod.azure.azurelib.core.animation.RawAnimation;
-import mod.azure.azurelib.core.object.PlayState;
-import mod.azure.azurelib.util.AzureLibUtil;
+import mod.azure.azurelib.util.MoveAnalysis;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -37,11 +30,16 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.ForgeEventFactory;
+import net.veroxuniverse.samurai_dynasty.client.entities.TanukiDispatcher;
 import net.veroxuniverse.samurai_dynasty.entity.ModEntityTypes;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class TanukiEntity extends TamableAnimal implements GeoEntity {
+public class TanukiEntity extends TamableAnimal{
+
+    public final TanukiDispatcher dispatcher;
+
+    public final MoveAnalysis moveAnalysis;
 
     private static final EntityDataAccessor<Integer> HEALING =
             SynchedEntityData.defineId(TanukiEntity.class, EntityDataSerializers.INT);
@@ -49,16 +47,11 @@ public class TanukiEntity extends TamableAnimal implements GeoEntity {
     private int healTimer; // = 1200;
     private final int coolDownTime = 1200;
 
-    private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
-
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return cache;
-    }
-
     public TanukiEntity(EntityType<? extends TamableAnimal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.setTame(false);
+        this.dispatcher = new TanukiDispatcher(this);
+        this.moveAnalysis = new MoveAnalysis(this);
     }
 
     public static AttributeSupplier setAttributes() {
@@ -134,6 +127,20 @@ public class TanukiEntity extends TamableAnimal implements GeoEntity {
             }
         }
         super.tick();
+        moveAnalysis.update();
+
+        if (this.level().isClientSide) {
+            var isMovingOnGround = moveAnalysis.isMovingHorizontally() && onGround();
+            Runnable animationRunner;
+            if (this.isInSittingPose() && this.isTame()) {
+                animationRunner = dispatcher::sit;
+            } else if (isMovingOnGround) {
+                animationRunner = dispatcher::walk;
+            } else {
+                animationRunner = dispatcher::idle;
+            }
+            animationRunner.run();
+        }
     }
 
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
@@ -197,37 +204,6 @@ public class TanukiEntity extends TamableAnimal implements GeoEntity {
 
 
         return super.mobInteract(pPlayer, pHand);
-    }
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "move_controller", 5, state -> {
-            if (state.isMoving()){
-                state.setAnimation(RawAnimation.begin().then("animation.tanuki.walk", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
-            } else if (!state.isMoving() && !this.isInSittingPose()) {
-                state.setAnimation(RawAnimation.begin().then("animation.tanuki.idle", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
-            }
-            return PlayState.STOP;
-        }));
-        controllers.add(new AnimationController<>(this, "attack_controller", 5, state -> {
-            if (this.swinging) {
-                state.setAnimation(RawAnimation.begin().then("animation.tanuki.attack", Animation.LoopType.PLAY_ONCE));
-                return PlayState.CONTINUE;
-            }
-            state.getController().forceAnimationReset();
-            return PlayState.STOP;
-        }));
-        controllers.add(new AnimationController<>(this, "sit_controller", 5, state -> {
-            if (this.isInSittingPose() && this.isTame()) {
-                state.setAnimation(RawAnimation.begin().then("animation.tanuki.sit", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
-            }
-            state.getController().forceAnimationReset();
-            return PlayState.STOP;
-        }));
-
     }
 
     @Override

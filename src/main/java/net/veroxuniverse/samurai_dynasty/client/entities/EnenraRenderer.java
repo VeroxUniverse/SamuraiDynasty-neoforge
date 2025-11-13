@@ -1,27 +1,30 @@
 package net.veroxuniverse.samurai_dynasty.client.entities;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.renderer.MultiBufferSource;
+import mod.azure.azurelib.render.entity.AzEntityRenderer;
+import mod.azure.azurelib.render.entity.AzEntityRendererConfig;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 import net.veroxuniverse.samurai_dynasty.entity.custom.EnenraEntity;
-import mod.azure.azurelib.renderer.GeoEntityRenderer;
 
-public class EnenraRenderer extends GeoEntityRenderer<EnenraEntity> {
-    public EnenraRenderer(EntityRendererProvider.Context renderManager) {
-        super(renderManager, new EnenraModel());
-        this.shadowRadius = 0.3f;
-    }
+public class EnenraRenderer extends AzEntityRenderer<EnenraEntity> {
+    private static final ResourceLocation GEO = ResourceLocation.fromNamespaceAndPath(
+            SamuraiDynastyMod.MOD_ID,
+            "geo/enenra.geo.json"
+    );
 
-    @Override
-    public ResourceLocation getTextureLocation(EnenraEntity instance) {
-        return new ResourceLocation(SamuraiDynastyMod.MOD_ID, "textures/entity/enenra.png");
-    }
+    private static final ResourceLocation TEX = ResourceLocation.fromNamespaceAndPath(
+            SamuraiDynastyMod.MOD_ID,
+            "textures/entity/enenra.png"
+    );
 
-    @Override
-    public void render(EnenraEntity entity, float entityYaw, float partialTick, PoseStack poseStack,
-                       MultiBufferSource bufferSource, int packedLight) {
-        super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+    public EnenraRenderer(EntityRendererProvider.Context context) {
+        super(
+                AzEntityRendererConfig.<EnenraEntity>builder(GEO, TEX)
+                        .setAnimatorProvider(EnentraAnimator::new)
+                        .setShadowRadius(0.3f)
+                        .build(),
+                context
+        );
     }
 }

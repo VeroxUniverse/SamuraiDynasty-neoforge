@@ -1,6 +1,7 @@
 package net.veroxuniverse.samurai_dynasty.client;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
@@ -9,9 +10,12 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
+import net.veroxuniverse.samurai_dynasty.client.entities.*;
+import net.veroxuniverse.samurai_dynasty.client.projectiles.ThrownShurikenRenderer;
 import net.veroxuniverse.samurai_dynasty.compat.ArsNouveauCompat;
 import net.veroxuniverse.samurai_dynasty.curios.model.KitsuneMaskModel;
 import net.veroxuniverse.samurai_dynasty.curios.model.OniMaskModel;
+import net.veroxuniverse.samurai_dynasty.entity.ModEntityTypes;
 import net.veroxuniverse.samurai_dynasty.particle.BlueFlame;
 import net.veroxuniverse.samurai_dynasty.registry.ParticlesInit;
 
@@ -48,8 +52,22 @@ public class SamuraiDynastyClientMod {
     }
 
     @SubscribeEvent
-    public static void registerRenderers(final EntityRenderersEvent event) {
+    public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(ModEntityTypes.AKANAME.get(), AkanameRenderer::new);
+        event.registerEntityRenderer(ModEntityTypes.ENENRA.get(), EnenraRenderer::new);
+        event.registerEntityRenderer(ModEntityTypes.ONI.get(), OniRenderer::new);
+        event.registerEntityRenderer(ModEntityTypes.ONIBI.get(), OnibiRenderer::new);
+        event.registerEntityRenderer(ModEntityTypes.KITSUNE.get(), KitsuneRenderer::new);
+        event.registerEntityRenderer(ModEntityTypes.JOROGUMO.get(), JorogumoRenderer::new);
+        event.registerEntityRenderer(ModEntityTypes.KOMAINU.get(), KomainuRenderer::new);
+        event.registerEntityRenderer(ModEntityTypes.TANUKI.get(), TanukiRenderer::new);
+        event.registerEntityRenderer(ModEntityTypes.KAWAUSO.get(), KawausoRenderer::new);
+        event.registerEntityRenderer(ModEntityTypes.TWOTAILED.get(), TwoTailedRenderer::new);
+        event.registerEntityRenderer(ModEntityTypes.SHURIKEN.get(), ThrownShurikenRenderer::new);
 
+        event.registerEntityRenderer(ModEntityTypes.KITSUNE_PROJECTILE.get(), KitsuneProjectileRenderer::new);
+        event.registerEntityRenderer(ModEntityTypes.KUNAI.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(ModEntityTypes.KUNAI_NETHERITE.get(), ThrownItemRenderer::new);
     }
 
     @SubscribeEvent

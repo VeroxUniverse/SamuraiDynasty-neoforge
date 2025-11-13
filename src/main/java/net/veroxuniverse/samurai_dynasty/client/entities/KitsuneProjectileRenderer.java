@@ -14,11 +14,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 import net.veroxuniverse.samurai_dynasty.entity.custom.KitsuneProjectileEntity;
 
 @OnlyIn(Dist.CLIENT)
 public class KitsuneProjectileRenderer extends EntityRenderer<KitsuneProjectileEntity> {
-    private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation("textures/entity/kitsune_projectile.png");
+    private static final ResourceLocation TEXTURE_LOCATION = ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID,"textures/entity/kitsune_projectile.png");
     private static final RenderType RENDER_TYPE = RenderType.entityTranslucent(TEXTURE_LOCATION);
     private final KitsuneProjectileModel<KitsuneProjectileEntity> model;
 

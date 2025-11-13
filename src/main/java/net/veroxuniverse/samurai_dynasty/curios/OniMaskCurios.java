@@ -48,7 +48,7 @@ public class OniMaskCurios extends Item implements ICurioItem {
             components.add(Component.translatable("curios.samurai_dynasty.summary"));
             components.add(Component.literal(""));
             components.add(Component.translatable( "curios.samurai_dynasty.nightvision").withStyle(ChatFormatting.GRAY));
-            components.add(Component.translatable("curios.samurai_dynasty.immune_blindness").withStyle(ChatFormatting.GRAY));
+            components.add(Component.translatable("curios.samurai_dynasty.immune_slowness").withStyle(ChatFormatting.GRAY));
             components.add(Component.translatable("curios.samurai_dynasty.immune_wither").withStyle(ChatFormatting.GRAY));
         } else if (stack.getItem() == ItemsRegistry.ONI_MASK.get()) {
             components.add(Component.translatable("curios.samurai_dynasty.summary"));

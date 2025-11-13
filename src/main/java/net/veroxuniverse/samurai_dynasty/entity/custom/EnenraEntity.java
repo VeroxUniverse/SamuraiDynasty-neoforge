@@ -1,13 +1,6 @@
 package net.veroxuniverse.samurai_dynasty.entity.custom;
 
-import mod.azure.azurelib.animatable.GeoEntity;
-import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
-import mod.azure.azurelib.core.animation.AnimatableManager;
-import mod.azure.azurelib.core.animation.Animation;
-import mod.azure.azurelib.core.animation.AnimationController;
-import mod.azure.azurelib.core.animation.RawAnimation;
-import mod.azure.azurelib.core.object.PlayState;
-import mod.azure.azurelib.util.AzureLibUtil;
+import mod.azure.azurelib.util.MoveAnalysis;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -25,20 +18,20 @@ import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.veroxuniverse.samurai_dynasty.client.entities.AkanameDispatcher;
+import net.veroxuniverse.samurai_dynasty.client.entities.EnenraDispatcher;
 
-public class EnenraEntity extends Monster implements GeoEntity {
+public class EnenraEntity extends Monster{
 
-    private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
+    public final EnenraDispatcher dispatcher;
 
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return cache;
-    }
+    public final MoveAnalysis moveAnalysis;
 
     public EnenraEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
+        this.dispatcher = new EnenraDispatcher(this);
+        this.moveAnalysis = new MoveAnalysis(this);
     }
-
 
     public static AttributeSupplier setAttributes() {
         return Monster.createMobAttributes()
@@ -63,28 +56,21 @@ public class EnenraEntity extends Monster implements GeoEntity {
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Allay.class, true));
     }
 
-
     @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "move_controller", 5, state -> {
-            if (state.isMoving() && !this.swinging){
-                state.setAnimation(RawAnimation.begin().then("animation.enenra.walk", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
-            } else if (!state.isMoving() && !this.swinging) {
-                state.setAnimation(RawAnimation.begin().then("animation.enenra.idle", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
-            }
-            return PlayState.STOP;
-        }));
-        controllers.add(new AnimationController<>(this, "attack_controller", 5, state -> {
-            if (this.swinging) {
-                state.setAnimation(RawAnimation.begin().then("animation.enenra.attack", Animation.LoopType.PLAY_ONCE));
-                return PlayState.CONTINUE;
-            }
-            state.getController().forceAnimationReset();
-            return PlayState.STOP;
-        }));
+    public void tick() {
+        super.tick();
+        moveAnalysis.update();
 
+        if (this.level().isClientSide) {
+            var isMovingOnGround = moveAnalysis.isMovingHorizontally() && onGround();
+            Runnable animationRunner;
+            if (isMovingOnGround) {
+                animationRunner = dispatcher::walk;
+            } else {
+                animationRunner = dispatcher::idle;
+            }
+            animationRunner.run();
+        }
     }
 
     public void aiStep() {

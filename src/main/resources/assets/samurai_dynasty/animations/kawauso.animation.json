@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.kawauso.idle": {
+		"idle": {
 			"loop": true,
 			"animation_length": 1.2,
 			"bones": {
@@ -250,7 +250,7 @@
 				}
 			}
 		},
-		"animation.kawauso.walk": {
+		"walk": {
 			"loop": true,
 			"animation_length": 0.84,
 			"bones": {
@@ -513,7 +513,7 @@
 				}
 			}
 		},
-		"animation.kawauso.attack": {
+		"attack": {
 			"animation_length": 0.88,
 			"bones": {
 				"kawauso": {
@@ -889,7 +889,7 @@
 				}
 			}
 		},
-		"animation.kawauso.sit": {
+		"sit": {
 			"loop": true,
 			"animation_length": 1.2,
 			"bones": {

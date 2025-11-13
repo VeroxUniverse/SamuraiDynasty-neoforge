@@ -25,8 +25,6 @@ public class ModEvents {
             event.put(ModEntityTypes.KITSUNE.get(), KitsuneEntity.setAttributes());
             event.put(ModEntityTypes.ONIBI.get(), OnibiEntity.setAttributes());
             event.put(ModEntityTypes.JOROGUMO.get(), JorogumoEntity.setAttributes());
-            event.put(ModEntityTypes.FUJIN.get(), FujinEntity.setAttributes());
-            event.put(ModEntityTypes.RAIJIN.get(), RaijinEntity.setAttributes());
             event.put(ModEntityTypes.KOMAINU.get(), KomainuEntity.setAttributes());
             event.put(ModEntityTypes.TANUKI.get(), KomainuEntity.setAttributes());
             event.put(ModEntityTypes.KAWAUSO.get(), KomainuEntity.setAttributes());

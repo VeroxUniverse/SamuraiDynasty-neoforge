@@ -18,7 +18,7 @@ public class ESSounds {
     public static final RegistryObject<SoundEvent> GUN_HIT = registerSoundEvents("gun_hit");
 
     private static RegistryObject<SoundEvent> registerSoundEvents(String name){
-        return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(SamuraiDynastyMod.MOD_ID, name)));
+        return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, name)));
     }
 
     public static void register(IEventBus eventBus){

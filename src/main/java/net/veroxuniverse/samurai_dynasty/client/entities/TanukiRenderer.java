@@ -1,27 +1,30 @@
 package net.veroxuniverse.samurai_dynasty.client.entities;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import mod.azure.azurelib.renderer.GeoEntityRenderer;
-import net.minecraft.client.renderer.MultiBufferSource;
+import mod.azure.azurelib.render.entity.AzEntityRenderer;
+import mod.azure.azurelib.render.entity.AzEntityRendererConfig;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 import net.veroxuniverse.samurai_dynasty.entity.custom.TanukiEntity;
 
-public class TanukiRenderer extends GeoEntityRenderer<TanukiEntity> {
-    public TanukiRenderer(EntityRendererProvider.Context renderManager) {
-        super(renderManager, new TanukiModel());
-        this.shadowRadius = 0.3f;
-    }
+public class TanukiRenderer extends AzEntityRenderer<TanukiEntity> {
+    private static final ResourceLocation GEO = ResourceLocation.fromNamespaceAndPath(
+            SamuraiDynastyMod.MOD_ID,
+            "geo/tanuki.geo.json"
+    );
 
-    @Override
-    public ResourceLocation getTextureLocation(TanukiEntity instance) {
-        return new ResourceLocation(SamuraiDynastyMod.MOD_ID, "textures/entity/tanuki.png");
-    }
+    private static final ResourceLocation TEX = ResourceLocation.fromNamespaceAndPath(
+            SamuraiDynastyMod.MOD_ID,
+            "textures/entity/tanuki.png"
+    );
 
-    @Override
-    public void render(TanukiEntity entity, float entityYaw, float partialTick, PoseStack poseStack,
-                       MultiBufferSource bufferSource, int packedLight) {
-        super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+    public TanukiRenderer(EntityRendererProvider.Context context) {
+        super(
+                AzEntityRendererConfig.<TanukiEntity>builder(GEO, TEX)
+                        .setAnimatorProvider(TanukiAnimator::new)
+                        .setShadowRadius(0.3f)
+                        .build(),
+                context
+        );
     }
 }

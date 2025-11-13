@@ -2,9 +2,6 @@ package net.veroxuniverse.samurai_dynasty.item.armor;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import mod.azure.azurelib.animatable.GeoItem;
-import mod.azure.azurelib.animatable.client.RenderProvider;
-import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -22,10 +19,8 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.compat_armors.bloodmagic.LivingSamuraiArmorRenderer;
 import net.veroxuniverse.samurai_dynasty.compat.BloodMagicCompat;
 import net.veroxuniverse.samurai_dynasty.item.armor.lib.SamuraiArmorItem;
-import org.jetbrains.annotations.NotNull;
 import wayoftime.bloodmagic.common.item.ArmorMaterialLiving;
 import wayoftime.bloodmagic.common.item.ExpandedArmor;
 import wayoftime.bloodmagic.core.LivingArmorRegistrar;
@@ -36,35 +31,10 @@ import wayoftime.bloodmagic.core.living.LivingUtil;
 import java.util.List;
 import java.util.UUID;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 public class LivingSamuraiArmorItem extends SamuraiArmorItem implements ILivingContainer, ExpandedArmor {
     public LivingSamuraiArmorItem(ArmorMaterial material, Type type, Properties properties) {
         super(material, type, properties);
-    }
-
-    private final Supplier<Object> renderProvider = GeoItem.makeRenderer(this);
-
-    // Creates the render
-    @Override
-    public void createRenderer(Consumer<Object> consumer) {
-        consumer.accept(new RenderProvider() {
-            private LivingSamuraiArmorRenderer renderer;
-
-            @Override
-            public @NotNull HumanoidModel<LivingEntity> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<LivingEntity> original) {
-                if (renderer == null)
-                    renderer = new LivingSamuraiArmorRenderer();
-
-                renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
-                return renderer;
-            }
-        });
-    }
-
-    @Override
-    public Supplier<Object> getRenderProvider() {
-        return renderProvider;
     }
 
     @Override

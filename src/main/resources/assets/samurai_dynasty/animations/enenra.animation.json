@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.enenra.walk": {
+		"walk": {
 			"animation_length": 2,
 			"bones": {
 				"Head": {
@@ -206,7 +206,7 @@
 				}
 			}
 		},
-		"animation.enenra.idle": {
+		"idle": {
 			"animation_length": 2,
 			"bones": {
 				"Head": {

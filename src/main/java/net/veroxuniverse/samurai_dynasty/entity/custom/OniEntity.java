@@ -1,13 +1,6 @@
 package net.veroxuniverse.samurai_dynasty.entity.custom;
 
-import mod.azure.azurelib.animatable.GeoEntity;
-import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
-import mod.azure.azurelib.core.animation.AnimatableManager;
-import mod.azure.azurelib.core.animation.Animation;
-import mod.azure.azurelib.core.animation.AnimationController;
-import mod.azure.azurelib.core.animation.RawAnimation;
-import mod.azure.azurelib.core.object.PlayState;
-import mod.azure.azurelib.util.AzureLibUtil;
+import mod.azure.azurelib.util.MoveAnalysis;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -25,17 +18,19 @@ import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.veroxuniverse.samurai_dynasty.client.entities.OniDispatcher;
+import net.veroxuniverse.samurai_dynasty.entity.custom.goals.AnimatedMeleeAttackGoal;
 
-public class OniEntity extends Monster implements GeoEntity {
+public class OniEntity extends Monster{
 
-    private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
+    public final OniDispatcher dispatcher;
 
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return cache;
-    }
+    public final MoveAnalysis moveAnalysis;
+
     public OniEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
+        this.dispatcher = new OniDispatcher(this);
+        this.moveAnalysis = new MoveAnalysis(this);
     }
 
     public static AttributeSupplier setAttributes() {
@@ -51,7 +46,7 @@ public class OniEntity extends Monster implements GeoEntity {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.3D, false));
+        this.goalSelector.addGoal(2, new AnimatedMeleeAttackGoal<>(this, 1.2D, false, (oni, target) -> oni.dispatcher.attack()));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
@@ -64,31 +59,25 @@ public class OniEntity extends Monster implements GeoEntity {
     }
 
     @Override
-    public int getCurrentSwingDuration() {
-        return 10;
+    public void tick() {
+        super.tick();
+        moveAnalysis.update();
+
+        if (this.level().isClientSide) {
+            var isMovingOnGround = moveAnalysis.isMovingHorizontally() && onGround();
+            Runnable animationRunner;
+            if (isMovingOnGround) {
+                animationRunner = dispatcher::walk;
+            } else {
+                animationRunner = dispatcher::idle;
+            }
+            animationRunner.run();
+        }
     }
 
     @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "move_controller", 5, state -> {
-            if (state.isMoving() && !this.swinging){
-                state.setAnimation(RawAnimation.begin().then("animation.oni.walk", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
-            } else if (!state.isMoving() && !this.swinging) {
-                state.setAnimation(RawAnimation.begin().then("animation.oni.idle", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
-            }
-            return PlayState.STOP;
-        }));
-        controllers.add(new AnimationController<>(this, "attack_controller", 5, state -> {
-            if (this.swinging) {
-                state.setAnimation(RawAnimation.begin().then("animation.oni.attack", Animation.LoopType.PLAY_ONCE));
-                return PlayState.CONTINUE;
-            }
-            state.getController().forceAnimationReset();
-            return PlayState.STOP;
-        }));
-
+    public int getCurrentSwingDuration() {
+        return 10;
     }
 
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
