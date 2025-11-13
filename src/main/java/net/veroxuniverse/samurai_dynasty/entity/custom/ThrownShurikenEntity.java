@@ -1,10 +1,6 @@
 package net.veroxuniverse.samurai_dynasty.entity.custom;
 
-import mod.azure.azurelib.common.api.common.animatable.GeoEntity;
-import mod.azure.azurelib.common.internal.common.util.AzureLibUtil;
-import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
-import mod.azure.azurelib.core.animation.*;
-import mod.azure.azurelib.core.object.PlayState;
+import mod.azure.azurelib.common.util.MoveAnalysis;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtOps;
@@ -19,20 +15,21 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.ThrownTrident;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ProjectileItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
+import net.veroxuniverse.samurai_dynasty.client.projectiles.ThrownShurikenDispatcher;
 import net.veroxuniverse.samurai_dynasty.entity.ModEntityTypes;
 import net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
-public class ThrownShurikenEntity extends AbstractArrow implements GeoEntity {
-    private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
+public class ThrownShurikenEntity extends AbstractArrow  {
+
+    public final ThrownShurikenDispatcher dispatcher;
+    public final MoveAnalysis moveAnalysis;
     private static final EntityDataAccessor<Boolean> ID_FOIL = SynchedEntityData.defineId(ThrownShurikenEntity.class, EntityDataSerializers.BOOLEAN);
     private @NotNull ItemStack shurikenItem = new ItemStack(ItemsRegistry.SHURIKEN.get());
     private boolean dealtDamage;
@@ -43,6 +40,8 @@ public class ThrownShurikenEntity extends AbstractArrow implements GeoEntity {
 
     public ThrownShurikenEntity(EntityType<? extends ThrownShurikenEntity> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
+        this.dispatcher = new ThrownShurikenDispatcher(this);
+        this.moveAnalysis = new MoveAnalysis(this);
     }
 
     public ThrownShurikenEntity(Level pLevel, LivingEntity pShooter, ItemStack pStack) {
@@ -50,10 +49,14 @@ public class ThrownShurikenEntity extends AbstractArrow implements GeoEntity {
         this.shurikenItem = pStack.copy();
         this.entityData.set(ID_FOIL, pStack.hasFoil());
         this.setOwner(pShooter);
+        this.dispatcher = new ThrownShurikenDispatcher(this);
+        this.moveAnalysis = new MoveAnalysis(this);
     }
 
     public ThrownShurikenEntity(Level level, double x, double y, double z, ItemStack itemStack) {
         super(ModEntityTypes.SHURIKEN.get(), x, y, z, level, itemStack, itemStack);
+        this.dispatcher = new ThrownShurikenDispatcher(this);
+        this.moveAnalysis = new MoveAnalysis(this);
     }
 
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
@@ -74,6 +77,14 @@ public class ThrownShurikenEntity extends AbstractArrow implements GeoEntity {
         float horizontalDistance = Mth.sqrt((float) (dx * dx + dz * dz));
         this.setYRot((float) (Mth.atan2(dx, dz) * (180F / Math.PI)));
         this.setXRot((float) (Mth.atan2(dy, horizontalDistance) * (180F / Math.PI)));
+
+        moveAnalysis.update();
+
+        if (this.level().isClientSide) {
+            Runnable animationRunner;
+            animationRunner = dispatcher::idle;
+            animationRunner.run();
+        }
     }
 
 
@@ -152,20 +163,6 @@ public class ThrownShurikenEntity extends AbstractArrow implements GeoEntity {
 
     public boolean shouldRender(double pX, double pY, double pZ) {
         return true;
-    }
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-        controllerRegistrar.add(new AnimationController<>(this, "controller", 0, this::predicate));
-    }
-
-    private PlayState predicate(AnimationState<ThrownShurikenEntity> animationState) {
-        return PlayState.STOP;
-    }
-
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return cache;
     }
 
 }

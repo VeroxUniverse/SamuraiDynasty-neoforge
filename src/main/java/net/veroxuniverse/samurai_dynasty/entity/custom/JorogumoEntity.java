@@ -1,13 +1,6 @@
 package net.veroxuniverse.samurai_dynasty.entity.custom;
 
-import mod.azure.azurelib.common.api.common.animatable.GeoEntity;
-import mod.azure.azurelib.common.internal.common.util.AzureLibUtil;
-import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
-import mod.azure.azurelib.core.animation.AnimatableManager;
-import mod.azure.azurelib.core.animation.Animation;
-import mod.azure.azurelib.core.animation.AnimationController;
-import mod.azure.azurelib.core.animation.RawAnimation;
-import mod.azure.azurelib.core.object.PlayState;
+import mod.azure.azurelib.common.util.MoveAnalysis;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -34,22 +27,22 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import net.veroxuniverse.samurai_dynasty.client.entities.JorogumoDispatcher;
+import net.veroxuniverse.samurai_dynasty.entity.goals.AnimatedMeleeAttackGoal;
 
-public class JorogumoEntity extends Monster implements GeoEntity {
+public class JorogumoEntity extends Monster {
+
+    public final JorogumoDispatcher dispatcher;
+    public final MoveAnalysis moveAnalysis;
 
     private static final EntityDataAccessor<Byte> DATA_FLAGS_ID = SynchedEntityData.defineId(JorogumoEntity.class, EntityDataSerializers.BYTE);
 
-    private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
-
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return cache;
-    }
 
     public JorogumoEntity(EntityType<? extends Monster> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
+        this.dispatcher = new JorogumoDispatcher(this);
+        this.moveAnalysis = new MoveAnalysis(this);
     }
-
 
     public static AttributeSupplier setAttributes() {
         return Monster.createMobAttributes()
@@ -101,9 +94,9 @@ public class JorogumoEntity extends Monster implements GeoEntity {
         }
     }
 
-    static class JorogumoAttackGoal extends MeleeAttackGoal {
+    static class JorogumoAttackGoal extends AnimatedMeleeAttackGoal {
         public JorogumoAttackGoal(JorogumoEntity jorogumo) {
-            super(jorogumo, 1.0D, true);
+            super(jorogumo, 1.0D, true, (mob, target) -> jorogumo.dispatcher.attack());
         }
 
         public boolean canUse() {
@@ -149,8 +142,21 @@ public class JorogumoEntity extends Monster implements GeoEntity {
 
     public void tick() {
         super.tick();
+        moveAnalysis.update();
+
         if (!this.level().isClientSide) {
             this.setClimbing(this.horizontalCollision);
+        }
+
+        if (this.level().isClientSide) {
+            var isMovingOnGround = moveAnalysis.isMovingHorizontally() && onGround();
+            Runnable animationRunner;
+            if (isMovingOnGround) {
+                animationRunner = dispatcher::walk;
+            } else {
+                animationRunner = dispatcher::idle;
+            }
+            animationRunner.run();
         }
 
     }
@@ -185,29 +191,6 @@ public class JorogumoEntity extends Monster implements GeoEntity {
         }
 
         this.entityData.set(DATA_FLAGS_ID, b0);
-    }
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "move_controller", 5, state -> {
-            if (state.isMoving() && !this.swinging){
-                state.setAnimation(RawAnimation.begin().then("animation.jorogumo.move", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
-            } else if (!state.isMoving() && !this.swinging) {
-                state.setAnimation(RawAnimation.begin().then("animation.jorogumo.idle", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
-            }
-            return PlayState.STOP;
-        }));
-        controllers.add(new AnimationController<>(this, "attack_controller", 5, state -> {
-            if (this.swinging) {
-                state.setAnimation(RawAnimation.begin().then("animation.jorogumo.attack", Animation.LoopType.PLAY_ONCE));
-                return PlayState.CONTINUE;
-            }
-            state.getController().forceAnimationReset();
-            return PlayState.STOP;
-        }));
-
     }
 
     public boolean causeFallDamage(float pFallDistance, float pMultiplier, DamageSource pSource) {

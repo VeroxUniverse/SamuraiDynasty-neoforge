@@ -1,10 +1,10 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.kitsune_small.idle": {
+		"idle": {
 			"loop": true
 		},
-		"animation.kitsune_small.walk": {
+		"walk": {
 			"loop": true,
 			"animation_length": 1,
 			"bones": {
@@ -144,10 +144,10 @@
 				}
 			}
 		},
-		"animation.kitsune_small.attack": {
+		"attack": {
 			"loop": true
 		},
-		"animation.kitsune_small.sit": {
+		"sit": {
 			"loop": true,
 			"bones": {
 				"body": {

@@ -1,7 +1,6 @@
 package net.veroxuniverse.samurai_dynasty.entity.custom;
 
-import mod.azure.azurelib.common.api.common.animatable.GeoEntity;
-import mod.azure.azurelib.common.internal.common.util.AzureLibUtil;
+import mod.azure.azurelib.common.util.MoveAnalysis;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerPlayer;
@@ -20,29 +19,25 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
-import mod.azure.azurelib.core.animation.AnimatableManager;
-import mod.azure.azurelib.core.animation.Animation;
-import mod.azure.azurelib.core.animation.AnimationController;
-import mod.azure.azurelib.core.animation.RawAnimation;
-import mod.azure.azurelib.core.object.PlayState;
 import net.minecraft.world.level.pathfinder.PathType;
+import net.veroxuniverse.samurai_dynasty.client.entities.EnenraDispatcher;
+import net.veroxuniverse.samurai_dynasty.client.entities.FujinDispatcher;
+import net.veroxuniverse.samurai_dynasty.entity.goals.AnimatedMeleeAttackGoal;
 
 import javax.annotation.Nullable;
 
-public class FujinEntity extends Monster implements GeoEntity, RangedAttackMob {
+public class FujinEntity extends Monster implements RangedAttackMob {
 
-    private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
+    public final FujinDispatcher dispatcher;
 
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return cache;
-    }
+    public final MoveAnalysis moveAnalysis;
 
     public FujinEntity(EntityType<? extends Monster> type, Level level) {
         super(type, level);
         this.setPathfindingMalus(PathType.POWDER_SNOW, -1.0F);
         this.setPathfindingMalus(PathType.DANGER_POWDER_SNOW, -1.0F);
+        this.dispatcher = new FujinDispatcher(this);
+        this.moveAnalysis = new MoveAnalysis(this);
     }
 
     public static AttributeSupplier setAttributes() {return Monster.createMobAttributes()
@@ -54,15 +49,32 @@ public class FujinEntity extends Monster implements GeoEntity, RangedAttackMob {
             .add(Attributes.ARMOR, 4.0D)
             .add(Attributes.MOVEMENT_SPEED, (double)0.2F).build();
     }
+
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.3D, false));
+        this.goalSelector.addGoal(2, new AnimatedMeleeAttackGoal<>(this, 1.2D, false, (entity, target) -> entity.dispatcher.attack()));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
 
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+    }
+
+    public void tick() {
+        super.tick();
+        moveAnalysis.update();
+
+        if (this.level().isClientSide) {
+            var isMovingOnGround = moveAnalysis.isMovingHorizontally() && onGround();
+            Runnable animationRunner;
+            if (isMovingOnGround) {
+                animationRunner = dispatcher::walk;
+            } else {
+                animationRunner = dispatcher::idle;
+            }
+            animationRunner.run();
+        }
     }
 
     private final ServerBossEvent bossEvent = (ServerBossEvent)(new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.RED, BossEvent.BossBarOverlay.PROGRESS)).setDarkenScreen(true);
@@ -99,29 +111,6 @@ public class FujinEntity extends Monster implements GeoEntity, RangedAttackMob {
     public int getCurrentSwingDuration() {
         return 18;
     } // > change to ranged attack
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "move_controller", 5, state -> {
-            if (state.isMoving() && !this.swinging){
-                state.setAnimation(RawAnimation.begin().then("animation.fujin.move", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
-            } else if (!state.isMoving() && !this.swinging) {
-                state.setAnimation(RawAnimation.begin().then("animation.fujin.idle", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
-            }
-            return PlayState.STOP;
-        }));
-        controllers.add(new AnimationController<>(this, "attack_controller", 5, state -> {
-            if (this.swinging) { // > change to ranged attack
-                state.setAnimation(RawAnimation.begin().then("animation.fujin.attack", Animation.LoopType.PLAY_ONCE));
-                return PlayState.CONTINUE;
-            }
-            state.getController().forceAnimationReset();
-            return PlayState.STOP;
-        }));
-
-    }
 
     @Override
     public void performRangedAttack(LivingEntity entity, float v) {

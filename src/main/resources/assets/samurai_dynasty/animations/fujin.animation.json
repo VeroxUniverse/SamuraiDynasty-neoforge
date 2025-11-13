@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.fujin.idle": {
+		"idle": {
 			"loop": true,
 			"animation_length": 2,
 			"bones": {
@@ -615,7 +615,7 @@
 				}
 			}
 		},
-		"animation.fujin.move": {
+		"walk": {
 			"loop": true,
 			"animation_length": 1.24,
 			"bones": {
@@ -1165,7 +1165,7 @@
 				}
 			}
 		},
-		"animation.fujin.attack": {
+		"attack": {
 			"animation_length": 1.24,
 			"bones": {
 				"fujin": {

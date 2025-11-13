@@ -53,9 +53,6 @@
       "samurai_dynasty:spirit_wood"
     ],
     "max_log_depth": 3,
-    "place_from_nbt": [
-      "samurai_dynasty:spirit_wood_roots",
-      "samurai_dynasty:spirit_wood_branch"
-    ]
+    "place_from_nbt": []
   }
 }

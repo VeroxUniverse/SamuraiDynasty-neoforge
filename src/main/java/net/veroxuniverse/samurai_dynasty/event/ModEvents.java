@@ -15,7 +15,7 @@ import net.veroxuniverse.samurai_dynasty.entity.custom.*;
 
 public class ModEvents {
 
-    @EventBusSubscriber(modid = SamuraiDynastyMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+    @EventBusSubscriber(modid = SamuraiDynastyMod.MOD_ID)
     public static class ModEventBusEvents {
 
         @SubscribeEvent

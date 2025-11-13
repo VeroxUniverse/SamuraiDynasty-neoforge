@@ -10,6 +10,9 @@ public class ModBiomes {
 
     public static final ResourceKey<Biome> SPIRIT_WOOD_FOREST = register("spirit_wood_forest");
 
+    public static final ResourceKey<Biome> SPIRIT_BLOSSOM_FOREST = register("spirit_blossom_forest");
+
+
     private static ResourceKey<Biome> register(String name){
         return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, name));
     }

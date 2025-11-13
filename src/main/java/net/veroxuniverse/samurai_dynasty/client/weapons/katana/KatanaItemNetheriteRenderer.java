@@ -1,11 +1,24 @@
 package net.veroxuniverse.samurai_dynasty.client.weapons.katana;
 
-import mod.azure.azurelib.common.api.client.renderer.GeoItemRenderer;
-import net.veroxuniverse.samurai_dynasty.item.KatanaNetheriteItem;
+import mod.azure.azurelib.common.render.item.AzItemRenderer;
+import mod.azure.azurelib.common.render.item.AzItemRendererConfig;
+import net.minecraft.resources.ResourceLocation;
+import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 
-public class KatanaItemNetheriteRenderer extends GeoItemRenderer<KatanaNetheriteItem> {
+public class KatanaItemNetheriteRenderer extends AzItemRenderer {
+    private static final ResourceLocation GEO = ResourceLocation.fromNamespaceAndPath(
+            SamuraiDynastyMod.MOD_ID,
+            "geo/katana.geo.json"
+    );
+
+    private static final ResourceLocation TEX = ResourceLocation.fromNamespaceAndPath(
+            SamuraiDynastyMod.MOD_ID,
+            "textures/weapon/katana_netherite.png"
+    );
+
     public KatanaItemNetheriteRenderer() {
-        super(new KatanaItemNetheriteModel());
-
+        super(
+                AzItemRendererConfig.builder(GEO, TEX).build()
+        );
     }
 }

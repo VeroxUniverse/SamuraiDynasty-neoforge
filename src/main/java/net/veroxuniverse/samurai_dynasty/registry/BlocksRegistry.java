@@ -210,7 +210,7 @@ public class BlocksRegistry {
             });
 
     public static final DeferredBlock<Block> SPIRIT_BLOSSOM_SAPLING = registerBlock("spirit_blossom_sapling",
-            () -> new SaplingBlock(ModTreeGrowers.SPIRIT_WOOD_TREE_GROWER, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
+            () -> new SaplingBlock(ModTreeGrowers.SPIRIT_BLOSSOM_TREE_GROWER, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
 
     public static final DeferredBlock<Block> SPIRIT_BLOSSOM_ROOTS = registerBlock("spirit_blossom_roots",
             () -> new ModHorzontalBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.VINE).noOcclusion().noCollission()));

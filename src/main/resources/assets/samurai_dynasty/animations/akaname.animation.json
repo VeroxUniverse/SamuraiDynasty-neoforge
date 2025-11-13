@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.akaname.walk": {
+		"walk": {
 			"loop": true,
 			"animation_length": 2.5,
 			"bones": {
@@ -309,7 +309,7 @@
 				}
 			}
 		},
-		"animation.akaname.idle": {
+		"idle": {
 			"loop": true,
 			"animation_length": 2.5,
 			"bones": {
@@ -528,7 +528,7 @@
 				}
 			}
 		},
-		"animation.akaname.attack": {
+		"attack": {
 			"animation_length": 0.5,
 			"bones": {
 				"head": {

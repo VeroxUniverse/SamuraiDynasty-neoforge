@@ -11,4 +11,7 @@ public class ModTreeGrowers {
     public static final TreeGrower SPIRIT_WOOD_TREE_GROWER = new TreeGrower(SamuraiDynastyMod.MOD_ID + ":spirit_wood_tree_grower",
             Optional.empty(), Optional.of(ModTreeConfiguredFeatures.SPIRIT_WOOD_TREES), Optional.empty());
 
+    public static final TreeGrower SPIRIT_BLOSSOM_TREE_GROWER = new TreeGrower(SamuraiDynastyMod.MOD_ID + ":spirit_blossom_tree_grower",
+            Optional.empty(), Optional.of(ModTreeConfiguredFeatures.SPIRIT_BLOSSOM_TREES), Optional.empty());
+
 }

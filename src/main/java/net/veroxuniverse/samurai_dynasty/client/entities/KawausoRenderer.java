@@ -1,27 +1,30 @@
 package net.veroxuniverse.samurai_dynasty.client.entities;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import mod.azure.azurelib.common.api.client.renderer.GeoEntityRenderer;
-import net.minecraft.client.renderer.MultiBufferSource;
+import mod.azure.azurelib.common.render.entity.AzEntityRenderer;
+import mod.azure.azurelib.common.render.entity.AzEntityRendererConfig;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 import net.veroxuniverse.samurai_dynasty.entity.custom.KawausoEntity;
 
-public class KawausoRenderer extends GeoEntityRenderer<KawausoEntity> {
-    public KawausoRenderer(EntityRendererProvider.Context renderManager) {
-        super(renderManager, new KawausoModel());
-        this.shadowRadius = 0.3f;
-    }
+public class KawausoRenderer extends AzEntityRenderer<KawausoEntity> {
+    private static final ResourceLocation GEO = ResourceLocation.fromNamespaceAndPath(
+            SamuraiDynastyMod.MOD_ID,
+            "geo/kawauso.geo.json"
+    );
 
-    @Override
-    public ResourceLocation getTextureLocation(KawausoEntity instance) {
-        return ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "textures/entity/kawauso.png");
-    }
+    private static final ResourceLocation TEX = ResourceLocation.fromNamespaceAndPath(
+            SamuraiDynastyMod.MOD_ID,
+            "textures/entity/kawauso.png"
+    );
 
-    @Override
-    public void render(KawausoEntity entity, float entityYaw, float partialTick, PoseStack poseStack,
-                       MultiBufferSource bufferSource, int packedLight) {
-        super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+    public KawausoRenderer(EntityRendererProvider.Context context) {
+        super(
+                AzEntityRendererConfig.<KawausoEntity>builder(GEO, TEX)
+                        .setAnimatorProvider(KawausoAnimator::new)
+                        .setShadowRadius(0.3f)
+                        .build(),
+                context
+        );
     }
 }

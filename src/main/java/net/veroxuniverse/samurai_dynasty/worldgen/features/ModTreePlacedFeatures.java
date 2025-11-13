@@ -28,6 +28,14 @@ public class ModTreePlacedFeatures {
             )
     );
 
+    public static final ResourceKey<PlacedFeature> SPIRIT_BLOSSOM_TREES = createPlacedFeature(
+            "spirit_blossom_trees",
+            ModTreeConfiguredFeatures.SPIRIT_BLOSSOM_TREES,
+            () -> VegetationPlacements.treePlacement(
+                    PlacementUtils.countExtra(4, 0.25F, 2)
+            )
+    );
+
 
     public static ResourceLocation createLocation(String path) {
         return ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, path);

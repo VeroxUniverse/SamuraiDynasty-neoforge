@@ -1,32 +1,6 @@
 package net.veroxuniverse.samurai_dynasty.entity.custom;
 
-import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import mod.azure.azurelib.common.api.common.animatable.GeoEntity;
-import mod.azure.azurelib.common.internal.common.util.AzureLibUtil;
-import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
-import mod.azure.azurelib.core.animation.AnimatableManager;
-import mod.azure.azurelib.core.animation.Animation;
-import mod.azure.azurelib.core.animation.AnimationController;
-import mod.azure.azurelib.core.animation.RawAnimation;
-import mod.azure.azurelib.core.object.PlayState;
-import mod.azure.azurelib.sblforked.api.SmartBrainOwner;
-import mod.azure.azurelib.sblforked.api.core.BrainActivityGroup;
-import mod.azure.azurelib.sblforked.api.core.behaviour.FirstApplicableBehaviour;
-import mod.azure.azurelib.sblforked.api.core.behaviour.OneRandomBehaviour;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.attack.AnimatableMeleeAttack;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.look.LookAtTarget;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.misc.Idle;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.move.FloatToSurfaceOfFluid;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.move.MoveToWalkTarget;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.path.SetRandomWalkTarget;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.path.SetWalkTargetToAttackTarget;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.target.InvalidateAttackTarget;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.target.SetPlayerLookTarget;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.target.SetRandomLookTarget;
-import mod.azure.azurelib.sblforked.api.core.behaviour.custom.target.TargetOrRetaliate;
-import mod.azure.azurelib.sblforked.api.core.sensor.ExtendedSensor;
-import mod.azure.azurelib.sblforked.api.core.sensor.vanilla.HurtBySensor;
-import mod.azure.azurelib.sblforked.api.core.sensor.vanilla.NearbyLivingEntitySensor;
+import mod.azure.azurelib.common.util.MoveAnalysis;
 import net.minecraft.Util;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -55,14 +29,19 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.neoforged.neoforge.event.EventHooks;
+import net.veroxuniverse.samurai_dynasty.client.entities.TwoTailedDispatcher;
 import net.veroxuniverse.samurai_dynasty.entity.ModEntityTypes;
+import net.veroxuniverse.samurai_dynasty.entity.goals.AnimatedMeleeAttackGoal;
 import net.veroxuniverse.samurai_dynasty.entity.variant.TwoTailedVariant;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
 import java.util.function.Predicate;
 
-public class TwoTailedFox extends TamableAnimal implements GeoEntity {
+public class TwoTailedFox extends TamableAnimal{
+
+    public final TwoTailedDispatcher dispatcher;
+
+    public final MoveAnalysis moveAnalysis;
 
     public static final Predicate<LivingEntity> ATTACK_SELECTOR = (livingEntity) -> {
         EntityType<?> entitytype = livingEntity.getType();
@@ -74,17 +53,11 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity {
     private static final EntityDataAccessor<Boolean> ATTACKING =
             SynchedEntityData.defineId(TwoTailedFox.class, EntityDataSerializers.BOOLEAN);
 
-
-    private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
-
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return cache;
-    }
-
     public TwoTailedFox(EntityType<? extends TamableAnimal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
         this.setTame(false, false);
+        this.dispatcher = new TwoTailedDispatcher(this);
+        this.moveAnalysis = new MoveAnalysis(this);
     }
 
 
@@ -104,7 +77,7 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity {
         this.goalSelector.addGoal(0, new SitWhenOrderedToGoal(this));
         //this.goalSelector.addGoal(1, new LeapAtTargetGoal(this, 0.4F));
         this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Player.class, 16.0F, 1.6D, 1.4D));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.2D, true));
+        this.goalSelector.addGoal(2, new AnimatedMeleeAttackGoal<>(this, 1.2D, false, (entity, target) -> entity.dispatcher.attack()));
         this.goalSelector.addGoal(3, new BreedGoal(this, 1.0D));
         this.goalSelector.addGoal(4, new TemptGoal(this, 1.2D, Ingredient.of(Items.BLAZE_POWDER), true));
         this.goalSelector.addGoal(5, new FollowOwnerGoal(this, 1.2F, 8.0F, 2.0F));
@@ -120,6 +93,24 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity {
         this.targetSelector.addGoal(3, new NonTameRandomTargetGoal<>(this, Animal.class, false, ATTACK_SELECTOR));
     }
 
+    @Override
+    public void tick(){
+        super.tick();
+        moveAnalysis.update();
+
+        if (this.level().isClientSide) {
+            var isMovingOnGround = moveAnalysis.isMovingHorizontally() && onGround();
+            Runnable animationRunner;
+            if (this.isInSittingPose() && this.isTame()) {
+                animationRunner = dispatcher::sit;
+            } else if (isMovingOnGround) {
+                animationRunner = dispatcher::walk;
+            } else {
+                animationRunner = dispatcher::idle;
+            }
+            animationRunner.run();
+        }
+    }
 
     /*
 
@@ -148,8 +139,6 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity {
     public boolean isAttacking() {
         return this.entityData.get(ATTACKING);
     }
-
-    //* VARIANT *//
 
     public TwoTailedVariant getVariant() {
         return TwoTailedVariant.byId(this.getTypeVariant() & 255);
@@ -181,8 +170,6 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity {
         super.addAdditionalSaveData(pCompound);
         pCompound.putInt("Variant", this.getTypeVariant());
     }
-
-    //* TAMEABLE *//
 
     @Override
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
@@ -224,47 +211,11 @@ public class TwoTailedFox extends TamableAnimal implements GeoEntity {
         return super.mobInteract(pPlayer, pHand);
     }
 
-    //* CONTROLLERS *//
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController<>(this, "move_controller", 5, state -> {
-            if (state.isMoving() && !this.isAttacking()){
-                state.setAnimation(RawAnimation.begin().then("animation.kitsune_small.walk", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
-            } else if (!state.isMoving() && !this.isAttacking() && !this.isInSittingPose())  {
-                state.setAnimation(RawAnimation.begin().then("animation.kitsune_small.idle", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
-            }
-            state.getController().forceAnimationReset();
-            return PlayState.STOP;
-        }));
-        controllers.add(new AnimationController<>(this, "attack_controller", 5, state -> {
-            if (this.isAttacking()) {
-                state.setAnimation(RawAnimation.begin().then("animation.kitsune_small.attack", Animation.LoopType.PLAY_ONCE));
-                return PlayState.CONTINUE;
-            }
-            state.getController().forceAnimationReset();
-            return PlayState.STOP;
-        }));
-        controllers.add(new AnimationController<>(this, "sit_controller", 5, state -> {
-            if (this.isInSittingPose() && this.isTame()) {
-                state.setAnimation(RawAnimation.begin().then("animation.kitsune_small.sit", Animation.LoopType.LOOP));
-                return PlayState.CONTINUE;
-            }
-            state.getController().forceAnimationReset();
-            return PlayState.STOP;
-        }));
-    }
-
-    //* BREEDING *//
-
     @Override
     public boolean isFood(ItemStack pStack) {
         return pStack.is(Items.CHICKEN);
     }
 
-    //*  *//
 
     @Override
     public int getCurrentSwingDuration() {

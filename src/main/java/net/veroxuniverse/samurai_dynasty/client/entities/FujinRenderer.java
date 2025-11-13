@@ -1,28 +1,31 @@
 package net.veroxuniverse.samurai_dynasty.client.entities;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import mod.azure.azurelib.common.api.client.renderer.GeoEntityRenderer;
-import net.minecraft.client.renderer.MultiBufferSource;
+import mod.azure.azurelib.common.render.entity.AzEntityRenderer;
+import mod.azure.azurelib.common.render.entity.AzEntityRendererConfig;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
+import net.veroxuniverse.samurai_dynasty.entity.custom.EnenraEntity;
 import net.veroxuniverse.samurai_dynasty.entity.custom.FujinEntity;
-import org.jetbrains.annotations.NotNull;
 
-public class FujinRenderer extends GeoEntityRenderer<FujinEntity> {
-    public FujinRenderer(EntityRendererProvider.Context renderManager) {
-        super(renderManager, new FujinModel());
-        this.shadowRadius = 0.8f;
-    }
+public class FujinRenderer extends AzEntityRenderer<FujinEntity> {
+    private static final ResourceLocation GEO = ResourceLocation.fromNamespaceAndPath(
+            SamuraiDynastyMod.MOD_ID,
+            "geo/fujin.geo.json"
+    );
 
-    @Override
-    public @NotNull ResourceLocation getTextureLocation(@NotNull FujinEntity instance) {
-        return ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, "textures/entity/fujin.png");
-    }
+    private static final ResourceLocation TEX = ResourceLocation.fromNamespaceAndPath(
+            SamuraiDynastyMod.MOD_ID,
+            "textures/entity/fujin.png"
+    );
 
-    @Override
-    public void render(@NotNull FujinEntity entity, float entityYaw, float partialTick, @NotNull PoseStack poseStack,
-                       @NotNull MultiBufferSource bufferSource, int packedLight) {
-        super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+    public FujinRenderer(EntityRendererProvider.Context context) {
+        super(
+                AzEntityRendererConfig.<FujinEntity>builder(GEO, TEX)
+                        .setAnimatorProvider(FujinAnimator::new)
+                        .setShadowRadius(0.8f)
+                        .build(),
+                context
+        );
     }
 }

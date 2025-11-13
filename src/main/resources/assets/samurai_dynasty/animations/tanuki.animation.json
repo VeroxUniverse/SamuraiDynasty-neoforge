@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.tanuki.idle": {
+		"idle": {
 			"loop": true,
 			"animation_length": 1.84,
 			"bones": {
@@ -259,7 +259,7 @@
 				}
 			}
 		},
-		"animation.tanuki.walk": {
+		"walk": {
 			"loop": true,
 			"animation_length": 0.76,
 			"bones": {
@@ -535,7 +535,7 @@
 				}
 			}
 		},
-		"animation.tanuki.attack": {
+		"attack": {
 			"animation_length": 1.32,
 			"bones": {
 				"tanuki": {
@@ -848,7 +848,7 @@
 				}
 			}
 		},
-		"animation.tanuki.sit": {
+		"sit": {
 			"loop": true,
 			"animation_length": 1.84,
 			"bones": {

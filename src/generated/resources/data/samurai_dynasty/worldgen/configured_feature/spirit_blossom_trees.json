@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": {
+      "feature": "samurai_dynasty:spirit_blossom_tree2",
+      "placement": []
+    },
+    "features": [
+      {
+        "chance": 0.35,
+        "feature": {
+          "feature": "samurai_dynasty:spirit_blossom_tree1",
+          "placement": []
+        }
+      }
+    ]
+  }
+}

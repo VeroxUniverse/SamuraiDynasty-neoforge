@@ -1,8 +1,12 @@
-// 1.21.1	2025-03-15T18:05:11.885349	Block Tags
+// 1.21.1	2025-11-13T20:03:13.8304682	Block Tags
 c6f04893e9880512e44360a03923e4017374095e data/minecraft/tags/block/dirt.json
+c6423aebf236c2b3045cb3b1c3f714ed4fb7684b data/minecraft/tags/block/fences.json
+d5876b89d984bc0674f1eaab0775db1ef907119e data/minecraft/tags/block/fence_gates.json
 f53f19430ed2c7bbff122ae3b87c2387e56ecaa4 data/minecraft/tags/block/leaves.json
 0a08885b9b27526cb1ef07ad7bc71a37ea457911 data/minecraft/tags/block/logs_that_burn.json
-21f0f7c30a85ee542b35c56a2603a33321303074 data/minecraft/tags/block/mineable/axe.json
-61238e523498ac434b1dae3f16202767e5e499bc data/minecraft/tags/block/mineable/pickaxe.json
+99a6600e48e48a8441a18d6849804f1a01c8cd8f data/minecraft/tags/block/mineable/axe.json
+659db8664fef90ef7ca51816a0089cc1d9db3b08 data/minecraft/tags/block/mineable/pickaxe.json
+c6f04893e9880512e44360a03923e4017374095e data/minecraft/tags/block/mineable/shovel.json
 2a4e7e62629900e1a8da2981f182a2f4cbaf8ca9 data/minecraft/tags/block/needs_iron_tool.json
 25bf941eddd951636a461b725c6e5a1d664ae9e3 data/minecraft/tags/block/walls.json
+c6423aebf236c2b3045cb3b1c3f714ed4fb7684b data/minecraft/tags/block/wooden_fences.json

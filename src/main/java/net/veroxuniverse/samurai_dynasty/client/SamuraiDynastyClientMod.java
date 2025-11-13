@@ -24,7 +24,7 @@ import net.veroxuniverse.samurai_dynasty.particle.SpiritBlossomLeaves;
 import net.veroxuniverse.samurai_dynasty.particle.SpiritWoodLeaves;
 import net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry;
 
-@EventBusSubscriber(modid = SamuraiDynastyMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(modid = SamuraiDynastyMod.MOD_ID, value = Dist.CLIENT)
 public class SamuraiDynastyClientMod {
     @SubscribeEvent
     public static void registerParticleFactories(final RegisterParticleProvidersEvent event)
