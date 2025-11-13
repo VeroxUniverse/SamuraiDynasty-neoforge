@@ -9,11 +9,15 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
+import net.minecraft.world.level.levelgen.structure.templatesystem.BlockStateMatchTest;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
+import net.veroxuniverse.samurai_dynasty.registry.BlocksRegistry;
 
 import java.util.List;
 
@@ -31,21 +35,25 @@ public class ModPlacedFeatures {
                         RarityFilter.onAverageOnceEvery(5),
                         InSquarePlacement.spread(),
                         PlacementUtils.HEIGHTMAP,
-                        BiomeFilter.biome()));
+                        BiomeFilter.biome()
+
+                ));
 
         register(context, SPIRIT_PETALS_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.SPIRIT_PETALS_KEY),
                 List.of(
                         RarityFilter.onAverageOnceEvery(5),
                         InSquarePlacement.spread(),
                         PlacementUtils.HEIGHTMAP,
-                        BiomeFilter.biome()));
+                        BiomeFilter.biome()
+                ));
 
         register(context, MOSS_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.MOSS_KEY),
                 List.of(
                         RarityFilter.onAverageOnceEvery(7),
                         InSquarePlacement.spread(),
                         PlacementUtils.HEIGHTMAP,
-                        BiomeFilter.biome()));
+                        BiomeFilter.biome()
+                ));
     }
 
     private static ResourceKey<PlacedFeature> registerKey(String name) {

@@ -10,6 +10,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
@@ -52,6 +53,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(BlocksRegistry.STONE_ROOF_CORNER.get());
         this.dropSelf(BlocksRegistry.STONE_ROOF_TOP.get());
         this.dropSelf(BlocksRegistry.MOSSY_SPIRIT_STONE_BRICKS.get());
+        this.dropOther(BlocksRegistry.CLOUD.get(), Blocks.AIR);
 
         this.add(BlocksRegistry.TANUKI_STATUE.get(),
                 block -> createDoorTable(BlocksRegistry.TANUKI_STATUE.get()));

@@ -22,6 +22,18 @@ public class CreativeTabRegistry {
                 });
             }).build());
 
+
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> SD_TAB_BLOCKS = CREATIVE_MODE_TABS.register("sd_tab_blocks", () -> CreativeModeTab.builder()
+            .title(Component.translatable("itemGroup.blocks." + SamuraiDynastyMod.MOD_ID))
+            .icon(() -> BlocksRegistry.STEEL_BLOCK.get().asItem().getDefaultInstance())
+            .displayItems((parameters, output) -> {
+
+                ItemsRegistry.ITEMS_BUILDING.getEntries().forEach(item -> {
+                    output.accept(item.get());
+
+                });
+            }).build());
+
     public static void register(net.neoforged.bus.api.IEventBus eventBus) {
         CREATIVE_MODE_TABS.register(eventBus);
     }

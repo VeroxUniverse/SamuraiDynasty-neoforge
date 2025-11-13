@@ -116,6 +116,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(BlocksRegistry.SPIRIT_WOOD_PRESSURE_PLATE);
         blockItem(BlocksRegistry.SPIRIT_WOOD_FENCE_GATE);
         blockItem(BlocksRegistry.SPIRIT_WOOD_TRAPDOOR, "_bottom");
+
+        //blockWithItem(BlocksRegistry.CLOUD);
         
     }
 

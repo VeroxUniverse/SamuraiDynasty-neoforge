@@ -7,12 +7,14 @@ import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.placement.*;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 
 public class ModTreePlacedFeatures {
@@ -22,7 +24,7 @@ public class ModTreePlacedFeatures {
             "spirit_wood_trees",
             ModTreeConfiguredFeatures.SPIRIT_WOOD_TREES,
             () -> VegetationPlacements.treePlacement(
-                    PlacementUtils.countExtra(7, 0.25F, 2)
+                    PlacementUtils.countExtra(4, 0.25F, 2)
             )
     );
 

@@ -10,6 +10,8 @@ import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 import net.veroxuniverse.samurai_dynasty.registry.BlocksRegistry;
 import net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry;
 
+import java.util.ArrayList;
+
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, net.neoforged.neoforge.common.data.ExistingFileHelper existingFileHelper) {
         super(output, SamuraiDynastyMod.MOD_ID, existingFileHelper);
@@ -28,6 +30,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ItemsRegistry.MASTER_SAMURAI_CHESTPLATE.get());
         basicItem(ItemsRegistry.MASTER_SAMURAI_LEGGINGS.get());
         basicItem(ItemsRegistry.MASTER_SAMURAI_HELMET.get());
+        basicItem(ItemsRegistry.CLOUD_BUCKET.get());
 
         buttonItem(BlocksRegistry.SPIRIT_BLOSSOM_BUTTON, BlocksRegistry.SPIRIT_BLOSSOM_PLANKS);
         fenceItem(BlocksRegistry.SPIRIT_BLOSSOM_FENCE, BlocksRegistry.SPIRIT_BLOSSOM_PLANKS);

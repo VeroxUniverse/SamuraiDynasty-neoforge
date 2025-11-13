@@ -8,9 +8,9 @@
   },
   "downfall": 0.9,
   "effects": {
-    "fog_color": 12638463,
-    "foliage_color": 14194987,
-    "grass_color": 11909994,
+    "fog_color": 2631720,
+    "foliage_color": 4825860,
+    "grass_color": 4347136,
     "mood_sound": {
       "block_search_extent": 8,
       "offset": 2.0,
@@ -23,9 +23,9 @@
       "replace_current_music": false,
       "sound": "minecraft:music.overworld.forest"
     },
-    "sky_color": 8103167,
-    "water_color": 4159204,
-    "water_fog_color": 329011
+    "sky_color": 1793136,
+    "water_color": 2105376,
+    "water_fog_color": 1973790
   },
   "features": [
     [],
@@ -80,10 +80,11 @@
     ],
     [
       "minecraft:glow_lichen",
-      "samurai_dynasty:spirit_wood_trees",
+      "minecraft:patch_grass_plain",
       "samurai_dynasty:spider_lilly_placed",
       "samurai_dynasty:spirit_petals_placed",
       "samurai_dynasty:moss_placed",
+      "samurai_dynasty:spirit_wood_trees",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane",
@@ -193,5 +194,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 0.9
+  "temperature": 0.4
 }

@@ -1,7 +1,8 @@
 {
   "biome.samurai_dynasty.spirit_wood_forest": "Spirit Wood Forest",
 
-  "itemGroup.items.samurai_dynasty": "Samurai Dynasty",
+  "itemGroup.items.samurai_dynasty": "Samurai Dynasty: Items",
+  "itemGroup.blocks.samurai_dynasty": "Samurai Dynasty: Blocks",
 
   "block.samurai_dynasty.andesite_lamp": "Andesite Lantern",
   "block.samurai_dynasty.granite_lamp": "Granite Lantern",
@@ -77,6 +78,7 @@
   "block.samurai_dynasty.stripped_spirit_blossom_wood": "Stripped Blossom Wood",
   "block.samurai_dynasty.stripped_spirit_wood": "Stripped Twistthorn Wood",
   "block.samurai_dynasty.stripped_spirit_wood_log": "Stripped Twistthorn Log",
+  "block.samurai_dynasty.cloud": "Cloud Block",
 
   "item.samurai_dynasty.netherite_samurai_helmet": "Netherite Samurai Helmet",
   "item.samurai_dynasty.netherite_samurai_chestplate": "Netherite Samurai Chestplate",
@@ -170,6 +172,7 @@
   "item.samurai_dynasty.yumi": "Yumi Bow",
   "item.samurai_dynasty.spider_lilly": "Spider Lilly",
   "item.samurai_dynasty.spirit_wood_sapling": "Spirit Wood Sapling",
+  "item.samurai_dynasty.cloud_bucket": "Cloud in a Bucket",
 
   "curios.identifier.mask": "Mask",
   "curios.samurai_dynasty.fireres": "§7Applies §bFire Resistance§7.",

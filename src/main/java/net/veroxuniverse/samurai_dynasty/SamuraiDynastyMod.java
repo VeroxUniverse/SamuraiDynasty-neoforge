@@ -54,6 +54,7 @@ public class SamuraiDynastyMod
 
         AzureLib.initialize();
         ItemsRegistry.register(modEventBus);
+        ItemsRegistry.registerBuilding(modEventBus);
         BlocksRegistry.register(modEventBus);
         ModEntityTypes.register(modEventBus);
         ArmorMaterialsRegistry.register(modEventBus);

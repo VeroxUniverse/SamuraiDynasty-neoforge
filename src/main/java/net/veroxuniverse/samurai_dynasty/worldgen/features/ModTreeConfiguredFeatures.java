@@ -41,10 +41,9 @@ public class ModTreeConfiguredFeatures {
         return ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID, path);
     }
 
-    public static final Supplier<LeavesAwareAttachedToLogsDecorator> SPIRIT_WOOD_BRANCH = () -> new LeavesAwareAttachedToLogsDecorator(0.65F, 0, 1, SimpleStateProvider.simple(BlocksRegistry.SPIRIT_WOOD_BRANCH.get().defaultBlockState()), 2, List.of(Direction.WEST, Direction.NORTH, Direction.SOUTH, Direction.EAST));
-    public static final AlterGroundDecorator MOSS_BLOCK = new AlterGroundDecorator(SimpleStateProvider.simple(Blocks.MOSS_BLOCK));
-
-
+    public static AlterGroundDecorator spiritMossBlockDecorator() {
+        return new AlterGroundDecorator(SimpleStateProvider.simple(BlocksRegistry.SPIRIT_MOSS_BLOCK.get().defaultBlockState()));
+    }
     public static final Map<ResourceKey<ConfiguredFeature<?, ?>>, ConfiguredFeatureFactory> CONFIGURED_FEATURES_MOD = new Reference2ObjectOpenHashMap<>();
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPIRIT_WOOD_TREE1 = createConfiguredFeature("spirit_wood_tree1", TYGFeatures.TREE_FROM_NBT_V1, configuredFeatureBootstapContext -> {
@@ -59,7 +58,7 @@ public class ModTreeConfiguredFeatures {
                 BlockPredicate.matchesTag(BlockTags.DIRT),
                 BlockPredicate.replaceable(),
                 3,
-                ImmutableList.of(MOSS_BLOCK),
+                ImmutableList.of(spiritMossBlockDecorator()),
                 Set.of(BlocksRegistry.SPIRIT_WOOD_BRANCH.get(), BlocksRegistry.SPIRIT_WOOD_ROOTS.get())
         );
     });
@@ -75,7 +74,7 @@ public class ModTreeConfiguredFeatures {
                 BlockPredicate.matchesTag(BlockTags.DIRT),
                 BlockPredicate.replaceable(),
                 3,
-                ImmutableList.of(MOSS_BLOCK),
+                ImmutableList.of(spiritMossBlockDecorator()),
                 Set.of(BlocksRegistry.SPIRIT_WOOD_BRANCH.get(), BlocksRegistry.SPIRIT_WOOD_ROOTS.get())
         );
     });
@@ -92,7 +91,7 @@ public class ModTreeConfiguredFeatures {
                 BlockPredicate.matchesTag(BlockTags.DIRT),
                 BlockPredicate.replaceable(),
                 3,
-                ImmutableList.of(MOSS_BLOCK),
+                ImmutableList.of(spiritMossBlockDecorator()),
                 Set.of(BlocksRegistry.SPIRIT_WOOD_BRANCH.get(), BlocksRegistry.SPIRIT_WOOD_ROOTS.get())
         );
     });

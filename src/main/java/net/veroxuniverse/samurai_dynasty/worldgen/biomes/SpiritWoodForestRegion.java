@@ -24,12 +24,37 @@ public class SpiritWoodForestRegion extends Region {
         VanillaParameterOverlayBuilder builder = new VanillaParameterOverlayBuilder();
 
         new ParameterUtils.ParameterPointListBuilder()
-                .temperature(ParameterUtils.Temperature.span(ParameterUtils.Temperature.WARM, ParameterUtils.Temperature.NEUTRAL))
-                .humidity(ParameterUtils.Humidity.span(ParameterUtils.Humidity.WET, ParameterUtils.Humidity.NEUTRAL))
-                .continentalness(ParameterUtils.Continentalness.NEAR_INLAND, ParameterUtils.Continentalness.INLAND, ParameterUtils.Continentalness.MID_INLAND)
-                .erosion(ParameterUtils.Erosion.EROSION_0, ParameterUtils.Erosion.EROSION_1)
-                .depth(ParameterUtils.Depth.SURFACE, ParameterUtils.Depth.SURFACE)
-                .weirdness(ParameterUtils.Weirdness.MID_SLICE_NORMAL_ASCENDING, ParameterUtils.Weirdness.MID_SLICE_NORMAL_DESCENDING)
+                .temperature(
+                        ParameterUtils.Temperature.span(
+                        ParameterUtils.Temperature.WARM,
+                        ParameterUtils.Temperature.NEUTRAL
+                ))
+                .humidity(
+                        ParameterUtils.Humidity.span(
+                        ParameterUtils.Humidity.NEUTRAL,
+                        ParameterUtils.Humidity.NEUTRAL
+                ))
+                .continentalness(
+                        ParameterUtils.Continentalness.MID_INLAND,
+                        ParameterUtils.Continentalness.INLAND,
+                        ParameterUtils.Continentalness.FAR_INLAND
+                )
+                .erosion(
+                        ParameterUtils.Erosion.EROSION_0,
+                        ParameterUtils.Erosion.EROSION_1,
+                        ParameterUtils.Erosion.EROSION_2,
+                        ParameterUtils.Erosion.EROSION_3
+                )
+                .depth(
+                        ParameterUtils.Depth.SURFACE,
+                        ParameterUtils.Depth.SURFACE
+                )
+                .weirdness(
+                        ParameterUtils.Weirdness.MID_SLICE_NORMAL_ASCENDING,
+                        ParameterUtils.Weirdness.MID_SLICE_NORMAL_DESCENDING,
+                        ParameterUtils.Weirdness.HIGH_SLICE_NORMAL_ASCENDING,
+                        ParameterUtils.Weirdness.PEAK_NORMAL
+                )
                 .build().forEach(point -> builder.add(point, ModBiomes.SPIRIT_WOOD_FOREST));
 
         builder.build().forEach(mapper);
