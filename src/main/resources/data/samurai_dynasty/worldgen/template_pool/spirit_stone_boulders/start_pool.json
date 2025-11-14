@@ -1,0 +1,51 @@
+{
+  "name": "samurai_dynasty:spirit_stone_boulders/start_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "processors": "minecraft:empty",
+        "location": "samurai_dynasty:spirit_stone_boulders1",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "processors": "minecraft:empty",
+        "location": "samurai_dynasty:spirit_stone_boulders2",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "processors": "minecraft:empty",
+        "location": "samurai_dynasty:spirit_stone_boulders3",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "processors": "minecraft:empty",
+        "location": "samurai_dynasty:spirit_stone_boulders4",
+        "projection": "rigid"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "processors": "minecraft:empty",
+        "location": "samurai_dynasty:spirit_stone_boulders5",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

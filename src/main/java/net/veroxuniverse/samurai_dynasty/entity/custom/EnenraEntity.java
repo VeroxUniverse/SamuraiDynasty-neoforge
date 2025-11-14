@@ -1,12 +1,15 @@
 package net.veroxuniverse.samurai_dynasty.entity.custom;
 
 import mod.azure.azurelib.common.util.MoveAnalysis;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -18,6 +21,8 @@ import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.veroxuniverse.samurai_dynasty.client.entities.AkanameDispatcher;
 import net.veroxuniverse.samurai_dynasty.client.entities.EnenraDispatcher;
 
@@ -106,6 +111,27 @@ public class EnenraEntity extends Monster{
 
     public boolean causeFallDamage(float pFallDistance, float pMultiplier, DamageSource pSource) {
         return false;
+    }
+
+    public static boolean canSpawn(EntityType<EnenraEntity> type, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
+
+        if (!Monster.checkMonsterSpawnRules(type, level, spawnType, pos, random)) {
+            return false;
+        }
+
+        if (pos.getY() > level.getSeaLevel()) {
+            return false;
+        }
+
+        if (level.getRawBrightness(pos, 0) > 7) {
+            return false;
+        }
+
+        if (level.canSeeSkyFromBelowWater(pos)) {
+            return false;
+        }
+
+        return true;
     }
 
     /*

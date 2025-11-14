@@ -83,7 +83,6 @@
       "minecraft:patch_grass_plain",
       "samurai_dynasty:spider_lilly_placed",
       "samurai_dynasty:spirit_petals_placed",
-      "samurai_dynasty:moss_placed",
       "samurai_dynasty:spirit_wood_trees",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
@@ -138,13 +137,13 @@
         "type": "minecraft:spider",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 100
+        "weight": 60
       },
       {
         "type": "minecraft:zombie",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 95
+        "weight": 80
       },
       {
         "type": "minecraft:zombie_villager",
@@ -156,31 +155,55 @@
         "type": "minecraft:skeleton",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 100
+        "weight": 80
       },
       {
         "type": "minecraft:creeper",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 100
+        "weight": 40
       },
       {
         "type": "minecraft:slime",
         "maxCount": 4,
         "minCount": 4,
-        "weight": 100
+        "weight": 60
       },
       {
         "type": "minecraft:enderman",
         "maxCount": 4,
         "minCount": 1,
-        "weight": 10
+        "weight": 8
       },
       {
         "type": "minecraft:witch",
         "maxCount": 1,
         "minCount": 1,
-        "weight": 5
+        "weight": 2
+      },
+      {
+        "type": "samurai_dynasty:akaname",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 60
+      },
+      {
+        "type": "samurai_dynasty:jorogumo",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 12
+      },
+      {
+        "type": "samurai_dynasty:oni",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 10
+      },
+      {
+        "type": "samurai_dynasty:enenra",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 25
       }
     ],
     "underground_water_creature": [

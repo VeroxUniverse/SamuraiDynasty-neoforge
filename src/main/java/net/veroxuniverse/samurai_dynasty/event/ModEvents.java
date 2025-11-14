@@ -37,31 +37,33 @@ public class ModEvents {
         public static void entitySpawnRestriction(RegisterSpawnPlacementsEvent event) {
             event.register(ModEntityTypes.ONI.get(),
                     SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+                    Monster::checkMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.AND);
             event.register(ModEntityTypes.ENENRA.get(),
-                    SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+                    SpawnPlacementTypes.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    EnenraEntity::canSpawn,
+                    RegisterSpawnPlacementsEvent.Operation.AND);
             event.register(ModEntityTypes.AKANAME.get(),
                     SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+                    Monster::checkMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.AND);
             event.register(ModEntityTypes.KITSUNE.get(),
                     SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+                    Monster::checkMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.AND);
             event.register(ModEntityTypes.JOROGUMO.get(),
                     SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Monster::checkMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+                    Monster::checkMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.AND);
             event.register(ModEntityTypes.TANUKI.get(),
                     SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Animal::checkAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+                    Animal::checkAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.AND);
             event.register(ModEntityTypes.KAWAUSO.get(),
                     SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Animal::checkAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+                    Animal::checkAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.AND);
             event.register(ModEntityTypes.TWOTAILED.get(),
                     SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Animal::checkAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+                    Animal::checkAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.AND);
             event.register(ModEntityTypes.KOMAINU.get(),
                     SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                    Animal::checkAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+                    Animal::checkAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.AND);
         }
 
     }

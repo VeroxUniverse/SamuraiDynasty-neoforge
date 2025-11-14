@@ -4,6 +4,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.Climate;
 import terrablender.api.ParameterUtils;
 import terrablender.api.Region;
@@ -19,43 +20,23 @@ public class SpiritBlossomForestRegion extends Region {
     }
 
     @Override
-    public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper)
-    {
+    public void addBiomes(Registry<Biome> registry,
+                          Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
+
         VanillaParameterOverlayBuilder builder = new VanillaParameterOverlayBuilder();
 
         new ParameterUtils.ParameterPointListBuilder()
-                .temperature(
-                        ParameterUtils.Temperature.span(
-                        ParameterUtils.Temperature.WARM,
-                        ParameterUtils.Temperature.NEUTRAL
-                ))
-                .humidity(
-                        ParameterUtils.Humidity.span(
-                        ParameterUtils.Humidity.NEUTRAL,
-                        ParameterUtils.Humidity.NEUTRAL
-                ))
-                .continentalness(
-                        ParameterUtils.Continentalness.MID_INLAND,
+                .temperature(ParameterUtils.Temperature.NEUTRAL)
+                .humidity(ParameterUtils.Humidity.NEUTRAL)
+                .continentalness(ParameterUtils.Continentalness.span(
                         ParameterUtils.Continentalness.INLAND,
                         ParameterUtils.Continentalness.FAR_INLAND
-                )
-                .erosion(
-                        ParameterUtils.Erosion.EROSION_0,
-                        ParameterUtils.Erosion.EROSION_1,
-                        ParameterUtils.Erosion.EROSION_2,
-                        ParameterUtils.Erosion.EROSION_3
-                )
-                .depth(
-                        ParameterUtils.Depth.SURFACE,
-                        ParameterUtils.Depth.SURFACE
-                )
-                .weirdness(
-                        ParameterUtils.Weirdness.MID_SLICE_NORMAL_ASCENDING,
-                        ParameterUtils.Weirdness.MID_SLICE_NORMAL_DESCENDING,
-                        ParameterUtils.Weirdness.HIGH_SLICE_NORMAL_ASCENDING,
-                        ParameterUtils.Weirdness.PEAK_NORMAL
-                )
-                .build().forEach(point -> builder.add(point, ModBiomes.SPIRIT_BLOSSOM_FOREST));
+                ))
+                .erosion(ParameterUtils.Erosion.EROSION_2)
+                .depth(ParameterUtils.Depth.SURFACE)
+                .weirdness(ParameterUtils.Weirdness.MID_SLICE_NORMAL_ASCENDING)
+                .build()
+                .forEach(point -> builder.add(point, ModBiomes.SPIRIT_BLOSSOM_FOREST));
 
         builder.build().forEach(mapper);
     }

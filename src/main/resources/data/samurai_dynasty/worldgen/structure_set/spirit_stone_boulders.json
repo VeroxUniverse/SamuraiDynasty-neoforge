@@ -1,0 +1,17 @@
+{
+  "structures": [
+    {
+      "structure": "samurai_dynasty:spirit_stone_boulder",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 98237465,
+
+    "spacing": 3,
+
+    "separation": 1,
+
+    "type": "minecraft:random_spread"
+  }
+}

@@ -112,8 +112,8 @@ public class SamuraiDynastyMod
 
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(BlocksRegistry.SPIDER_LILLY.getId(), BlocksRegistry.POTTED_SPIDER_LILLY);
 
-            Regions.register(new SpiritWoodForestRegion(ResourceLocation.fromNamespaceAndPath(MOD_ID,"maple_forest"),2));
-            Regions.register(new SpiritBlossomForestRegion(ResourceLocation.fromNamespaceAndPath(MOD_ID,"sakura_forest"),2));
+            Regions.register(new SpiritWoodForestRegion(ResourceLocation.fromNamespaceAndPath(MOD_ID,"maple_forest"),1));
+            Regions.register(new SpiritBlossomForestRegion(ResourceLocation.fromNamespaceAndPath(MOD_ID,"sakura_forest"),1));
 
             SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRuleData.makeRules());
 

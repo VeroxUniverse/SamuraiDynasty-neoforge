@@ -12,19 +12,29 @@ public class ModSurfaceRuleData {
     private static final SurfaceRules.RuleSource COARSE_DIRT = makeStateRule(Blocks.COARSE_DIRT);
     private static final SurfaceRules.RuleSource MOSS = makeStateRule(Blocks.MOSS_BLOCK);
 
-
     public static SurfaceRules.RuleSource makeRules() {
-        SurfaceRules.ConditionSource isAtOrAboveWaterLevel = SurfaceRules.waterBlockCheck(-1, 0);
-        SurfaceRules.RuleSource grassSurface = SurfaceRules.sequence(SurfaceRules.ifTrue(isAtOrAboveWaterLevel, GRASS_BLOCK), DIRT);
-        SurfaceRules.RuleSource spookySurface = SurfaceRules.sequence(SurfaceRules.ifTrue(isAtOrAboveWaterLevel, PODZOL), DIRT);
+        SurfaceRules.ConditionSource isAtOrAboveWaterLevel =
+                SurfaceRules.waterBlockCheck(-1, 0);
+
+        SurfaceRules.ConditionSource abovePreSurface =
+                SurfaceRules.abovePreliminarySurface();
+
+        SurfaceRules.RuleSource grassSurface = SurfaceRules.sequence(
+                SurfaceRules.ifTrue(isAtOrAboveWaterLevel, GRASS_BLOCK),
+                DIRT
+        );
 
         return SurfaceRules.sequence(
-                //SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.MAPLE_FOREST), GRASS_BLOCK),
-
-                // Default to a grass and dirt surface
-                SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, grassSurface)
+                SurfaceRules.ifTrue(
+                        abovePreSurface,
+                        SurfaceRules.ifTrue(
+                                SurfaceRules.ON_FLOOR,
+                                grassSurface
+                        )
+                )
         );
     }
+
 
     private static SurfaceRules.RuleSource makeStateRule(Block block) {
         return SurfaceRules.state(block.defaultBlockState());

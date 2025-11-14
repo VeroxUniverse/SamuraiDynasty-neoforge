@@ -18,6 +18,7 @@ import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockStateMatchTest;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 import net.veroxuniverse.samurai_dynasty.registry.BlocksRegistry;
+import net.veroxuniverse.samurai_dynasty.utils.ModTags;
 
 import java.util.List;
 
@@ -35,6 +36,12 @@ public class ModPlacedFeatures {
                         RarityFilter.onAverageOnceEvery(5),
                         InSquarePlacement.spread(),
                         PlacementUtils.HEIGHTMAP,
+                        BlockPredicateFilter.forPredicate(
+                                BlockPredicate.matchesTag(
+                                        new BlockPos(0, -1, 0),
+                                        ModTags.SPIRIT_VALID_GROUND
+                                )
+                        ),
                         BiomeFilter.biome()
 
                 ));
@@ -44,6 +51,12 @@ public class ModPlacedFeatures {
                         RarityFilter.onAverageOnceEvery(5),
                         InSquarePlacement.spread(),
                         PlacementUtils.HEIGHTMAP,
+                        BlockPredicateFilter.forPredicate(
+                                BlockPredicate.matchesTag(
+                                        new BlockPos(0, -1, 0),
+                                        ModTags.SPIRIT_VALID_GROUND
+                                )
+                        ),
                         BiomeFilter.biome()
                 ));
 
@@ -52,6 +65,12 @@ public class ModPlacedFeatures {
                         RarityFilter.onAverageOnceEvery(7),
                         InSquarePlacement.spread(),
                         PlacementUtils.HEIGHTMAP,
+                        BlockPredicateFilter.forPredicate(
+                                BlockPredicate.matchesTag(
+                                        new BlockPos(0, -1, 0),
+                                        ModTags.SPIRIT_VALID_GROUND
+                                )
+                        ),
                         BiomeFilter.biome()
                 ));
     }

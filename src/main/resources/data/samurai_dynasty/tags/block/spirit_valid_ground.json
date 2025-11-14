@@ -1,0 +1,12 @@
+{
+  "values": [
+    "minecraft:grass_block",
+    "minecraft:dirt",
+    "minecraft:coarse_dirt",
+    "minecraft:podzol",
+    "minecraft:andesite",
+    "minecraft:granite",
+    "minecraft:moss_block",
+    "samurai_dynasty:spirit_moss_block"
+  ]
+}
