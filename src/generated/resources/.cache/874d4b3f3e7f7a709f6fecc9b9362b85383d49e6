@@ -1,9 +1,9 @@
-// 1.21.1	2025-01-20T13:40:03.386937	Tags for minecraft:item mod id samurai_dynasty
+// 1.21.1	2025-11-16T14:31:53.6508773	Tags for minecraft:item mod id samurai_dynasty
 bce60e747c75a76f7fb4a5999e160b54ab29d8ec data/c/tags/item/armors.json
 c6f04893e9880512e44360a03923e4017374095e data/minecraft/tags/item/dirt.json
 3bb7b16b624f8d5644acc468ad7f332ff7530ea8 data/minecraft/tags/item/enchantable/bow.json
 efa45113f2e095aa411f28289b0b915b30973861 data/minecraft/tags/item/enchantable/chest_armor.json
-bce60e747c75a76f7fb4a5999e160b54ab29d8ec data/minecraft/tags/item/enchantable/durability.json
+ba0d805de11abcda0547d1d28b47c5db100b7366 data/minecraft/tags/item/enchantable/durability.json
 d621024ac2472e00a4b35dfddfbc9543a175186a data/minecraft/tags/item/enchantable/foot_armor.json
 ada37dea5d6cad7e24b87a11ee34bc956dae4ed0 data/minecraft/tags/item/enchantable/head_armor.json
 b4e5e3044b0ab7a671a79b1b1118bcc9159a7ea4 data/minecraft/tags/item/enchantable/leg_armor.json

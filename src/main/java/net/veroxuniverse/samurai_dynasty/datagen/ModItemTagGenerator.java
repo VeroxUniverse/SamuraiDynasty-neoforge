@@ -138,6 +138,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(BlocksRegistry.SPIRIT_MOSS_BLOCK.get().asItem());
 
         tag(ItemTags.DURABILITY_ENCHANTABLE)
+                .add(ItemsRegistry.YUMI.get())
                 .add(ItemsRegistry.STEEL_HELMET.get())
                 .add(ItemsRegistry.STEEL_SAMURAI_HELMET.get())
                 .add(ItemsRegistry.NETHERITE_SAMURAI_HELMET.get())
