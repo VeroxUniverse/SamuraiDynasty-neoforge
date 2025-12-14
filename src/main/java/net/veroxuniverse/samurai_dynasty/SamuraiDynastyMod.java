@@ -190,7 +190,7 @@ public class SamuraiDynastyMod
 
             AzArmorRendererRegistry.register(NetheriteNinjaArmorRenderer::new,
                     ItemsRegistry.NETHERITE_NINJA_HELMET.get(),
-                    ItemsRegistry.NETHERITE_SAMURAI_CHESTPLATE.get(),
+                    ItemsRegistry.NETHERITE_NINJA_CHESTPLATE.get(),
                     ItemsRegistry.NETHERITE_NINJA_BOOTS.get());
 
             AzArmorRendererRegistry.register(NetheriteSamuraiArmorRenderer::new,
@@ -201,8 +201,8 @@ public class SamuraiDynastyMod
 
             AzArmorRendererRegistry.register(SteelNinjaArmorRenderer::new,
                     ItemsRegistry.STEEL_NINJA_HELMET.get(),
-                    ItemsRegistry.STEEL_SAMURAI_CHESTPLATE.get(),
-                    ItemsRegistry.STEEL_SAMURAI_LEGGINGS.get(),
+                    ItemsRegistry.STEEL_NINJA_CHESTPLATE.get(),
+                    ItemsRegistry.NINJA_LEGGINGS.get(),
                     ItemsRegistry.STEEL_NINJA_BOOTS.get());
 
             AzArmorRendererRegistry.register(SteelSamuraiArmorRenderer::new,
