@@ -3,11 +3,8 @@ package net.veroxuniverse.samurai_dynasty;
 import com.mojang.logging.LogUtils;
 import mod.azure.azurelib.render.armor.AzArmorRendererRegistry;
 import mod.azure.azurelib.render.item.AzItemRendererRegistry;
-import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -31,7 +28,6 @@ import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.compat_armo
 import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.compat_armors.bloodmagic.LivingSamuraiArmorRenderer;
 import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.compat_armors.create.BrassSamuraiArmorRenderer;
 import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.compat_armors.deeperdarker.SculkSamuraiArmorRenderer;
-import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.compat_armors.eldrithcend.EtyriteSamuraiArmorRenderer;
 import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.compat_armors.forbidden_and_arcanus.DracoSamuraiArmorRenderer;
 import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.compat_armors.forbidden_and_arcanus.TyrSamuraiArmorRenderer;
 import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.diamond.DiamondSamuraiArmorLightRenderer;
@@ -59,9 +55,8 @@ import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.ruby.RedSam
 import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.silver.WhiteSamuraiArmorLightRenderer;
 import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.silver.WhiteSamuraiArmorMasterRenderer;
 import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.silver.WhiteSamuraiArmorRenderer;
+import net.veroxuniverse.samurai_dynasty.client.armors.samurai_armor.straw_hat.StrawHatArmorRenderer;
 import net.veroxuniverse.samurai_dynasty.client.armors.steel_armor.SteelArmorRenderer;
-import net.veroxuniverse.samurai_dynasty.client.entities.*;
-import net.veroxuniverse.samurai_dynasty.client.projectiles.ThrownShurikenRenderer;
 import net.veroxuniverse.samurai_dynasty.client.weapons.kamayari.KamayariItemNetheriteRenderer;
 import net.veroxuniverse.samurai_dynasty.client.weapons.kamayari.KamayariItemRenderer;
 import net.veroxuniverse.samurai_dynasty.client.weapons.odachi.OdachiItemNetheriteRenderer;
@@ -76,10 +71,7 @@ import net.veroxuniverse.samurai_dynasty.curios.layers.OniMaskRenderer;
 import net.veroxuniverse.samurai_dynasty.datagen.loot.ModLootModifiers;
 import net.veroxuniverse.samurai_dynasty.enchantment.ModEnchantments;
 import net.veroxuniverse.samurai_dynasty.entity.ModEntityTypes;
-import net.veroxuniverse.samurai_dynasty.item.KamayariItem;
-import net.veroxuniverse.samurai_dynasty.item.KamayariNetheriteItem;
 import net.veroxuniverse.samurai_dynasty.item.armor.BrassSamuraiArmorItem;
-import net.veroxuniverse.samurai_dynasty.item.armor.MageSamuraiArmorItem;
 import net.veroxuniverse.samurai_dynasty.registry.BlocksRegistry;
 import net.veroxuniverse.samurai_dynasty.registry.CreativeTabRegistry;
 import net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry;
@@ -188,6 +180,9 @@ public class SamuraiDynastyMod
 
             AzItemRendererRegistry.register(TonbukiriItemRenderer::new, ItemsRegistry.TONBUKIRI.get());
             AzItemRendererRegistry.register(TonbukiriItemNetheriteRenderer::new, ItemsRegistry.TONBUKIRI_NETHERITE.get());
+
+            AzArmorRendererRegistry.register(StrawHatArmorRenderer::new,
+                    ItemsRegistry.STRAW_HAT.get());
 
             AzArmorRendererRegistry.register(AmethystSamuraiArmorRenderer::new,
                     ItemsRegistry.AMETHYST_SAMURAI_HELMET.get(),
