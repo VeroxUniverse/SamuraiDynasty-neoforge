@@ -5,7 +5,6 @@ import mod.azure.azurelib.common.animation.controller.AzAnimationControllerConta
 import mod.azure.azurelib.common.animation.impl.AzEntityAnimator;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
-import net.veroxuniverse.samurai_dynasty.entity.custom.KawausoEntity;
 import net.veroxuniverse.samurai_dynasty.entity.custom.KitsuneEntity;
 import org.jetbrains.annotations.NotNull;
 

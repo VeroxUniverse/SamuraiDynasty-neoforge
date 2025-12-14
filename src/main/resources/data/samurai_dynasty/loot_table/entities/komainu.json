@@ -9,16 +9,16 @@
           "name": "samurai_dynasty:cloth",
           "functions": [
             {
-              "function": "minecraft:enchanted_count_increase",
-              "enchantment": "minecraft:looting",
-              "count": 1
-            },
-            {
               "function": "minecraft:set_count",
               "count": {
                 "min": 0,
                 "max": 2
               }
+            },
+            {
+              "function": "minecraft:enchanted_count_increase",
+              "enchantment": "minecraft:looting",
+              "count": 1
             }
           ]
         }
