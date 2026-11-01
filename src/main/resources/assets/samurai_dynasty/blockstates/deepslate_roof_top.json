@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "samurai_dynasty:block/deepslate_roof_top" },
+    "facing=east":  { "model": "samurai_dynasty:block/deepslate_roof_top", "y": 90 },
+    "facing=south": { "model": "samurai_dynasty:block/deepslate_roof_top", "y": 180 },
+    "facing=west":  { "model": "samurai_dynasty:block/deepslate_roof_top", "y": 270 }
+  }
+}

@@ -10,8 +10,6 @@ import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 import net.veroxuniverse.samurai_dynasty.registry.BlocksRegistry;
 import net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry;
 
-import java.util.ArrayList;
-
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, net.neoforged.neoforge.common.data.ExistingFileHelper existingFileHelper) {
         super(output, SamuraiDynastyMod.MOD_ID, existingFileHelper);
@@ -19,7 +17,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        wallItem(BlocksRegistry.SPIRIT_STONE_WALL, BlocksRegistry.SPIRIT_STONE);
+        wallItem(BlocksRegistry.SPIRIT_STONE_BRICKS_WALL, BlocksRegistry.SPIRIT_STONE_BRICKS);
         wallItem(BlocksRegistry.POLISHED_SPIRIT_STONE_WALL, BlocksRegistry.POLISHED_SPIRIT_STONE);
         wallItem(BlocksRegistry.MOSSY_SPIRIT_STONE_BRICK_WALL, BlocksRegistry.MOSSY_SPIRIT_STONE_BRICKS);
         basicItem(ItemsRegistry.LIGHT_SAMURAI_BOOTS.get());
@@ -36,11 +34,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         fenceItem(BlocksRegistry.SPIRIT_BLOSSOM_FENCE, BlocksRegistry.SPIRIT_BLOSSOM_PLANKS);
         basicItem(BlocksRegistry.SPIRIT_BLOSSOM_DOOR.asItem());
 
-        buttonItem(BlocksRegistry.SPIRIT_WOOD_BUTTON, BlocksRegistry.SPIRIT_WOOD_PLANKS);
-        fenceItem(BlocksRegistry.SPIRIT_WOOD_FENCE, BlocksRegistry.SPIRIT_WOOD_PLANKS);
-        basicItem(BlocksRegistry.SPIRIT_WOOD_DOOR.asItem());
+        buttonItem(BlocksRegistry.TWISTTHORN_BUTTON, BlocksRegistry.TWISTTHORN_PLANKS);
+        fenceItem(BlocksRegistry.TWISTTHORN_FENCE, BlocksRegistry.TWISTTHORN_PLANKS);
+        basicItem(BlocksRegistry.TWISTTHORN_DOOR.asItem());
 
-        saplingItem(BlocksRegistry.SPIRIT_WOOD_SAPLING);
+        saplingItem(BlocksRegistry.TWISTTHORN_SAPLING);
         saplingItem(BlocksRegistry.SPIRIT_BLOSSOM_SAPLING);
         saplingItem(BlocksRegistry.SPIDER_LILLY);
     }

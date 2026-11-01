@@ -21,6 +21,10 @@ public class RaijinAnimator extends AzEntityAnimator<RaijinEntity> {
                 AzAnimationController.builder(this, "base_controller")
                         .build()
         );
+        animationControllerContainer.add(
+                AzAnimationController.builder(this, "attack_controller")
+                        .build()
+        );
     }
 
     @Override

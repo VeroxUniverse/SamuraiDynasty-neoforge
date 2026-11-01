@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "samurai_dynasty:twistthorn_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "samurai_dynasty:twistthorn_planks"
+  }
+}

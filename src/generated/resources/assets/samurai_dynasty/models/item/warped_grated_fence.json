@@ -1,0 +1,6 @@
+{
+  "parent": "samurai_dynasty:item/template_grated_fence_inventory",
+  "textures": {
+    "planks": "minecraft:block/warped_planks"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "samurai_dynasty:block/template_grated_fence_post",
+  "textures": {
+    "planks": "minecraft:block/spruce_planks"
+  }
+}

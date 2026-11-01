@@ -1,12 +1,6 @@
 package net.veroxuniverse.samurai_dynasty.client;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ShaderInstance;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.ItemStack;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -21,7 +15,7 @@ import net.veroxuniverse.samurai_dynasty.item.armor.SteelSamuraiArmorItem;
 import net.veroxuniverse.samurai_dynasty.particle.BlueFlame;
 import net.veroxuniverse.samurai_dynasty.particle.ModParticles;
 import net.veroxuniverse.samurai_dynasty.particle.SpiritBlossomLeaves;
-import net.veroxuniverse.samurai_dynasty.particle.SpiritWoodLeaves;
+import net.veroxuniverse.samurai_dynasty.particle.ThwistthornLeaves;
 import net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry;
 
 @EventBusSubscriber(modid = SamuraiDynastyMod.MOD_ID, value = Dist.CLIENT)
@@ -30,7 +24,7 @@ public class SamuraiDynastyClientMod {
     public static void registerParticleFactories(final RegisterParticleProvidersEvent event)
     {
         Minecraft.getInstance().particleEngine.register(ModParticles.BLUE_FLAME.get(), BlueFlame.Provider::new);
-        Minecraft.getInstance().particleEngine.register(ModParticles.SPIRIT_WOOD_LEAVES.get(), SpiritWoodLeaves.Provider::new);
+        Minecraft.getInstance().particleEngine.register(ModParticles.TWISTTHORN_LEAVES.get(), ThwistthornLeaves.Provider::new);
         Minecraft.getInstance().particleEngine.register(ModParticles.SPIRIT_BLOSSOM_LEAVES.get(), SpiritBlossomLeaves.Provider::new);
     }
 

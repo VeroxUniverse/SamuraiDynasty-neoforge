@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "samurai_dynasty:block/twistthorn_slab"
+    },
+    "type=double": {
+      "model": "samurai_dynasty:block/twistthorn_planks"
+    },
+    "type=top": {
+      "model": "samurai_dynasty:block/twistthorn_slab_top"
+    }
+  }
+}

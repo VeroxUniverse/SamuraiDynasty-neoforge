@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "cherry_gilded_fence",
+  "key": {
+    "#": {
+      "item": "minecraft:gold_nugget"
+    },
+    "W": {
+      "item": "minecraft:cherry_planks"
+    }
+  },
+  "pattern": [
+    "W#W",
+    "W#W"
+  ],
+  "result": {
+    "count": 3,
+    "id": "samurai_dynasty:cherry_gilded_fence"
+  }
+}

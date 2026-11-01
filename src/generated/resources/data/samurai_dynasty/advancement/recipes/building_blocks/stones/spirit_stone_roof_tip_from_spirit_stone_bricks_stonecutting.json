@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_spirit_stone_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "samurai_dynasty:spirit_stone_bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "samurai_dynasty:stones/spirit_stone_roof_tip_from_spirit_stone_bricks_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_spirit_stone_bricks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "samurai_dynasty:stones/spirit_stone_roof_tip_from_spirit_stone_bricks_stonecutting"
+    ]
+  }
+}

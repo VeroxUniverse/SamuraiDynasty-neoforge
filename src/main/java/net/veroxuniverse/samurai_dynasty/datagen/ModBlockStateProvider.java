@@ -10,6 +10,8 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 import net.veroxuniverse.samurai_dynasty.registry.BlocksRegistry;
 
+import java.util.Map;
+
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(PackOutput output, net.neoforged.neoforge.common.data.ExistingFileHelper exFileHelper) {
         super(output, SamuraiDynastyMod.MOD_ID, exFileHelper);
@@ -17,14 +19,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        blockWithItem(BlocksRegistry.SPIRIT_STONE_BASE);
         blockWithItem(BlocksRegistry.SPIRIT_STONE);
-        stairsBlock((StairBlock) BlocksRegistry.SPIRIT_STONE_STAIRS.get(), blockTexture(BlocksRegistry.SPIRIT_STONE.get()));
-        slabBlock(((SlabBlock) BlocksRegistry.SPIRIT_STONE_SLAB.get()), blockTexture(BlocksRegistry.SPIRIT_STONE.get()), blockTexture(BlocksRegistry.SPIRIT_STONE.get()));
-        wallBlock((WallBlock) BlocksRegistry.SPIRIT_STONE_WALL.get(), blockTexture(BlocksRegistry.SPIRIT_STONE.get()));
+        blockWithItem(BlocksRegistry.SPIRIT_STONE_BRICKS);
+        stairsBlock((StairBlock) BlocksRegistry.SPIRIT_STONE_BRICKS_STAIRS.get(), blockTexture(BlocksRegistry.SPIRIT_STONE_BRICKS.get()));
+        slabBlock(((SlabBlock) BlocksRegistry.SPIRIT_STONE_BRICKS_SLAB.get()), blockTexture(BlocksRegistry.SPIRIT_STONE_BRICKS.get()), blockTexture(BlocksRegistry.SPIRIT_STONE_BRICKS.get()));
+        wallBlock((WallBlock) BlocksRegistry.SPIRIT_STONE_BRICKS_WALL.get(), blockTexture(BlocksRegistry.SPIRIT_STONE_BRICKS.get()));
 
-        blockItem(BlocksRegistry.SPIRIT_STONE_STAIRS);
-        blockItem(BlocksRegistry.SPIRIT_STONE_SLAB);
+        blockItem(BlocksRegistry.SPIRIT_STONE_BRICKS_STAIRS);
+        blockItem(BlocksRegistry.SPIRIT_STONE_BRICKS_SLAB);
 
         blockWithItem(BlocksRegistry.CHISELED_SPIRIT_STONE_BRICKS);
         blockWithItem(BlocksRegistry.CHISELED_PATTERN_SPIRIT_STONE_BRICKS);
@@ -38,7 +40,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(BlocksRegistry.MOSSY_SPIRIT_STONE_BRICK_STAIRS);
         blockItem(BlocksRegistry.MOSSY_SPIRIT_STONE_BRICK_SLAB);
 
-
         blockWithItem(BlocksRegistry.PATH_SPIRIT_STONE_BRICKS);
         blockWithItem(BlocksRegistry.PATTERN_MOSSY_SPIRIT_STONE_BRICKS);
         blockWithItem(BlocksRegistry.PATTERN_SPIRIT_STONE_BRICKS);
@@ -51,22 +52,21 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(BlocksRegistry.POLISHED_SPIRIT_STONE_STAIRS);
         blockItem(BlocksRegistry.POLISHED_SPIRIT_STONE_SLAB);
 
-        blockWithItem(BlocksRegistry.SPIRIT_WOOD_PLANKS);
-        logBlock(((RotatedPillarBlock) BlocksRegistry.SPIRIT_WOOD_LOG.get()));
-        logBlock(((RotatedPillarBlock) BlocksRegistry.STRIPPED_SPIRIT_WOOD_LOG.get()));
-        axisBlock(((RotatedPillarBlock) BlocksRegistry.SPIRIT_WOOD.get()), blockTexture(BlocksRegistry.SPIRIT_WOOD_LOG.get()), blockTexture(BlocksRegistry.SPIRIT_WOOD_LOG.get()));
-        axisBlock(((RotatedPillarBlock) BlocksRegistry.STRIPPED_SPIRIT_WOOD.get()), blockTexture(BlocksRegistry.STRIPPED_SPIRIT_WOOD_LOG.get()), blockTexture(BlocksRegistry.STRIPPED_SPIRIT_WOOD_LOG.get()));
+        blockWithItem(BlocksRegistry.TWISTTHORN_PLANKS);
+        logBlock(((RotatedPillarBlock) BlocksRegistry.TWISTTHORN_LOG.get()));
+        logBlock(((RotatedPillarBlock) BlocksRegistry.STRIPPED_TWISTTHORN_LOG.get()));
+        axisBlock(((RotatedPillarBlock) BlocksRegistry.TWISTTHORN_WOOD.get()), blockTexture(BlocksRegistry.TWISTTHORN_LOG.get()), blockTexture(BlocksRegistry.TWISTTHORN_LOG.get()));
+        axisBlock(((RotatedPillarBlock) BlocksRegistry.STRIPPED_TWISTTHORN_WOOD.get()), blockTexture(BlocksRegistry.STRIPPED_TWISTTHORN_LOG.get()), blockTexture(BlocksRegistry.STRIPPED_TWISTTHORN_LOG.get()));
 
-        blockItem(BlocksRegistry.SPIRIT_WOOD_LOG);
-        blockItem(BlocksRegistry.STRIPPED_SPIRIT_WOOD_LOG);
-        blockItem(BlocksRegistry.SPIRIT_WOOD);
-        blockItem(BlocksRegistry.STRIPPED_SPIRIT_WOOD);
+        blockItem(BlocksRegistry.TWISTTHORN_LOG);
+        blockItem(BlocksRegistry.STRIPPED_TWISTTHORN_LOG);
+        blockItem(BlocksRegistry.TWISTTHORN_WOOD);
+        blockItem(BlocksRegistry.STRIPPED_TWISTTHORN_WOOD);
 
         blockWithItem(BlocksRegistry.SPIRIT_MOSS_BLOCK);
 
-        leavesBlock(BlocksRegistry.SPIRIT_WOOD_LEAVES);
-        saplingBlock(BlocksRegistry.SPIRIT_WOOD_SAPLING);
-
+        leavesBlock(BlocksRegistry.TWISTTHORN_LEAVES);
+        saplingBlock(BlocksRegistry.TWISTTHORN_SAPLING);
 
         blockWithItem(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS);
         logBlock(((RotatedPillarBlock) BlocksRegistry.SPIRIT_BLOSSOM_LOG.get()));
@@ -102,23 +102,67 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(BlocksRegistry.SPIRIT_BLOSSOM_FENCE_GATE);
         blockItem(BlocksRegistry.SPIRIT_BLOSSOM_TRAPDOOR, "_bottom");
 
-        stairsBlock(((StairBlock) BlocksRegistry.SPIRIT_WOOD_STAIRS.get()), blockTexture(BlocksRegistry.SPIRIT_WOOD_PLANKS.get()));
-        slabBlock(((SlabBlock) BlocksRegistry.SPIRIT_WOOD_SLAB.get()), blockTexture(BlocksRegistry.SPIRIT_WOOD_PLANKS.get()), blockTexture(BlocksRegistry.SPIRIT_WOOD_PLANKS.get()));
-        pressurePlateBlock(((PressurePlateBlock) BlocksRegistry.SPIRIT_WOOD_PRESSURE_PLATE.get()), blockTexture(BlocksRegistry.SPIRIT_WOOD_PLANKS.get()));
-        buttonBlock(((ButtonBlock) BlocksRegistry.SPIRIT_WOOD_BUTTON.get()), blockTexture(BlocksRegistry.SPIRIT_WOOD_PLANKS.get()));
-        fenceBlock(((FenceBlock) BlocksRegistry.SPIRIT_WOOD_FENCE.get()), blockTexture(BlocksRegistry.SPIRIT_WOOD_PLANKS.get()));
-        fenceGateBlock(((FenceGateBlock) BlocksRegistry.SPIRIT_WOOD_FENCE_GATE.get()), blockTexture(BlocksRegistry.SPIRIT_WOOD_PLANKS.get()));
-        doorBlockWithRenderType(((DoorBlock) BlocksRegistry.SPIRIT_WOOD_DOOR.get()), modLoc("block/spirit_wood_door_bottom"), modLoc("block/spirit_wood_door_top"), "cutout");
-        trapdoorBlockWithRenderType(((TrapDoorBlock) BlocksRegistry.SPIRIT_WOOD_TRAPDOOR.get()), modLoc("block/spirit_wood_trapdoor"), true, "cutout");
+        stairsBlock(((StairBlock) BlocksRegistry.TWISTTHORN_STAIRS.get()), blockTexture(BlocksRegistry.TWISTTHORN_PLANKS.get()));
+        slabBlock(((SlabBlock) BlocksRegistry.TWISTTHORN_SLAB.get()), blockTexture(BlocksRegistry.TWISTTHORN_PLANKS.get()), blockTexture(BlocksRegistry.TWISTTHORN_PLANKS.get()));
+        pressurePlateBlock(((PressurePlateBlock) BlocksRegistry.TWISTTHORN_PRESSURE_PLATE.get()), blockTexture(BlocksRegistry.TWISTTHORN_PLANKS.get()));
+        buttonBlock(((ButtonBlock) BlocksRegistry.TWISTTHORN_BUTTON.get()), blockTexture(BlocksRegistry.TWISTTHORN_PLANKS.get()));
+        fenceBlock(((FenceBlock) BlocksRegistry.TWISTTHORN_FENCE.get()), blockTexture(BlocksRegistry.TWISTTHORN_PLANKS.get()));
+        fenceGateBlock(((FenceGateBlock) BlocksRegistry.TWISTTHORN_FENCE_GATE.get()), blockTexture(BlocksRegistry.TWISTTHORN_PLANKS.get()));
+        doorBlockWithRenderType(((DoorBlock) BlocksRegistry.TWISTTHORN_DOOR.get()), modLoc("block/twistthorn_door_bottom"), modLoc("block/twistthorn_door_top"), "cutout");
+        trapdoorBlockWithRenderType(((TrapDoorBlock) BlocksRegistry.TWISTTHORN_TRAPDOOR.get()), modLoc("block/twistthorn_trapdoor"), true, "cutout");
 
-        blockItem(BlocksRegistry.SPIRIT_WOOD_STAIRS);
-        blockItem(BlocksRegistry.SPIRIT_WOOD_SLAB);
-        blockItem(BlocksRegistry.SPIRIT_WOOD_PRESSURE_PLATE);
-        blockItem(BlocksRegistry.SPIRIT_WOOD_FENCE_GATE);
-        blockItem(BlocksRegistry.SPIRIT_WOOD_TRAPDOOR, "_bottom");
+        blockItem(BlocksRegistry.TWISTTHORN_STAIRS);
+        blockItem(BlocksRegistry.TWISTTHORN_SLAB);
+        blockItem(BlocksRegistry.TWISTTHORN_PRESSURE_PLATE);
+        blockItem(BlocksRegistry.TWISTTHORN_FENCE_GATE);
+        blockItem(BlocksRegistry.TWISTTHORN_TRAPDOOR, "_bottom");
 
         //blockWithItem(BlocksRegistry.CLOUD);
-        
+
+        registerFenceFamily("grated_fence",
+                modLoc("block/template_grated_fence_post"),
+                modLoc("block/template_grated_fence_side"),
+                modLoc("item/template_grated_fence_inventory"),
+                BlocksRegistry.GRATED_FENCES);
+
+        registerFenceFamily("gilded_fence",
+                modLoc("block/template_gilded_fence_post"),
+                modLoc("block/template_gilded_fence_side"),
+                modLoc("item/template_gilded_fence_inventory"),
+                BlocksRegistry.GILDED_FENCES);
+
+    }
+
+    private ResourceLocation planksTexture(Block planks) {
+        ResourceLocation id = BuiltInRegistries.BLOCK.getKey(planks);
+        return ResourceLocation.fromNamespaceAndPath(id.getNamespace(), "block/" + id.getPath());
+    }
+
+    private void registerFenceFamily(String suffix,
+                                     ResourceLocation postTemplate,
+                                     ResourceLocation sideTemplate,
+                                     ResourceLocation inventoryTemplate,
+                                     Map<String, DeferredBlock<Block>> fences) {
+        for (BlocksRegistry.FenceMaterial material : BlocksRegistry.FENCE_MATERIALS) {
+            Block fence = fences.get(material.name()).get();
+            ResourceLocation planks = planksTexture(material.planks().get());
+            String baseName = material.name() + "_" + suffix;
+
+            ModelFile post = models().withExistingParent(baseName + "_post", postTemplate)
+                    .texture("planks", planks);
+            ModelFile side = models().withExistingParent(baseName + "_side", sideTemplate)
+                    .texture("planks", planks);
+
+            getMultipartBuilder(fence)
+                    .part().modelFile(post).addModel().end()
+                    .part().modelFile(side).rotationY(0).uvLock(true).addModel().condition(FenceBlock.NORTH, true).end()
+                    .part().modelFile(side).rotationY(90).uvLock(true).addModel().condition(FenceBlock.EAST, true).end()
+                    .part().modelFile(side).rotationY(180).uvLock(true).addModel().condition(FenceBlock.SOUTH, true).end()
+                    .part().modelFile(side).rotationY(270).uvLock(true).addModel().condition(FenceBlock.WEST, true).end();
+
+            itemModels().withExistingParent(baseName, inventoryTemplate)
+                    .texture("planks", planks);
+        }
     }
 
 

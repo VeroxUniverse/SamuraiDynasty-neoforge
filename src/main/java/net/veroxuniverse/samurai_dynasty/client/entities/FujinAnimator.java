@@ -21,6 +21,10 @@ public class FujinAnimator extends AzEntityAnimator<FujinEntity> {
                 AzAnimationController.builder(this, "base_controller")
                         .build()
         );
+        animationControllerContainer.add(
+                AzAnimationController.builder(this, "attack_controller")
+                        .build()
+        );
     }
 
     @Override

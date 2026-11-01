@@ -2,6 +2,7 @@ package net.veroxuniverse.samurai_dynasty.client.entities;
 
 import mod.azure.azurelib.common.render.entity.AzEntityRenderer;
 import mod.azure.azurelib.common.render.entity.AzEntityRendererConfig;
+import mod.azure.azurelib.common.render.layer.AzAutoGlowingLayer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
@@ -22,6 +23,7 @@ public class OniRenderer extends AzEntityRenderer<OniEntity> {
         super(
                 AzEntityRendererConfig.<OniEntity>builder(GEO, TEX)
                         .setAnimatorProvider(OniAnimator::new)
+                        .addRenderLayer(new AzAutoGlowingLayer<>())
                         .setShadowRadius(0.8f)
                         .build(),
                 context

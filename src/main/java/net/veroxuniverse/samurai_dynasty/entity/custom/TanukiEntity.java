@@ -145,7 +145,7 @@ public class TanukiEntity extends TamableAnimal {
     @Override
     public boolean isFood(ItemStack pStack) {
         return pStack.is(Items.WHEAT);
-    }
+    } //TAME ITEM überarbeiten und allen mobs baby mobs hinzufügen, aktuell ausgewachsen
 
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
         this.playSound(SoundEvents.WOLF_STEP, 0.15F, 1.0F);

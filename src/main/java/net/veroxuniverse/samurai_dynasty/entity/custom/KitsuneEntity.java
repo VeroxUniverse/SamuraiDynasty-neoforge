@@ -49,7 +49,7 @@ public class KitsuneEntity extends Monster {
     }
 
     public static AttributeSupplier setAttributes() {return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 100.0D)
+                .add(Attributes.MAX_HEALTH, 60.0D)
                 .add(Attributes.ATTACK_DAMAGE, 8.0f)
                 .add(Attributes.ATTACK_SPEED, 0.3f)
                 .add(Attributes.FOLLOW_RANGE, 25.0f)
@@ -163,7 +163,7 @@ public class KitsuneEntity extends Monster {
     }
 
     public int getMaxSpawnClusterSize() {
-        return 6;
+        return 2;
     }
 
     protected SoundEvent getAmbientSound() {

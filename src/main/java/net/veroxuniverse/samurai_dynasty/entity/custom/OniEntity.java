@@ -38,7 +38,7 @@ public class OniEntity extends Monster {
 
     public static AttributeSupplier setAttributes() {
         return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 100.0D)
+                .add(Attributes.MAX_HEALTH, 80.0D)
                 .add(Attributes.ATTACK_DAMAGE, 7.0f)
                 .add(Attributes.ATTACK_SPEED, 1.6f)
                 .add(Attributes.FOLLOW_RANGE, 16.0D)

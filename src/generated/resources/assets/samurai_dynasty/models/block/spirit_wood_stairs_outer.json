@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "samurai_dynasty:block/spirit_wood_planks",
-    "side": "samurai_dynasty:block/spirit_wood_planks",
-    "top": "samurai_dynasty:block/spirit_wood_planks"
-  }
-}

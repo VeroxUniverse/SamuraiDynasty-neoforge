@@ -10,6 +10,8 @@ import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 public class ModTags {
 
     public static final TagKey<Block> SPIRIT_VALID_GROUND = createBlockTag("spirit_valid_ground");
+    public static final TagKey<Block> GRATED_FENCES = createBlockTag("grated_fences");
+    public static final TagKey<Block> GILDED_FENCES = createBlockTag("gilded_fences");
 
     private static TagKey<Block> createBlockTag(String name) {
         return TagKey.create(

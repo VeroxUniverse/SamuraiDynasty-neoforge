@@ -25,7 +25,7 @@ import java.util.List;
 public class ModPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> SPIDER_LILLY_PLACED_KEY = registerKey("spider_lilly_placed");
-    public static final ResourceKey<PlacedFeature> SPIRIT_PETALS_PLACED_KEY = registerKey("spirit_petals_placed");
+    public static final ResourceKey<PlacedFeature> TWISTTHORN_PETALS_PLACED_KEY = registerKey("twistthorn_petals_placed");
     public static final ResourceKey<PlacedFeature> MOSS_PLACED_KEY = registerKey("moss_placed");
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
@@ -46,7 +46,7 @@ public class ModPlacedFeatures {
 
                 ));
 
-        register(context, SPIRIT_PETALS_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.SPIRIT_PETALS_KEY),
+        register(context, TWISTTHORN_PETALS_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.TWISTTHORN_PETALS_KEY),
                 List.of(
                         RarityFilter.onAverageOnceEvery(5),
                         InSquarePlacement.spread(),

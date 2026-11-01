@@ -1,0 +1,59 @@
+{
+	"render_type": "cutout",
+	"textures": {
+		"planks": "#planks",
+		"grating": "samurai_dynasty:block/fence_grating",
+		"particle": "#planks"
+	},
+	"elements": [
+		{
+			"from": [7, 8, 0],
+			"to": [9, 10, 6],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -6, 8]},
+			"faces": {
+				"north": {"uv": [7, 6, 9, 8], "texture": "#planks"},
+				"east": {"uv": [10, 6, 16, 8], "texture": "#planks"},
+				"west": {"uv": [0, 6, 6, 8], "texture": "#planks"},
+				"up": {"uv": [7, 5, 9, 11], "texture": "#planks"},
+				"down": {"uv": [7, 5, 9, 11], "texture": "#planks"}
+			}
+		},
+		{
+			"from": [7, 13, 0],
+			"to": [9, 15, 6],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -6, 8]},
+			"faces": {
+				"north": {"uv": [7, 2, 9, 4], "texture": "#planks"},
+				"east": {"uv": [10, 2, 16, 4], "texture": "#planks"},
+				"west": {"uv": [0, 2, 6, 4], "texture": "#planks"},
+				"up": {"uv": [7, 5, 9, 11], "texture": "#planks"},
+				"down": {"uv": [7, 5, 9, 11], "texture": "#planks"}
+			}
+		},
+		{
+			"from": [8, 4, 0],
+			"to": [8, 8, 6],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -6, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 4], "texture": "#grating"},
+				"east": {"uv": [0, 0, 6, 4], "texture": "#grating"},
+				"south": {"uv": [0, 0, 0, 4], "texture": "#grating"},
+				"west": {"uv": [0, 0, 6, 4], "texture": "#grating"},
+				"up": {"uv": [6, 0, 0, 0], "rotation": 270, "texture": "#grating"},
+				"down": {"uv": [6, 0, 0, 0], "rotation": 90, "texture": "#grating"}
+			}
+		},
+		{
+			"from": [7, 2, 0],
+			"to": [9, 4, 6],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -6, 8]},
+			"faces": {
+				"north": {"uv": [7, 12, 9, 14], "texture": "#planks"},
+				"east": {"uv": [10, 12, 16, 14], "texture": "#planks"},
+				"west": {"uv": [0, 12, 6, 14], "texture": "#planks"},
+				"up": {"uv": [7, 5, 9, 11], "texture": "#planks"},
+				"down": {"uv": [7, 5, 9, 11], "texture": "#planks"}
+			}
+		}
+	]
+}

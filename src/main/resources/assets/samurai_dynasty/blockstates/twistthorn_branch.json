@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "samurai_dynasty:block/twistthorn_branch",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "samurai_dynasty:block/twistthorn_branch"
+    },
+    "facing=south": {
+      "model": "samurai_dynasty:block/twistthorn_branch",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "samurai_dynasty:block/twistthorn_branch",
+      "y": 270
+    }
+  }
+}

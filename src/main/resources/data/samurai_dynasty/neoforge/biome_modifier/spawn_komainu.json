@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#c:is_forest",
+  "spawners": {
+    "type": "samurai_dynasty:komainu",
+    "maxCount": 4,
+    "minCount": 2,
+    "weight": 2
+  }
+}

@@ -125,14 +125,14 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(BlocksRegistry.STRIPPED_SPIRIT_BLOSSOM_LOG.get().asItem())
                 .add(BlocksRegistry.SPIRIT_BLOSSOM_WOOD.get().asItem())
                 .add(BlocksRegistry.STRIPPED_SPIRIT_BLOSSOM_WOOD.get().asItem())
-                .add(BlocksRegistry.SPIRIT_WOOD_LOG.get().asItem())
-                .add(BlocksRegistry.STRIPPED_SPIRIT_WOOD_LOG.get().asItem())
-                .add(BlocksRegistry.SPIRIT_WOOD.get().asItem())
-                .add(BlocksRegistry.STRIPPED_SPIRIT_WOOD.get().asItem());
+                .add(BlocksRegistry.TWISTTHORN_LOG.get().asItem())
+                .add(BlocksRegistry.STRIPPED_TWISTTHORN_LOG.get().asItem())
+                .add(BlocksRegistry.TWISTTHORN_WOOD.get().asItem())
+                .add(BlocksRegistry.STRIPPED_TWISTTHORN_WOOD.get().asItem());
 
         tag(ItemTags.PLANKS)
                 .add(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get().asItem())
-                .add(BlocksRegistry.SPIRIT_WOOD_PLANKS.get().asItem());
+                .add(BlocksRegistry.TWISTTHORN_PLANKS.get().asItem());
 
         tag(ItemTags.DIRT)
                 .add(BlocksRegistry.SPIRIT_MOSS_BLOCK.get().asItem());

@@ -43,15 +43,24 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(BlocksRegistry.POLISHED_SPIRIT_STONE_SLAB.get());
         this.dropSelf(BlocksRegistry.POLISHED_SPIRIT_STONE_STAIRS.get());
         this.dropSelf(BlocksRegistry.POLISHED_SPIRIT_STONE_WALL.get());
+        this.dropSelf(BlocksRegistry.SPIRIT_STONE_BRICKS.get());
         this.dropSelf(BlocksRegistry.SPIRIT_STONE.get());
-        this.dropSelf(BlocksRegistry.SPIRIT_STONE_BASE.get());
-        this.dropSelf(BlocksRegistry.SPIRIT_STONE_SLAB.get());
-        this.dropSelf(BlocksRegistry.SPIRIT_STONE_WALL.get());
-        this.dropSelf(BlocksRegistry.SPIRIT_STONE_STAIRS.get());
+        this.dropSelf(BlocksRegistry.SPIRIT_STONE_BRICKS_SLAB.get());
+        this.dropSelf(BlocksRegistry.SPIRIT_STONE_BRICKS_WALL.get());
+        this.dropSelf(BlocksRegistry.SPIRIT_STONE_BRICKS_STAIRS.get());
         this.dropSelf(BlocksRegistry.STEEL_BLOCK.get());
-        this.dropSelf(BlocksRegistry.STONE_ROOF.get());
-        this.dropSelf(BlocksRegistry.STONE_ROOF_CORNER.get());
-        this.dropSelf(BlocksRegistry.STONE_ROOF_TOP.get());
+        this.dropSelf(BlocksRegistry.SPIRIT_STONE_ROOF.get());
+        this.dropSelf(BlocksRegistry.SPIRIT_STONE_ROOF_TOP.get());
+        this.dropSelf(BlocksRegistry.SPIRIT_STONE_ROOF_TIP.get());
+        this.dropSelf(BlocksRegistry.BLACKSTONE_ROOF.get());
+        this.dropSelf(BlocksRegistry.BLACKSTONE_ROOF_TOP.get());
+        this.dropSelf(BlocksRegistry.BLACKSTONE_ROOF_TIP.get());
+        this.dropSelf(BlocksRegistry.DEEPSLATE_ROOF.get());
+        this.dropSelf(BlocksRegistry.DEEPSLATE_ROOF_TOP.get());
+        this.dropSelf(BlocksRegistry.DEEPSLATE_ROOF_TIP.get());
+        this.dropSelf(BlocksRegistry.MUD_BRICKS_ROOF.get());
+        this.dropSelf(BlocksRegistry.MUD_BRICKS_ROOF_TOP.get());
+        this.dropSelf(BlocksRegistry.MUD_BRICKS_ROOF_TIP.get());
         this.dropSelf(BlocksRegistry.MOSSY_SPIRIT_STONE_BRICKS.get());
         this.dropOther(BlocksRegistry.CLOUD.get(), Blocks.AIR);
 
@@ -70,19 +79,19 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.add(BlocksRegistry.DEEPSLATE_JADE_ORE.get(),
                 block -> createOreDrop(BlocksRegistry.DEEPSLATE_JADE_ORE.get(), ItemsRegistry.JADE.get()));
 
-        this.dropSelf(BlocksRegistry.SPIRIT_WOOD_LOG.get());
-        this.dropSelf(BlocksRegistry.STRIPPED_SPIRIT_WOOD_LOG.get());
-        this.dropSelf(BlocksRegistry.SPIRIT_WOOD.get());
-        this.dropSelf(BlocksRegistry.STRIPPED_SPIRIT_WOOD.get());
+        this.dropSelf(BlocksRegistry.TWISTTHORN_LOG.get());
+        this.dropSelf(BlocksRegistry.STRIPPED_TWISTTHORN_LOG.get());
+        this.dropSelf(BlocksRegistry.TWISTTHORN_WOOD.get());
+        this.dropSelf(BlocksRegistry.STRIPPED_TWISTTHORN_WOOD.get());
 
-        this.dropSelf(BlocksRegistry.SPIRIT_WOOD_PLANKS.get());
-        this.dropSelf(BlocksRegistry.SPIRIT_WOOD_LEAVES.get());
+        this.dropSelf(BlocksRegistry.TWISTTHORN_PLANKS.get());
+        this.dropSelf(BlocksRegistry.TWISTTHORN_LEAVES.get());
 
-        this.dropSelf(BlocksRegistry.SPIRIT_PETALS.get());
+        this.dropSelf(BlocksRegistry.TWISTTHORN_PETALS.get());
 
-        this.dropSelf(BlocksRegistry.SPIRIT_WOOD_SAPLING.get());
-        this.add(BlocksRegistry.SPIRIT_WOOD_LEAVES.get(), block ->
-                createLeavesDrops(block, BlocksRegistry.SPIRIT_WOOD_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        this.dropSelf(BlocksRegistry.TWISTTHORN_SAPLING.get());
+        this.add(BlocksRegistry.TWISTTHORN_LEAVES.get(), block ->
+                createLeavesDrops(block, BlocksRegistry.TWISTTHORN_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
         this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_LOG.get());
         this.dropSelf(BlocksRegistry.STRIPPED_SPIRIT_BLOSSOM_LOG.get());
@@ -92,7 +101,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_PLANKS.get());
         this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_LEAVES.get());
 
-        this.dropSelf(BlocksRegistry.SPIRIT_PETALS.get());
+        this.dropSelf(BlocksRegistry.TWISTTHORN_PETALS.get());
 
         this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_SAPLING.get());
         this.add(BlocksRegistry.SPIRIT_BLOSSOM_LEAVES.get(), block ->
@@ -109,8 +118,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         this.dropOther(BlocksRegistry.SPIRIT_BLOSSOM_ROOTS.get(), Items.STICK);
         this.dropOther(BlocksRegistry.SPIRIT_BLOSSOM_BRANCH.get(), Items.STICK);
-        this.dropOther(BlocksRegistry.SPIRIT_WOOD_ROOTS.get(), Items.STICK);
-        this.dropOther(BlocksRegistry.SPIRIT_WOOD_BRANCH.get(), Items.STICK);
+        this.dropOther(BlocksRegistry.TWISTTHORN_ROOTS.get(), Items.STICK);
+        this.dropOther(BlocksRegistry.TWISTTHORN_BRANCH.get(), Items.STICK);
 
         this.dropSelf(BlocksRegistry.SPIRIT_BLOSSOM_STAIRS.get());
         this.add(BlocksRegistry.SPIRIT_BLOSSOM_SLAB.get(),
@@ -123,18 +132,20 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         this.add(BlocksRegistry.SPIRIT_BLOSSOM_DOOR.get(),
                 block -> createDoorTable(BlocksRegistry.SPIRIT_BLOSSOM_DOOR.get()));
 
-        this.dropSelf(BlocksRegistry.SPIRIT_WOOD_STAIRS.get());
-        this.add(BlocksRegistry.SPIRIT_WOOD_SLAB.get(),
-                block -> createSlabItemTable(BlocksRegistry.SPIRIT_WOOD_SLAB.get()));
-        this.dropSelf(BlocksRegistry.SPIRIT_WOOD_FENCE.get());
-        this.dropSelf(BlocksRegistry.SPIRIT_WOOD_FENCE_GATE.get());
-        this.dropSelf(BlocksRegistry.SPIRIT_WOOD_BUTTON.get());
-        this.dropSelf(BlocksRegistry.SPIRIT_WOOD_PRESSURE_PLATE.get());
-        this.dropSelf(BlocksRegistry.SPIRIT_WOOD_TRAPDOOR.get());
-        this.add(BlocksRegistry.SPIRIT_WOOD_DOOR.get(),
-                block -> createDoorTable(BlocksRegistry.SPIRIT_WOOD_DOOR.get()));
+        this.dropSelf(BlocksRegistry.TWISTTHORN_STAIRS.get());
+        this.add(BlocksRegistry.TWISTTHORN_SLAB.get(),
+                block -> createSlabItemTable(BlocksRegistry.TWISTTHORN_SLAB.get()));
+        this.dropSelf(BlocksRegistry.TWISTTHORN_FENCE.get());
+        BlocksRegistry.GRATED_FENCES.values().forEach(fence -> this.dropSelf(fence.get()));
+        BlocksRegistry.GILDED_FENCES.values().forEach(fence -> this.dropSelf(fence.get()));
+        this.dropSelf(BlocksRegistry.TWISTTHORN_FENCE_GATE.get());
+        this.dropSelf(BlocksRegistry.TWISTTHORN_BUTTON.get());
+        this.dropSelf(BlocksRegistry.TWISTTHORN_PRESSURE_PLATE.get());
+        this.dropSelf(BlocksRegistry.TWISTTHORN_TRAPDOOR.get());
+        this.add(BlocksRegistry.TWISTTHORN_DOOR.get(),
+                block -> createDoorTable(BlocksRegistry.TWISTTHORN_DOOR.get()));
 
-        
+
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

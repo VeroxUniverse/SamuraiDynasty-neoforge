@@ -1,0 +1,6 @@
+{
+  "parent": "samurai_dynasty:block/template_gilded_fence_post",
+  "textures": {
+    "planks": "samurai_dynasty:block/spirit_blossom_planks"
+  }
+}

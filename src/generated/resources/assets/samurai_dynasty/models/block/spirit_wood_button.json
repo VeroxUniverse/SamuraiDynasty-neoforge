@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/button",
-  "textures": {
-    "texture": "samurai_dynasty:block/spirit_wood_planks"
-  }
-}

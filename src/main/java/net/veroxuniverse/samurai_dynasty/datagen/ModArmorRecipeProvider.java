@@ -1,81 +1,90 @@
 package net.veroxuniverse.samurai_dynasty.datagen;
 
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CraftingBookCategory;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.ShapelessRecipe;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
+import net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public class ModArmorRecipeProvider extends RecipeProvider implements IConditionBuilder {
+
+    private static final Map<String, DeferredHolder<Item, ?>> PIECES = new LinkedHashMap<>();
+    private static final Map<String, Item> COLOR_DYES = new LinkedHashMap<>();
+
+    static {
+        PIECES.put("helmet", ItemsRegistry.NETHERITE_SAMURAI_HELMET);
+        PIECES.put("chestplate", ItemsRegistry.NETHERITE_SAMURAI_CHESTPLATE);
+        PIECES.put("leggings", ItemsRegistry.NETHERITE_SAMURAI_LEGGINGS);
+        PIECES.put("boots", ItemsRegistry.NETHERITE_SAMURAI_BOOTS);
+
+        COLOR_DYES.put("white", Items.WHITE_DYE);
+        COLOR_DYES.put("orange", Items.ORANGE_DYE);
+        COLOR_DYES.put("magenta", Items.MAGENTA_DYE);
+        COLOR_DYES.put("light_blue", Items.LIGHT_BLUE_DYE);
+        COLOR_DYES.put("yellow", Items.YELLOW_DYE);
+        COLOR_DYES.put("lime", Items.LIME_DYE);
+        COLOR_DYES.put("pink", Items.PINK_DYE);
+        COLOR_DYES.put("gray", Items.GRAY_DYE);
+        COLOR_DYES.put("light_gray", Items.LIGHT_GRAY_DYE);
+        COLOR_DYES.put("cyan", Items.CYAN_DYE);
+        COLOR_DYES.put("purple", Items.PURPLE_DYE);
+        COLOR_DYES.put("blue", Items.BLUE_DYE);
+        COLOR_DYES.put("brown", Items.BROWN_DYE);
+        COLOR_DYES.put("green", Items.GREEN_DYE);
+        COLOR_DYES.put("red", Items.RED_DYE);
+        COLOR_DYES.put("black", Items.BLACK_DYE);
+    }
+
     public ModArmorRecipeProvider(PackOutput pOutput, CompletableFuture<HolderLookup.Provider> pRegistries) {
         super(pOutput, pRegistries);
     }
 
-    private static final String[] COLORS = {"white", "orange", "magenta", "light_blue", "yellow", "lime", "pink", "gray", "light_gray", "cyan", "purple", "blue", "brown", "green", "red", "black"};
-    private static final String[] PIECES = {"helmet", "chestplate", "leggings", "boots"};
-
-
     @Override
     protected void buildRecipes(RecipeOutput pRecipeOutput) {
+        for (Map.Entry<String, DeferredHolder<Item, ?>> pieceEntry : PIECES.entrySet()) {
+            String piece = pieceEntry.getKey();
+            Item armorPiece = pieceEntry.getValue().get();
 
-        for (String piece : PIECES) {
-            for (String color : COLORS) {
-                String dyeItem = "minecraft:" + color + "_dye";
-                String resultColor = color;
+            for (Map.Entry<String, Item> colorEntry : COLOR_DYES.entrySet()) {
+                String color = colorEntry.getKey();
+                Item dye = colorEntry.getValue();
 
-                createShapelessRecipe(piece, dyeItem, resultColor);
+                buildDyeRecipe(pRecipeOutput, armorPiece, dye, piece, color);
             }
         }
-
     }
 
-    private void createShapelessRecipe(String piece, String dyeItem, String color) {
-        String json = String.format(
-                "{\n" +
-                        "  \"type\": \"minecraft:crafting_shapeless\",\n" +
-                        "  \"category\": \"equipment\",\n" +
-                        "  \"ingredients\": [\n" +
-                        "    {\"item\": \"samurai_dynasty:netherite_samurai_%s\"},\n" +
-                        "    {\"item\": \"%s\"}\n" +
-                        "  ],\n" +
-                        "  \"result\": {\n" +
-                        "    \"id\": \"samurai_dynasty:netherite_samurai_%s\",\n" +
-                        "    \"components\": {\n" +
-                        "      \"minecraft:base_color\": \"%s\"\n" +
-                        "    }\n" +
-                        "  }\n" +
-                        "}", piece, dyeItem, piece, color);
+    private void buildDyeRecipe(RecipeOutput pRecipeOutput, Item armorPiece, Item dye, String piece, String color) {
+        ItemStack result = new ItemStack(armorPiece);
+        result.set(DataComponents.BASE_COLOR, DyeColor.byName(color, DyeColor.WHITE));
 
-        saveRecipeJson(json, piece, color);
-    }
+        ShapelessRecipe recipe = new ShapelessRecipe(
+                "",
+                CraftingBookCategory.EQUIPMENT,
+                result,
+                NonNullList.of(Ingredient.EMPTY, Ingredient.of(armorPiece), Ingredient.of(dye))
+        );
 
-    private void saveRecipeJson(String json, String piece, String color) {
-        Path projectDir = Paths.get("").toAbsolutePath();
-        Path recipeDir = projectDir.resolve("src/main/resources/data/samurai_dynasty/recipe/dyed_armor");
+        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(SamuraiDynastyMod.MOD_ID,
+                "netherite_samurai_" + piece + "_from_dye_" + color);
 
-        File recipeDirFile = recipeDir.toFile();
-        if (!recipeDirFile.exists()) {
-            recipeDirFile.mkdirs();
-            System.out.println("Verzeichnis wurde erstellt: " + recipeDirFile.getAbsolutePath());
-        }
-
-        File recipeFile = new File(recipeDirFile, "netherite_samurai_" + piece + "_from_dye_" + color + ".json");
-
-        System.out.println("Speichern des Rezepts in: " + recipeFile.getAbsolutePath());
-
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(recipeFile))) {
-            writer.write(json);
-            System.out.println("Rezept für " + piece + " in Farbe " + color + " wurde erstellt.");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        pRecipeOutput.accept(id, recipe, null);
     }
 }

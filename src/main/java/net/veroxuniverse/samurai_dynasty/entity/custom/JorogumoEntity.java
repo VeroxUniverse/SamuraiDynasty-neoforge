@@ -46,8 +46,8 @@ public class JorogumoEntity extends Monster {
 
     public static AttributeSupplier setAttributes() {
         return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 100.0D)
-                .add(Attributes.ATTACK_DAMAGE, 8.0f)
+                .add(Attributes.MAX_HEALTH, 40.0D)
+                .add(Attributes.ATTACK_DAMAGE, 6.0f)
                 .add(Attributes.ATTACK_SPEED, 0.2f)
                 .add(Attributes.FOLLOW_RANGE, 25.0f)
                 .add(Attributes.MOVEMENT_SPEED, (double)0.6F)

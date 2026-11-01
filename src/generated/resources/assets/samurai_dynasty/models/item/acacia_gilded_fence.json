@@ -1,0 +1,6 @@
+{
+  "parent": "samurai_dynasty:item/template_gilded_fence_inventory",
+  "textures": {
+    "planks": "minecraft:block/acacia_planks"
+  }
+}

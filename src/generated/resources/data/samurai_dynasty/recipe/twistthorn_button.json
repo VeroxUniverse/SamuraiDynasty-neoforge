@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "twistthorn_button",
+  "ingredients": [
+    {
+      "item": "samurai_dynasty:twistthorn_planks"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "samurai_dynasty:twistthorn_button"
+  }
+}

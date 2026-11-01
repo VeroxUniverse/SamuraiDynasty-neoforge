@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "twistthorn_stairs",
+  "key": {
+    "#": {
+      "item": "samurai_dynasty:twistthorn_planks"
+    }
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "id": "samurai_dynasty:twistthorn_stairs"
+  }
+}

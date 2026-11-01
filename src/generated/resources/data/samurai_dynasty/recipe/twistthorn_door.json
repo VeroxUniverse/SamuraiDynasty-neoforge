@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "twistthorn_door",
+  "key": {
+    "#": {
+      "item": "samurai_dynasty:twistthorn_planks"
+    }
+  },
+  "pattern": [
+    "##",
+    "##",
+    "##"
+  ],
+  "result": {
+    "count": 3,
+    "id": "samurai_dynasty:twistthorn_door"
+  }
+}

@@ -2,7 +2,6 @@ package net.veroxuniverse.samurai_dynasty.registry;
 
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -19,6 +18,9 @@ public class ItemsRegistry {
 
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(SamuraiDynastyMod.MOD_ID);
     public static final DeferredRegister.Items ITEMS_BUILDING = DeferredRegister.createItems(SamuraiDynastyMod.MOD_ID);
+
+    public static final DeferredItem<Item> DUO_BOSS_TEST_WAND = ITEMS.register("duo_boss_test_wand",
+            () -> new DuoBossSpawnerItem(new Item.Properties().stacksTo(1)));
 
     public static final DeferredHolder<Item, NetheriteSamuraiArmorItem> NETHERITE_SAMURAI_HELMET = ITEMS.register("netherite_samurai_helmet",
             () -> new NetheriteSamuraiArmorItem(ArmorMaterialsRegistry.SAMURAI_NETHERITE, ArmorItem.Type.HELMET, new Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(37)).fireResistant()));
@@ -285,7 +287,7 @@ public class ItemsRegistry {
     public static final DeferredItem<Item> CLOTH = ITEMS.register("cloth",
             () -> new Item(new Item.Properties()));
 
-    public static final DeferredItem<Item> SPIRIT_UPGRADE_SMITHING_TMEPLATE = ITEMS.register("spirit_upgrade_smithing_template",
+    public static final DeferredItem<Item> SPIRIT_UPGRADE_SMITHING_TEMEPLATE = ITEMS.register("spirit_upgrade_smithing_template",
             () -> new Item(new Item.Properties()));
 
     public static final DeferredItem<Item> CLOUD_BUCKET = ITEMS_BUILDING.register("cloud_bucket",

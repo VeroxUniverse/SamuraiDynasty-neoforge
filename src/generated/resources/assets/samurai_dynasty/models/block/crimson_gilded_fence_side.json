@@ -1,0 +1,6 @@
+{
+  "parent": "samurai_dynasty:block/template_gilded_fence_side",
+  "textures": {
+    "planks": "minecraft:block/crimson_planks"
+  }
+}

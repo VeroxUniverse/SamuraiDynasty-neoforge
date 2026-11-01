@@ -26,6 +26,8 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.PlacementModifier;
 import net.veroxuniverse.samurai_dynasty.SamuraiDynastyMod;
 import net.veroxuniverse.samurai_dynasty.registry.BlocksRegistry;
+import net.veroxuniverse.samurai_dynasty.worldgen.features.decorators.BranchTreeDecorator;
+import net.veroxuniverse.samurai_dynasty.worldgen.features.decorators.RootTreeDecorator;
 
 import java.util.List;
 import java.util.Map;
@@ -47,71 +49,91 @@ public class ModTreeConfiguredFeatures {
         return new AlterGroundDecorator(SimpleStateProvider.simple(Blocks.MOSS_BLOCK.defaultBlockState()));
     }
 
+    public static RootTreeDecorator spiritWoodRootDecorator() {
+        return new RootTreeDecorator(0.5F, BlockStateProvider.simple(BlocksRegistry.TWISTTHORN_ROOTS.get()));
+    }
+
+    public static BranchTreeDecorator spiritWoodCrownBranchDecorator() {
+        return new BranchTreeDecorator(0.55F, BlockStateProvider.simple(BlocksRegistry.TWISTTHORN_BRANCH.get()), true, 0, -1);
+    }
+
+    public static BranchTreeDecorator spiritWoodTrunkBranchDecorator() {
+        return new BranchTreeDecorator(0.5F, BlockStateProvider.simple(BlocksRegistry.TWISTTHORN_BRANCH.get()), false, 0, 2);
+    }
+
+    public static RootTreeDecorator spiritBlossomRootDecorator() {
+        return new RootTreeDecorator(0.5F, BlockStateProvider.simple(BlocksRegistry.SPIRIT_BLOSSOM_ROOTS.get()));
+    }
+
+    public static BranchTreeDecorator spiritBlossomCrownBranchDecorator() {
+        return new BranchTreeDecorator(0.55F, BlockStateProvider.simple(BlocksRegistry.SPIRIT_BLOSSOM_BRANCH.get()), true, 0, -1);
+    }
+
+    public static BranchTreeDecorator spiritBlossomTrunkBranchDecorator() {
+        return new BranchTreeDecorator(0.5F, BlockStateProvider.simple(BlocksRegistry.SPIRIT_BLOSSOM_BRANCH.get()), false, 0, 2);
+    }
+
     public static final Map<ResourceKey<ConfiguredFeature<?, ?>>, ConfiguredFeatureFactory> CONFIGURED_FEATURES_MOD = new Reference2ObjectOpenHashMap<>();
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SPIRIT_WOOD_TREE1 =
-            createConfiguredFeature("spirit_wood_tree1", TYGFeatures.TREE_FROM_NBT_V1, ctx -> new TreeFromStructureNBTConfig.Builder()
-                    .baseLocation(createLocation("features/trees/spirit_wood_tree/spirit_wood_tree_trunk1"))
-                    .canopyLocation(createLocation("features/trees/spirit_wood_tree/spirit_wood_tree_canopy1"))
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TWISTTHORN_TREE1 =
+            createConfiguredFeature("twistthorn_tree1", TYGFeatures.TREE_FROM_NBT_V1, ctx -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(createLocation("features/trees/twistthorn_tree/twistthorn_tree_trunk1"))
+                    .canopyLocation(createLocation("features/trees/twistthorn_tree/twistthorn_tree_canopy1"))
                     .height(UniformInt.of(5, 6))
-                    .logProvider(BlockStateProvider.simple(BlocksRegistry.SPIRIT_WOOD.get()))
-                    .leavesProvider(BlockStateProvider.simple(BlocksRegistry.SPIRIT_WOOD_LEAVES.get()))
-                    .logTarget(Set.of(BlocksRegistry.SPIRIT_WOOD.get()))
-                    .leavesTarget(Set.of(BlocksRegistry.SPIRIT_WOOD_LEAVES.get()))
+                    .logProvider(BlockStateProvider.simple(BlocksRegistry.TWISTTHORN_WOOD.get()))
+                    .leavesProvider(BlockStateProvider.simple(BlocksRegistry.TWISTTHORN_LEAVES.get()))
+                    .logTarget(Set.of(BlocksRegistry.TWISTTHORN_WOOD.get()))
+                    .leavesTarget(Set.of(BlocksRegistry.TWISTTHORN_LEAVES.get()))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .leavesPlacementFilter(BlockPredicate.replaceable())
                     .maxLogDepth(3)
-                    .treeDecorators(ImmutableList.of(spiritMossBlockDecorator()))
-                    .placeFromNBT(Set.of(
-                            BlocksRegistry.SPIRIT_WOOD_BRANCH.get(),
-                            BlocksRegistry.SPIRIT_WOOD_ROOTS.get()
-                    ))
+                    .treeDecorators(ImmutableList.of(spiritMossBlockDecorator(), spiritWoodRootDecorator(), spiritWoodCrownBranchDecorator(), spiritWoodTrunkBranchDecorator()))
                     .isSapling(false)
                     .orientation(TreeFromStructureNBTConfig.Orientation.STANDARD)
                     .build());
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SPIRIT_WOOD_TREE2 =
-            createConfiguredFeature("spirit_wood_tree2", TYGFeatures.TREE_FROM_NBT_V1, ctx -> new TreeFromStructureNBTConfig.Builder()
-                    .baseLocation(createLocation("features/trees/spirit_wood_tree/spirit_wood_tree_trunk2"))
-                    .canopyLocation(createLocation("features/trees/spirit_wood_tree/spirit_wood_tree_canopy2"))
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TWISTTHORN_TREE2 =
+            createConfiguredFeature("twistthorn_tree2", TYGFeatures.TREE_FROM_NBT_V1, ctx -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(createLocation("features/trees/twistthorn_tree/twistthorn_tree_trunk2"))
+                    .canopyLocation(createLocation("features/trees/twistthorn_tree/twistthorn_tree_canopy2"))
                     .height(UniformInt.of(5, 6))
-                    .logProvider(BlockStateProvider.simple(BlocksRegistry.SPIRIT_WOOD.get()))
-                    .leavesProvider(BlockStateProvider.simple(BlocksRegistry.SPIRIT_WOOD_LEAVES.get()))
-                    .logTarget(Set.of(BlocksRegistry.SPIRIT_WOOD.get()))
-                    .leavesTarget(Set.of(BlocksRegistry.SPIRIT_WOOD_LEAVES.get()))
+                    .logProvider(BlockStateProvider.simple(BlocksRegistry.TWISTTHORN_WOOD.get()))
+                    .leavesProvider(BlockStateProvider.simple(BlocksRegistry.TWISTTHORN_LEAVES.get()))
+                    .logTarget(Set.of(BlocksRegistry.TWISTTHORN_WOOD.get()))
+                    .leavesTarget(Set.of(BlocksRegistry.TWISTTHORN_LEAVES.get()))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .leavesPlacementFilter(BlockPredicate.replaceable())
                     .maxLogDepth(3)
-                    .treeDecorators(ImmutableList.of(spiritMossBlockDecorator()))
+                    .treeDecorators(ImmutableList.of(spiritMossBlockDecorator(), spiritWoodRootDecorator(), spiritWoodCrownBranchDecorator(), spiritWoodTrunkBranchDecorator()))
                     .isSapling(false)
                     .orientation(TreeFromStructureNBTConfig.Orientation.STANDARD)
                     .build());
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SPIRIT_WOOD_TREE3 =
-            createConfiguredFeature("spirit_wood_tree3", TYGFeatures.TREE_FROM_NBT_V1, ctx -> new TreeFromStructureNBTConfig.Builder()
-                    .baseLocation(createLocation("features/trees/spirit_wood_tree/spirit_wood_tree_trunk3"))
-                    .canopyLocation(createLocation("features/trees/spirit_wood_tree/spirit_wood_tree_canopy3"))
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TWISTTHORN_TREE3 =
+            createConfiguredFeature("twistthorn_tree3", TYGFeatures.TREE_FROM_NBT_V1, ctx -> new TreeFromStructureNBTConfig.Builder()
+                    .baseLocation(createLocation("features/trees/twistthorn_tree/twistthorn_tree_trunk3"))
+                    .canopyLocation(createLocation("features/trees/twistthorn_tree/twistthorn_tree_canopy3"))
                     .height(UniformInt.of(5, 10))
-                    .logProvider(BlockStateProvider.simple(BlocksRegistry.SPIRIT_WOOD.get()))
-                    .leavesProvider(BlockStateProvider.simple(BlocksRegistry.SPIRIT_WOOD_LEAVES.get()))
-                    .logTarget(Set.of(BlocksRegistry.SPIRIT_WOOD.get()))
-                    .leavesTarget(Set.of(BlocksRegistry.SPIRIT_WOOD_LEAVES.get()))
+                    .logProvider(BlockStateProvider.simple(BlocksRegistry.TWISTTHORN_WOOD.get()))
+                    .leavesProvider(BlockStateProvider.simple(BlocksRegistry.TWISTTHORN_LEAVES.get()))
+                    .logTarget(Set.of(BlocksRegistry.TWISTTHORN_WOOD.get()))
+                    .leavesTarget(Set.of(BlocksRegistry.TWISTTHORN_LEAVES.get()))
                     .growableOn(BlockPredicate.matchesTag(BlockTags.DIRT))
                     .leavesPlacementFilter(BlockPredicate.replaceable())
                     .maxLogDepth(3)
-                    .treeDecorators(ImmutableList.of(spiritMossBlockDecorator()))
+                    .treeDecorators(ImmutableList.of(spiritMossBlockDecorator(), spiritWoodRootDecorator(), spiritWoodCrownBranchDecorator(), spiritWoodTrunkBranchDecorator()))
                     .isSapling(false)
                     .orientation(TreeFromStructureNBTConfig.Orientation.STANDARD)
                     .build());
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SPIRIT_WOOD_TREES = createConfiguredFeature("spirit_wood_trees",
+    public static final ResourceKey<ConfiguredFeature<?, ?>> TWISTTHORN_TREES = createConfiguredFeature("twistthorn_trees",
             Feature.RANDOM_SELECTOR,
             (configuredFeatureBootstrapContext) -> {
                 HolderGetter<ConfiguredFeature<?, ?>> lookup = configuredFeatureBootstrapContext.lookup(Registries.CONFIGURED_FEATURE);
                 return new RandomFeatureConfiguration(ImmutableList.of(
-                        new WeightedPlacedFeature(createPlacedFeatureDirect(lookup.getOrThrow(SPIRIT_WOOD_TREE2)), 0.15F),
-                        new WeightedPlacedFeature(createPlacedFeatureDirect(lookup.getOrThrow(SPIRIT_WOOD_TREE3)), 0.35F)),
-                        createPlacedFeatureDirect(lookup.getOrThrow(SPIRIT_WOOD_TREE1)));
+                        new WeightedPlacedFeature(createPlacedFeatureDirect(lookup.getOrThrow(TWISTTHORN_TREE2)), 0.15F),
+                        new WeightedPlacedFeature(createPlacedFeatureDirect(lookup.getOrThrow(TWISTTHORN_TREE3)), 0.35F)),
+                        createPlacedFeatureDirect(lookup.getOrThrow(TWISTTHORN_TREE1)));
             }
     );
 
@@ -130,7 +152,7 @@ public class ModTreeConfiguredFeatures {
                     )
                     .leavesPlacementFilter(BlockPredicate.replaceable())
                     .maxLogDepth(3)
-                    .treeDecorators(ImmutableList.of(mossBlockDecorator()))
+                    .treeDecorators(ImmutableList.of(mossBlockDecorator(), spiritBlossomRootDecorator(), spiritBlossomCrownBranchDecorator(), spiritBlossomTrunkBranchDecorator()))
                     .isSapling(false)
                     .orientation(TreeFromStructureNBTConfig.Orientation.STANDARD)
                     .build());
@@ -150,7 +172,7 @@ public class ModTreeConfiguredFeatures {
                     )
                     .leavesPlacementFilter(BlockPredicate.replaceable())
                     .maxLogDepth(3)
-                    .treeDecorators(ImmutableList.of(mossBlockDecorator()))
+                    .treeDecorators(ImmutableList.of(mossBlockDecorator(), spiritBlossomRootDecorator(), spiritBlossomCrownBranchDecorator(), spiritBlossomTrunkBranchDecorator()))
                     .isSapling(false)
                     .orientation(TreeFromStructureNBTConfig.Orientation.STANDARD)
                     .build());

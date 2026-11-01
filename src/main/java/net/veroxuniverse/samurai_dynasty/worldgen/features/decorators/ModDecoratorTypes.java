@@ -16,6 +16,10 @@ public class ModDecoratorTypes {
 
     public static final Supplier<TreeDecoratorType<LeavesAwareAttachedToLogsDecorator>> LEAVES_ATTACHED_TO_LOGS = register("leaves_attached_to_logs", LeavesAwareAttachedToLogsDecorator.CODEC);
 
+    public static final Supplier<TreeDecoratorType<RootTreeDecorator>> ROOT_DECORATOR = register("root_decorator", RootTreeDecorator.CODEC);
+
+    public static final Supplier<TreeDecoratorType<BranchTreeDecorator>> BRANCH_DECORATOR = register("branch_decorator", BranchTreeDecorator.CODEC);
+
     private static <P extends TreeDecorator> Supplier<TreeDecoratorType<P>> register(String id, MapCodec<P> codec) {
         return TREE_DECORATORS.register(id, () -> new TreeDecoratorType<>(codec));
     }
@@ -25,4 +29,3 @@ public class ModDecoratorTypes {
     }
 
 }
-

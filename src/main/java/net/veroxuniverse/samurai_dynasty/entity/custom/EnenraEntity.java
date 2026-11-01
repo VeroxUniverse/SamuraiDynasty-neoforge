@@ -113,27 +113,6 @@ public class EnenraEntity extends Monster{
         return false;
     }
 
-    public static boolean canSpawn(EntityType<EnenraEntity> type, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
-
-        if (!Monster.checkMonsterSpawnRules(type, level, spawnType, pos, random)) {
-            return false;
-        }
-
-        if (pos.getY() > level.getSeaLevel()) {
-            return false;
-        }
-
-        if (level.getRawBrightness(pos, 0) > 7) {
-            return false;
-        }
-
-        if (level.canSeeSkyFromBelowWater(pos)) {
-            return false;
-        }
-
-        return true;
-    }
-
     /*
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
         this.playSound(SoundEvents.ZOMBIE_VILLAGER_STEP, 0.15F, 1.0F);

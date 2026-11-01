@@ -21,7 +21,7 @@ public class EnenraRenderer extends AzEntityRenderer<EnenraEntity> {
     public EnenraRenderer(EntityRendererProvider.Context context) {
         super(
                 AzEntityRendererConfig.<EnenraEntity>builder(GEO, TEX)
-                        .setAnimatorProvider(EnentraAnimator::new)
+                        .setAnimatorProvider(EnenraAnimator::new)
                         .setShadowRadius(0.3f)
                         .build(),
                 context

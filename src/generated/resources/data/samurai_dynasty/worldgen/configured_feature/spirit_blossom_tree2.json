@@ -28,6 +28,51 @@
             "Name": "minecraft:moss_block"
           }
         }
+      },
+      {
+        "type": "samurai_dynasty:root_decorator",
+        "block_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "samurai_dynasty:spirit_blossom_roots",
+            "Properties": {
+              "facing": "north"
+            }
+          }
+        },
+        "probability": 0.5
+      },
+      {
+        "type": "samurai_dynasty:branch_decorator",
+        "block_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "samurai_dynasty:spirit_blossom_branch",
+            "Properties": {
+              "facing": "north"
+            }
+          }
+        },
+        "max_count": -1,
+        "min_count": 0,
+        "probability": 0.55,
+        "require_leaves_above": true
+      },
+      {
+        "type": "samurai_dynasty:branch_decorator",
+        "block_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "samurai_dynasty:spirit_blossom_branch",
+            "Properties": {
+              "facing": "north"
+            }
+          }
+        },
+        "max_count": 2,
+        "min_count": 0,
+        "probability": 0.5,
+        "require_leaves_above": false
       }
     ],
     "height": {

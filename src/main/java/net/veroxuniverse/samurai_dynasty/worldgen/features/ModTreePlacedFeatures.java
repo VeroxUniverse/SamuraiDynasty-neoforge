@@ -20,9 +20,9 @@ import java.util.function.Supplier;
 public class ModTreePlacedFeatures {
     public static final Map<ResourceKey<PlacedFeature>, PlacedFeatureFactory> PLACED_FEATURES_MOD = new Reference2ObjectOpenHashMap<>();
 
-    public static final ResourceKey<PlacedFeature> SPIRIT_WOOD_TREES = createPlacedFeature(
-            "spirit_wood_trees",
-            ModTreeConfiguredFeatures.SPIRIT_WOOD_TREES,
+    public static final ResourceKey<PlacedFeature> TWISTTHORN_TREES = createPlacedFeature(
+            "twistthorn_trees",
+            ModTreeConfiguredFeatures.TWISTTHORN_TREES,
             () -> VegetationPlacements.treePlacement(
                     PlacementUtils.countExtra(4, 0.25F, 2)
             )

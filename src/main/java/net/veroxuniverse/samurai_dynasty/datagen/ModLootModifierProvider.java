@@ -24,47 +24,47 @@ public class ModLootModifierProvider extends GlobalLootModifierProvider {
         add("spirit_template_from_jungle_temple", new ModLootModifier(new LootItemCondition[] {
                 LootItemRandomChanceCondition.randomChance(0.40f).build(),
                 new LootTableIdCondition.Builder(ResourceLocation.parse("chests/jungle_temple")).build() },
-                ItemsRegistry.SPIRIT_UPGRADE_SMITHING_TMEPLATE.get()));
+                ItemsRegistry.SPIRIT_UPGRADE_SMITHING_TEMEPLATE.get()));
 
         add("spirit_template_from_desert_pyramid", new ModLootModifier(new LootItemCondition[] {
                 LootItemRandomChanceCondition.randomChance(0.40f).build(),
                 new LootTableIdCondition.Builder(ResourceLocation.parse("chests/desert_pyramid")).build() },
-                ItemsRegistry.SPIRIT_UPGRADE_SMITHING_TMEPLATE.get()));
+                ItemsRegistry.SPIRIT_UPGRADE_SMITHING_TEMEPLATE.get()));
 
         add("spirit_template_from_simple_dungeon", new ModLootModifier(new LootItemCondition[] {
                 LootItemRandomChanceCondition.randomChance(0.2f).build(),
                 new LootTableIdCondition.Builder(ResourceLocation.parse("chests/simple_dungeon")).build() },
-                ItemsRegistry.SPIRIT_UPGRADE_SMITHING_TMEPLATE.get()));
+                ItemsRegistry.SPIRIT_UPGRADE_SMITHING_TEMEPLATE.get()));
 
         add("spirit_template_from_nether_fortress", new ModLootModifier(new LootItemCondition[] {
                 LootItemRandomChanceCondition.randomChance(0.5f).build(),
                 new LootTableIdCondition.Builder(ResourceLocation.parse("chests/nether_bridge")).build() },
-                ItemsRegistry.SPIRIT_UPGRADE_SMITHING_TMEPLATE.get()));
+                ItemsRegistry.SPIRIT_UPGRADE_SMITHING_TEMEPLATE.get()));
 
         add("spirit_template_from_nether_bastion1", new ModLootModifier(new LootItemCondition[] {
                 LootItemRandomChanceCondition.randomChance(0.75f).build(),
                 new LootTableIdCondition.Builder(ResourceLocation.parse("chests/bastion_bridge")).build() },
-                ItemsRegistry.SPIRIT_UPGRADE_SMITHING_TMEPLATE.get()));
+                ItemsRegistry.SPIRIT_UPGRADE_SMITHING_TEMEPLATE.get()));
 
         add("spirit_template_from_nether_bastion2", new ModLootModifier(new LootItemCondition[] {
                 LootItemRandomChanceCondition.randomChance(0.75f).build(),
                 new LootTableIdCondition.Builder(ResourceLocation.parse("chests/bastion_treasure")).build() },
-                ItemsRegistry.SPIRIT_UPGRADE_SMITHING_TMEPLATE.get()));
+                ItemsRegistry.SPIRIT_UPGRADE_SMITHING_TEMEPLATE.get()));
 
         add("spirit_template_from_nether_bastion3", new ModLootModifier(new LootItemCondition[] {
                 LootItemRandomChanceCondition.randomChance(0.75f).build(),
                 new LootTableIdCondition.Builder(ResourceLocation.parse("chests/bastion_other")).build() },
-                ItemsRegistry.SPIRIT_UPGRADE_SMITHING_TMEPLATE.get()));
+                ItemsRegistry.SPIRIT_UPGRADE_SMITHING_TEMEPLATE.get()));
 
         add("spirit_template_from_nether_bastion4", new ModLootModifier(new LootItemCondition[] {
                 LootItemRandomChanceCondition.randomChance(0.75f).build(),
                 new LootTableIdCondition.Builder(ResourceLocation.parse("chests/bastion_hoglin_stable")).build() },
-                ItemsRegistry.SPIRIT_UPGRADE_SMITHING_TMEPLATE.get()));
+                ItemsRegistry.SPIRIT_UPGRADE_SMITHING_TEMEPLATE.get()));
 
         add("spirit_template_from_ruined_portal", new ModLootModifier(new LootItemCondition[] {
                 LootItemRandomChanceCondition.randomChance(0.75f).build(),
                 new LootTableIdCondition.Builder(ResourceLocation.parse("chests/ruined_portal")).build() },
-                ItemsRegistry.SPIRIT_UPGRADE_SMITHING_TMEPLATE.get()));
+                ItemsRegistry.SPIRIT_UPGRADE_SMITHING_TEMEPLATE.get()));
 
     }
 }

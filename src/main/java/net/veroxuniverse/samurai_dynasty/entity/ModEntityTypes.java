@@ -74,14 +74,14 @@ public class ModEntityTypes {
     public static final DeferredHolder<EntityType<?>, EntityType<RaijinEntity>> RAIJIN = registerEntity(
             "raijin",
                     EntityType.Builder.of(RaijinEntity::new, MobCategory.MONSTER)
-                            .sized(1.8f, 2.0f)
+                            .sized(2.2f, 4.0f)
                             .fireImmune()
                             .setShouldReceiveVelocityUpdates(true));
 
     public static final DeferredHolder<EntityType<?>, EntityType<FujinEntity>> FUJIN = registerEntity(
             "fujin",
                     EntityType.Builder.of(FujinEntity::new, MobCategory.MONSTER)
-                            .sized(1.8f, 2.0f)
+                            .sized(2.2f, 4.0f)
                             .fireImmune()
                             .setShouldReceiveVelocityUpdates(true));
 
@@ -147,6 +147,13 @@ public class ModEntityTypes {
                             .clientTrackingRange(4)
                             .updateInterval(20)
                             .setShouldReceiveVelocityUpdates(true));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<LightningBeamEntity>> LIGHTNING_BEAM = registerEntity(
+            "lightning_beam",
+            EntityType.Builder.<LightningBeamEntity>of(LightningBeamEntity::new, MobCategory.MISC)
+                    .sized(0.5F, 30.0F)
+                    .clientTrackingRange(20)
+                    .noSave());
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

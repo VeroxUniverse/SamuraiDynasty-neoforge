@@ -59,14 +59,11 @@ import net.veroxuniverse.samurai_dynasty.curios.layers.OniMaskRenderer;
 import net.veroxuniverse.samurai_dynasty.datagen.loot.ModLootCodec;
 import net.veroxuniverse.samurai_dynasty.entity.ModEntityTypes;
 import net.veroxuniverse.samurai_dynasty.particle.ModParticles;
-import net.veroxuniverse.samurai_dynasty.registry.ArmorMaterialsRegistry;
-import net.veroxuniverse.samurai_dynasty.registry.BlocksRegistry;
-import net.veroxuniverse.samurai_dynasty.registry.CreativeTabRegistry;
-import net.veroxuniverse.samurai_dynasty.registry.ItemsRegistry;
+import net.veroxuniverse.samurai_dynasty.registry.*;
 import net.veroxuniverse.samurai_dynasty.utils.ModItemProperties;
 import net.veroxuniverse.samurai_dynasty.worldgen.biomes.ModSurfaceRuleData;
 import net.veroxuniverse.samurai_dynasty.worldgen.biomes.SpiritBlossomForestRegion;
-import net.veroxuniverse.samurai_dynasty.worldgen.biomes.SpiritWoodForestRegion;
+import net.veroxuniverse.samurai_dynasty.worldgen.biomes.ThwistthornForestRegion;
 import net.veroxuniverse.samurai_dynasty.worldgen.features.ModTreeConfiguredFeatures;
 import net.veroxuniverse.samurai_dynasty.worldgen.features.ModTreePlacedFeatures;
 import net.veroxuniverse.samurai_dynasty.worldgen.features.decorators.ModDecoratorTypes;
@@ -94,6 +91,7 @@ public class SamuraiDynastyMod
         ModEntityTypes.register(modEventBus);
         ArmorMaterialsRegistry.register(modEventBus);
         ModParticles.register(modEventBus);
+        ModMobEffects.register(modEventBus);
         ModLootCodec.register(modEventBus);
         ModTreeConfiguredFeatures.register();
         ModTreePlacedFeatures.register();
@@ -112,7 +110,7 @@ public class SamuraiDynastyMod
 
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(BlocksRegistry.SPIDER_LILLY.getId(), BlocksRegistry.POTTED_SPIDER_LILLY);
 
-            Regions.register(new SpiritWoodForestRegion(ResourceLocation.fromNamespaceAndPath(MOD_ID,"maple_forest"),1));
+            Regions.register(new ThwistthornForestRegion(ResourceLocation.fromNamespaceAndPath(MOD_ID,"maple_forest"),1));
             Regions.register(new SpiritBlossomForestRegion(ResourceLocation.fromNamespaceAndPath(MOD_ID,"sakura_forest"),1));
 
             SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRuleData.makeRules());
@@ -233,9 +231,10 @@ public class SamuraiDynastyMod
             EntityRenderers.register(ModEntityTypes.KAWAUSO.get(), KawausoRenderer::new);
             EntityRenderers.register(ModEntityTypes.TWOTAILED.get(), TwoTailedRenderer::new);
             EntityRenderers.register(ModEntityTypes.SHURIKEN.get(), ThrownShurikenRenderer::new);
-
             EntityRenderers.register(ModEntityTypes.KUNAI.get(), ThrownItemRenderer::new);
             EntityRenderers.register(ModEntityTypes.KUNAI_NETHERITE.get(), ThrownItemRenderer::new);
+
+            EntityRenderers.register(ModEntityTypes.LIGHTNING_BEAM.get(), LightningBeamRenderer::new);
 
             CuriosRendererRegistry.register(ItemsRegistry.ONI_MASK.get(), OniMaskRenderer::new);
             //CuriosRendererRegistry.register(ItemsRegistry.ONI_MASK_RED.get(), OniMaskRedRenderer::new);
